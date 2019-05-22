@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on En Français</title>
+    <link>/fr/categories/r/</link>
+    <description>Recent content in R on En Français</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/fr/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Football clubs expenses</title>
+      <link>/fr/post/football-clubs-expenses/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/football-clubs-expenses/</guid>
+      <description># Load the packages library(tidyverse) library(FactoMineR) library(factoextra) library(highcharter) library(ggthemes) library(lubridate) library(treemap)  This kernel is under construction :) !
+Reading and preparing the data fifa &amp;lt;- read_csv(&amp;quot;data.csv&amp;quot;) print(paste(&amp;quot;The dataset contains&amp;quot;, dim(fifa)[1], &amp;quot;observations and&amp;quot;, dim(fifa)[2], &amp;quot;columns&amp;quot;))  ## [1] &amp;quot;The dataset contains 18207 observations and 89 columns&amp;quot;  Missing values With this said let&amp;rsquo;s check the consistency of the dataset by looking for missing values and understanding what each column stands for.</description>
+    </item>
+    
+    <item>
+      <title>Football clubs spendings</title>
+      <link>/fr/post/football-clubs-spendings/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/football-clubs-spendings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Suicide in the world</title>
+      <link>/fr/post/suicide-in-the-world/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/suicide-in-the-world/</guid>
+      <description>This is my first post. I&amp;rsquo;m discovering how the site works.</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/fr/post/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/fr/post/2015-07-23-r-rmarkdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+  </channel>
+</rss>

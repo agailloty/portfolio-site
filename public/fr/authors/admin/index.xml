@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>En Français</title>
+    <link>/fr/authors/admin/</link>
+    <description>Recent content on En Français</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/fr/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An example preprint / working paper</title>
+      <link>/fr/publication/preprint/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/publication/preprint/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
+    </item>
+    
+    <item>
+      <title>Display Jupyter Notebooks with Academic</title>
+      <link>/fr/post/jupyter/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/jupyter/</guid>
+      <description>Learn how to blog in Academic using Jupyter notebooks</description>
+    </item>
+    
+    <item>
+      <title>Academic: the website builder for Hugo</title>
+      <link>/fr/post/getting-started/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/getting-started/</guid>
+      <description>Create a beautifully simple website in under 10 minutes.</description>
+    </item>
+    
+    <item>
+      <title>An example journal article</title>
+      <link>/fr/publication/journal-article/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/publication/journal-article/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
+    </item>
+    
+    <item>
+      <title>An example conference paper</title>
+      <link>/fr/publication/conference-paper/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/publication/conference-paper/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/authors/admin/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/authors/admin/</guid>
+      <description>I am a student in Economics with a demonstrated interest in quantitative economics. I like to find patterns in data and extract knowledge from it to solve problems. From Econometrics modelling to interpreting p-values I like to share the results of my findings in a clear and approachable way. Most importantly I&amp;rsquo;m curious and eager to learn new things. My current pursuits are data science and machine learning for which I&amp;rsquo;ve been spending significant amount of time in learning both theory and programming skills which include R and Python.</description>
+    </item>
+    
+  </channel>
+</rss>
