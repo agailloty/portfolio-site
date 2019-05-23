@@ -22,8 +22,9 @@ bio: I'm interested in quantitative Economics, Econometrics and Data Science.
 
 interests:
 - Data Analysis
-- Econometrics
+- Applied Econometrics
 - Statistics
+- Time series
 - Rstats
 
 education:
