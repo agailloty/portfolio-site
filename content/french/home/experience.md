@@ -18,27 +18,23 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
-  title = "CEO"
-  company = "GenCoin"
-  company_url = ""
-  location = "California"
-  date_start = "2017-01-01"
+  title = "Programmeur statistique"
+  company = "LogoSapience"
+  company_url = "www.logosapience.com"
+  location = "Saint Jean de Linières (49)"
+  date_start = "2019-04-15"
   date_end = ""
   description = """
-  Responsibilities include:
-  
-  * Analysing
-  * Modelling
-  * Deploying
+  Chargé de développer un module innovant à intégrer au logiciel que commercialise l'entreprise en vue de faire bénéficier aux utilisateurs les avantages de l'apprentissage statistique.
   """
 
 [[experience]]
-  title = "Professor"
-  company = "University X"
+  title = "Membre Finance"
+  company = "AIESEC in Nantes"
   company_url = ""
-  location = "California"
-  date_start = "2016-01-01"
-  date_end = "2016-12-31"
-  description = """Taught electronic engineering and researched semiconductor physics."""
+  location = "Angers"
+  date_start = "2018-08-01"
+  date_end = ""
+  description = """Après avoir rejoint l'association en tant membre du Département Community Experience for Youth où j'étais chargé de contacter et organiser le voyages des étudiants désirant effectuer un mission à l'étranger, je suis aujourd'hui dans le Département Finance où je participe à lélaboration des factures, des contrats et la comptabilité."""
 
 +++

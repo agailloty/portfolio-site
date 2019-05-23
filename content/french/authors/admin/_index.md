@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Student in Economics
+role: Aspirant Data scientist
 
 # Organizations/Affiliations
 organizations:
@@ -21,14 +21,14 @@ organizations:
 bio: I'm interested in quantitative Economics, Econometrics and Data Science.
 
 interests:
-- Data Analysis
-- Econometrics
-- Statistics
+- Analyse de données
+- Econométrie appliquée
+- Statistiques multidimensionnelles
 - Rstats
 
 education:
   courses:
-  - course: BSc in Economics
+  - course: Licence en Économie
     institution: Université d'Angers
     year: 2019
   
@@ -66,5 +66,4 @@ user_groups:
 - Visitors
 ---
 
-I am a student in Economics with a demonstrated interest in quantitative economics. I like to find patterns in data and extract knowledge from it to solve problems. From Econometrics modelling to interpreting p-values I like to share the results of my findings in a clear and approachable way.
-Most importantly I'm curious and eager to learn new things. My current pursuits are data science and machine learning for which I've been spending significant amount of time in learning both theory and programming skills which include R and Python. I like to challenge on real world data from Kaggle.
+Après une licence en Économie et une première expérience en tant que programmeur statistique je me projette sur les métiers de la data science. J'aime particulièrement extraire de l'information à partir d'un jeu de donnée complexe en vue de fournir des éléments d'aides à la décision.
