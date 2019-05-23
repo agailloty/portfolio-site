@@ -18,13 +18,19 @@ subtitle = ""
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "90%"
+  description = "I use R for a large range of projects related to data science. From data reading, cleaning, wrangling and modelling I use a lot the [Tidyverse](https://www.tidyverse.org/)"
+  
+[[feature]]
+  icon = "database"
+  icon_pack = "fab"
+  name = "Database"
+  description = "I have some experience with MySQL and PostgreSQL. I also query database from R and Python"
   
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
-  name = "Statistics"
-  description = "100%"  
+  name = "Multivariate statistics"
+  description = ""  
   
 [[feature]]
   icon = "camera-retro"
