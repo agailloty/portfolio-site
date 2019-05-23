@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>En Français</title>
+    <title>Axel-Cleris Gailloty</title>
     <link>/fr/authors/admin/</link>
-    <description>Recent content on En Français</description>
+    <description>Recent content on Axel-Cleris Gailloty</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
     <lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
@@ -62,7 +62,7 @@
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/fr/authors/admin/</guid>
-      <description>I am a student in Economics with a demonstrated interest in quantitative economics. I like to find patterns in data and extract knowledge from it to solve problems. From Econometrics modelling to interpreting p-values I like to share the results of my findings in a clear and approachable way. Most importantly I&amp;rsquo;m curious and eager to learn new things. My current pursuits are data science and machine learning for which I&amp;rsquo;ve been spending significant amount of time in learning both theory and programming skills which include R and Python.</description>
+      <description>Après une licence en Économie et une première expérience en tant que programmeur statistique je me projette sur les métiers de la data science. J&amp;rsquo;aime particulièrement extraire de l&amp;rsquo;information à partir d&amp;rsquo;un jeu de donnée complexe en vue de fournir des éléments d&amp;rsquo;aides à la décision.</description>
     </item>
     
   </channel>

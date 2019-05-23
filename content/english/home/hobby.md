@@ -16,9 +16,7 @@ weight = 60
 
 +++
 
-My hobby is analogue photography.  I have been making photos since my childhood.  I develop and print my black and white photos. My collection of analogue cameras is ranging from half-frame cameras that use a film size of 18x24 mm to early 20th century large format 9x12 cm folders.  I almost always carry a camera that is older than I, on working trips usually a tiny halfframe, and on vacation a large-format folding and several other cameras.  
-
-{{< figure library="1" src="liberty.jpg" title="Liberty with Ensign Selfix and Rodinal" >}}
+I am really passionate about learning new things, discover the applications of things I've learned.  I also like to to go to the gym, ride my bike and take photos by the way.
 
 I am always happy to meet friends, fellow colleauges or collectors.
 
