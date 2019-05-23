@@ -47,7 +47,7 @@ subtitle = ""
  css_class = ""
 +++
 
-Welcome to the **personal website**, I'm glad you pass by !
+Welcome to the **personal website**, I'm glad you pass by here!
 
 
 {{% alert note %}}
