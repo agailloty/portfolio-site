@@ -18,7 +18,7 @@ subtitle = ""
   count = 5
   
   # Choose how many pages you would like to offset by
-  offset = 2
+  offset = 1
 
   # Page order. Descending (desc) or ascending (asc) date.
   order = "desc"
@@ -45,7 +45,7 @@ subtitle = ""
   #   Any HTML color name or Hex value is valid.
   
   # Background color.
-   color = "navy"
+  # color = "navy"
   
   # Background gradient.
   # gradient_start = "DeepSkyBlue"
