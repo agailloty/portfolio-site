@@ -22,7 +22,7 @@ subtitle = ""
   
 [[feature]]
   icon = "database"
-  icon_pack = "fab"
+  icon_pack = "fas"
   name = "Database"
   description = "I have some experience with MySQL and PostgreSQL. I also query database from R and Python"
   
