@@ -11,7 +11,7 @@
 [fr]
   languageCode = "fr"
   contentDir = "content/french"
-  title = "En Français"
+  title = "Axel-Cleris Gailloty"
   [fr.params]
     description = "Bonjour"
   [[fr.menu.main]]
