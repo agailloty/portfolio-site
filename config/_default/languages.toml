@@ -15,7 +15,21 @@
   [fr.params]
     description = "Bonjour"
   [[fr.menu.main]]
-    name = "Axel-Cleris Gailloty"
+    name = "Moi"
     url = "#about"
     weight = 1
 
+	[[fr.menu.main]]
+    name = "Articles"
+    url = "#posts"
+    weight = 1
+	
+	[[fr.menu.main]]
+    name = "Projets"
+    url = "#projects"
+    weight = 1
+
+	[[fr.menu.main]]
+    name = "Compétences"
+    url = "#skills"
+    weight = 1
