@@ -25,7 +25,7 @@ date_format = "Jan 2006"
   date_start = "2019-04-15"
   date_end = ""
   description = """
-  Chargé de développer un module innovant à intégrer au logiciel que commercialise l'entreprise en vue de faire bénéficier aux utilisateurs les avantages de l'apprentissage statistique.
+  Chargé de développer un module innovant à intégrer au logiciel [Wizzbe](www.wizzbe.com)que commercialise l'entreprise en vue de faire bénéficier aux utilisateurs les avantages de l'apprentissage statistique.
   """
 
 [[experience]]
@@ -35,6 +35,6 @@ date_format = "Jan 2006"
   location = "Angers"
   date_start = "2018-08-01"
   date_end = ""
-  description = """Après avoir rejoint l'association en tant membre du Département Community Experience for Youth où j'étais chargé de contacter et organiser le voyages des étudiants désirant effectuer un mission à l'étranger, je suis aujourd'hui dans le Département Finance où je participe à lélaboration des factures, des contrats et la comptabilité."""
+  description = """Après avoir rejoint l'association en tant membre du Département Community Experience for Youth (CXY) où j'étais chargé de contacter et organiser le voyage des étudiants désirant effectuer une mission à l'étranger, je suis aujourd'hui dans le Département Finance où je participe entre autres à l'élaboration des factures, des contrats et la comptabilité."""
 
 +++
