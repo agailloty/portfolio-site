@@ -25,7 +25,7 @@ date_format = "Jan 2006"
   date_start = "2019-04-15"
   date_end = ""
   description = """
-  Chargé de développer un module innovant à intégrer au logiciel [Wizzbe](www.wizzbe.com)que commercialise l'entreprise en vue de faire bénéficier aux utilisateurs les avantages de l'apprentissage statistique.
+  Chargé de développer un module innovant à intégrer au logiciel [Wizzbe](http://www.wizzbe.fr) que commercialise l'entreprise en vue de faire bénéficier aux utilisateurs les avantages de l'apprentissage statistique.
   """
 
 [[experience]]
