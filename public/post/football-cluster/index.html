@@ -456,7 +456,7 @@ theme_set(theme_economist())map_dbl(fifa, function(x) sum(is."><meta property="
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    13 min read
+    10 min read
   </span>
   
 
@@ -569,36 +569,650 @@ map_dbl(fifa, function(x) sum(is.na(x))/length(x)*100) %&gt;%
 </div>
 <div id="columns-content" class="section level2">
 <h2>Columns content</h2>
-<pre class="r"><code>head(fifa)</code></pre>
-<pre><code>## # A tibble: 6 x 89
-##      X1     ID Name    Age Photo Nationality Flag  Overall Potential Club 
-##   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
-## 1     0 158023 L. M~    31 http~ Argentina   http~      94        94 FC B~
-## 2     1  20801 Cris~    33 http~ Portugal    http~      94        94 Juve~
-## 3     2 190871 Neym~    26 http~ Brazil      http~      92        93 Pari~
-## 4     3 193080 De G~    27 http~ Spain       http~      91        93 Manc~
-## 5     4 192985 K. D~    27 http~ Belgium     http~      91        92 Manc~
-## 6     5 183277 E. H~    27 http~ Belgium     http~      91        91 Chel~
-## # ... with 79 more variables: `Club Logo` &lt;chr&gt;, Value &lt;chr&gt;, Wage &lt;chr&gt;,
-## #   Special &lt;dbl&gt;, `Preferred Foot` &lt;chr&gt;, `International
-## #   Reputation` &lt;dbl&gt;, `Weak Foot` &lt;dbl&gt;, `Skill Moves` &lt;dbl&gt;, `Work
-## #   Rate` &lt;chr&gt;, `Body Type` &lt;chr&gt;, `Real Face` &lt;chr&gt;, Position &lt;chr&gt;,
-## #   `Jersey Number` &lt;dbl&gt;, Joined &lt;chr&gt;, `Loaned From` &lt;chr&gt;, `Contract
-## #   Valid Until` &lt;chr&gt;, Height &lt;chr&gt;, Weight &lt;chr&gt;, LS &lt;chr&gt;, ST &lt;chr&gt;,
-## #   RS &lt;chr&gt;, LW &lt;chr&gt;, LF &lt;chr&gt;, CF &lt;chr&gt;, RF &lt;chr&gt;, RW &lt;chr&gt;, LAM &lt;chr&gt;,
-## #   CAM &lt;chr&gt;, RAM &lt;chr&gt;, LM &lt;chr&gt;, LCM &lt;chr&gt;, CM &lt;chr&gt;, RCM &lt;chr&gt;,
-## #   RM &lt;chr&gt;, LWB &lt;chr&gt;, LDM &lt;chr&gt;, CDM &lt;chr&gt;, RDM &lt;chr&gt;, RWB &lt;chr&gt;,
-## #   LB &lt;chr&gt;, LCB &lt;chr&gt;, CB &lt;chr&gt;, RCB &lt;chr&gt;, RB &lt;chr&gt;, Crossing &lt;dbl&gt;,
-## #   Finishing &lt;dbl&gt;, HeadingAccuracy &lt;dbl&gt;, ShortPassing &lt;dbl&gt;,
-## #   Volleys &lt;dbl&gt;, Dribbling &lt;dbl&gt;, Curve &lt;dbl&gt;, FKAccuracy &lt;dbl&gt;,
-## #   LongPassing &lt;dbl&gt;, BallControl &lt;dbl&gt;, Acceleration &lt;dbl&gt;,
-## #   SprintSpeed &lt;dbl&gt;, Agility &lt;dbl&gt;, Reactions &lt;dbl&gt;, Balance &lt;dbl&gt;,
-## #   ShotPower &lt;dbl&gt;, Jumping &lt;dbl&gt;, Stamina &lt;dbl&gt;, Strength &lt;dbl&gt;,
-## #   LongShots &lt;dbl&gt;, Aggression &lt;dbl&gt;, Interceptions &lt;dbl&gt;,
-## #   Positioning &lt;dbl&gt;, Vision &lt;dbl&gt;, Penalties &lt;dbl&gt;, Composure &lt;dbl&gt;,
-## #   Marking &lt;dbl&gt;, StandingTackle &lt;dbl&gt;, SlidingTackle &lt;dbl&gt;,
-## #   GKDiving &lt;dbl&gt;, GKHandling &lt;dbl&gt;, GKKicking &lt;dbl&gt;,
-## #   GKPositioning &lt;dbl&gt;, GKReflexes &lt;dbl&gt;, `Release Clause` &lt;chr&gt;</code></pre>
+<pre class="r"><code>knitr::kable(head(fifa))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">X1</th>
+<th align="right">ID</th>
+<th align="left">Name</th>
+<th align="right">Age</th>
+<th align="left">Photo</th>
+<th align="left">Nationality</th>
+<th align="left">Flag</th>
+<th align="right">Overall</th>
+<th align="right">Potential</th>
+<th align="left">Club</th>
+<th align="left">Club Logo</th>
+<th align="left">Value</th>
+<th align="left">Wage</th>
+<th align="right">Special</th>
+<th align="left">Preferred Foot</th>
+<th align="right">International Reputation</th>
+<th align="right">Weak Foot</th>
+<th align="right">Skill Moves</th>
+<th align="left">Work Rate</th>
+<th align="left">Body Type</th>
+<th align="left">Real Face</th>
+<th align="left">Position</th>
+<th align="right">Jersey Number</th>
+<th align="left">Joined</th>
+<th align="left">Loaned From</th>
+<th align="left">Contract Valid Until</th>
+<th align="left">Height</th>
+<th align="left">Weight</th>
+<th align="left">LS</th>
+<th align="left">ST</th>
+<th align="left">RS</th>
+<th align="left">LW</th>
+<th align="left">LF</th>
+<th align="left">CF</th>
+<th align="left">RF</th>
+<th align="left">RW</th>
+<th align="left">LAM</th>
+<th align="left">CAM</th>
+<th align="left">RAM</th>
+<th align="left">LM</th>
+<th align="left">LCM</th>
+<th align="left">CM</th>
+<th align="left">RCM</th>
+<th align="left">RM</th>
+<th align="left">LWB</th>
+<th align="left">LDM</th>
+<th align="left">CDM</th>
+<th align="left">RDM</th>
+<th align="left">RWB</th>
+<th align="left">LB</th>
+<th align="left">LCB</th>
+<th align="left">CB</th>
+<th align="left">RCB</th>
+<th align="left">RB</th>
+<th align="right">Crossing</th>
+<th align="right">Finishing</th>
+<th align="right">HeadingAccuracy</th>
+<th align="right">ShortPassing</th>
+<th align="right">Volleys</th>
+<th align="right">Dribbling</th>
+<th align="right">Curve</th>
+<th align="right">FKAccuracy</th>
+<th align="right">LongPassing</th>
+<th align="right">BallControl</th>
+<th align="right">Acceleration</th>
+<th align="right">SprintSpeed</th>
+<th align="right">Agility</th>
+<th align="right">Reactions</th>
+<th align="right">Balance</th>
+<th align="right">ShotPower</th>
+<th align="right">Jumping</th>
+<th align="right">Stamina</th>
+<th align="right">Strength</th>
+<th align="right">LongShots</th>
+<th align="right">Aggression</th>
+<th align="right">Interceptions</th>
+<th align="right">Positioning</th>
+<th align="right">Vision</th>
+<th align="right">Penalties</th>
+<th align="right">Composure</th>
+<th align="right">Marking</th>
+<th align="right">StandingTackle</th>
+<th align="right">SlidingTackle</th>
+<th align="right">GKDiving</th>
+<th align="right">GKHandling</th>
+<th align="right">GKKicking</th>
+<th align="right">GKPositioning</th>
+<th align="right">GKReflexes</th>
+<th align="left">Release Clause</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">158023</td>
+<td align="left">L. Messi</td>
+<td align="right">31</td>
+<td align="left"><a href="https://cdn.sofifa.org/players/4/19/158023.png" class="uri">https://cdn.sofifa.org/players/4/19/158023.png</a></td>
+<td align="left">Argentina</td>
+<td align="left"><a href="https://cdn.sofifa.org/flags/52.png" class="uri">https://cdn.sofifa.org/flags/52.png</a></td>
+<td align="right">94</td>
+<td align="right">94</td>
+<td align="left">FC Barcelona</td>
+<td align="left"><a href="https://cdn.sofifa.org/teams/2/light/241.png" class="uri">https://cdn.sofifa.org/teams/2/light/241.png</a></td>
+<td align="left">€110.5M</td>
+<td align="left">€565K</td>
+<td align="right">2202</td>
+<td align="left">Left</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="left">Medium/ Medium</td>
+<td align="left">Messi</td>
+<td align="left">Yes</td>
+<td align="left">RF</td>
+<td align="right">10</td>
+<td align="left">Jul 1, 2004</td>
+<td align="left">NA</td>
+<td align="left">2021</td>
+<td align="left">5’7</td>
+<td align="left">159lbs</td>
+<td align="left">88+2</td>
+<td align="left">88+2</td>
+<td align="left">88+2</td>
+<td align="left">92+2</td>
+<td align="left">93+2</td>
+<td align="left">93+2</td>
+<td align="left">93+2</td>
+<td align="left">92+2</td>
+<td align="left">93+2</td>
+<td align="left">93+2</td>
+<td align="left">93+2</td>
+<td align="left">91+2</td>
+<td align="left">84+2</td>
+<td align="left">84+2</td>
+<td align="left">84+2</td>
+<td align="left">91+2</td>
+<td align="left">64+2</td>
+<td align="left">61+2</td>
+<td align="left">61+2</td>
+<td align="left">61+2</td>
+<td align="left">64+2</td>
+<td align="left">59+2</td>
+<td align="left">47+2</td>
+<td align="left">47+2</td>
+<td align="left">47+2</td>
+<td align="left">59+2</td>
+<td align="right">84</td>
+<td align="right">95</td>
+<td align="right">70</td>
+<td align="right">90</td>
+<td align="right">86</td>
+<td align="right">97</td>
+<td align="right">93</td>
+<td align="right">94</td>
+<td align="right">87</td>
+<td align="right">96</td>
+<td align="right">91</td>
+<td align="right">86</td>
+<td align="right">91</td>
+<td align="right">95</td>
+<td align="right">95</td>
+<td align="right">85</td>
+<td align="right">68</td>
+<td align="right">72</td>
+<td align="right">59</td>
+<td align="right">94</td>
+<td align="right">48</td>
+<td align="right">22</td>
+<td align="right">94</td>
+<td align="right">94</td>
+<td align="right">75</td>
+<td align="right">96</td>
+<td align="right">33</td>
+<td align="right">28</td>
+<td align="right">26</td>
+<td align="right">6</td>
+<td align="right">11</td>
+<td align="right">15</td>
+<td align="right">14</td>
+<td align="right">8</td>
+<td align="left">€226.5M</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">20801</td>
+<td align="left">Cristiano Ronaldo</td>
+<td align="right">33</td>
+<td align="left"><a href="https://cdn.sofifa.org/players/4/19/20801.png" class="uri">https://cdn.sofifa.org/players/4/19/20801.png</a></td>
+<td align="left">Portugal</td>
+<td align="left"><a href="https://cdn.sofifa.org/flags/38.png" class="uri">https://cdn.sofifa.org/flags/38.png</a></td>
+<td align="right">94</td>
+<td align="right">94</td>
+<td align="left">Juventus</td>
+<td align="left"><a href="https://cdn.sofifa.org/teams/2/light/45.png" class="uri">https://cdn.sofifa.org/teams/2/light/45.png</a></td>
+<td align="left">€77M</td>
+<td align="left">€405K</td>
+<td align="right">2228</td>
+<td align="left">Right</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="left">High/ Low</td>
+<td align="left">C. Ronaldo</td>
+<td align="left">Yes</td>
+<td align="left">ST</td>
+<td align="right">7</td>
+<td align="left">Jul 10, 2018</td>
+<td align="left">NA</td>
+<td align="left">2022</td>
+<td align="left">6’2</td>
+<td align="left">183lbs</td>
+<td align="left">91+3</td>
+<td align="left">91+3</td>
+<td align="left">91+3</td>
+<td align="left">89+3</td>
+<td align="left">90+3</td>
+<td align="left">90+3</td>
+<td align="left">90+3</td>
+<td align="left">89+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">81+3</td>
+<td align="left">81+3</td>
+<td align="left">81+3</td>
+<td align="left">88+3</td>
+<td align="left">65+3</td>
+<td align="left">61+3</td>
+<td align="left">61+3</td>
+<td align="left">61+3</td>
+<td align="left">65+3</td>
+<td align="left">61+3</td>
+<td align="left">53+3</td>
+<td align="left">53+3</td>
+<td align="left">53+3</td>
+<td align="left">61+3</td>
+<td align="right">84</td>
+<td align="right">94</td>
+<td align="right">89</td>
+<td align="right">81</td>
+<td align="right">87</td>
+<td align="right">88</td>
+<td align="right">81</td>
+<td align="right">76</td>
+<td align="right">77</td>
+<td align="right">94</td>
+<td align="right">89</td>
+<td align="right">91</td>
+<td align="right">87</td>
+<td align="right">96</td>
+<td align="right">70</td>
+<td align="right">95</td>
+<td align="right">95</td>
+<td align="right">88</td>
+<td align="right">79</td>
+<td align="right">93</td>
+<td align="right">63</td>
+<td align="right">29</td>
+<td align="right">95</td>
+<td align="right">82</td>
+<td align="right">85</td>
+<td align="right">95</td>
+<td align="right">28</td>
+<td align="right">31</td>
+<td align="right">23</td>
+<td align="right">7</td>
+<td align="right">11</td>
+<td align="right">15</td>
+<td align="right">14</td>
+<td align="right">11</td>
+<td align="left">€127.1M</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">190871</td>
+<td align="left">Neymar Jr</td>
+<td align="right">26</td>
+<td align="left"><a href="https://cdn.sofifa.org/players/4/19/190871.png" class="uri">https://cdn.sofifa.org/players/4/19/190871.png</a></td>
+<td align="left">Brazil</td>
+<td align="left"><a href="https://cdn.sofifa.org/flags/54.png" class="uri">https://cdn.sofifa.org/flags/54.png</a></td>
+<td align="right">92</td>
+<td align="right">93</td>
+<td align="left">Paris Saint-Germain</td>
+<td align="left"><a href="https://cdn.sofifa.org/teams/2/light/73.png" class="uri">https://cdn.sofifa.org/teams/2/light/73.png</a></td>
+<td align="left">€118.5M</td>
+<td align="left">€290K</td>
+<td align="right">2143</td>
+<td align="left">Right</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="left">High/ Medium</td>
+<td align="left">Neymar</td>
+<td align="left">Yes</td>
+<td align="left">LW</td>
+<td align="right">10</td>
+<td align="left">Aug 3, 2017</td>
+<td align="left">NA</td>
+<td align="left">2022</td>
+<td align="left">5’9</td>
+<td align="left">150lbs</td>
+<td align="left">84+3</td>
+<td align="left">84+3</td>
+<td align="left">84+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">88+3</td>
+<td align="left">81+3</td>
+<td align="left">81+3</td>
+<td align="left">81+3</td>
+<td align="left">88+3</td>
+<td align="left">65+3</td>
+<td align="left">60+3</td>
+<td align="left">60+3</td>
+<td align="left">60+3</td>
+<td align="left">65+3</td>
+<td align="left">60+3</td>
+<td align="left">47+3</td>
+<td align="left">47+3</td>
+<td align="left">47+3</td>
+<td align="left">60+3</td>
+<td align="right">79</td>
+<td align="right">87</td>
+<td align="right">62</td>
+<td align="right">84</td>
+<td align="right">84</td>
+<td align="right">96</td>
+<td align="right">88</td>
+<td align="right">87</td>
+<td align="right">78</td>
+<td align="right">95</td>
+<td align="right">94</td>
+<td align="right">90</td>
+<td align="right">96</td>
+<td align="right">94</td>
+<td align="right">84</td>
+<td align="right">80</td>
+<td align="right">61</td>
+<td align="right">81</td>
+<td align="right">49</td>
+<td align="right">82</td>
+<td align="right">56</td>
+<td align="right">36</td>
+<td align="right">89</td>
+<td align="right">87</td>
+<td align="right">81</td>
+<td align="right">94</td>
+<td align="right">27</td>
+<td align="right">24</td>
+<td align="right">33</td>
+<td align="right">9</td>
+<td align="right">9</td>
+<td align="right">15</td>
+<td align="right">15</td>
+<td align="right">11</td>
+<td align="left">€228.1M</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">193080</td>
+<td align="left">De Gea</td>
+<td align="right">27</td>
+<td align="left"><a href="https://cdn.sofifa.org/players/4/19/193080.png" class="uri">https://cdn.sofifa.org/players/4/19/193080.png</a></td>
+<td align="left">Spain</td>
+<td align="left"><a href="https://cdn.sofifa.org/flags/45.png" class="uri">https://cdn.sofifa.org/flags/45.png</a></td>
+<td align="right">91</td>
+<td align="right">93</td>
+<td align="left">Manchester United</td>
+<td align="left"><a href="https://cdn.sofifa.org/teams/2/light/11.png" class="uri">https://cdn.sofifa.org/teams/2/light/11.png</a></td>
+<td align="left">€72M</td>
+<td align="left">€260K</td>
+<td align="right">1471</td>
+<td align="left">Right</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="left">Medium/ Medium</td>
+<td align="left">Lean</td>
+<td align="left">Yes</td>
+<td align="left">GK</td>
+<td align="right">1</td>
+<td align="left">Jul 1, 2011</td>
+<td align="left">NA</td>
+<td align="left">2020</td>
+<td align="left">6’4</td>
+<td align="left">168lbs</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">17</td>
+<td align="right">13</td>
+<td align="right">21</td>
+<td align="right">50</td>
+<td align="right">13</td>
+<td align="right">18</td>
+<td align="right">21</td>
+<td align="right">19</td>
+<td align="right">51</td>
+<td align="right">42</td>
+<td align="right">57</td>
+<td align="right">58</td>
+<td align="right">60</td>
+<td align="right">90</td>
+<td align="right">43</td>
+<td align="right">31</td>
+<td align="right">67</td>
+<td align="right">43</td>
+<td align="right">64</td>
+<td align="right">12</td>
+<td align="right">38</td>
+<td align="right">30</td>
+<td align="right">12</td>
+<td align="right">68</td>
+<td align="right">40</td>
+<td align="right">68</td>
+<td align="right">15</td>
+<td align="right">21</td>
+<td align="right">13</td>
+<td align="right">90</td>
+<td align="right">85</td>
+<td align="right">87</td>
+<td align="right">88</td>
+<td align="right">94</td>
+<td align="left">€138.6M</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">192985</td>
+<td align="left">K. De Bruyne</td>
+<td align="right">27</td>
+<td align="left"><a href="https://cdn.sofifa.org/players/4/19/192985.png" class="uri">https://cdn.sofifa.org/players/4/19/192985.png</a></td>
+<td align="left">Belgium</td>
+<td align="left"><a href="https://cdn.sofifa.org/flags/7.png" class="uri">https://cdn.sofifa.org/flags/7.png</a></td>
+<td align="right">91</td>
+<td align="right">92</td>
+<td align="left">Manchester City</td>
+<td align="left"><a href="https://cdn.sofifa.org/teams/2/light/10.png" class="uri">https://cdn.sofifa.org/teams/2/light/10.png</a></td>
+<td align="left">€102M</td>
+<td align="left">€355K</td>
+<td align="right">2281</td>
+<td align="left">Right</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="left">High/ High</td>
+<td align="left">Normal</td>
+<td align="left">Yes</td>
+<td align="left">RCM</td>
+<td align="right">7</td>
+<td align="left">Aug 30, 2015</td>
+<td align="left">NA</td>
+<td align="left">2023</td>
+<td align="left">5’11</td>
+<td align="left">154lbs</td>
+<td align="left">82+3</td>
+<td align="left">82+3</td>
+<td align="left">82+3</td>
+<td align="left">87+3</td>
+<td align="left">87+3</td>
+<td align="left">87+3</td>
+<td align="left">87+3</td>
+<td align="left">87+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">87+3</td>
+<td align="left">87+3</td>
+<td align="left">87+3</td>
+<td align="left">88+3</td>
+<td align="left">77+3</td>
+<td align="left">77+3</td>
+<td align="left">77+3</td>
+<td align="left">77+3</td>
+<td align="left">77+3</td>
+<td align="left">73+3</td>
+<td align="left">66+3</td>
+<td align="left">66+3</td>
+<td align="left">66+3</td>
+<td align="left">73+3</td>
+<td align="right">93</td>
+<td align="right">82</td>
+<td align="right">55</td>
+<td align="right">92</td>
+<td align="right">82</td>
+<td align="right">86</td>
+<td align="right">85</td>
+<td align="right">83</td>
+<td align="right">91</td>
+<td align="right">91</td>
+<td align="right">78</td>
+<td align="right">76</td>
+<td align="right">79</td>
+<td align="right">91</td>
+<td align="right">77</td>
+<td align="right">91</td>
+<td align="right">63</td>
+<td align="right">90</td>
+<td align="right">75</td>
+<td align="right">91</td>
+<td align="right">76</td>
+<td align="right">61</td>
+<td align="right">87</td>
+<td align="right">94</td>
+<td align="right">79</td>
+<td align="right">88</td>
+<td align="right">68</td>
+<td align="right">58</td>
+<td align="right">51</td>
+<td align="right">15</td>
+<td align="right">13</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">13</td>
+<td align="left">€196.4M</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">183277</td>
+<td align="left">E. Hazard</td>
+<td align="right">27</td>
+<td align="left"><a href="https://cdn.sofifa.org/players/4/19/183277.png" class="uri">https://cdn.sofifa.org/players/4/19/183277.png</a></td>
+<td align="left">Belgium</td>
+<td align="left"><a href="https://cdn.sofifa.org/flags/7.png" class="uri">https://cdn.sofifa.org/flags/7.png</a></td>
+<td align="right">91</td>
+<td align="right">91</td>
+<td align="left">Chelsea</td>
+<td align="left"><a href="https://cdn.sofifa.org/teams/2/light/5.png" class="uri">https://cdn.sofifa.org/teams/2/light/5.png</a></td>
+<td align="left">€93M</td>
+<td align="left">€340K</td>
+<td align="right">2142</td>
+<td align="left">Right</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="left">High/ Medium</td>
+<td align="left">Normal</td>
+<td align="left">Yes</td>
+<td align="left">LF</td>
+<td align="right">10</td>
+<td align="left">Jul 1, 2012</td>
+<td align="left">NA</td>
+<td align="left">2020</td>
+<td align="left">5’8</td>
+<td align="left">163lbs</td>
+<td align="left">83+3</td>
+<td align="left">83+3</td>
+<td align="left">83+3</td>
+<td align="left">89+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">88+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">89+3</td>
+<td align="left">82+3</td>
+<td align="left">82+3</td>
+<td align="left">82+3</td>
+<td align="left">89+3</td>
+<td align="left">66+3</td>
+<td align="left">63+3</td>
+<td align="left">63+3</td>
+<td align="left">63+3</td>
+<td align="left">66+3</td>
+<td align="left">60+3</td>
+<td align="left">49+3</td>
+<td align="left">49+3</td>
+<td align="left">49+3</td>
+<td align="left">60+3</td>
+<td align="right">81</td>
+<td align="right">84</td>
+<td align="right">61</td>
+<td align="right">89</td>
+<td align="right">80</td>
+<td align="right">95</td>
+<td align="right">83</td>
+<td align="right">79</td>
+<td align="right">83</td>
+<td align="right">94</td>
+<td align="right">94</td>
+<td align="right">88</td>
+<td align="right">95</td>
+<td align="right">90</td>
+<td align="right">94</td>
+<td align="right">82</td>
+<td align="right">56</td>
+<td align="right">83</td>
+<td align="right">66</td>
+<td align="right">80</td>
+<td align="right">54</td>
+<td align="right">41</td>
+<td align="right">87</td>
+<td align="right">89</td>
+<td align="right">86</td>
+<td align="right">91</td>
+<td align="right">34</td>
+<td align="right">27</td>
+<td align="right">22</td>
+<td align="right">11</td>
+<td align="right">12</td>
+<td align="right">6</td>
+<td align="right">8</td>
+<td align="right">8</td>
+<td align="left">€172.1M</td>
+</tr>
+</tbody>
+</table>
 <div id="value-and-wage-columns" class="section level3">
 <h3>Value and wage columns</h3>
 <pre class="r"><code>glimpse(fifa[c(&quot;Value&quot;, &quot;Wage&quot;)])</code></pre>
@@ -723,239 +1337,307 @@ fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot
 library(factoextra)</code></pre>
 <p>Since I am not a football professional I’m going to use the columns that mean something in this cluster analysis.
 Let’s select the columns</p>
-<pre class="r"><code>head(fifa)</code></pre>
-<pre><code>## # A tibble: 6 x 92
-##      X1     ID Name    Age Photo Nationality Flag  Overall Potential Club 
-##   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
-## 1     0 158023 L. M~    31 http~ Argentina   http~      94        94 FC B~
-## 2     1  20801 Cris~    33 http~ Portugal    http~      94        94 Juve~
-## 3     2 190871 Neym~    26 http~ Brazil      http~      92        93 Pari~
-## 4     3 193080 De G~    27 http~ Spain       http~      91        93 Manc~
-## 5     4 192985 K. D~    27 http~ Belgium     http~      91        92 Manc~
-## 6     5 183277 E. H~    27 http~ Belgium     http~      91        91 Chel~
-## # ... with 82 more variables: `Club Logo` &lt;chr&gt;, raw_value &lt;chr&gt;,
-## #   unit_value &lt;chr&gt;, Wage &lt;dbl&gt;, Special &lt;dbl&gt;, `Preferred Foot` &lt;chr&gt;,
-## #   `International Reputation` &lt;dbl&gt;, `Weak Foot` &lt;dbl&gt;, `Skill
-## #   Moves` &lt;dbl&gt;, `Work Rate` &lt;chr&gt;, `Body Type` &lt;chr&gt;, `Real Face` &lt;chr&gt;,
-## #   Position &lt;chr&gt;, `Jersey Number` &lt;dbl&gt;, Joined &lt;date&gt;, `Loaned
-## #   From` &lt;chr&gt;, Contract_Validity &lt;date&gt;, Height &lt;chr&gt;, Weight &lt;chr&gt;,
-## #   LS &lt;chr&gt;, ST &lt;chr&gt;, RS &lt;chr&gt;, LW &lt;chr&gt;, LF &lt;chr&gt;, CF &lt;chr&gt;, RF &lt;chr&gt;,
-## #   RW &lt;chr&gt;, LAM &lt;chr&gt;, CAM &lt;chr&gt;, RAM &lt;chr&gt;, LM &lt;chr&gt;, LCM &lt;chr&gt;,
-## #   CM &lt;chr&gt;, RCM &lt;chr&gt;, RM &lt;chr&gt;, LWB &lt;chr&gt;, LDM &lt;chr&gt;, CDM &lt;chr&gt;,
-## #   RDM &lt;chr&gt;, RWB &lt;chr&gt;, LB &lt;chr&gt;, LCB &lt;chr&gt;, CB &lt;chr&gt;, RCB &lt;chr&gt;,
-## #   RB &lt;chr&gt;, Crossing &lt;dbl&gt;, Finishing &lt;dbl&gt;, HeadingAccuracy &lt;dbl&gt;,
-## #   ShortPassing &lt;dbl&gt;, Volleys &lt;dbl&gt;, Dribbling &lt;dbl&gt;, Curve &lt;dbl&gt;,
-## #   FKAccuracy &lt;dbl&gt;, LongPassing &lt;dbl&gt;, BallControl &lt;dbl&gt;,
-## #   Acceleration &lt;dbl&gt;, SprintSpeed &lt;dbl&gt;, Agility &lt;dbl&gt;, Reactions &lt;dbl&gt;,
-## #   Balance &lt;dbl&gt;, ShotPower &lt;dbl&gt;, Jumping &lt;dbl&gt;, Stamina &lt;dbl&gt;,
-## #   Strength &lt;dbl&gt;, LongShots &lt;dbl&gt;, Aggression &lt;dbl&gt;,
-## #   Interceptions &lt;dbl&gt;, Positioning &lt;dbl&gt;, Vision &lt;dbl&gt;, Penalties &lt;dbl&gt;,
-## #   Composure &lt;dbl&gt;, Marking &lt;dbl&gt;, StandingTackle &lt;dbl&gt;,
-## #   SlidingTackle &lt;dbl&gt;, GKDiving &lt;dbl&gt;, GKHandling &lt;dbl&gt;,
-## #   GKKicking &lt;dbl&gt;, GKPositioning &lt;dbl&gt;, GKReflexes &lt;dbl&gt;, `Release
-## #   Clause` &lt;chr&gt;, value_k &lt;dbl&gt;, months_in_current_club &lt;dbl&gt;</code></pre>
 <pre class="r"><code>pca_data &lt;- fifa[c(3:4,56:89)]</code></pre>
 <pre class="r"><code># Remove duplicate players
 pca_data &lt;- pca_data %&gt;% filter(!duplicated(Name))</code></pre>
 <p>Clean the missing values</p>
 <pre class="r"><code>pca_data &lt;- na.omit(pca_data)
 pca_data &lt;- data.frame(pca_data, row.names = 1)</code></pre>
-<pre class="r"><code>head(pca_data)</code></pre>
-<pre><code>##                   Age Crossing Finishing HeadingAccuracy ShortPassing
-## L. Messi           31       84        95              70           90
-## Cristiano Ronaldo  33       84        94              89           81
-## Neymar Jr          26       79        87              62           84
-## De Gea             27       17        13              21           50
-## K. De Bruyne       27       93        82              55           92
-## E. Hazard          27       81        84              61           89
-##                   Volleys Dribbling Curve FKAccuracy LongPassing
-## L. Messi               86        97    93         94          87
-## Cristiano Ronaldo      87        88    81         76          77
-## Neymar Jr              84        96    88         87          78
-## De Gea                 13        18    21         19          51
-## K. De Bruyne           82        86    85         83          91
-## E. Hazard              80        95    83         79          83
-##                   BallControl Acceleration SprintSpeed Agility Reactions
-## L. Messi                   96           91          86      91        95
-## Cristiano Ronaldo          94           89          91      87        96
-## Neymar Jr                  95           94          90      96        94
-## De Gea                     42           57          58      60        90
-## K. De Bruyne               91           78          76      79        91
-## E. Hazard                  94           94          88      95        90
-##                   Balance ShotPower Jumping Stamina Strength LongShots
-## L. Messi               95        85      68      72       59        94
-## Cristiano Ronaldo      70        95      95      88       79        93
-## Neymar Jr              84        80      61      81       49        82
-## De Gea                 43        31      67      43       64        12
-## K. De Bruyne           77        91      63      90       75        91
-## E. Hazard              94        82      56      83       66        80
-##                   Aggression Interceptions Positioning Vision Penalties
-## L. Messi                  48            22          94     94        75
-## Cristiano Ronaldo         63            29          95     82        85
-## Neymar Jr                 56            36          89     87        81
-## De Gea                    38            30          12     68        40
-## K. De Bruyne              76            61          87     94        79
-## E. Hazard                 54            41          87     89        86
-##                   Composure Marking StandingTackle SlidingTackle GKDiving
-## L. Messi                 96      33             28            26        6
-## Cristiano Ronaldo        95      28             31            23        7
-## Neymar Jr                94      27             24            33        9
-## De Gea                   68      15             21            13       90
-## K. De Bruyne             88      68             58            51       15
-## E. Hazard                91      34             27            22       11
-##                   GKHandling GKKicking GKPositioning GKReflexes
-## L. Messi                  11        15            14          8
-## Cristiano Ronaldo         11        15            14         11
-## Neymar Jr                  9        15            15         11
-## De Gea                    85        87            88         94
-## K. De Bruyne              13         5            10         13
-## E. Hazard                 12         6             8          8</code></pre>
+<pre class="r"><code>knitr::kable(head(pca_data))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Age</th>
+<th align="right">Crossing</th>
+<th align="right">Finishing</th>
+<th align="right">HeadingAccuracy</th>
+<th align="right">ShortPassing</th>
+<th align="right">Volleys</th>
+<th align="right">Dribbling</th>
+<th align="right">Curve</th>
+<th align="right">FKAccuracy</th>
+<th align="right">LongPassing</th>
+<th align="right">BallControl</th>
+<th align="right">Acceleration</th>
+<th align="right">SprintSpeed</th>
+<th align="right">Agility</th>
+<th align="right">Reactions</th>
+<th align="right">Balance</th>
+<th align="right">ShotPower</th>
+<th align="right">Jumping</th>
+<th align="right">Stamina</th>
+<th align="right">Strength</th>
+<th align="right">LongShots</th>
+<th align="right">Aggression</th>
+<th align="right">Interceptions</th>
+<th align="right">Positioning</th>
+<th align="right">Vision</th>
+<th align="right">Penalties</th>
+<th align="right">Composure</th>
+<th align="right">Marking</th>
+<th align="right">StandingTackle</th>
+<th align="right">SlidingTackle</th>
+<th align="right">GKDiving</th>
+<th align="right">GKHandling</th>
+<th align="right">GKKicking</th>
+<th align="right">GKPositioning</th>
+<th align="right">GKReflexes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L. Messi</td>
+<td align="right">31</td>
+<td align="right">84</td>
+<td align="right">95</td>
+<td align="right">70</td>
+<td align="right">90</td>
+<td align="right">86</td>
+<td align="right">97</td>
+<td align="right">93</td>
+<td align="right">94</td>
+<td align="right">87</td>
+<td align="right">96</td>
+<td align="right">91</td>
+<td align="right">86</td>
+<td align="right">91</td>
+<td align="right">95</td>
+<td align="right">95</td>
+<td align="right">85</td>
+<td align="right">68</td>
+<td align="right">72</td>
+<td align="right">59</td>
+<td align="right">94</td>
+<td align="right">48</td>
+<td align="right">22</td>
+<td align="right">94</td>
+<td align="right">94</td>
+<td align="right">75</td>
+<td align="right">96</td>
+<td align="right">33</td>
+<td align="right">28</td>
+<td align="right">26</td>
+<td align="right">6</td>
+<td align="right">11</td>
+<td align="right">15</td>
+<td align="right">14</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td>Cristiano Ronaldo</td>
+<td align="right">33</td>
+<td align="right">84</td>
+<td align="right">94</td>
+<td align="right">89</td>
+<td align="right">81</td>
+<td align="right">87</td>
+<td align="right">88</td>
+<td align="right">81</td>
+<td align="right">76</td>
+<td align="right">77</td>
+<td align="right">94</td>
+<td align="right">89</td>
+<td align="right">91</td>
+<td align="right">87</td>
+<td align="right">96</td>
+<td align="right">70</td>
+<td align="right">95</td>
+<td align="right">95</td>
+<td align="right">88</td>
+<td align="right">79</td>
+<td align="right">93</td>
+<td align="right">63</td>
+<td align="right">29</td>
+<td align="right">95</td>
+<td align="right">82</td>
+<td align="right">85</td>
+<td align="right">95</td>
+<td align="right">28</td>
+<td align="right">31</td>
+<td align="right">23</td>
+<td align="right">7</td>
+<td align="right">11</td>
+<td align="right">15</td>
+<td align="right">14</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td>Neymar Jr</td>
+<td align="right">26</td>
+<td align="right">79</td>
+<td align="right">87</td>
+<td align="right">62</td>
+<td align="right">84</td>
+<td align="right">84</td>
+<td align="right">96</td>
+<td align="right">88</td>
+<td align="right">87</td>
+<td align="right">78</td>
+<td align="right">95</td>
+<td align="right">94</td>
+<td align="right">90</td>
+<td align="right">96</td>
+<td align="right">94</td>
+<td align="right">84</td>
+<td align="right">80</td>
+<td align="right">61</td>
+<td align="right">81</td>
+<td align="right">49</td>
+<td align="right">82</td>
+<td align="right">56</td>
+<td align="right">36</td>
+<td align="right">89</td>
+<td align="right">87</td>
+<td align="right">81</td>
+<td align="right">94</td>
+<td align="right">27</td>
+<td align="right">24</td>
+<td align="right">33</td>
+<td align="right">9</td>
+<td align="right">9</td>
+<td align="right">15</td>
+<td align="right">15</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td>De Gea</td>
+<td align="right">27</td>
+<td align="right">17</td>
+<td align="right">13</td>
+<td align="right">21</td>
+<td align="right">50</td>
+<td align="right">13</td>
+<td align="right">18</td>
+<td align="right">21</td>
+<td align="right">19</td>
+<td align="right">51</td>
+<td align="right">42</td>
+<td align="right">57</td>
+<td align="right">58</td>
+<td align="right">60</td>
+<td align="right">90</td>
+<td align="right">43</td>
+<td align="right">31</td>
+<td align="right">67</td>
+<td align="right">43</td>
+<td align="right">64</td>
+<td align="right">12</td>
+<td align="right">38</td>
+<td align="right">30</td>
+<td align="right">12</td>
+<td align="right">68</td>
+<td align="right">40</td>
+<td align="right">68</td>
+<td align="right">15</td>
+<td align="right">21</td>
+<td align="right">13</td>
+<td align="right">90</td>
+<td align="right">85</td>
+<td align="right">87</td>
+<td align="right">88</td>
+<td align="right">94</td>
+</tr>
+<tr class="odd">
+<td>K. De Bruyne</td>
+<td align="right">27</td>
+<td align="right">93</td>
+<td align="right">82</td>
+<td align="right">55</td>
+<td align="right">92</td>
+<td align="right">82</td>
+<td align="right">86</td>
+<td align="right">85</td>
+<td align="right">83</td>
+<td align="right">91</td>
+<td align="right">91</td>
+<td align="right">78</td>
+<td align="right">76</td>
+<td align="right">79</td>
+<td align="right">91</td>
+<td align="right">77</td>
+<td align="right">91</td>
+<td align="right">63</td>
+<td align="right">90</td>
+<td align="right">75</td>
+<td align="right">91</td>
+<td align="right">76</td>
+<td align="right">61</td>
+<td align="right">87</td>
+<td align="right">94</td>
+<td align="right">79</td>
+<td align="right">88</td>
+<td align="right">68</td>
+<td align="right">58</td>
+<td align="right">51</td>
+<td align="right">15</td>
+<td align="right">13</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td>E. Hazard</td>
+<td align="right">27</td>
+<td align="right">81</td>
+<td align="right">84</td>
+<td align="right">61</td>
+<td align="right">89</td>
+<td align="right">80</td>
+<td align="right">95</td>
+<td align="right">83</td>
+<td align="right">79</td>
+<td align="right">83</td>
+<td align="right">94</td>
+<td align="right">94</td>
+<td align="right">88</td>
+<td align="right">95</td>
+<td align="right">90</td>
+<td align="right">94</td>
+<td align="right">82</td>
+<td align="right">56</td>
+<td align="right">83</td>
+<td align="right">66</td>
+<td align="right">80</td>
+<td align="right">54</td>
+<td align="right">41</td>
+<td align="right">87</td>
+<td align="right">89</td>
+<td align="right">86</td>
+<td align="right">91</td>
+<td align="right">34</td>
+<td align="right">27</td>
+<td align="right">22</td>
+<td align="right">11</td>
+<td align="right">12</td>
+<td align="right">6</td>
+<td align="right">8</td>
+<td align="right">8</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>pca &lt;- PCA(pca_data, quanti.sup = 1)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-28-1.png" width="672" /><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-28-2.png" width="672" /></p>
+<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-27-1.png" width="672" /><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
 <p>Let’s now try to see how correlated are the variables and discover how they separate the players.</p>
 <pre class="r"><code>fviz_pca_var(pca, repel = T) + theme_economist()</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-29-1.png" width="768" /></p>
-<pre class="r"><code>dimdesc(pca)</code></pre>
-<pre><code>## $Dim.1
-## $Dim.1$quanti
-##                 correlation       p.value
-## BallControl       0.9575674  0.000000e+00
-## Dribbling         0.9292212  0.000000e+00
-## ShortPassing      0.9163976  0.000000e+00
-## Positioning       0.8718798  0.000000e+00
-## Crossing          0.8705012  0.000000e+00
-## ShotPower         0.8563707  0.000000e+00
-## Curve             0.8522071  0.000000e+00
-## LongShots         0.8517836  0.000000e+00
-## LongPassing       0.8126963  0.000000e+00
-## Stamina           0.8073784  0.000000e+00
-## Volleys           0.8056571  0.000000e+00
-## FKAccuracy        0.7951769  0.000000e+00
-## Penalties         0.7871776  0.000000e+00
-## Finishing         0.7807105  0.000000e+00
-## Agility           0.7243417  0.000000e+00
-## HeadingAccuracy   0.7159097  0.000000e+00
-## Acceleration      0.7123085  0.000000e+00
-## SprintSpeed       0.7041238  0.000000e+00
-## Vision            0.7039064  0.000000e+00
-## Composure         0.6750123  0.000000e+00
-## Aggression        0.6369436  0.000000e+00
-## Balance           0.6350150  0.000000e+00
-## Marking           0.5407773  0.000000e+00
-## StandingTackle    0.5111614  0.000000e+00
-## Interceptions     0.5095279  0.000000e+00
-## SlidingTackle     0.4793948  0.000000e+00
-## Reactions         0.4262738  0.000000e+00
-## Jumping           0.2632617 8.458303e-270
-## Strength          0.1226311  1.883645e-58
-## Age               0.1027927  1.652906e-41
-## GKKicking        -0.8483274  0.000000e+00
-## GKPositioning    -0.8484342  0.000000e+00
-## GKHandling       -0.8517354  0.000000e+00
-## GKReflexes       -0.8525332  0.000000e+00
-## GKDiving         -0.8533499  0.000000e+00
-## 
-## 
-## $Dim.2
-## $Dim.2$quanti
-##                 correlation       p.value
-## Finishing        0.48869080  0.000000e+00
-## Volleys          0.39497273  0.000000e+00
-## Agility          0.36161221  0.000000e+00
-## Positioning      0.33718933  0.000000e+00
-## Vision           0.33672344  0.000000e+00
-## Penalties        0.32794746  0.000000e+00
-## LongShots        0.32309363  0.000000e+00
-## Balance          0.30934699  0.000000e+00
-## Acceleration     0.28467696 4.463986e-317
-## Curve            0.26913331 2.457159e-282
-## SprintSpeed      0.23622994 4.019428e-216
-## Dribbling        0.23147968 2.312527e-207
-## FKAccuracy       0.22333367 8.455848e-193
-## GKKicking        0.18696811 1.054205e-134
-## ShotPower        0.18605096 2.212049e-133
-## GKHandling       0.18586050 4.153619e-133
-## GKDiving         0.18469723 1.919634e-131
-## GKReflexes       0.18462331 2.446956e-131
-## GKPositioning    0.18245441 2.894091e-128
-## Crossing         0.09501422  1.090711e-35
-## BallControl      0.08345967  6.815662e-28
-## Composure       -0.01643873  3.134159e-02
-## Reactions       -0.03010491  8.047868e-05
-## ShortPassing    -0.06956196  7.525288e-20
-## Age             -0.11049258  1.004341e-47
-## LongPassing     -0.14743043  6.184010e-84
-## Stamina         -0.22397254 6.395073e-194
-## Jumping         -0.25648884 9.891799e-256
-## HeadingAccuracy -0.39038523  0.000000e+00
-## Strength        -0.51113647  0.000000e+00
-## Aggression      -0.57430161  0.000000e+00
-## Marking         -0.74305466  0.000000e+00
-## Interceptions   -0.77149466  0.000000e+00
-## StandingTackle  -0.79446128  0.000000e+00
-## SlidingTackle   -0.80109110  0.000000e+00
-## 
-## 
-## $Dim.3
-## $Dim.3$quanti
-##                correlation       p.value
-## Reactions       0.73323051  0.000000e+00
-## Age             0.55111367  0.000000e+00
-## Composure       0.53883124  0.000000e+00
-## GKPositioning   0.41000841  0.000000e+00
-## GKHandling      0.40447867  0.000000e+00
-## GKReflexes      0.40429174  0.000000e+00
-## GKKicking       0.40274211  0.000000e+00
-## GKDiving        0.40114161  0.000000e+00
-## Strength        0.38320668  0.000000e+00
-## Vision          0.37647732  0.000000e+00
-## LongPassing     0.24431357 1.735274e-231
-## FKAccuracy      0.20506235 3.258515e-162
-## LongShots       0.17944771 4.544011e-124
-## ShotPower       0.17399244 1.206321e-116
-## Aggression      0.17287201 3.768740e-115
-## Curve           0.15234669  1.456918e-89
-## ShortPassing    0.14868943  2.335257e-85
-## Volleys         0.14289355  6.527233e-79
-## Interceptions   0.11498692  1.455053e-51
-## Jumping         0.09745726  1.818163e-37
-## Penalties       0.08770203  1.226461e-30
-## Finishing       0.06213573  3.817631e-16
-## BallControl     0.04354398  1.166468e-08
-## Crossing        0.04175925  4.486744e-08
-## Positioning     0.03431513  6.966596e-06
-## Marking         0.02828461  2.118418e-04
-## StandingTackle  0.02147269  4.922562e-03
-## Stamina        -0.02418791  1.536283e-03
-## Dribbling      -0.03738368  9.735851e-07
-## Agility        -0.14372548  8.049441e-80
-## Balance        -0.26358489 1.759919e-270
-## SprintSpeed    -0.29679997  0.000000e+00
-## Acceleration   -0.30572583  0.000000e+00</code></pre>
+<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-28-1.png" width="768" /></p>
 <pre class="r"><code>fviz_pca_contrib(pca, choice = &quot;var&quot;)</code></pre>
 <pre><code>## Warning in fviz_pca_contrib(pca, choice = &quot;var&quot;): The function
 ## fviz_pca_contrib() is deprecated. Please use the function fviz_contrib()
 ## which can handle outputs of PCA, CA and MCA functions.</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <pre class="r"><code>fviz_pca_contrib(pca, choice = &quot;var&quot;, axes = 2)</code></pre>
 <pre><code>## Warning in fviz_pca_contrib(pca, choice = &quot;var&quot;, axes = 2): The function
 ## fviz_pca_contrib() is deprecated. Please use the function fviz_contrib()
 ## which can handle outputs of PCA, CA and MCA functions.</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <pre class="r"><code>fviz_pca_ind(pca, geom = &quot;point&quot;, alpha.ind = &quot;contrib&quot;, addEllipses = T) + theme_economist()</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
-<pre class="r"><code>fviz_pca_ind(pca, geom = &quot;point&quot;, 
-             alpha.ind = &quot;contrib&quot;, addEllipses = T) + theme_economist() +
-  xlim(c(-6, -10))</code></pre>
-<pre><code>## Warning: Removed 16778 rows containing non-finite values (stat_ellipse).</code></pre>
-<pre><code>## Warning: Removed 16778 rows containing missing values (geom_point).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_vline).</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>fviz_pca_ind(pca, geom = &quot;text&quot;, 
              select.ind = list(name = c(&quot;L. Messi&quot;, 
                                         &quot;Cristiano Ronaldo&quot;, &quot;Neymar Jr&quot;, &quot;E. Hazard&quot;))) + 
   theme_economist()</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
 
     </div>
