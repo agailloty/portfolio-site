@@ -120,7 +120,7 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -132,33 +132,6 @@
                 hreflang="en"
                 href="/categories/"
                 />
-  </url>
-  
-  <url>
-    <loc>/post/content/post/cluster-analysis/</loc>
-    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/categories/r/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/categories/r/"
-                />
-  </url>
-  
-  <url>
-    <loc>/categories/cluster/</loc>
-    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -183,6 +156,22 @@
                 rel="alternate"
                 hreflang="en"
                 href="/post/football-clubs-expenses/"
+                />
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/categories/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/categories/r/"
                 />
   </url>
   

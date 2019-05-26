@@ -363,43 +363,6 @@ library(factoextra)
     </item>
     
     <item>
-      <title>Football clubs spendings</title>
-      <link>/fr/post/football-clubs-spendings/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/post/football-clubs-spendings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Suicide in the world</title>
-      <link>/fr/post/suicide-in-the-world/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/post/suicide-in-the-world/</guid>
-      <description>&lt;p&gt;This is my first post. I&amp;rsquo;m discovering how the site works.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Suicide with adjust</title>
-      <link>/fr/post/suicide-with-adjust/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/post/suicide-with-adjust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sample</title>
-      <link>/fr/post/sample/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/post/sample/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>An example preprint / working paper</title>
       <link>/fr/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
@@ -6587,37 +6550,6 @@ $(document).ready(function () {
 
 &lt;/body&gt;
 &lt;/html&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Test post</title>
-      <link>/fr/post/test-post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/post/test-post/</guid>
-      <description>
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;knitr::opts_chunk$set(echo = TRUE)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h2&gt;
-
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; target=&#34;_blank&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;When you click the &lt;strong&gt;Knit&lt;/strong&gt; button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;summary(cars)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;including-plots&#34;&gt;Including Plots&lt;/h2&gt;
-
-&lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(pressure)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
 </description>
     </item>
     
