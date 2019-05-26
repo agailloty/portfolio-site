@@ -6893,5 +6893,433 @@ $(document).ready(function () {
 </description>
     </item>
     
+    <item>
+      <title>Expenses</title>
+      <link>/post/football-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/post/football-cluster/</guid>
+      <description>
+
+
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load the packages 
+library(tidyverse)
+library(FactoMineR)
+library(factoextra)
+library(highcharter)
+library(ggthemes)
+library(lubridate)
+library(treemap)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This kernel is under construction :) !&lt;/p&gt;
+&lt;div id=&#34;reading-and-preparing-the-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Reading and preparing the data&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa &amp;lt;- read_csv(&amp;quot;data.csv&amp;quot;)
+print(paste(&amp;quot;The dataset contains&amp;quot;, dim(fifa)[1], &amp;quot;observations and&amp;quot;, dim(fifa)[2], &amp;quot;columns&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;The dataset contains 18207 observations and 89 columns&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;missing-values&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Missing values&lt;/h2&gt;
+&lt;p&gt;With this said let’s check the consistency of the dataset by looking for missing values and understanding what each column stands for.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;theme_set(theme_economist())
+map_dbl(fifa, function(x) sum(is.na(x))/length(x)*100) %&amp;gt;%
+  stack() %&amp;gt;%
+  ggplot(aes(x = reorder(ind,values), y = values)) + 
+  geom_bar(stat = &amp;#39;identity&amp;#39;) + coord_flip() +
+  labs(y = &amp;quot;% of missing values&amp;quot;, x = &amp;quot;Columns&amp;quot;, title = &amp;quot;Missing values&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The loaned from column contains lots of missing values. All the other columns have between 0 and 10% missing values. Overall the dataset contains few missing values.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;columns-content&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Columns content&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(fifa)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 89
+##      X1     ID Name    Age Photo Nationality Flag  Overall Potential Club 
+##   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;
+## 1     0 158023 L. M~    31 http~ Argentina   http~      94        94 FC B~
+## 2     1  20801 Cris~    33 http~ Portugal    http~      94        94 Juve~
+## 3     2 190871 Neym~    26 http~ Brazil      http~      92        93 Pari~
+## 4     3 193080 De G~    27 http~ Spain       http~      91        93 Manc~
+## 5     4 192985 K. D~    27 http~ Belgium     http~      91        92 Manc~
+## 6     5 183277 E. H~    27 http~ Belgium     http~      91        91 Chel~
+## # ... with 79 more variables: `Club Logo` &amp;lt;chr&amp;gt;, Value &amp;lt;chr&amp;gt;, Wage &amp;lt;chr&amp;gt;,
+## #   Special &amp;lt;dbl&amp;gt;, `Preferred Foot` &amp;lt;chr&amp;gt;, `International
+## #   Reputation` &amp;lt;dbl&amp;gt;, `Weak Foot` &amp;lt;dbl&amp;gt;, `Skill Moves` &amp;lt;dbl&amp;gt;, `Work
+## #   Rate` &amp;lt;chr&amp;gt;, `Body Type` &amp;lt;chr&amp;gt;, `Real Face` &amp;lt;chr&amp;gt;, Position &amp;lt;chr&amp;gt;,
+## #   `Jersey Number` &amp;lt;dbl&amp;gt;, Joined &amp;lt;chr&amp;gt;, `Loaned From` &amp;lt;chr&amp;gt;, `Contract
+## #   Valid Until` &amp;lt;chr&amp;gt;, Height &amp;lt;chr&amp;gt;, Weight &amp;lt;chr&amp;gt;, LS &amp;lt;chr&amp;gt;, ST &amp;lt;chr&amp;gt;,
+## #   RS &amp;lt;chr&amp;gt;, LW &amp;lt;chr&amp;gt;, LF &amp;lt;chr&amp;gt;, CF &amp;lt;chr&amp;gt;, RF &amp;lt;chr&amp;gt;, RW &amp;lt;chr&amp;gt;, LAM &amp;lt;chr&amp;gt;,
+## #   CAM &amp;lt;chr&amp;gt;, RAM &amp;lt;chr&amp;gt;, LM &amp;lt;chr&amp;gt;, LCM &amp;lt;chr&amp;gt;, CM &amp;lt;chr&amp;gt;, RCM &amp;lt;chr&amp;gt;,
+## #   RM &amp;lt;chr&amp;gt;, LWB &amp;lt;chr&amp;gt;, LDM &amp;lt;chr&amp;gt;, CDM &amp;lt;chr&amp;gt;, RDM &amp;lt;chr&amp;gt;, RWB &amp;lt;chr&amp;gt;,
+## #   LB &amp;lt;chr&amp;gt;, LCB &amp;lt;chr&amp;gt;, CB &amp;lt;chr&amp;gt;, RCB &amp;lt;chr&amp;gt;, RB &amp;lt;chr&amp;gt;, Crossing &amp;lt;dbl&amp;gt;,
+## #   Finishing &amp;lt;dbl&amp;gt;, HeadingAccuracy &amp;lt;dbl&amp;gt;, ShortPassing &amp;lt;dbl&amp;gt;,
+## #   Volleys &amp;lt;dbl&amp;gt;, Dribbling &amp;lt;dbl&amp;gt;, Curve &amp;lt;dbl&amp;gt;, FKAccuracy &amp;lt;dbl&amp;gt;,
+## #   LongPassing &amp;lt;dbl&amp;gt;, BallControl &amp;lt;dbl&amp;gt;, Acceleration &amp;lt;dbl&amp;gt;,
+## #   SprintSpeed &amp;lt;dbl&amp;gt;, Agility &amp;lt;dbl&amp;gt;, Reactions &amp;lt;dbl&amp;gt;, Balance &amp;lt;dbl&amp;gt;,
+## #   ShotPower &amp;lt;dbl&amp;gt;, Jumping &amp;lt;dbl&amp;gt;, Stamina &amp;lt;dbl&amp;gt;, Strength &amp;lt;dbl&amp;gt;,
+## #   LongShots &amp;lt;dbl&amp;gt;, Aggression &amp;lt;dbl&amp;gt;, Interceptions &amp;lt;dbl&amp;gt;,
+## #   Positioning &amp;lt;dbl&amp;gt;, Vision &amp;lt;dbl&amp;gt;, Penalties &amp;lt;dbl&amp;gt;, Composure &amp;lt;dbl&amp;gt;,
+## #   Marking &amp;lt;dbl&amp;gt;, StandingTackle &amp;lt;dbl&amp;gt;, SlidingTackle &amp;lt;dbl&amp;gt;,
+## #   GKDiving &amp;lt;dbl&amp;gt;, GKHandling &amp;lt;dbl&amp;gt;, GKKicking &amp;lt;dbl&amp;gt;,
+## #   GKPositioning &amp;lt;dbl&amp;gt;, GKReflexes &amp;lt;dbl&amp;gt;, `Release Clause` &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;value-and-wage-columns&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Value and wage columns&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(fifa[c(&amp;quot;Value&amp;quot;, &amp;quot;Wage&amp;quot;)])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Observations: 18,207
+## Variables: 2
+## $ Value &amp;lt;chr&amp;gt; &amp;quot;€110.5M&amp;quot;, &amp;quot;€77M&amp;quot;, &amp;quot;€118.5M&amp;quot;, &amp;quot;€72M&amp;quot;, &amp;quot;€102M&amp;quot;, &amp;quot;€93M&amp;quot;, &amp;quot;...
+## $ Wage  &amp;lt;chr&amp;gt; &amp;quot;€565K&amp;quot;, &amp;quot;€405K&amp;quot;, &amp;quot;€290K&amp;quot;, &amp;quot;€260K&amp;quot;, &amp;quot;€355K&amp;quot;, &amp;quot;€340K&amp;quot;, &amp;quot;€...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Because of their formats &lt;code&gt;€-NUM-M/K&lt;/code&gt;, R doesn’t read them properly. We need to do some string manipulations in order to convert them into numerical columns so we can use later in the analysis.&lt;br /&gt;
+Let’s start by removing the &lt;code&gt;€&lt;/code&gt;symbols in both columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa &amp;lt;- fifa %&amp;gt;% mutate(Value = str_replace(Value, &amp;quot;€&amp;quot;, &amp;quot;&amp;quot;),
+                Wage = str_replace(Wage, &amp;quot;€&amp;quot;, &amp;quot;&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now since since the &lt;code&gt;Value&lt;/code&gt; column is not always in million € we need to separate each element of it into two columns &lt;code&gt;raw_value&lt;/code&gt; and &lt;code&gt;unit&lt;/code&gt; that will hold the amount and the unit (millions (M) or thousands(K))&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% separate(Value, into = c(&amp;quot;raw_value&amp;quot;, &amp;quot;unit_value&amp;quot;), sep = &amp;quot;(?=[:LETTER:])&amp;quot;) %&amp;gt;%
+  select(raw_value, unit_value) %&amp;gt;% group_by(unit_value) %&amp;gt;% summarize(count = n())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 252 rows
+## [453, 539, 569, 678, 865, 875, 954, 998, 1009, 1121, 1272, 1353, 1603,
+## 1672, 1820, 1903, 1908, 1934, 1937, 1965, ...].&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 3 x 2
+##   unit_value count
+##   &amp;lt;chr&amp;gt;      &amp;lt;int&amp;gt;
+## 1 K          11108
+## 2 M           6847
+## 3 &amp;lt;NA&amp;gt;         252&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As we can see here, there a fewer players who are worth million. Let’s save it and do the same for the Wage column.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa &amp;lt;- fifa %&amp;gt;% separate(Value, into = c(&amp;quot;raw_value&amp;quot;, &amp;quot;unit_value&amp;quot;), sep = &amp;quot;(?=[:LETTER:])&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% separate(Wage, into = c(&amp;quot;raw_wage&amp;quot;, &amp;quot;unit_wage&amp;quot;), sep = &amp;quot;(?=[:LETTER:])&amp;quot;) %&amp;gt;%
+  select(raw_wage, unit_wage) %&amp;gt;% group_by(unit_wage) %&amp;gt;% summarize(count = n())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 2
+##   unit_wage count
+##   &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;
+## 1 K         17966
+## 2 &amp;lt;NA&amp;gt;        241&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All the values of this column are expressed in thousands. So we can keep it as it is.&lt;/p&gt;
+&lt;p&gt;Now let’s convert them into numerical values. We will convert the millions that are in the &lt;code&gt;Value&lt;/code&gt; column into thousands(K) so that each observation has the same unit.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Converting into numerical columns
+fifa &amp;lt;- fifa %&amp;gt;% mutate(value_k = as.numeric(raw_value)) 
+# Convert it into thousands
+fifa &amp;lt;- fifa %&amp;gt;% mutate(value_k = ifelse(unit_value == &amp;quot;M&amp;quot;, value_k * 1000, value_k))
+fifa &amp;lt;- fifa %&amp;gt;% mutate(Wage = str_replace(Wage, &amp;quot;K&amp;quot;,&amp;quot;&amp;quot;), Wage = as.numeric(Wage))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;date-columns&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Date columns&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(fifa[c(&amp;quot;Joined&amp;quot;, &amp;quot;Contract Valid Until&amp;quot;)])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Observations: 18,207
+## Variables: 2
+## $ Joined                 &amp;lt;chr&amp;gt; &amp;quot;Jul 1, 2004&amp;quot;, &amp;quot;Jul 10, 2018&amp;quot;, &amp;quot;Aug 3, ...
+## $ `Contract Valid Until` &amp;lt;chr&amp;gt; &amp;quot;2021&amp;quot;, &amp;quot;2022&amp;quot;, &amp;quot;2022&amp;quot;, &amp;quot;2020&amp;quot;, &amp;quot;2023&amp;quot;,...&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa &amp;lt;- fifa %&amp;gt;% rename(Contract_Validity = `Contract Valid Until`) %&amp;gt;%
+  mutate(Joined = mdy(Joined), 
+                Contract_Validity = ymd(Contract_Validity, truncated = 2L))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploratory-data-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Exploratory Data Analysis&lt;/h1&gt;
+&lt;div id=&#34;visualizations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizations&lt;/h2&gt;
+&lt;div id=&#34;value-distribution&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Value distribution&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% filter(value_k &amp;lt; 1000) %&amp;gt;%
+  ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = &amp;quot;lightblue&amp;quot;, color = &amp;#39;black&amp;#39;) +
+  labs(title = &amp;quot;Value distribution of players &amp;lt; million &amp;quot;, x = &amp;quot;Value in K €&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% filter(value_k &amp;gt; 1000) %&amp;gt;%
+  ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = &amp;quot;lightblue&amp;quot;, color = &amp;#39;black&amp;#39;) +
+  labs(title = &amp;quot;Value distribution of players &amp;gt;  1 million&amp;quot;, x = &amp;quot;Value in €&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-14-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;distribution-of-wage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Distribution of wage&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% filter(Wage &amp;lt; 100) %&amp;gt;%
+  ggplot(aes(x = Wage)) + geom_histogram(size = 1.2, fill = &amp;quot;lightblue&amp;quot;, color = &amp;#39;black&amp;#39;) + labs(title = &amp;quot;Distribution of wage &amp;lt; 100k €&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% filter(Wage &amp;gt; 100) %&amp;gt;%
+  ggplot(aes(x = Wage)) + geom_histogram(size = 1.2, fill = &amp;quot;lightblue&amp;quot;, color = &amp;#39;black&amp;#39;) + labs(title = &amp;quot;Distribution of wage &amp;gt; 100k €&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-16-1.png&#34; width=&#34;672&#34; /&gt;
+### Correlation between wage and value&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;%
+  ggplot(aes(x = value_k, y = Wage)) +
+  geom_point(alpha = 1/3) + labs(title = &amp;quot;Correlation between value and wage&amp;quot;, x = &amp;quot;Value (in thousands €)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;time-spent-in-current-club&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Time spent in current club&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa &amp;lt;- fifa %&amp;gt;% 
+  mutate(months_in_current_club = interval(Joined, ymd(2019, truncated = 2L))/months(1))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;link-between-time-spent-in-current-club-and-wage&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Link between time spent in current club and wage&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;%
+  ggplot(aes(x = months_in_current_club, y = Wage)) +
+  geom_point() + labs(x = &amp;quot;Number of months&amp;quot;, y = &amp;quot;Wage (thousands €)&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There is not obvious relationship between time spent in a club and the wage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-are-the-top-nationality-of-the-players&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What are the top nationality of the players&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;% group_by(Nationality) %&amp;gt;%
+  summarize(count = n()) %&amp;gt;%
+  treemap(index = &amp;quot;Nationality&amp;quot;, vSize = &amp;quot;count&amp;quot;, title = &amp;quot;Nationality of players&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-20-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This quite interesting. Out of the Fist five nationalities, 4 are European countries. Football is really popular in Europe in Europe.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-clubs-have-the-highest-spendings-for-their-players&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Which clubs have the highest spendings for their players&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fifa %&amp;gt;%
+  group_by(Club) %&amp;gt;% summarize(spending = sum(Wage)) %&amp;gt;% top_n(35) %&amp;gt;%
+  ggplot(aes(y = spending, x = reorder(Club, spending))) + 
+           geom_bar(stat = &amp;quot;identity&amp;quot;) + coord_flip() + 
+  labs(y = &amp;quot;Total wages (in thousands €)&amp;quot;, x = &amp;quot;Clubs&amp;quot;, title = &amp;quot;Clubs spendings in wages&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Selecting by spending&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cluster-analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Cluster Analysis&lt;/h1&gt;
+&lt;p&gt;In this section we want to study how can we gather the players based on their characteristics. We will use all the technical columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(FactoMineR)
+library(factoextra)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since I am not a football professional I’m going to use the columns that mean something in this cluster analysis.
+Let’s select the columns&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(fifa)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 92
+##      X1     ID Name    Age Photo Nationality Flag  Overall Potential Club 
+##   &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;   &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;
+## 1     0 158023 L. M~    31 http~ Argentina   http~      94        94 FC B~
+## 2     1  20801 Cris~    33 http~ Portugal    http~      94        94 Juve~
+## 3     2 190871 Neym~    26 http~ Brazil      http~      92        93 Pari~
+## 4     3 193080 De G~    27 http~ Spain       http~      91        93 Manc~
+## 5     4 192985 K. D~    27 http~ Belgium     http~      91        92 Manc~
+## 6     5 183277 E. H~    27 http~ Belgium     http~      91        91 Chel~
+## # ... with 82 more variables: `Club Logo` &amp;lt;chr&amp;gt;, raw_value &amp;lt;chr&amp;gt;,
+## #   unit_value &amp;lt;chr&amp;gt;, Wage &amp;lt;dbl&amp;gt;, Special &amp;lt;dbl&amp;gt;, `Preferred Foot` &amp;lt;chr&amp;gt;,
+## #   `International Reputation` &amp;lt;dbl&amp;gt;, `Weak Foot` &amp;lt;dbl&amp;gt;, `Skill
+## #   Moves` &amp;lt;dbl&amp;gt;, `Work Rate` &amp;lt;chr&amp;gt;, `Body Type` &amp;lt;chr&amp;gt;, `Real Face` &amp;lt;chr&amp;gt;,
+## #   Position &amp;lt;chr&amp;gt;, `Jersey Number` &amp;lt;dbl&amp;gt;, Joined &amp;lt;date&amp;gt;, `Loaned
+## #   From` &amp;lt;chr&amp;gt;, Contract_Validity &amp;lt;date&amp;gt;, Height &amp;lt;chr&amp;gt;, Weight &amp;lt;chr&amp;gt;,
+## #   LS &amp;lt;chr&amp;gt;, ST &amp;lt;chr&amp;gt;, RS &amp;lt;chr&amp;gt;, LW &amp;lt;chr&amp;gt;, LF &amp;lt;chr&amp;gt;, CF &amp;lt;chr&amp;gt;, RF &amp;lt;chr&amp;gt;,
+## #   RW &amp;lt;chr&amp;gt;, LAM &amp;lt;chr&amp;gt;, CAM &amp;lt;chr&amp;gt;, RAM &amp;lt;chr&amp;gt;, LM &amp;lt;chr&amp;gt;, LCM &amp;lt;chr&amp;gt;,
+## #   CM &amp;lt;chr&amp;gt;, RCM &amp;lt;chr&amp;gt;, RM &amp;lt;chr&amp;gt;, LWB &amp;lt;chr&amp;gt;, LDM &amp;lt;chr&amp;gt;, CDM &amp;lt;chr&amp;gt;,
+## #   RDM &amp;lt;chr&amp;gt;, RWB &amp;lt;chr&amp;gt;, LB &amp;lt;chr&amp;gt;, LCB &amp;lt;chr&amp;gt;, CB &amp;lt;chr&amp;gt;, RCB &amp;lt;chr&amp;gt;,
+## #   RB &amp;lt;chr&amp;gt;, Crossing &amp;lt;dbl&amp;gt;, Finishing &amp;lt;dbl&amp;gt;, HeadingAccuracy &amp;lt;dbl&amp;gt;,
+## #   ShortPassing &amp;lt;dbl&amp;gt;, Volleys &amp;lt;dbl&amp;gt;, Dribbling &amp;lt;dbl&amp;gt;, Curve &amp;lt;dbl&amp;gt;,
+## #   FKAccuracy &amp;lt;dbl&amp;gt;, LongPassing &amp;lt;dbl&amp;gt;, BallControl &amp;lt;dbl&amp;gt;,
+## #   Acceleration &amp;lt;dbl&amp;gt;, SprintSpeed &amp;lt;dbl&amp;gt;, Agility &amp;lt;dbl&amp;gt;, Reactions &amp;lt;dbl&amp;gt;,
+## #   Balance &amp;lt;dbl&amp;gt;, ShotPower &amp;lt;dbl&amp;gt;, Jumping &amp;lt;dbl&amp;gt;, Stamina &amp;lt;dbl&amp;gt;,
+## #   Strength &amp;lt;dbl&amp;gt;, LongShots &amp;lt;dbl&amp;gt;, Aggression &amp;lt;dbl&amp;gt;,
+## #   Interceptions &amp;lt;dbl&amp;gt;, Positioning &amp;lt;dbl&amp;gt;, Vision &amp;lt;dbl&amp;gt;, Penalties &amp;lt;dbl&amp;gt;,
+## #   Composure &amp;lt;dbl&amp;gt;, Marking &amp;lt;dbl&amp;gt;, StandingTackle &amp;lt;dbl&amp;gt;,
+## #   SlidingTackle &amp;lt;dbl&amp;gt;, GKDiving &amp;lt;dbl&amp;gt;, GKHandling &amp;lt;dbl&amp;gt;,
+## #   GKKicking &amp;lt;dbl&amp;gt;, GKPositioning &amp;lt;dbl&amp;gt;, GKReflexes &amp;lt;dbl&amp;gt;, `Release
+## #   Clause` &amp;lt;chr&amp;gt;, value_k &amp;lt;dbl&amp;gt;, months_in_current_club &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pca_data &amp;lt;- fifa[c(3:4,56:89)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Remove duplicate players
+pca_data &amp;lt;- pca_data %&amp;gt;% filter(!duplicated(Name))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Clean the missing values&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pca_data &amp;lt;- na.omit(pca_data)
+pca_data &amp;lt;- data.frame(pca_data, row.names = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(pca_data)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                   Age Crossing Finishing HeadingAccuracy ShortPassing
+## L. Messi           31       84        95              70           90
+## Cristiano Ronaldo  33       84        94              89           81
+## Neymar Jr          26       79        87              62           84
+## De Gea             27       17        13              21           50
+## K. De Bruyne       27       93        82              55           92
+## E. Hazard          27       81        84              61           89
+##                   Volleys Dribbling Curve FKAccuracy LongPassing
+## L. Messi               86        97    93         94          87
+## Cristiano Ronaldo      87        88    81         76          77
+## Neymar Jr              84        96    88         87          78
+## De Gea                 13        18    21         19          51
+## K. De Bruyne           82        86    85         83          91
+## E. Hazard              80        95    83         79          83
+##                   BallControl Acceleration SprintSpeed Agility Reactions
+## L. Messi                   96           91          86      91        95
+## Cristiano Ronaldo          94           89          91      87        96
+## Neymar Jr                  95           94          90      96        94
+## De Gea                     42           57          58      60        90
+## K. De Bruyne               91           78          76      79        91
+## E. Hazard                  94           94          88      95        90
+##                   Balance ShotPower Jumping Stamina Strength LongShots
+## L. Messi               95        85      68      72       59        94
+## Cristiano Ronaldo      70        95      95      88       79        93
+## Neymar Jr              84        80      61      81       49        82
+## De Gea                 43        31      67      43       64        12
+## K. De Bruyne           77        91      63      90       75        91
+## E. Hazard              94        82      56      83       66        80
+##                   Aggression Interceptions Positioning Vision Penalties
+## L. Messi                  48            22          94     94        75
+## Cristiano Ronaldo         63            29          95     82        85
+## Neymar Jr                 56            36          89     87        81
+## De Gea                    38            30          12     68        40
+## K. De Bruyne              76            61          87     94        79
+## E. Hazard                 54            41          87     89        86
+##                   Composure Marking StandingTackle SlidingTackle GKDiving
+## L. Messi                 96      33             28            26        6
+## Cristiano Ronaldo        95      28             31            23        7
+## Neymar Jr                94      27             24            33        9
+## De Gea                   68      15             21            13       90
+## K. De Bruyne             88      68             58            51       15
+## E. Hazard                91      34             27            22       11
+##                   GKHandling GKKicking GKPositioning GKReflexes
+## L. Messi                  11        15            14          8
+## Cristiano Ronaldo         11        15            14         11
+## Neymar Jr                  9        15            15         11
+## De Gea                    85        87            88         94
+## K. De Bruyne              13         5            10         13
+## E. Hazard                 12         6             8          8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pca &amp;lt;- PCA(pca_data, quanti.sup = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-28-1.png&#34; width=&#34;672&#34; /&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-28-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Let’s now try to see how correlated are the variables and discover how they separate the players.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_var(pca, repel = T) + theme_economist()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-29-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dimdesc(pca)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $Dim.1
+## $Dim.1$quanti
+##                 correlation       p.value
+## BallControl       0.9575674  0.000000e+00
+## Dribbling         0.9292212  0.000000e+00
+## ShortPassing      0.9163976  0.000000e+00
+## Positioning       0.8718798  0.000000e+00
+## Crossing          0.8705012  0.000000e+00
+## ShotPower         0.8563707  0.000000e+00
+## Curve             0.8522071  0.000000e+00
+## LongShots         0.8517836  0.000000e+00
+## LongPassing       0.8126963  0.000000e+00
+## Stamina           0.8073784  0.000000e+00
+## Volleys           0.8056571  0.000000e+00
+## FKAccuracy        0.7951769  0.000000e+00
+## Penalties         0.7871776  0.000000e+00
+## Finishing         0.7807105  0.000000e+00
+## Agility           0.7243417  0.000000e+00
+## HeadingAccuracy   0.7159097  0.000000e+00
+## Acceleration      0.7123085  0.000000e+00
+## SprintSpeed       0.7041238  0.000000e+00
+## Vision            0.7039064  0.000000e+00
+## Composure         0.6750123  0.000000e+00
+## Aggression        0.6369436  0.000000e+00
+## Balance           0.6350150  0.000000e+00
+## Marking           0.5407773  0.000000e+00
+## StandingTackle    0.5111614  0.000000e+00
+## Interceptions     0.5095279  0.000000e+00
+## SlidingTackle     0.4793948  0.000000e+00
+## Reactions         0.4262738  0.000000e+00
+## Jumping           0.2632617 8.458303e-270
+## Strength          0.1226311  1.883645e-58
+## Age               0.1027927  1.652906e-41
+## GKKicking        -0.8483274  0.000000e+00
+## GKPositioning    -0.8484342  0.000000e+00
+## GKHandling       -0.8517354  0.000000e+00
+## GKReflexes       -0.8525332  0.000000e+00
+## GKDiving         -0.8533499  0.000000e+00
+## 
+## 
+## $Dim.2
+## $Dim.2$quanti
+##                 correlation       p.value
+## Finishing        0.48869080  0.000000e+00
+## Volleys          0.39497273  0.000000e+00
+## Agility          0.36161221  0.000000e+00
+## Positioning      0.33718933  0.000000e+00
+## Vision           0.33672344  0.000000e+00
+## Penalties        0.32794746  0.000000e+00
+## LongShots        0.32309363  0.000000e+00
+## Balance          0.30934699  0.000000e+00
+## Acceleration     0.28467696 4.463986e-317
+## Curve            0.26913331 2.457159e-282
+## SprintSpeed      0.23622994 4.019428e-216
+## Dribbling        0.23147968 2.312527e-207
+## FKAccuracy       0.22333367 8.455848e-193
+## GKKicking        0.18696811 1.054205e-134
+## ShotPower        0.18605096 2.212049e-133
+## GKHandling       0.18586050 4.153619e-133
+## GKDiving         0.18469723 1.919634e-131
+## GKReflexes       0.18462331 2.446956e-131
+## GKPositioning    0.18245441 2.894091e-128
+## Crossing         0.09501422  1.090711e-35
+## BallControl      0.08345967  6.815662e-28
+## Composure       -0.01643873  3.134159e-02
+## Reactions       -0.03010491  8.047868e-05
+## ShortPassing    -0.06956196  7.525288e-20
+## Age             -0.11049258  1.004341e-47
+## LongPassing     -0.14743043  6.184010e-84
+## Stamina         -0.22397254 6.395073e-194
+## Jumping         -0.25648884 9.891799e-256
+## HeadingAccuracy -0.39038523  0.000000e+00
+## Strength        -0.51113647  0.000000e+00
+## Aggression      -0.57430161  0.000000e+00
+## Marking         -0.74305466  0.000000e+00
+## Interceptions   -0.77149466  0.000000e+00
+## StandingTackle  -0.79446128  0.000000e+00
+## SlidingTackle   -0.80109110  0.000000e+00
+## 
+## 
+## $Dim.3
+## $Dim.3$quanti
+##                correlation       p.value
+## Reactions       0.73323051  0.000000e+00
+## Age             0.55111367  0.000000e+00
+## Composure       0.53883124  0.000000e+00
+## GKPositioning   0.41000841  0.000000e+00
+## GKHandling      0.40447867  0.000000e+00
+## GKReflexes      0.40429174  0.000000e+00
+## GKKicking       0.40274211  0.000000e+00
+## GKDiving        0.40114161  0.000000e+00
+## Strength        0.38320668  0.000000e+00
+## Vision          0.37647732  0.000000e+00
+## LongPassing     0.24431357 1.735274e-231
+## FKAccuracy      0.20506235 3.258515e-162
+## LongShots       0.17944771 4.544011e-124
+## ShotPower       0.17399244 1.206321e-116
+## Aggression      0.17287201 3.768740e-115
+## Curve           0.15234669  1.456918e-89
+## ShortPassing    0.14868943  2.335257e-85
+## Volleys         0.14289355  6.527233e-79
+## Interceptions   0.11498692  1.455053e-51
+## Jumping         0.09745726  1.818163e-37
+## Penalties       0.08770203  1.226461e-30
+## Finishing       0.06213573  3.817631e-16
+## BallControl     0.04354398  1.166468e-08
+## Crossing        0.04175925  4.486744e-08
+## Positioning     0.03431513  6.966596e-06
+## Marking         0.02828461  2.118418e-04
+## StandingTackle  0.02147269  4.922562e-03
+## Stamina        -0.02418791  1.536283e-03
+## Dribbling      -0.03738368  9.735851e-07
+## Agility        -0.14372548  8.049441e-80
+## Balance        -0.26358489 1.759919e-270
+## SprintSpeed    -0.29679997  0.000000e+00
+## Acceleration   -0.30572583  0.000000e+00&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_contrib(pca, choice = &amp;quot;var&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in fviz_pca_contrib(pca, choice = &amp;quot;var&amp;quot;): The function
+## fviz_pca_contrib() is deprecated. Please use the function fviz_contrib()
+## which can handle outputs of PCA, CA and MCA functions.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-31-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_contrib(pca, choice = &amp;quot;var&amp;quot;, axes = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning in fviz_pca_contrib(pca, choice = &amp;quot;var&amp;quot;, axes = 2): The function
+## fviz_pca_contrib() is deprecated. Please use the function fviz_contrib()
+## which can handle outputs of PCA, CA and MCA functions.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-32-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_ind(pca, geom = &amp;quot;point&amp;quot;, alpha.ind = &amp;quot;contrib&amp;quot;, addEllipses = T) + theme_economist()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-33-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_ind(pca, geom = &amp;quot;point&amp;quot;, 
+             alpha.ind = &amp;quot;contrib&amp;quot;, addEllipses = T) + theme_economist() +
+  xlim(c(-6, -10))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 16778 rows containing non-finite values (stat_ellipse).&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 16778 rows containing missing values (geom_point).&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 1 rows containing missing values (geom_vline).&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-34-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fviz_pca_ind(pca, geom = &amp;quot;text&amp;quot;, 
+             select.ind = list(name = c(&amp;quot;L. Messi&amp;quot;, 
+                                        &amp;quot;Cristiano Ronaldo&amp;quot;, &amp;quot;Neymar Jr&amp;quot;, &amp;quot;E. Hazard&amp;quot;))) + 
+  theme_economist()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/english/post/football-cluster_files/figure-html/unnamed-chunk-35-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
