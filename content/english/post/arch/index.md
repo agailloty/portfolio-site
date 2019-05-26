@@ -11,7 +11,7 @@ image:
 projects: []
 subtitle: 
 summary: Les modélisations avec R
-math = true
+mathjax = true
 tags: [R, Econométrie]
 title: Modélisations ARCH et GARCH
 ---
