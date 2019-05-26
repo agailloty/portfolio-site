@@ -32,10 +32,5 @@ subtitle = ""
   name = "Multivariate statistics"
   description = ""  
   
-[[feature]]
-  icon = "camera-retro"
-  icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
 
 +++
