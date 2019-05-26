@@ -52,7 +52,7 @@ map_dbl(fifa, function(x) sum(is.na(x))/length(x)*100) %>%
   labs(y = "% of missing values", x = "Columns", title = "Missing values")
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-3-1.png" width="768" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-3-1.png" width="768" />
 
 The loaned from column contains lots of missing values. All the other columns have between 0 and 10% missing values. Overall the dataset contains few missing values.
 
@@ -207,7 +207,7 @@ fifa %>% filter(value_k < 1000) %>%
   labs(title = "Value distribution of players < million ", x = "Value in €")
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 ```r
 fifa %>% filter(value_k > 1000) %>%
@@ -215,7 +215,7 @@ fifa %>% filter(value_k > 1000) %>%
   labs(title = "Value distribution of players >  1 million", x = "Value in €")
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 
 ## Distribution of wage
 
@@ -228,7 +228,7 @@ fifa %>%
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 ### Correlation between wage and value
 
@@ -239,7 +239,7 @@ fifa %>%
   geom_point(alpha = 1/3) + labs(title = "Correlation between value and wage", x = "Value (in thousands €)")
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 ## Time spent in current club
 
@@ -256,7 +256,7 @@ fifa %>%
   geom_point() + labs(x = "Number of months", y = "Wage (thousands €)")
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-18-1.png" width="672" />
 
 There is not obvious relationship between time spent in a club and the wage. 
 
@@ -269,7 +269,7 @@ fifa %>% group_by(Nationality) %>%
   treemap(index = "Nationality", vSize = "count", title = "Nationality of players")
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 This quite interesting. Out of the Fist five nationalities, 4 are European countries. Football is really popular in Europe in Europe.
 
@@ -288,7 +288,7 @@ fifa %>%
 ## Selecting by spending
 ```
 
-<img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<img src="/french/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 # Cluster Analysis
 

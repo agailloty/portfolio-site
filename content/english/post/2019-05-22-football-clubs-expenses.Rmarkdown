@@ -37,7 +37,7 @@ print(paste("The dataset contains", dim(fifa)[1], "observations and", dim(fifa)[
 With this said let's check the consistency of the dataset by looking for missing values and understanding what each column stands for.
 
 ```{r, fig.height=11, fig.width = 8}
-theme_set(theme_solarized_2())
+theme_set(theme_economist())
 map_dbl(fifa, function(x) sum(is.na(x))/length(x)*100) %>%
   stack() %>%
   ggplot(aes(x = reorder(ind,values), y = values)) + 
@@ -116,7 +116,7 @@ fifa <- fifa %>% rename(Contract_Validity = `Contract Valid Until`) %>%
 ```{r, message=FALSE}
 fifa %>% filter(value_k < 1000) %>%
   ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = "lightblue", color = 'black') +
-  labs(title = "Value distribution of players < million ", x = "Value in €")
+  labs(title = "Value distribution of players < million ", x = "Value in K €")
 ```
 ```{r, message=FALSE}
 fifa %>% filter(value_k > 1000) %>%
@@ -126,10 +126,14 @@ fifa %>% filter(value_k > 1000) %>%
 
 ## Distribution of wage
 ```{r, warning=FALSE}
-fifa %>%
-  ggplot(aes(x = Wage)) + geom_histogram() + labs(title = "Distribution of wage")
+fifa %>% filter(Wage < 100) %>%
+  ggplot(aes(x = Wage)) + geom_histogram(size = 1.2, fill = "lightblue", color = 'black') + labs(title = "Distribution of wage < 100k €")
 ```
 
+```{r, warning=FALSE}
+fifa %>% filter(Wage > 100) %>%
+  ggplot(aes(x = Wage)) + geom_histogram(size = 1.2, fill = "lightblue", color = 'black') + labs(title = "Distribution of wage > 100k €")
+```
 ### Correlation between wage and value
 
 ```{r, warning=FALSE}
@@ -167,7 +171,7 @@ This quite interesting. Out of the Fist five nationalities, 4 are European count
 
 ```{r, fig.height = 10}
 fifa %>%
-  group_by(Club) %>% summarize(spending = sum(Wage)) %>% top_n(30) %>%
+  group_by(Club) %>% summarize(spending = sum(Wage)) %>% top_n(35) %>%
   ggplot(aes(y = spending, x = reorder(Club, spending))) + 
            geom_bar(stat = "identity") + coord_flip() + 
   labs(y = "Total wages (in thousands €)", x = "Clubs", title = "Clubs spendings in wages")
@@ -183,3 +187,66 @@ library(factoextra)
 ```
 
 Since I am not a football professional I'm going to use the columns that mean something in this cluster analysis.
+Let's select the columns
+
+```{r}
+head(fifa)
+```
+```{r}
+pca_data <- fifa[c(3:4,56:89)]
+```
+```{r}
+# Remove duplicate players
+pca_data <- pca_data %>% filter(!duplicated(Name))
+```
+
+Clean the missing values
+
+```{r}
+pca_data <- na.omit(pca_data)
+pca_data <- data.frame(pca_data, row.names = 1)
+```
+
+```{r}
+head(pca_data)
+```
+
+
+```{r}
+pca <- PCA(pca_data, quanti.sup = 1)
+```
+
+Let's now try to see how correlated are the variables and discover how they separate the players.
+
+```{r, fig.width=8, fig.height=8}
+fviz_pca_var(pca, repel = T) + theme_economist()
+```
+```{r}
+dimdesc(pca)
+```
+
+```{r}
+fviz_pca_contrib(pca, choice = "var")
+```
+
+```{r}
+fviz_pca_contrib(pca, choice = "var", axes = 2)
+```
+
+
+```{r}
+fviz_pca_ind(pca, geom = "point", alpha.ind = "contrib", addEllipses = T) + theme_economist()
+```
+
+```{r}
+fviz_pca_ind(pca, geom = "point", 
+             alpha.ind = "contrib", addEllipses = T) + theme_economist() +
+  xlim(c(-6, -10))
+```
+```{r}
+fviz_pca_ind(pca, geom = "text", 
+             select.ind = list(name = c("L. Messi", 
+                                        "Cristiano Ronaldo", "Neymar Jr", "E. Hazard"))) + 
+  theme_economist()
+```
+
