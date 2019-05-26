@@ -31,6 +31,12 @@ subtitle = ""
   icon_pack = "fas"
   name = "Multivariate statistics"
   description = ""  
+
+[[feature]]
+  icon = "python"
+  icon_pack = "fas"
+  name = "Python"
+  description = "I can conduct a deep data analysis with Python using Pandas, Numpy and Matplotlib. I have some knowledge of scikit-learn."  
   
 
 +++
