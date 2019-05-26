@@ -24,8 +24,7 @@ subtitle = ""
   icon = "chart-line"
   icon_pack = "fas"
   name = "Analyse de données multidimensionnelles"
-  description = "Confronté à un jeu de données complexe j'aime utiliser les statistiques multidimensionnelles pour explorer et résumer l'information présente dans le jeu de données.
-  Bonne maîtrise de l'ACP, l'ACM, l'AFC"  
+  description = "Confronté à un jeu de données complexe j'aime utiliser les statistiques multidimensionnelles pour explorer et résumer l'information présente dans le jeu de données. Bonne maîtrise de l'ACP, l'ACM, l'AFC"  
 
 [[feature]]
   icon = "chart-line"
