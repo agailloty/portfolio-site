@@ -1,7 +1,8 @@
+---
 authors:
 - admin
 categories: [Python]
-date: "2019-05-26T00:00:00Z"
+date: "2019-05-26"
 draft: false
 featured: false
 image:
@@ -12,6 +13,7 @@ subtitle:
 summary: Adapter ses compétences aux besoins du marché du travail en scrapant les offres d'emploi
 tags: [Python,webscrape, analysis]
 title: Adapter ses compétences aux besoins du marché du travail
+---
 # Adapter ses compétences aux besoins du marché du travail
 
 ## Introduction  
