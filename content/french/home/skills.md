@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 30  # Order that this section will appear.
 
-title = "Skills"
+title = "Compétences"
 subtitle = ""
 
 # Showcase personal skills or business features.
@@ -18,18 +18,18 @@ subtitle = ""
   icon = "r-project"
   icon_pack = "fab"
   name = "R"
-  description = "90%"
+  description = "Très bonne connaissance du langage. Utilisation intensive du Tidyverse pour les manipulations avancées de données"
   
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
-  name = "Statistics"
-  description = "100%"  
-  
-[[feature]]
-  icon = "camera-retro"
-  icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "Analyse de données multidimensionnelles"
+  description = "Confronté à un jeu de données complexe j'aime utiliser les statistiques multidimensionnelles pour explorer et résumer l'information présente dans le jeu de données.
+  Bonne maîtrise de l'ACP, l'ACM, l'AFC"  
 
+[[feature]]
+  icon = "chart-line"
+  icon_pack = "fas"
+  name = "Econométrie Appliquée"
+  description = "Modélisation économétrique à la fois des données transversales et des séries temporelles"  
 +++
