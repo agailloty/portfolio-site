@@ -1,4 +1,4 @@
-+++
+ï»¿+++
 # A Recent Blog Posts section created with the Pages widget.
 # This section displays recent blog posts from `content/post/`.
 
@@ -8,7 +8,7 @@ active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
 title = "Articles"
-subtitle = "Articles récemment publiés"
+subtitle = "Articles rÃ©cemment publiÃ©s"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.
