@@ -1,4 +1,4 @@
----
++++
 authors:
 - admin
 categories: []
@@ -13,7 +13,7 @@ subtitle:
 summary: 
 tags: []
 title: Modélisations ARCH et GARCH
-
++++
 
 # Les modélisations ARCH et GARCH
 
