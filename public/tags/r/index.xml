@@ -22,33 +22,6 @@ Reading and preparing the data fifa &amp;lt;- read_csv(&amp;quot;data.csv&amp;qu
     </item>
     
     <item>
-      <title>Football clubs spendings</title>
-      <link>/post/football-clubs-spendings/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/football-clubs-spendings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Suicide in the world</title>
-      <link>/post/suicide-in-the-world/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/suicide-in-the-world/</guid>
-      <description>This is my first post. I&amp;rsquo;m discovering how the site works.</description>
-    </item>
-    
-    <item>
-      <title>sample</title>
-      <link>/post/sample/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/sample/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>USA International Trade</title>
       <link>/project/usa-international-trade/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>

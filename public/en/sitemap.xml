@@ -94,8 +94,33 @@
   </url>
   
   <url>
+    <loc>/post/2019-05-26-webscrape/</loc>
+    <lastmod>2019-05-26T12:42:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-05-26T12:42:57+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>/post/2019-05-26-fifa-football-clubs-analysis/</loc>
+    <lastmod>2019-05-26T12:18:38+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -107,6 +132,33 @@
                 hreflang="en"
                 href="/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>/post/content/post/cluster-analysis/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/categories/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/categories/r/"
+                />
+  </url>
+  
+  <url>
+    <loc>/categories/cluster/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -135,52 +187,6 @@
   </url>
   
   <url>
-    <loc>/post/football-clubs-spendings/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/football-clubs-spendings/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/football-clubs-spendings/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/"
-                />
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/categories/r/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/categories/r/"
-                />
-  </url>
-  
-  <url>
     <loc>/tags/r/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -193,36 +199,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/tags/r/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/suicide-in-the-world/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/suicide-in-the-world/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/suicide-in-the-world/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/suicide-with-adjust/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/suicide-with-adjust/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/suicide-with-adjust/"
                 />
   </url>
   
@@ -255,21 +231,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/tags/analysis/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/sample/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/sample/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/sample/"
                 />
   </url>
   
@@ -769,7 +730,7 @@
   </url>
   
   <url>
-    <loc>/post/football-cluster/</loc>
+    <loc>/post/football-cluster.rmarkdown/</loc>
   </url>
   
 </urlset>

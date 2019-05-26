@@ -32,7 +32,7 @@ map_dbl(fifa, function(x) sum(is.na(x))/length(x)*100) %&gt;%
   ggplot(aes(x = reorder(ind,values), y = values)) + 
   geom_bar(stat = &#39;identity&#39;) + coord_flip() +
   labs(y = &quot;% of missing values&quot;, x = &quot;Columns&quot;, title = &quot;Missing values&quot;)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 <p>The loaned from column contains lots of missing values. All the other columns have between 0 and 10% missing values. Overall the dataset contains few missing values.</p>
 </div>
 <div id="columns-content" class="section level2">
@@ -743,11 +743,11 @@ fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot
 <pre class="r"><code>fifa %&gt;% filter(value_k &lt; 1000) %&gt;%
   ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = &quot;lightblue&quot;, color = &#39;black&#39;) +
   labs(title = &quot;Value distribution of players &lt; million &quot;, x = &quot;Value in K €&quot;)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <pre class="r"><code>fifa %&gt;% filter(value_k &gt; 1000) %&gt;%
   ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = &quot;lightblue&quot;, color = &#39;black&#39;) +
   labs(title = &quot;Value distribution of players &gt;  1 million&quot;, x = &quot;Value in €&quot;)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 </div>
 <div id="distribution-of-wage" class="section level2">
@@ -755,16 +755,16 @@ fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot
 <pre class="r"><code>fifa %&gt;% filter(Wage &lt; 100) %&gt;%
   ggplot(aes(x = Wage)) + geom_histogram(size = 1.2, fill = &quot;lightblue&quot;, color = &#39;black&#39;) + labs(title = &quot;Distribution of wage &lt; 100k €&quot;)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <pre class="r"><code>fifa %&gt;% filter(Wage &gt; 100) %&gt;%
   ggplot(aes(x = Wage)) + geom_histogram(size = 1.2, fill = &quot;lightblue&quot;, color = &#39;black&#39;) + labs(title = &quot;Distribution of wage &gt; 100k €&quot;)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 ### Correlation between wage and value</p>
 <pre class="r"><code>fifa %&gt;%
   ggplot(aes(x = value_k, y = Wage)) +
   geom_point(alpha = 1/3) + labs(title = &quot;Correlation between value and wage&quot;, x = &quot;Value (in thousands €)&quot;)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <div id="time-spent-in-current-club" class="section level2">
 <h2>Time spent in current club</h2>
@@ -775,7 +775,7 @@ fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot
 <pre class="r"><code>fifa %&gt;%
   ggplot(aes(x = months_in_current_club, y = Wage)) +
   geom_point() + labs(x = &quot;Number of months&quot;, y = &quot;Wage (thousands €)&quot;)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>There is not obvious relationship between time spent in a club and the wage.</p>
 </div>
 </div>
@@ -784,7 +784,7 @@ fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot
 <pre class="r"><code>fifa %&gt;% group_by(Nationality) %&gt;%
   summarize(count = n()) %&gt;%
   treemap(index = &quot;Nationality&quot;, vSize = &quot;count&quot;, title = &quot;Nationality of players&quot;)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>This quite interesting. Out of the Fist five nationalities, 4 are European countries. Football is really popular in Europe in Europe.</p>
 </div>
 <div id="which-clubs-have-the-highest-spendings-for-their-players" class="section level2">
@@ -795,7 +795,7 @@ fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot
            geom_bar(stat = &quot;identity&quot;) + coord_flip() + 
   labs(y = &quot;Total wages (in thousands €)&quot;, x = &quot;Clubs&quot;, title = &quot;Clubs spendings in wages&quot;)</code></pre>
 <pre><code>## Selecting by spending</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 </div>
 </div>
 <div id="cluster-analysis" class="section level1">
@@ -1085,25 +1085,25 @@ pca_data &lt;- data.frame(pca_data, row.names = 1)</code></pre>
 </tbody>
 </table>
 <pre class="r"><code>pca &lt;- PCA(pca_data, quanti.sup = 1)</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-27-1.png" width="672" /><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-27-1.png" width="672" /><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
 <p>Let’s now try to see how correlated are the variables and discover how they separate the players.</p>
 <pre class="r"><code>fviz_pca_var(pca, repel = T) + theme_economist()</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-28-1.png" width="768" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-28-1.png" width="768" /></p>
 <pre class="r"><code>fviz_pca_contrib(pca, choice = &quot;var&quot;)</code></pre>
 <pre><code>## Warning in fviz_pca_contrib(pca, choice = &quot;var&quot;): The function
 ## fviz_pca_contrib() is deprecated. Please use the function fviz_contrib()
 ## which can handle outputs of PCA, CA and MCA functions.</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <pre class="r"><code>fviz_pca_contrib(pca, choice = &quot;var&quot;, axes = 2)</code></pre>
 <pre><code>## Warning in fviz_pca_contrib(pca, choice = &quot;var&quot;, axes = 2): The function
 ## fviz_pca_contrib() is deprecated. Please use the function fviz_contrib()
 ## which can handle outputs of PCA, CA and MCA functions.</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <pre class="r"><code>fviz_pca_ind(pca, geom = &quot;point&quot;, alpha.ind = &quot;contrib&quot;, addEllipses = T) + theme_economist()</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>fviz_pca_ind(pca, geom = &quot;text&quot;, 
              select.ind = list(name = c(&quot;L. Messi&quot;, 
                                         &quot;Cristiano Ronaldo&quot;, &quot;Neymar Jr&quot;, &quot;E. Hazard&quot;))) + 
   theme_economist()</code></pre>
-<p><img src="/english/post/football-cluster_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="/english/post/football-cluster.Rmarkdown_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 </div>
