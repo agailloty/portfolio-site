@@ -1,10 +1,18 @@
----
-title: "Expenses"
-author: "Axel-Cleris Gailloty"
-date: "26/05/2019"
-output:
-  html_document:
-    toc : true
+﻿---
+authors:
+- admin
+categories: [R, data analysis]
+date: "2019-05-22"
+draft: false
+featured: false
+image:
+  caption: ""
+  focal_point: ""
+projects: []
+subtitle: 
+summary: How much do football clubs invest in their players ?
+tags: [R, clustering]
+title: Football clubs spendings
 ---
 
 ```{r, message=FALSE, warning = FALSE}
