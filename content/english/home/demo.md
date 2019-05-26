@@ -9,7 +9,7 @@ active = true  # Activate this widget? true/false
 weight = 15  # Order that this section will appear.
 
 title = "Welcome !"
-subtitle = ""
+subtitle = "Welcome to my **personal website**, I'm glad you pass by here!"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -47,4 +47,3 @@ subtitle = ""
  css_class = ""
 +++
 
-Welcome to my **personal website**, I'm glad you pass by here!
