@@ -48,7 +48,5 @@ subtitle = ""
 +++
 
 
-
-
 Welcome to my **personal website**, I'm glad you pass by here!
 
