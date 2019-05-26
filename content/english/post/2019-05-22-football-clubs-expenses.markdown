@@ -1,19 +1,19 @@
 ---
-title: Football clubs expenses
-author: Axel-Cleris Gailloty
-date: '2019-05-22'
-slug: football-clubs-expenses
-categories:
-  - R
-tags:
-  - R
-  - visualizations
-  - analysis
+authors:
+- admin
+categories: [R, data analysis]
+date: "2019-05-22"
+draft: false
+featured: false
 image:
-  caption: ''
-  focal_point: ''
+  caption: ""
+  focal_point: ""
+projects: []
+subtitle: 
+summary: How much do football clubs invest in their players ?
+tags: [R, clustering]
+title: Football clubs spendings
 ---
-
 ```r
 # Load the packages 
 library(tidyverse)
