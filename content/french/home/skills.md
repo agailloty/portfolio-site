@@ -31,4 +31,10 @@ subtitle = ""
   icon_pack = "fas"
   name = "Econométrie Appliquée"
   description = "Modélisation économétrique à la fois des données transversales et des séries temporelles"  
+  
+[feature]]
+  icon = "python"
+  icon_pack = "fas"
+  name = "Python"
+  description = "Capable d'utiliser les librairies  Pandas, Numpy, Matplotlib et scikit-learn pour conduire des projets de data science et de Machine Learning."  
 +++
