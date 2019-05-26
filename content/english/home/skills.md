@@ -34,7 +34,7 @@ subtitle = ""
 
 [[feature]]
   icon = "python"
-  icon_pack = "fas"
+  icon_pack = "fab"
   name = "Python"
   description = "I can conduct a deep data analysis with Python using Pandas, Numpy and Matplotlib. I have some knowledge of scikit-learn."  
   

@@ -34,7 +34,7 @@ subtitle = ""
   
 [[feature]]
   icon = "python"
-  icon_pack = "fas"
+  icon_pack = "fab"
   name = "Python"
   description = "Capable d'utiliser les librairies  Pandas, Numpy, Matplotlib et scikit-learn pour conduire des projets de data science et de Machine Learning."  
 +++
