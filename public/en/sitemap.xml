@@ -94,31 +94,6 @@
   </url>
   
   <url>
-    <loc>/post/2019-05-26-webscrape/</loc>
-    <lastmod>2019-05-26T12:42:57+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-05-26T12:42:57+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/2019-05-26-fifa-football-clubs-analysis/</loc>
-    <lastmod>2019-05-26T12:18:38+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -144,11 +119,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-22-football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="fr"
                 href="/fr/post/2019-05-22-football-clubs-expenses/"
                 />
@@ -156,6 +126,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="/post/football-clubs-expenses/"
+                />
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/"
                 />
   </url>
   
@@ -241,7 +226,7 @@
   
   <url>
     <loc>/authors/admin/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -252,6 +237,39 @@
                 hreflang="en"
                 href="/authors/admin/"
                 />
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/authors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/authors/"
+                />
+  </url>
+  
+  <url>
+    <loc>/categories/econom%C3%A9trie/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/econom%C3%A9trie/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/arch/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -282,22 +300,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/publication/preprint/"
-                />
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/authors/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/authors/"
                 />
   </url>
   
@@ -661,46 +663,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/publication/conference-paper/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/2019-05-22-football-clubs-expenses/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/2019-05-22-football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-22-football-clubs-expenses/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/2019-05-22-overview-suicide/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/2019-05-22-overview-suicide/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-22-overview-suicide/"
                 />
   </url>
   

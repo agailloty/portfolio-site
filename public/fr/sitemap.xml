@@ -119,11 +119,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-22-football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="fr"
                 href="/fr/post/2019-05-22-football-clubs-expenses/"
                 />
@@ -150,22 +145,6 @@
   </url>
   
   <url>
-    <loc>/fr/categories/r/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/categories/r/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/categories/r/"
-                />
-  </url>
-  
-  <url>
     <loc>/fr/tags/r/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -178,6 +157,22 @@
                 rel="alternate"
                 hreflang="fr"
                 href="/fr/tags/r/"
+                />
+  </url>
+  
+  <url>
+    <loc>/fr/categories/r/</loc>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/categories/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/categories/r/"
                 />
   </url>
   
@@ -664,11 +659,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-22-football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="fr"
                 href="/fr/post/2019-05-22-football-clubs-expenses/"
                 />
@@ -677,16 +667,6 @@
   <url>
     <loc>/fr/post/2019-05-22-overview-suicide/</loc>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-22-overview-suicide/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/2019-05-22-overview-suicide/"
-                />
   </url>
   
   <url>
