@@ -32,7 +32,7 @@ subtitle = ""
   name = "Econométrie Appliquée"
   description = "Modélisation économétrique à la fois des données transversales et des séries temporelles"  
   
-[feature]]
+[[feature]]
   icon = "python"
   icon_pack = "fas"
   name = "Python"
