@@ -14,7 +14,7 @@ summary: Etudier le taux de fertilité des femmes dans les pays européens
 tags: [R, ACP, data analysis]
 title: Analyse en composantes principales
 ---
-
+{{% toc %}}
 # L'Analyse en Composante Principale (ACP)
 ## Intuition
 L'un des clés essentiels au succès d'un projet de data science est de comprendre le problème qu'on veut bien résoudre. La plupart des data scientists affirment que plus de 70% du temps qu'ils consacrent à la résolution d'un problème donné est consacré au nettoyage de la base de donnée et à la compréhension du problème. Donc avant même d'appliquer n'importe quel algorithme de Machine Learning il faut comprendre pourquoi on fait ce choix et quels sont les bénéfices pour la résolution du problème.   
