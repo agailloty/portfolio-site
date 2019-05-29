@@ -25,11 +25,11 @@ Le terme AutoRegressive signifie qu'on regresse le modèle à partir de lui-mêm
 Nous disons qu'il y a hétéroscédasticité si dans la série temporelle il y a une ou des sous-périodes dont la variance est différente de la variance des autres périodes. Dans les séries financières, souvent la variation de la variance est souvent causée par un évennement particulier qui peut surgir sur le marché, donc si notre variance est hétéroscédastique, elle l'est **conditionnellement aux intéractions du marché** d'où le terme *conditional hetereoskedacity*.  
 La grande nouveauté qu'apporte les modèles de types ARCH est que non seulement il prend en compte la valeur de la variable à N-p périodes mais aussi le changement dans la valeur de la variance à N-p, ce faisant il améliore grandement la prévision de la volatilité.
 ### Principe du modèle ARCH
-Le cas le plus simple des modèle ARCH est le modèle ARCH(1) qui ne prend en compte que le changement d'ordre 1 de la variance de la série temporelle. Formellement elle se présente sous cette forme $$ \epsilon_t = \omega_t* \sqrt {\alpha_0 + \alpha_1*\epsilon_{t-1}{^2}}$$
-L'expression sous la parenthèse représente la variance conditionnelle. Pour simplifier cette écriture on peut dire que le processus ARCH(1) s'écrit de la manière suivante: $$\epsilon = \sigma.\omega_t$$ où $\sigma$ est l'expression obtenue plus haut.
+Le cas le plus simple des modèle ARCH est le modèle ARCH(1) qui ne prend en compte que le changement d'ordre 1 de la variance de la série temporelle. Formellement elle se présente sous cette forme $$\epsilon_t = \omega_t* \sqrt {\alpha_0 + \alpha_1*\epsilon_{t-1}{^2}}$$
+L'expression sous la parenthèse représente la variance conditionnelle. Pour simplifier cette écriture on peut dire que le processus ARCH(1) s'écrit de la manière suivante: $$\epsilon = \sigma.\omega_t$$ où $$\sigma$$ est l'expression obtenue plus haut.
 ### Principe des modèles GARCH
 Les modèles GARCH suivent le même principe que le modèle ARCH mais ajoute un second membre à l'équation qui est la moyenne mobile d'ordre q. Les modèles GARCH s'écrivent de manière globale sous cette forme:
-$$ \epsilon{^2}_t = \sum\omega_t* \sqrt {\alpha_0 + \alpha_1*\epsilon_{t-1}{^2}}$$
+$$\epsilon{^2}_t = \sum\omega_t* \sqrt {\alpha_0 + \alpha_1*\epsilon_{t-1}{^2}}$$
 
 $$\sigma^2_t = \alpha_0 + \sum\limits_{i=1}^q \alpha_i\epsilon{^2}_{t_i} + \sum\limits_{i=1}^p \beta_j\sigma{^2}_{t_j}$$
 
