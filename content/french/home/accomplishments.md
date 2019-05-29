@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 50  # Order that this section will appear.
 
-title = "Accomplish&shy;ments"
+title = "Certificats / Attestations"
 subtitle = ""
 
 # Date format
@@ -19,33 +19,33 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
-  organization = "Coursera"
-  organization_url = "https://www.coursera.org"
-  title = "Neural Networks and Deep Learning"
+  organization = "AgroCampus Ouest"
+  organization_url = "https://www.agrocampus-ouest.fr/"
+  title = "Analyse de données multidimensionnelles"
   url = ""
-  certificate_url = "https://www.coursera.org"
-  date_start = "2018-10-01"
+  certificate_url = "https://www.fun-mooc.fr/attestations/attestation_suivi_course-v1:agrocampusouest+40001S05EN+session05_5ca6b30f53c69529f61d4e9a2e8dde7f.pdf"
+  date_start = "2019-03-01"
   date_end = ""
-  description = ""
+  description = "Mooc offert par AgroCampus Ouest (Rennes). Sont abordés en détail les techniques d'analyse de données multidemnsionnelles comme l'ACP, l'ACM, l'AFC, l'AFCM et des applications avec le package R [FactoMiner](http://factominer.free.fr/index_fr.html)"
 
 [[item]]
-  organization = "edX"
-  organization_url = "https://www.edx.org"
-  title = "Blockchain Fundamentals"
-  url = "https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals"
-  certificate_url = "https://www.edx.org"
-  date_start = "2018-03-01"
+  organization = "Udemy"
+  organization_url = "https://www.udemy.com"
+  title = "Data Ananlysis with Python and Pandas"
+  url = "https://www.udemy.com/course/data-analysis-with-pandas/"
+  certificate_url = "https://www.udemy.com/certificate/UC-13K81ZL1/"
+  date_start = "2018-12-01"
   date_end = ""
-  description = "Formulated informed blockchain models, hypotheses, and use cases."
+  description = ""
   
 [[item]]
-  organization = "DataCamp"
-  organization_url = "https://www.datacamp.com"
-  title = "Object-Oriented Programming in R: S3 and R6 Course"
+  organization = "Udemy"
+  organization_url = "https://www.udemy.com"
+  title = "Data Science and Machine Learning with R"
   url = ""
-  certificate_url = "https://www.datacamp.com"
-  date_start = "2017-07-01"
-  date_end = "2017-12-21"
-  description = ""
+  certificate_url = "https://www.udemy.com/data-science-and-machine-learning-bootcamp-with-r/learn/lecture/5412900#overview"
+  date_start = "2018-11-04"
+  date_end = ""
+  description = "Prorammation avec R, manipulations de données, visualisations et algorithmes de ML supervisés et non supervisés."
 
 +++
