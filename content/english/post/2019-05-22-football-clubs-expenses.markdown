@@ -14,6 +14,8 @@ summary: How much do football clubs invest in their players ?
 tags: [R, clustering]
 title: Football clubs spendings
 ---
+
+
 ```r
 # Load the packages 
 library(tidyverse)

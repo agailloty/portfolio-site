@@ -21,29 +21,11 @@
     </item>
     
     <item>
-      <title>analysis</title>
-      <link>/tags/analysis/</link>
+      <title>clustering</title>
+      <link>/tags/clustering/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>visualizations</title>
-      <link>/tags/visualizations/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/visualizations/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Econométrie</title>
-      <link>/tags/econom%C3%A9trie/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/econom%C3%A9trie/</guid>
+      <guid>/tags/clustering/</guid>
       <description></description>
     </item>
     
@@ -71,15 +53,6 @@
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/tags/demo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Academic</title>
-      <link>/tags/academic/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/academic/</guid>
       <description></description>
     </item>
     

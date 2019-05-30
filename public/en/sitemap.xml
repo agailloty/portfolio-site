@@ -94,6 +94,37 @@
   </url>
   
   <url>
+    <loc>/authors/admin/</loc>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/authors/admin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/authors/admin/"
+                />
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/authors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/authors/"
+                />
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -110,23 +141,8 @@
   </url>
   
   <url>
-    <loc>/post/football-clubs-expenses/</loc>
+    <loc>/post/2019-05-22-football-clubs-expenses/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/2019-05-22-football-clubs-expenses/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/football-clubs-expenses/"
-                />
   </url>
   
   <url>
@@ -193,83 +209,15 @@
   </url>
   
   <url>
-    <loc>/tags/analysis/</loc>
+    <loc>/tags/clustering/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/analysis/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/analysis/"
-                />
   </url>
   
   <url>
-    <loc>/tags/visualizations/</loc>
+    <loc>/categories/data-analysis/</loc>
     <lastmod>2019-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/visualizations/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/visualizations/"
-                />
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/authors/admin/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/authors/admin/"
-                />
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/authors/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/authors/"
-                />
-  </url>
-  
-  <url>
-    <loc>/categories/econom%C3%A9trie/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/econom%C3%A9trie/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/arch/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -347,21 +295,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/tags/source-themes/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/jupyter/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/jupyter/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/jupyter/"
                 />
   </url>
   
@@ -495,37 +428,6 @@
   </url>
   
   <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/academic/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/academic/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/getting-started/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/getting-started/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/getting-started/"
-                />
-  </url>
-  
-  <url>
     <loc>/publication_types/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -575,64 +477,24 @@
   <url>
     <loc>/post/2015-07-23-r-rmarkdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/post/2015-07-23-r-rmarkdown/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2015-07-23-r-rmarkdown/"
-                />
   </url>
   
   <url>
     <loc>/tags/r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/r-markdown/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/r-markdown/"
-                />
   </url>
   
   <url>
     <loc>/tags/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/plot/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/plot/"
-                />
   </url>
   
   <url>
     <loc>/tags/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/regression/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/regression/"
-                />
   </url>
   
   <url>
@@ -667,6 +529,26 @@
   </url>
   
   <url>
+    <loc>/post/2019-05-30-suicide-overview/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/2019-05-30-suicide-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/2019-05-30-suicide-overview/"
+                />
+  </url>
+  
+  <url>
+    <loc>/post/football-cluster.rmarkdown/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/courses/</loc>
     <xhtml:link
                 rel="alternate"
@@ -681,7 +563,17 @@
   </url>
   
   <url>
-    <loc>/post/football-cluster.rmarkdown/</loc>
+    <loc>/post/2019-05-30-suicide-overview/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/2019-05-30-suicide-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/post/2019-05-30-suicide-overview/"
+                />
   </url>
   
 </urlset>

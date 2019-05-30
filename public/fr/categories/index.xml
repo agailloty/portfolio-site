@@ -6,17 +6,44 @@
     <description>Recent content in Categories on Axel-Cleris Gailloty</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
-    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/fr/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Python</title>
+      <link>/fr/categories/python/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Econométrie</title>
+      <link>/fr/categories/econom%C3%A9trie/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/categories/econom%C3%A9trie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/fr/categories/r/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/fr/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACP</title>
+      <link>/fr/categories/acp/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/categories/acp/</guid>
       <description></description>
     </item>
     

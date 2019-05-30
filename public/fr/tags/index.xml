@@ -6,35 +6,53 @@
     <description>Recent content in Tags on Axel-Cleris Gailloty</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
-    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R</title>
-      <link>/fr/tags/r/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>Python</title>
+      <link>/fr/tags/python/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/fr/tags/r/</guid>
+      <guid>/fr/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>analysis</title>
       <link>/fr/tags/analysis/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/fr/tags/analysis/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>visualizations</title>
-      <link>/fr/tags/visualizations/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      <title>webscrape</title>
+      <link>/fr/tags/webscrape/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/fr/tags/visualizations/</guid>
+      <guid>/fr/tags/webscrape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Econométrie</title>
+      <link>/fr/tags/econom%C3%A9trie/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/tags/econom%C3%A9trie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/fr/tags/r/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/tags/r/</guid>
       <description></description>
     </item>
     
@@ -44,6 +62,24 @@
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/fr/tags/source-themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACP</title>
+      <link>/fr/tags/acp/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/tags/acp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data analysis</title>
+      <link>/fr/tags/data-analysis/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/tags/data-analysis/</guid>
       <description></description>
     </item>
     
@@ -62,42 +98,6 @@
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>/fr/tags/demo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Academic</title>
-      <link>/fr/tags/academic/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/fr/tags/academic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>/fr/tags/r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/fr/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plot</title>
-      <link>/fr/tags/plot/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/fr/tags/plot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regression</title>
-      <link>/fr/tags/regression/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/fr/tags/regression/</guid>
       <description></description>
     </item>
     

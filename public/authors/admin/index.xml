@@ -6,18 +6,18 @@
     <description>Recent content on Axel-Cleris Gailloty</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Modélisations ARCH et GARCH</title>
-      <link>/post/arch/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      <title>Football clubs spendings</title>
+      <link>/post/2019-05-22-football-clubs-expenses/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/arch/</guid>
-      <description>Les modélisations avec R</description>
+      <guid>/post/2019-05-22-football-clubs-expenses/</guid>
+      <description>How much do football clubs invest in their players ?</description>
     </item>
     
     <item>
@@ -27,24 +27,6 @@
       
       <guid>/publication/preprint/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.</description>
-    </item>
-    
-    <item>
-      <title>Display Jupyter Notebooks with Academic</title>
-      <link>/post/jupyter/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/jupyter/</guid>
-      <description>Learn how to blog in Academic using Jupyter notebooks</description>
-    </item>
-    
-    <item>
-      <title>Academic: the website builder for Hugo</title>
-      <link>/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/post/getting-started/</guid>
-      <description>Create a beautifully simple website in under 10 minutes.</description>
     </item>
     
     <item>
@@ -68,7 +50,7 @@
     <item>
       <title></title>
       <link>/authors/admin/</link>
-      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/authors/admin/</guid>
       <description>I am a student in Economics with a demonstrated interest in quantitative economics. I like to find patterns in data and extract knowledge from it to solve problems. From Econometrics modelling to interpreting p-values I like to share the results of my findings in a clear and approachable way. Most importantly I&amp;rsquo;m curious and eager to learn new things. My current pursuits are data science and machine learning for which I&amp;rsquo;ve been spending significant amount of time in learning both theory and programming skills which include R and Python.</description>

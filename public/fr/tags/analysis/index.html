@@ -30,8 +30,6 @@
   <meta name="description" content="Bonjour">
 
   
-  <link rel="alternate" hreflang="en" href="/tags/analysis/">
-  
   <link rel="alternate" hreflang="fr" href="/fr/tags/analysis/">
 
   
@@ -120,7 +118,7 @@
   <meta property="og:description" content="Bonjour"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="fr">
   
-  <meta property="og:updated_time" content="2019-05-22T00:00:00&#43;00:00">
+  <meta property="og:updated_time" content="2019-05-26T00:00:00&#43;00:00">
   
 
   
@@ -128,6 +126,34 @@
   
 
   <title>analysis | Axel-Cleris Gailloty</title>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -330,22 +356,6 @@
         
 
         
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
-            <i class="fas fa-globe" aria-hidden="true"></i>
-            <span>Français</span>
-          </a>
-          <ul class="dropdown-menu">
-            
-            <li class="dropdown-item my-0 py-0 mx-0 px-0">
-              <a href="/tags/analysis/">
-                <span>English</span>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-        
 
         
         <li class="nav-item">
@@ -396,11 +406,19 @@
   
   
   <div>
-    <h2><a href="/fr/post/football-clubs-expenses/">Football clubs expenses</a></h2>
+    <h2><a href="/fr/post/webscraping/">Adapter ses compétences aux besoins du marché du travail</a></h2>
     <div class="article-style">
       
-      # Load the packages library(tidyverse) library(FactoMineR) library(factoextra) library(highcharter) library(ggthemes) library(lubridate) library(treemap)  This kernel is under construction :) !
-Reading and preparing the data fifa &lt;- read_csv(&quot;data.csv&quot;) print(paste(&quot;The dataset contains&quot;, dim(fifa)[1], &quot;observations and&quot;, dim(fifa)[2], &quot;columns&quot;))  ## [1] &quot;The dataset contains 18207 observations and 89 columns&quot;  Missing values With this said let&rsquo;s check the consistency of the dataset by looking for missing values and understanding what each column stands for.
+      Adapter ses compétences aux besoins du marché du travail en scrapant les offres d'emploi
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/fr/post/analyse-python/">Analyser ses données avec Python</a></h2>
+    <div class="article-style">
+      
+      Utiliser les librairies scientifiques de Python pour analyser un jeu de données.
       
     </div>
   </div>
@@ -468,6 +486,9 @@ Reading and preparing the data fifa &lt;- read_csv(&quot;data.csv&quot;) print(p
 
     
     
+    
+    <script src="/js/mathjax-config.js"></script>
+    
 
     
     
@@ -484,6 +505,8 @@ Reading and preparing the data fifa &lt;- read_csv(&quot;data.csv&quot;) print(p
       
 
       
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
       
     
 

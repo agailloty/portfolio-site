@@ -6,10 +6,28 @@
     <description>Recent content on Axel-Cleris Gailloty</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr</language>
-    <lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/fr/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Adapter ses compétences aux besoins du marché du travail</title>
+      <link>/fr/post/webscraping/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/webscraping/</guid>
+      <description>Adapter ses compétences aux besoins du marché du travail en scrapant les offres d&amp;rsquo;emploi</description>
+    </item>
+    
+    <item>
+      <title>Modélisations ARCH et GARCH</title>
+      <link>/fr/post/arch/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/arch/</guid>
+      <description>Les modélisations avec R</description>
+    </item>
     
     <item>
       <title>An example preprint / working paper</title>
@@ -21,21 +39,21 @@
     </item>
     
     <item>
-      <title>Display Jupyter Notebooks with Academic</title>
-      <link>/fr/post/jupyter/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <title>Analyse en composantes principales</title>
+      <link>/fr/post/acp/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/fr/post/jupyter/</guid>
-      <description>Learn how to blog in Academic using Jupyter notebooks</description>
+      <guid>/fr/post/acp/</guid>
+      <description>Etudier le taux de fertilité des femmes dans les pays européens</description>
     </item>
     
     <item>
-      <title>Academic: the website builder for Hugo</title>
-      <link>/fr/post/getting-started/</link>
-      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      <title>Analyser ses données avec Python</title>
+      <link>/fr/post/analyse-python/</link>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/fr/post/getting-started/</guid>
-      <description>Create a beautifully simple website in under 10 minutes.</description>
+      <guid>/fr/post/analyse-python/</guid>
+      <description>Utiliser les librairies scientifiques de Python pour analyser un jeu de données.</description>
     </item>
     
     <item>
@@ -59,7 +77,7 @@
     <item>
       <title></title>
       <link>/fr/authors/admin/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/fr/authors/admin/</guid>
       <description>Après une licence en Économie et une première expérience en tant que programmeur statistique je me projette sur les métiers de la data science. J&amp;rsquo;aime particulièrement extraire de l&amp;rsquo;information à partir d&amp;rsquo;un jeu de donnée complexe en vue de fournir des éléments d&amp;rsquo;aides à la décision.</description>

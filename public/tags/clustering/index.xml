@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>clustering on Academic</title>
+    <title>clustering on Axel-Cleris Gailloty</title>
     <link>/tags/clustering/</link>
-    <description>Recent content in clustering on Academic</description>
+    <description>Recent content in clustering on Axel-Cleris Gailloty</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
@@ -12,13 +12,12 @@
     
     
     <item>
-      <title>Overview suicide</title>
-      <link>/post/overview-suicide/</link>
+      <title>Football clubs spendings</title>
+      <link>/post/2019-05-22-football-clubs-expenses/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/overview-suicide/</guid>
-      <description>According to the WHO Suicides organization, 800.000 committed suicide in 2018. This means every 40 seconds a person dies by suicide. This number is fortunately dropping. In this kernel I want to explore the evolution of suicide rate using the dataset provided here on Kaggle.
-I&amp;rsquo;ll be using the powerful R language to do this analysis, my main focus is to understand what affects the suicide rate to decrease.</description>
+      <guid>/post/2019-05-22-football-clubs-expenses/</guid>
+      <description>How much do football clubs invest in their players ?</description>
     </item>
     
   </channel>

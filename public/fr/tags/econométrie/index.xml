@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Econométrie on Axel-Cleris Gailloty</title>
+    <link>/fr/tags/econom%C3%A9trie/</link>
+    <description>Recent content in Econométrie on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/fr/tags/econom%C3%A9trie/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Modélisations ARCH et GARCH</title>
+      <link>/fr/post/arch/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/arch/</guid>
+      <description>Les modélisations avec R</description>
+    </item>
+    
+  </channel>
+</rss>
