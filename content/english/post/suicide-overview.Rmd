@@ -1,14 +1,18 @@
 ---
-title: "Overview of suicide in the world"
-author: "Axel-Cleris Gailloty"
+authors:
+- admin
+categories: [R]
 date: "17/05/2019"
-output: 
-    html_document:
-        number_sections: true
-        toc: true
-        theme: journal
-        highlight: tango
-        code_folding: hide
+draft: false
+featured: false
+image:
+  caption: ""
+  focal_point: ""
+projects: []
+subtitle: 
+summary: Use R to explore how suicide has evolved since 1985
+tags: [R, PCA, data analysis]
+title: Overview of suicide in the world
 ---
 
 According to the [WHO Suicides organization](https://www.who.int/news-room/fact-sheets/detail/suicide), 800.000 committed suicide in 2018. This means every 40 seconds a person dies by suicide. This number is fortunately dropping. In this kernel I want to explore the evolution of suicide rate using the dataset provided here on Kaggle.  
