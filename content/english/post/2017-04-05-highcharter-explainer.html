@@ -1,0 +1,471 @@
+---
+title: "Thinking in `highcharter` - How to build any Highcharts plot in R"
+author: "Danton Noriega"
+date: 2017-04-05
+categories: ["R", "highcharter"]
+tags: ["R Markdown", "highcharter", "Highcharts"]
+output: blogdown::html_page
+
+---
+
+<script src="/ultinomics.org/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/proj4js/proj4.js"></script>
+<link href="/ultinomics.org/rmarkdown-libs/highcharts/css/motion.css" rel="stylesheet" />
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/highstock.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/highcharts-3d.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/highcharts-more.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/annotations.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/broken-axis.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/data.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/drilldown.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/exporting.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/funnel.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/heatmap.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/map.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/no-data-to-display.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/offline-exporting.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/solid-gauge.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/modules/treemap.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/annotations.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/draggable-legend.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/draggable-points.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/export-csv.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/grouped-categories.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/motion.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/pattern-fill-v2.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/plugins/tooltip-delay.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/custom/reset.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/custom/symbols-extra.js"></script>
+<script src="/ultinomics.org/rmarkdown-libs/highcharts/custom/text-symbols.js"></script>
+<link href="/ultinomics.org/rmarkdown-libs/fontawesome/font-awesome.min.css" rel="stylesheet" />
+<link href="/ultinomics.org/rmarkdown-libs/htmlwdgtgrid/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="/ultinomics.org/rmarkdown-libs/highchart-binding/highchart.js"></script>
+
+
+<p>Rstudio’s Mine Cetinkaya-Rundel had a <a href="https://www.rstudio.com/rviews/2016/10/19/creating-interactive-plots-with-r-and-highcharts/">post about the <code>highcharter</code> package</a>, a wrapper for the <a href="http://www.highcharts.com">Highcharts</a> javascripts library that lets you create super sweet interactive charts in R.</p>
+<p><a href="http://jkunst.com/highcharter/">Joshua Kunst’s <code>highcharter</code> package</a> has become my go-to plotting package once I reach the production phase and know I will be using HTML. This is mainly for 3 reasons:</p>
+<ol style="list-style-type: decimal">
+<li>Beautiful interactive charts</li>
+<li>Extremely customizable</li>
+<li>Great documentation (via Highcharts API). Requires understanding how a <code>highcharter</code> object is built and translating between the Highcharts the API.</li>
+</ol>
+<p><code>ggplot2</code> is wonderfully customizable and the <code>plotly</code> wrapper can make interactive charts. I’m sure that <code>plotly</code> objects are customizable, as are other <code>htmlwidget</code> graphing packages, but I think Highcharts graphs are the most impressive. Hence, <code>highcharter</code> is where I have decided to dig deep.</p>
+<p>As Mine noted, all products in this library are free for non-commercial use. If you plan to use <code>highcharter</code> in <code>R</code> for commericial use, please purchase Highcharts: <a href="https://shop.highsoft.com/" class="uri">https://shop.highsoft.com/</a></p>
+<p>Also, a special thanks to <a href="http://jkunst.com">Joshua Kunst</a> for developing this package. I’ve learned a lot about <code>R</code> and <code>javascript</code> thanks to you. Y, gracias a ti mi amigo, siempre estaré empleado.</p>
+
+<div id="TOC">
+<ul>
+<li><a href="#goal-of-this-post">Goal of this Post</a></li>
+<li><a href="#what-i-will-not-cover">What I will not cover</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#series-highcharter-and-highcharts-building-blocks">Series: <code>highcharter</code> and Highcharts building blocks</a><ul>
+<li><a href="#series-in-highcharter-are-a-list-of-lists-with-a-specific-structure">Series in <code>highcharter</code> are a list of lists with a specific structure</a><ul>
+<li><a href="#hc_add_series_list-vs-hc_add_series"><code>hc_add_series_list()</code> vs <code>hc_add_series()</code></a></li>
+</ul></li>
+<li><a href="#highcharts-api-and-highcharter-functions">Highcharts API and <code>highcharter</code> functions</a><ul>
+<li><a href="#just-throw-an-hc_-infront-of-it">Just throw an <code>hc_</code> infront of it</a></li>
+</ul></li>
+<li><a href="#use-hchart-with-tidy-data">Use <code>hchart()</code> with Tidy Data</a></li>
+</ul></li>
+<li><a href="#your-best-friend-the-hcxhc_optsseries-list">Your Best Friend, the <code>hc\$x\$hc_opts\$series</code> List</a><ul>
+<li><a href="#one-dimensional-array-easy-multi-dimensional-arrays-damn.">One-dimensional array? Easy! Multi-dimensional arrays? Damn.</a></li>
+</ul></li>
+<li><a href="#outline-for-future-posts">Outline for Future Posts</a></li>
+</ul>
+</div>
+
+<div id="goal-of-this-post" class="section level2">
+<h2>Goal of this Post</h2>
+<p>My goal is to show you how I think about, learn about, and then build more complicated <code>highcharter</code> objects in <code>R</code>. I want you to be able to see a graph on the <a href="http://www.highcharts.com/demo">Highcharts demo</a> page and think to yourself, “yeah, I can build that”. This will means some bouncing between the Highcharts demo and API websites. I do this a lot myself and I hope, by the end of this document, you’ll find it a useful habit.</p>
+<p>But I also want to say that my approach to building plots in <code>highcharter</code> can feel a bit complicated. Generally, I like to build plots from the ground up. However, if I have tidy data and I know the structure is well suited for plotting in <code>highcharter</code>, I will opt to use the <code>hchart()</code>. Otherwise, for almost anything more complicated, I will build the data structure (known as a “series”) from scratch and use the <code>highchart()</code> and <code>hc_add_series_list()</code> functions. This process is the result after having built many, many plots, hacking away at the great many functions in <code>highcharter</code>. While it may seem complicated, I assure you that it is the easiest and cleanest way to make complicated plots.</p>
+</div>
+<div id="what-i-will-not-cover" class="section level2">
+<h2>What I will not cover</h2>
+<ul>
+<li>Straightforward, simple plotting using <code>highcharter</code>. Mine’s <a href="https://www.rstudio.com/rviews/2016/10/19/creating-interactive-plots-with-r-and-highcharts/">post</a> and <a href="http://jkunst.com/highcharter/index.html">Joshua Kunst’s online documentation</a> are better resources for that. I will use simple examples, but as a stepping stone to more complicated plots and to learn how to “translate” Highcharts to <code>highcharter</code>.</li>
+<li>How to make <a href="http://www.highcharts.com/stock/demo">Highstocks</a> or <a href="http://www.highcharts.com/products/highmaps">Highmaps</a> using <code>highcharter</code>. That said, the way I go about building Highcharts plot will likely translate over to Highstocks and Highmaps, so this post may prove useful if you’re interested in making timeseries or map plots.</li>
+</ul>
+</div>
+<div id="prerequisites" class="section level2">
+<h2>Prerequisites</h2>
+<p>This post assumes that you have a good handle of the <code>tidyverse</code> as well as basic object and list construction. In short, this is not a beginner’s tutorial but also not an advanced <code>R</code> tutorial.</p>
+</div>
+<div id="series-highcharter-and-highcharts-building-blocks" class="section level1">
+<h1>Series: <code>highcharter</code> and Highcharts building blocks</h1>
+<p><a href="http://www.highcharts.com/docs/chart-concepts/series">Series</a> are the building blocks of a Highcharts plot. Series contain the sets of data you want to plot. As a data scientist who wants to use <code>highcharter</code> to make spiffy plots, the key to building any plot in <code>highcharter</code> is understanding how to build a series in <code>R</code> and how it relates to the structure of a series in Highcharts.</p>
+<p>I learn best by example. I will do the same in this document.</p>
+<div id="series-in-highcharter-are-a-list-of-lists-with-a-specific-structure" class="section level2">
+<h2>Series in <code>highcharter</code> are a list of lists with a specific structure</h2>
+<p>Think of any series you would like to plot in <code>highcharter</code> as a list of lists. The Highcharts equivalent is, at the very least, an array of with a single data object or, a its most complicated, an array of many objects and arrays.</p>
+<p>Here is <a href="http://jsfiddle.net/mca629uj/">a simple Highcharts plot</a>:</p>
+<pre class="javascript"><code>$(function () {
+    Highcharts.chart(&#39;container&#39;, {
+        series: [{
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        }]
+    });
+});</code></pre>
+<p>Ignore everything but <code>series</code>. A series array (<code>series: [ ]</code>) with a single series object (<code>{data: [ ] }</code>) is the simplest Highcharts plot possible. Translated to <code>R</code>, a series would be a list with a single sublist with named elements. Note that “named elements” means I explicitly assign the elements of a list to a value i.e. unnamed elements <code>list(c(1,2,3))</code> vs named <code>list(x = c(1,2,3))</code>. The named element in this case is <code>data</code> resulting in list structure <code>list(data = c( ))</code>.</p>
+<pre class="r"><code>series = list(
+  list(
+    data = c(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4)
+  )
+)</code></pre>
+<p>This series can be plotted using <code>highchart()</code> and <code>hc_add_series_list()</code></p>
+<pre class="r"><code>library(highcharter)
+library(tidyverse)
+
+highchart() %&gt;%
+  hc_add_series_list(series)</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"data":[29.9,71.5,106.4,129.2,144,176,135.6,148.5,216.4,194.1,95.6,54.4]}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>By default, <code>highchart()</code> assumes you are construction a Highcharts line chart. It also provides default series names (i.e. <code>Series 1</code>, <code>Series 2</code> etc) and colors if these values are left unspecified.</p>
+<p>Let’s change the series name and color to <code>'Hola linea'</code> and <code>'red'</code>. In Highcharts, the series array object would look <a href="http://jsfiddle.net/mca629uj/1/">like this</a>:</p>
+<pre class="javascript"><code>$(function () {
+    Highcharts.chart(&#39;container&#39;, {
+        series: [{
+            name: &#39;Hola linea&#39;,
+            color: &#39;red&#39;,
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        }]
+    });
+});</code></pre>
+<p>Translated to <code>R</code>, the series would be</p>
+<pre class="r"><code>series = list(
+  list(
+    name = &#39;Hola linea&#39;,
+    color = &#39;red&#39;,
+    data = c(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4)
+  )
+)
+highchart() %&gt;%
+  hc_add_series_list(series)</code></pre>
+<div id="htmlwidget-2" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"name":"Hola linea","color":"red","data":[29.9,71.5,106.4,129.2,144,176,135.6,148.5,216.4,194.1,95.6,54.4]}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>Let’s add a second series. The series array object now <a href="http://jsfiddle.net/mca629uj/2/">contains two series</a>. Each series is an object (contain in <code>{ }</code>, separated by <code>,</code>) with named elements (aka “members”).</p>
+<pre class="javascript"><code>$(function () {
+    Highcharts.chart(&#39;container&#39;, {
+        series: [{
+            name: &#39;Hola linea&#39;,
+            color: &#39;red&#39;,
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        }, 
+        { // there&#39;s a comma between objects in { }
+            name: &#39;Reverse!&#39;,
+            color: &#39;green&#39;,
+            data: [54.4, 95.6, 194.1, 216.4, 148.5, 135.6, 176, 144, 129.2, 106.4, 71.5, 29.9]
+        }]
+    });
+});</code></pre>
+<p>And in R</p>
+<pre class="r"><code>series = list(
+  list(
+    name = &#39;Hola linea&#39;,
+    color = &#39;red&#39;,
+    data = c(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4)
+  ),
+  list(
+    name = &#39;Reverse!&#39;,
+    color = &#39;green&#39;,
+    data = c(54.4, 95.6, 194.1, 216.4, 148.5, 135.6, 176, 144, 129.2, 106.4, 71.5, 29.9)
+  )
+)
+
+highchart() %&gt;%
+  hc_add_series_list(series)</code></pre>
+<div id="htmlwidget-3" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"name":"Hola linea","color":"red","data":[29.9,71.5,106.4,129.2,144,176,135.6,148.5,216.4,194.1,95.6,54.4]},{"name":"Reverse!","color":"green","data":[54.4,95.6,194.1,216.4,148.5,135.6,176,144,129.2,106.4,71.5,29.9]}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<blockquote>
+<p><strong>Important:</strong> Naming matters. The <a href="http://api.highcharts.com/highcharts/series%3Cline%3E">Highcharts API for line series</a> explicitly looks for object elements like <code>name</code>, <code>color</code>, <code>data</code> etc. Likewise, this means that the element names when building lists in <code>R</code> also matter. Try changing <code>data</code> to <code>datas</code> (or anything else) and see that nothing will be plotted. Likewise, try changing <code>name</code> to something else like <code>nombres</code>, and the series will fall back to the default <code>Series #</code>.</p>
+</blockquote>
+<div id="hc_add_series_list-vs-hc_add_series" class="section level3">
+<h3><code>hc_add_series_list()</code> vs <code>hc_add_series()</code></h3>
+<p>I prefer to always use <code>hc_add_series_list()</code>, even when only add a single series. Adding a single series can be done using <code>hc_add_series()</code>. For example, I could replicated the last plot by layering one series at a time.</p>
+<pre class="r"><code>highchart() %&gt;%
+  hc_add_series(
+    name = &#39;Hola linea&#39;,
+    color = &#39;red&#39;,
+    data = c(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4)
+  ) %&gt;%
+  hc_add_series(
+    name = &#39;Reverse!&#39;,
+    color = &#39;green&#39;,
+    data = c(54.4, 95.6, 194.1, 216.4, 148.5, 135.6, 176, 144, 129.2, 106.4, 71.5, 29.9)
+  )</code></pre>
+<div id="htmlwidget-4" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"data":[29.9,71.5,106.4,129.2,144,176,135.6,148.5,216.4,194.1,95.6,54.4],"name":"Hola linea","color":"red"},{"data":[54.4,95.6,194.1,216.4,148.5,135.6,176,144,129.2,106.4,71.5,29.9],"name":"Reverse!","color":"green"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>Notice that the construction of <code>hc_add_series()</code> is basically equivalent to how I built each list object in <code>series</code> that was then passed to <code>hc_add_series_list()</code>. I prefer, however, building list objects and saving them to a value (like <code>series</code>). This makes it easier to reuse the object and also makes for <em>much</em> shorter pipe chains when plotting.</p>
+</div>
+</div>
+<div id="highcharts-api-and-highcharter-functions" class="section level2">
+<h2>Highcharts API and <code>highcharter</code> functions</h2>
+<div id="just-throw-an-hc_-infront-of-it" class="section level3">
+<h3>Just throw an <code>hc_</code> infront of it</h3>
+<p>Now that we’ve build a basic plot and have some understanding of what a series is, let’s play with some plot options!</p>
+<p>The beauty of the <code>highcharter</code> package is that pratically every Highcharts API call can be quickly translated to <code>highcharter</code> <em>without needing to look at <code>highcharter</code> documentation</em>. Specifically, any Highcharts API options can be access by add <code>hc_</code> infront of the function e.g. <code>hc_xAxis()</code> calls the <code>xAxis</code> API option, <code>hc_tooltip()</code> calls the <code>tooltip</code> API option, etc.</p>
+<p>Here is what I mean. When you go to the <a href="http://api.highcharts.com/highcharts/">Highcharts API Options Reference</a>, there is a menu of list of “main” option calls to the left. It looks like this:</p>
+<p><img src="/ultinomics.org/img/highcharts-api.png" />  </p>
+<p>The <code>highcharter</code> equivalent to each “main” option can be accessed as a function by throwing an <code>hc_</code> infront (<code>chart</code> becomes <code>hc_chart()</code>, <code>plotOptions</code> becomes <code>hc_plotOptions()</code> etc).</p>
+<p>From there, accessing any “main” option value means using the <em>exact</em> same name as listed in the API. Any level deeper just means contructing a <code>list()</code> but the API reference names will always be the same.</p>
+<p>Let’s work through an example by editing the x-axis looking only at the <a href="http://api.highcharts.com/highcharts/xAxis">Highcharts API x-axis options</a>.</p>
+<p><img src="/ultinomics.org/img/xaxis-clean.png" />  </p>
+<p>If I want to change the min, max, the line width, and some labeling quirks of the x-axis, then I just look at the API options for <code>xAxis</code> and locate the corresponding values.</p>
+<p>In this case, three of these suboptions (<code>min</code>, <code>max</code>, <code>lineWidth</code>) are “unnested” level options, one is a “nested” level option (<code>labels</code>). What I call an “unnested” level suboption make up the majority of suboptions—any <em>without</em> <code>{ ... }</code>, easily found by the little gray expansion triangle. “Unnested” suboptions can be accessed by using the unnested level API names asis plus a proper value. “Nested” level suboptions—those that are followed by <code>{...}</code> or just any <code>{</code>—require <code>list(...)</code> calls.</p>
+<p><img src="/ultinomics.org/img/xaxis.png" />  </p>
+<p>In the image above, examples of “unnested” level suboptions (i.e. suboptions with no <code>{...}</code>; access without a list) are in purple. One need only use the API name and provide a proper value. Examples of “nested” level suboptions (i.e. suboptions with <code>{ ... }</code>; require biulding a <code>list(...)</code> object) are in red.</p>
+<p>Knowing the “main” API option I want to use is <code>xAxis</code>, I can build the <code>highcharter</code> equivalent by throwing an <code>hc_</code> infront. I can then directly call any of the “unnested” level suboptions <code>min</code>, <code>max</code>, and <code>lineWidth</code> since they are not nested <code>{ ... }</code> objects. Using only the “unnested” level calls, the result would be <code>hc_xAxis(min = 1, max = 7, lineWith = 5)</code>.</p>
+<blockquote>
+<p><strong>Note</strong>: As I said before, elements names must <em>exactly</em> match the API names, meaning suboptions are <em>case-sensitive</em> (i.e. <code>linewidth</code> <span class="math inline">\(\ne\)</span> <code>lineWidth</code>).</p>
+</blockquote>
+<p>But what about nested level calls which require lists? The nested level call I cared about was <code>labels</code>. Expanding the API main option, the <code>labels</code> suboptions nests numerous more suboptions. One of them, <code>style</code>, is <em>another</em> nested suboption—the value starts with <code>{ ...</code>. Again—and hopefully you’re starting to see the pattern!—<code>style</code> suboption values can be accessed by building a named <code>list()</code>.</p>
+<div class="figure">
+<img src="/ultinomics.org/img/xaxis-labels.png" />
+
+</div>
+<p>I choose two of the <code>labels</code> suboptions to change: <code>align</code> and <code>style</code>. <code>align</code> isn’t nested so I can just assign the proper value. The default is <code>&quot;center&quot;</code>. I change it to <code>&quot;left&quot;</code>: <code>align = &quot;left&quot;</code>.</p>
+<p>But <code>style</code> is <em>another nested</em> suboption (valuestarts with <code>{</code>). But again, not to worry, this just means <em>another</em> <code>list()</code>. I’ll change the font size, weight, and color style values: <code>style = list(fontSize = &quot;16px&quot;, fontWeight = &quot;bold&quot;, color = &quot;blue&quot;)</code>. The nested fully constructed <code>labels</code> suboption is:</p>
+<pre class="r"><code>labels = list(align = &quot;left&quot;, 
+              style = list(
+                        fontSize = &quot;16px&quot;, 
+                        fontWeight = &quot;bold&quot;,
+                        color = &quot;blue&quot;
+                      ))</code></pre>
+<p>I can then add this <code>labels</code> as aother <code>hc_xAxis()</code> suboption:</p>
+<pre class="r"><code>hc_xAxis(min = 1, 
+         max = 7, 
+         lineWith = 5, 
+         labels = list(align = &quot;left&quot;, 
+                       style = list(
+                          fontSize = &quot;16px&quot;, 
+                          fontWeight = &quot;bold&quot;,
+                          color = &quot;blue&quot;
+                      )))</code></pre>
+<p>Throwing this all together, I can adjust the x-axis of the plot above by adding my fully constructed <code>hc_xAxis</code> function to the pipe chain.</p>
+<pre class="r"><code>highchart() %&gt;%
+  hc_add_series_list(series) %&gt;%
+  hc_xAxis(min = 1, 
+         max = 7, 
+         lineWith = 5, 
+         labels = list(align = &quot;left&quot;, 
+                       style = list(
+                          fontSize = &quot;16px&quot;, 
+                          fontWeight = &quot;bold&quot;,
+                          color = &quot;blue&quot;
+                      )))</code></pre>
+<div id="htmlwidget-5" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"name":"Hola linea","color":"red","data":[29.9,71.5,106.4,129.2,144,176,135.6,148.5,216.4,194.1,95.6,54.4]},{"name":"Reverse!","color":"green","data":[54.4,95.6,194.1,216.4,148.5,135.6,176,144,129.2,106.4,71.5,29.9]}],"xAxis":{"min":1,"max":7,"lineWith":5,"labels":{"align":"left","style":{"fontSize":"16px","fontWeight":"bold","color":"blue"}}}},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>The corresponding code in <code>Highcharts</code> can be see <a href="http://jsfiddle.net/mca629uj/3/">here</a>.</p>
+</div>
+</div>
+<div id="use-hchart-with-tidy-data" class="section level2">
+<h2>Use <code>hchart()</code> with Tidy Data</h2>
+<p>One of the most convinient function for plotting is the <code>hchart()</code> function. But I would only recommend the use of this function if one has a Tidy Dataframe structured in a “long” format with a time-key-value or key-value structure, similar to a dataframe that would be used in <code>ggplot</code>. I’ll show you what I mean.</p>
+<p>Here is some code from an example in <code>highcharter</code> that builds a graph by extracting variables from <code>citytemp</code> and adding them as a series.</p>
+<pre class="r"><code>data(citytemp)
+hc1 &lt;- highchart() %&gt;%
+  hc_xAxis(categories = citytemp$month) %&gt;%
+  hc_add_series(name = &quot;Tokyo&quot;, data = citytemp$tokyo) %&gt;%
+  hc_add_series(name = &quot;London&quot;, data = citytemp$london)
+hc1</code></pre>
+<div id="htmlwidget-6" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"xAxis":{"categories":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},"series":[{"data":[7,6.9,9.5,14.5,18.2,21.5,25.2,26.5,23.3,18.3,13.9,9.6],"name":"Tokyo"},{"data":[3.9,4.2,5.7,8.5,11.9,15.2,17,16.6,14.2,10.3,6.6,4.8],"name":"London"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p><code>citytemp</code> is in a “wide” format. But this data isn’t tidy. In these data, there are three variables: <code>month</code>, <code>city</code>, <code>temperature</code>. In this case, <code>month</code> is time, <code>city</code> is a key, and <code>temperature</code> is a value. I want to reshape the data such that each row of data is a single observation for the temprature of one city at one point in time. Reshaping the data to a “long” format with a tidy time-key-value structure will allow us to plot virtually the same plot but in one line using <code>hchart()</code>.</p>
+<pre class="r"><code>citytemp2 &lt;- citytemp %&gt;%
+  tidyr::gather(key = city, value = temperature, tokyo, london)</code></pre>
+<p>I can now use the <code>hchart()</code> function to plot these data. How the data splits into separate series is via the <code>group</code> variable in the <code>hchart()</code> function. Notice that the mapping of variables uses the function <code>highcharter::hcaes()</code>, which was inspired by the <code>ggplot2</code> function <code>ggplot2::aes()</code> and has the same syntax.</p>
+<pre class="r"><code>hchart(citytemp2, type = &#39;line&#39;, hcaes(y = temperature, group = city, x = month))</code></pre>
+<div id="htmlwidget-7" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":"temperature"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0,"showInLegend":true,"marker":{"enabled":false}},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25},"scatter":{"marker":{"symbol":"circle"}}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"name":"london","data":[{"month":"Jan","new_york":-0.2,"berlin":-0.9,"city":"london","temperature":3.9,"y":3.9,"name":"Jan"},{"month":"Feb","new_york":0.8,"berlin":0.6,"city":"london","temperature":4.2,"y":4.2,"name":"Feb"},{"month":"Mar","new_york":5.7,"berlin":3.5,"city":"london","temperature":5.7,"y":5.7,"name":"Mar"},{"month":"Apr","new_york":11.3,"berlin":8.4,"city":"london","temperature":8.5,"y":8.5,"name":"Apr"},{"month":"May","new_york":17,"berlin":13.5,"city":"london","temperature":11.9,"y":11.9,"name":"May"},{"month":"Jun","new_york":22,"berlin":17,"city":"london","temperature":15.2,"y":15.2,"name":"Jun"},{"month":"Jul","new_york":24.8,"berlin":18.6,"city":"london","temperature":17,"y":17,"name":"Jul"},{"month":"Aug","new_york":24.1,"berlin":17.9,"city":"london","temperature":16.6,"y":16.6,"name":"Aug"},{"month":"Sep","new_york":20.1,"berlin":14.3,"city":"london","temperature":14.2,"y":14.2,"name":"Sep"},{"month":"Oct","new_york":14.1,"berlin":9,"city":"london","temperature":10.3,"y":10.3,"name":"Oct"},{"month":"Nov","new_york":8.6,"berlin":3.9,"city":"london","temperature":6.6,"y":6.6,"name":"Nov"},{"month":"Dec","new_york":2.5,"berlin":1,"city":"london","temperature":4.8,"y":4.8,"name":"Dec"}],"type":"line"},{"name":"tokyo","data":[{"month":"Jan","new_york":-0.2,"berlin":-0.9,"city":"tokyo","temperature":7,"y":7,"name":"Jan"},{"month":"Feb","new_york":0.8,"berlin":0.6,"city":"tokyo","temperature":6.9,"y":6.9,"name":"Feb"},{"month":"Mar","new_york":5.7,"berlin":3.5,"city":"tokyo","temperature":9.5,"y":9.5,"name":"Mar"},{"month":"Apr","new_york":11.3,"berlin":8.4,"city":"tokyo","temperature":14.5,"y":14.5,"name":"Apr"},{"month":"May","new_york":17,"berlin":13.5,"city":"tokyo","temperature":18.2,"y":18.2,"name":"May"},{"month":"Jun","new_york":22,"berlin":17,"city":"tokyo","temperature":21.5,"y":21.5,"name":"Jun"},{"month":"Jul","new_york":24.8,"berlin":18.6,"city":"tokyo","temperature":25.2,"y":25.2,"name":"Jul"},{"month":"Aug","new_york":24.1,"berlin":17.9,"city":"tokyo","temperature":26.5,"y":26.5,"name":"Aug"},{"month":"Sep","new_york":20.1,"berlin":14.3,"city":"tokyo","temperature":23.3,"y":23.3,"name":"Sep"},{"month":"Oct","new_york":14.1,"berlin":9,"city":"tokyo","temperature":18.3,"y":18.3,"name":"Oct"},{"month":"Nov","new_york":8.6,"berlin":3.9,"city":"tokyo","temperature":13.9,"y":13.9,"name":"Nov"},{"month":"Dec","new_york":2.5,"berlin":1,"city":"tokyo","temperature":9.6,"y":9.6,"name":"Dec"}],"type":"line"}],"xAxis":{"type":"category","title":{"text":"month"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>If I just wanted to print data for tokyo and london, I can just filter the data prior to using <code>hchart()</code>.</p>
+<pre class="r"><code>citytemp2 &lt;- citytemp2 %&gt;% 
+  dplyr::filter(city %in% c(&#39;tokyo&#39;, &#39;london&#39;)) # filter to just tokyo and london
+  
+hc2 &lt;- hchart(citytemp2, type = &#39;line&#39;, hcaes(y = temperature, group = city, x = month))
+hc2</code></pre>
+<div id="htmlwidget-8" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":"temperature"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0,"showInLegend":true,"marker":{"enabled":false}},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25},"scatter":{"marker":{"symbol":"circle"}}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"name":"london","data":[{"month":"Jan","new_york":-0.2,"berlin":-0.9,"city":"london","temperature":3.9,"y":3.9,"name":"Jan"},{"month":"Feb","new_york":0.8,"berlin":0.6,"city":"london","temperature":4.2,"y":4.2,"name":"Feb"},{"month":"Mar","new_york":5.7,"berlin":3.5,"city":"london","temperature":5.7,"y":5.7,"name":"Mar"},{"month":"Apr","new_york":11.3,"berlin":8.4,"city":"london","temperature":8.5,"y":8.5,"name":"Apr"},{"month":"May","new_york":17,"berlin":13.5,"city":"london","temperature":11.9,"y":11.9,"name":"May"},{"month":"Jun","new_york":22,"berlin":17,"city":"london","temperature":15.2,"y":15.2,"name":"Jun"},{"month":"Jul","new_york":24.8,"berlin":18.6,"city":"london","temperature":17,"y":17,"name":"Jul"},{"month":"Aug","new_york":24.1,"berlin":17.9,"city":"london","temperature":16.6,"y":16.6,"name":"Aug"},{"month":"Sep","new_york":20.1,"berlin":14.3,"city":"london","temperature":14.2,"y":14.2,"name":"Sep"},{"month":"Oct","new_york":14.1,"berlin":9,"city":"london","temperature":10.3,"y":10.3,"name":"Oct"},{"month":"Nov","new_york":8.6,"berlin":3.9,"city":"london","temperature":6.6,"y":6.6,"name":"Nov"},{"month":"Dec","new_york":2.5,"berlin":1,"city":"london","temperature":4.8,"y":4.8,"name":"Dec"}],"type":"line"},{"name":"tokyo","data":[{"month":"Jan","new_york":-0.2,"berlin":-0.9,"city":"tokyo","temperature":7,"y":7,"name":"Jan"},{"month":"Feb","new_york":0.8,"berlin":0.6,"city":"tokyo","temperature":6.9,"y":6.9,"name":"Feb"},{"month":"Mar","new_york":5.7,"berlin":3.5,"city":"tokyo","temperature":9.5,"y":9.5,"name":"Mar"},{"month":"Apr","new_york":11.3,"berlin":8.4,"city":"tokyo","temperature":14.5,"y":14.5,"name":"Apr"},{"month":"May","new_york":17,"berlin":13.5,"city":"tokyo","temperature":18.2,"y":18.2,"name":"May"},{"month":"Jun","new_york":22,"berlin":17,"city":"tokyo","temperature":21.5,"y":21.5,"name":"Jun"},{"month":"Jul","new_york":24.8,"berlin":18.6,"city":"tokyo","temperature":25.2,"y":25.2,"name":"Jul"},{"month":"Aug","new_york":24.1,"berlin":17.9,"city":"tokyo","temperature":26.5,"y":26.5,"name":"Aug"},{"month":"Sep","new_york":20.1,"berlin":14.3,"city":"tokyo","temperature":23.3,"y":23.3,"name":"Sep"},{"month":"Oct","new_york":14.1,"berlin":9,"city":"tokyo","temperature":18.3,"y":18.3,"name":"Oct"},{"month":"Nov","new_york":8.6,"berlin":3.9,"city":"tokyo","temperature":13.9,"y":13.9,"name":"Nov"},{"month":"Dec","new_york":2.5,"berlin":1,"city":"tokyo","temperature":9.6,"y":9.6,"name":"Dec"}],"type":"line"}],"xAxis":{"type":"category","title":{"text":"month"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<blockquote>
+<p>NOTE: whatever is passed as the <code>x</code> variable must generally be of class <code>Date</code>, <code>character</code> or <code>numeric</code>. Other types aren’t handled nicely, like class <code>yearmon</code> from the <code>zoo</code> package. Often, the best strategy is to order the data, NOT pass a <code>x</code> variable, then label the x-axis later using the <code>hc_xAxis(categories = some_vector_of_strings)</code> option.</p>
+</blockquote>
+</div>
+</div>
+<div id="your-best-friend-the-hcxhc_optsseries-list" class="section level1">
+<h1>Your Best Friend, the <code>hc\$x\$hc_opts\$series</code> List</h1>
+<p>Pretend you assigned your chart to the variable <code>hc</code>. You can extract the underlying series data used in the chart by digging into the lists <code>hc\$x\$hc_opts\$series</code>. Referencing these series list is actually how I learned to finally start connecting the Highcharts API with tooltip options and series construction.</p>
+<p>But this is where things also start to get tricky. <em>How</em> you pass data to <code>highcharter</code> or <em>how</em> you build a series affects the underlying structure of the data used for plotting. I will again show this by example.</p>
+<p>Below, I build two charts with essentially the same output, <code>hc1</code> and <code>hc2</code>. <code>hc1</code> is built series by series, explicitly defining the series <code>name</code> and <code>data</code> (remember, the list names <code>name</code> and <code>data</code> are explicit, matching the API calls). <code>hc2</code> is built series by passing a tidy dataframe to <code>hchart</code>, defining the <code>x</code> and <code>y</code> values but letting the series names be defined by the <code>group</code> variable.</p>
+<pre class="r"><code># build series by series
+hc1 &lt;- highchart() %&gt;%
+  hc_xAxis(categories = citytemp$month) %&gt;%
+  hc_add_series(name = &quot;tokyo&quot;, data = citytemp$tokyo) %&gt;%
+  hc_add_series(name = &quot;london&quot;, data = citytemp$london)
+hc1</code></pre>
+<div id="htmlwidget-9" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"xAxis":{"categories":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},"series":[{"data":[7,6.9,9.5,14.5,18.2,21.5,25.2,26.5,23.3,18.3,13.9,9.6],"name":"tokyo"},{"data":[3.9,4.2,5.7,8.5,11.9,15.2,17,16.6,14.2,10.3,6.6,4.8],"name":"london"}]},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># build using hchart
+citytemp2 &lt;- citytemp %&gt;%
+  tidyr::gather(key = city, value = temperature, tokyo, london)
+
+hc2 &lt;- hchart(citytemp2, type = &#39;line&#39;, hcaes(y = temperature, group = city, x = month))
+hc2</code></pre>
+<div id="htmlwidget-10" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-10">{"x":{"hc_opts":{"title":{"text":null},"yAxis":{"title":{"text":"temperature"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"turboThreshold":0,"showInLegend":true,"marker":{"enabled":false}},"treemap":{"layoutAlgorithm":"squarified"},"bubble":{"minSize":5,"maxSize":25},"scatter":{"marker":{"symbol":"circle"}}},"annotationsOptions":{"enabledButtons":false},"tooltip":{"delayForDisplay":10},"series":[{"name":"london","data":[{"month":"Jan","new_york":-0.2,"berlin":-0.9,"city":"london","temperature":3.9,"y":3.9,"name":"Jan"},{"month":"Feb","new_york":0.8,"berlin":0.6,"city":"london","temperature":4.2,"y":4.2,"name":"Feb"},{"month":"Mar","new_york":5.7,"berlin":3.5,"city":"london","temperature":5.7,"y":5.7,"name":"Mar"},{"month":"Apr","new_york":11.3,"berlin":8.4,"city":"london","temperature":8.5,"y":8.5,"name":"Apr"},{"month":"May","new_york":17,"berlin":13.5,"city":"london","temperature":11.9,"y":11.9,"name":"May"},{"month":"Jun","new_york":22,"berlin":17,"city":"london","temperature":15.2,"y":15.2,"name":"Jun"},{"month":"Jul","new_york":24.8,"berlin":18.6,"city":"london","temperature":17,"y":17,"name":"Jul"},{"month":"Aug","new_york":24.1,"berlin":17.9,"city":"london","temperature":16.6,"y":16.6,"name":"Aug"},{"month":"Sep","new_york":20.1,"berlin":14.3,"city":"london","temperature":14.2,"y":14.2,"name":"Sep"},{"month":"Oct","new_york":14.1,"berlin":9,"city":"london","temperature":10.3,"y":10.3,"name":"Oct"},{"month":"Nov","new_york":8.6,"berlin":3.9,"city":"london","temperature":6.6,"y":6.6,"name":"Nov"},{"month":"Dec","new_york":2.5,"berlin":1,"city":"london","temperature":4.8,"y":4.8,"name":"Dec"}],"type":"line"},{"name":"tokyo","data":[{"month":"Jan","new_york":-0.2,"berlin":-0.9,"city":"tokyo","temperature":7,"y":7,"name":"Jan"},{"month":"Feb","new_york":0.8,"berlin":0.6,"city":"tokyo","temperature":6.9,"y":6.9,"name":"Feb"},{"month":"Mar","new_york":5.7,"berlin":3.5,"city":"tokyo","temperature":9.5,"y":9.5,"name":"Mar"},{"month":"Apr","new_york":11.3,"berlin":8.4,"city":"tokyo","temperature":14.5,"y":14.5,"name":"Apr"},{"month":"May","new_york":17,"berlin":13.5,"city":"tokyo","temperature":18.2,"y":18.2,"name":"May"},{"month":"Jun","new_york":22,"berlin":17,"city":"tokyo","temperature":21.5,"y":21.5,"name":"Jun"},{"month":"Jul","new_york":24.8,"berlin":18.6,"city":"tokyo","temperature":25.2,"y":25.2,"name":"Jul"},{"month":"Aug","new_york":24.1,"berlin":17.9,"city":"tokyo","temperature":26.5,"y":26.5,"name":"Aug"},{"month":"Sep","new_york":20.1,"berlin":14.3,"city":"tokyo","temperature":23.3,"y":23.3,"name":"Sep"},{"month":"Oct","new_york":14.1,"berlin":9,"city":"tokyo","temperature":18.3,"y":18.3,"name":"Oct"},{"month":"Nov","new_york":8.6,"berlin":3.9,"city":"tokyo","temperature":13.9,"y":13.9,"name":"Nov"},{"month":"Dec","new_york":2.5,"berlin":1,"city":"tokyo","temperature":9.6,"y":9.6,"name":"Dec"}],"type":"line"}],"xAxis":{"type":"category","title":{"text":"month"},"categories":null}},"theme":{"chart":{"backgroundColor":"transparent"}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>So what? If the output is the same, what is there to fret about? Enter <code>.\$x\$hc_opts\$series</code>.</p>
+<p>Here is the underlying structure of the data used to make the <code>hc1</code> plot.</p>
+<pre class="r"><code>length(hc1$x$hc_opts$series)</code></pre>
+<pre><code>#&gt; [1] 2</code></pre>
+<pre class="r"><code>hc1$x$hc_opts$series # here is the series data and metadata</code></pre>
+<pre><code>#&gt; [[1]]
+#&gt; [[1]]$data
+#&gt;  [1]  7.0  6.9  9.5 14.5 18.2 21.5 25.2 26.5 23.3 18.3 13.9  9.6
+#&gt; 
+#&gt; [[1]]$name
+#&gt; [1] &quot;tokyo&quot;
+#&gt; 
+#&gt; 
+#&gt; [[2]]
+#&gt; [[2]]$data
+#&gt;  [1]  3.9  4.2  5.7  8.5 11.9 15.2 17.0 16.6 14.2 10.3  6.6  4.8
+#&gt; 
+#&gt; [[2]]$name
+#&gt; [1] &quot;london&quot;</code></pre>
+<pre class="r"><code>hc1$x$hc_opts$series[[1]] # i can extract a specific series</code></pre>
+<pre><code>#&gt; $data
+#&gt;  [1]  7.0  6.9  9.5 14.5 18.2 21.5 25.2 26.5 23.3 18.3 13.9  9.6
+#&gt; 
+#&gt; $name
+#&gt; [1] &quot;tokyo&quot;</code></pre>
+<pre class="r"><code>hc1$x$hc_opts$series[[1]]$data # also just the plotting data, which is a vector in this case</code></pre>
+<pre><code>#&gt;  [1]  7.0  6.9  9.5 14.5 18.2 21.5 25.2 26.5 23.3 18.3 13.9  9.6</code></pre>
+<p><code>hc1\$x\$hc_opts\$series</code> is therefore a list of lists, where each element of the list <code>.$series</code> contains the plotting data. The structure of the data in this case is pretty simple and clean.</p>
+<p>But now let’s look at <code>hc2</code>.</p>
+<p>There series count is the same (<code>2</code>). But I’m not going to display the output of <code>hc2\$x\$hc_opts\$series</code> because it is crazy long. However, I recommend running the code <code>hc2\$x\$hc_opts\$series</code> yourself in the console and taking a look.</p>
+<pre class="r"><code>length(hc2$x$hc_opts$series)</code></pre>
+<pre><code>#&gt; [1] 2</code></pre>
+<pre class="r"><code># hc2$x$hc_opts$series # commented out because its so long
+hc2$x$hc_opts$series[[2]][[&quot;name&quot;]] # notice how we are extracting from the second series, &quot;tokyo&quot;, not the first! Why is that? See the &quot;Important Note&quot; below.</code></pre>
+<pre><code>#&gt; [1] &quot;tokyo&quot;</code></pre>
+<pre class="r"><code>hc2$x$hc_opts$series[[2]]$data %&gt;% head(2) # extract the first 2 elements of the data for the tokyo series</code></pre>
+<pre><code>#&gt; [[1]]
+#&gt; [[1]]$month
+#&gt; [1] &quot;Jan&quot;
+#&gt; 
+#&gt; [[1]]$new_york
+#&gt; [1] -0.2
+#&gt; 
+#&gt; [[1]]$berlin
+#&gt; [1] -0.9
+#&gt; 
+#&gt; [[1]]$city
+#&gt; [1] &quot;tokyo&quot;
+#&gt; 
+#&gt; [[1]]$temperature
+#&gt; [1] 7
+#&gt; 
+#&gt; [[1]]$y
+#&gt; [1] 7
+#&gt; 
+#&gt; [[1]]$name
+#&gt; [1] &quot;Jan&quot;
+#&gt; 
+#&gt; 
+#&gt; [[2]]
+#&gt; [[2]]$month
+#&gt; [1] &quot;Feb&quot;
+#&gt; 
+#&gt; [[2]]$new_york
+#&gt; [1] 0.8
+#&gt; 
+#&gt; [[2]]$berlin
+#&gt; [1] 0.6
+#&gt; 
+#&gt; [[2]]$city
+#&gt; [1] &quot;tokyo&quot;
+#&gt; 
+#&gt; [[2]]$temperature
+#&gt; [1] 6.9
+#&gt; 
+#&gt; [[2]]$y
+#&gt; [1] 6.9
+#&gt; 
+#&gt; [[2]]$name
+#&gt; [1] &quot;Feb&quot;</code></pre>
+<blockquote>
+<p><strong>IMPORTANT NOTE:</strong> Why is the <code>tokyo</code> data the second series in <code>hc2</code>, which used <code>hchart</code>, but the first series in <code>hc1</code>? This is because, when you build the chart series by series (using <code>hc_add_series</code>), the index follows the order of inclusion. The <code>tokyo</code> data is added to <code>hc1</code> chart first, so it becomes the first series (<code>.$series[[1]]</code>). On the other hand, if you use <code>hchart</code>, then highcharter orders series <em>alphabetically</em>. <code>london</code> comes before <code>tokyo</code>, so <code>tokyo</code> is the second series (<code>.$series[[2]]</code>). Given that the order of how a series is plotted can matter, this is a very important caveat to remember when using <code>hchart</code>!</p>
+</blockquote>
+<p>The fact that <code>hc2\$x\$hc_opts\$series</code> is so much longer than the very concise <code>hc1\$x\$hc_opts\$series</code> is telling you that <code>hchart</code> is a very different beast than building using <code>hc_add_series</code> or <code>hc_add_series_list</code>. Yet, despite having very different underlying series structures, each produces the same visual output.</p>
+<p>What’s going on? Why is the structure so different?</p>
+<p>Let’s dive deeper by looking at the <em>first element</em> of the <code>data</code> list for the <code>tokyo</code> series in <code>hc1</code> and <code>hc2</code>. Remember, the <code>tokyo</code> data is the first series in <code>hc1</code> and the second in <code>hc2</code>.</p>
+<pre class="r"><code># first data element of tokyo series
+hc1$x$hc_opts$series[[1]]$data[[1]] # first series here (ordered by how series was added)</code></pre>
+<pre><code>#&gt; [1] 7</code></pre>
+<pre class="r"><code>hc2$x$hc_opts$series[[2]]$data[[1]] # but second series here (ordered alphabetically by series name)</code></pre>
+<pre><code>#&gt; $month
+#&gt; [1] &quot;Jan&quot;
+#&gt; 
+#&gt; $new_york
+#&gt; [1] -0.2
+#&gt; 
+#&gt; $berlin
+#&gt; [1] -0.9
+#&gt; 
+#&gt; $city
+#&gt; [1] &quot;tokyo&quot;
+#&gt; 
+#&gt; $temperature
+#&gt; [1] 7
+#&gt; 
+#&gt; $y
+#&gt; [1] 7
+#&gt; 
+#&gt; $name
+#&gt; [1] &quot;Jan&quot;</code></pre>
+<p>For reference, here, again, is that code that generated <code>hc1</code> and <code>hc2</code>. I also recommend looking at the structure of the <code>citytemp</code> and <code>citytemp2</code> data objects to refresh yourself.</p>
+<pre class="r"><code>hc1 &lt;- highchart() %&gt;%
+  hc_xAxis(categories = citytemp$month) %&gt;%
+  hc_add_series(name = &quot;tokyo&quot;, data = citytemp$tokyo) %&gt;%
+  hc_add_series(name = &quot;london&quot;, data = citytemp$london)
+
+hc2 &lt;- hchart(citytemp2, type = &#39;line&#39;, hcaes(y = temperature, group = city, x = month))</code></pre>
+<p>The value of <code>hc1\$x\$hc_opts\$series[[1]]\$data[[1]]</code> is <code>7</code>. This maps directly with <code>citytemp$tokyo[1]</code>. This is because the data for each series in <code>hc1</code> is a single vector (or array) of data (<code>..., data = citytemp\$tokyo)</code>). A nice chart is still generated because the API handles the translation of the 1d <code>data</code> vector to <code>y</code> values and creates the corresponding <code>x</code> index values.</p>
+<p>But the value of <code>hc2\$x\$hc_opts\$series[[2]]\$data[[1]]</code> is a list of 5 named elements.</p>
+<pre class="r"><code>hc2$x$hc_opts$series[[2]]$data[[1]] %&gt;% str()</code></pre>
+<pre><code>#&gt; List of 7
+#&gt;  $ month      : chr &quot;Jan&quot;
+#&gt;  $ new_york   : num -0.2
+#&gt;  $ berlin     : num -0.9
+#&gt;  $ city       : chr &quot;tokyo&quot;
+#&gt;  $ temperature: num 7
+#&gt;  $ y          : num 7
+#&gt;  $ name       : chr &quot;Jan&quot;</code></pre>
+<p>The best way to think of element <code>hc2\$x\$hc_opts\$series[[2]]\$data[[1]]</code> is as a point with, in this case, 5 bits of data. While each bit of data exists as part of the point, not all of the data is used when creating the chart. The only bits of data used are those that have names used by the Highcharts API, like <code>y</code> and <code>name</code>.</p>
+<p>There are a few things to notice, each rooted in the code <code>hchart(., type = 'line', hcaes(y = temperature, group = city, x = month))</code>:</p>
+<ol style="list-style-type: decimal">
+<li>The dataframe <code>citytemp2</code> had only 3 variables (<code>month</code>, <code>city</code>, <code>temperature</code>). <code>hchart</code> not only passes these variables as data, it then passes the variables assigned to the <code>y</code> and <code>x</code> arguments (<code>y = temperature</code>, <code>x = month</code>).</li>
+<li>But wait, there is no <code>x</code> named element? The variable assigned to <code>x</code> was renamed to <code>name</code>, *which is not to be confused with the <strong>series</strong> name <code>hc2\$x\$hc_opts\$series[[2]]\$name</code>. This is because the variable assigned to <code>x</code> was of class <code>character</code>. Highcharts cannot chart a non-numeric value to the x-axis. Instead, <code>highcharter</code> automatically maps string values assigned to <code>x</code> to the list element <code>name</code>. Index values are then generated for <code>x</code> by the API and each is labeled by the <code>name</code> value.</li>
+</ol>
+<div id="one-dimensional-array-easy-multi-dimensional-arrays-damn." class="section level3">
+<h3>One-dimensional array? Easy! Multi-dimensional arrays? Damn.</h3>
+<p>Turns out that Highcharts, by default, parses the contents of the <code>data</code> array object element by element, looking for sub-arrays with specific names (<code>y</code>, <code>x</code> etc) or a specific order (<code>[2, 5]</code> order implies <code>x = 2</code>, <code>y = 5</code>).</p>
+<p>If Highcharts finds a single unlabeled <code>data</code> array instead of an array with subarray elements (essentially a one-dimensional vector vs a list of lists), it assumes that the data maps to <code>y</code> and creates an index for each value to act as the x-axis. That is, in the background, the API takes the single 1-dim array, assumes its the data for <code>y</code>, and then creates <code>(x, y)</code> array pairs where <code>x</code> is just an index <code>1:length(y)</code>.</p>
+<p>Things start getting cumbersome and confusing the moment you want to chart <em>anything</em> more complicated than a one-dimensional vector/array—like <em>specific</em> <code>(x,y)</code> data pairs or perhaps extra data to label specific points or to make fancy tooltips. In <code>R</code> terms, this means that <code>data</code> goes from being a simple vector to a sprawling list of sublists where each element of <code>data</code> (e.g. <code>data[[1]]</code>) is actually <em>another</em> named list.</p>
+<p>The pros of this is you have <em>total</em> control over what you want to plot! The downside is that a simple change to a chart can sometimes be incredibly tedious.</p>
+<p>If you just want a plot with no special customizations, no problem! Easy, clean, straightforward. But the moment you want to customize even one point in a series, the amount and complexity of code you have to write just ballooned 2 or 3 fold.</p>
+<p>My next post will cover how to deal with these more complex plots. It can be tedious but the results are beautiful. As I told my old boss, “It is amazing how much you have to code to make there be <em>less</em> in a plot.”</p>
+<!-- # Outline for Future Posts -->
+<!-- - Basics -->
+<!--     - [x] Understanding the series -->
+<!--         - `highchart()` plus `hc_add_series_list()` for most everything -->
+<!--     - [x] translating highcharts api to highcharter syntax -->
+<!--         - list of nested lists! -->
+<!--         - example translating Highcharts API to highcharter -->
+<!--     - [x] `hchart()` for tidy data frames -->
+<!-- - Advanced -->
+<!--     - [x] `hc\$x\$hc_opts\$series` for understanding structure of series in highcharts -->
+<!--         - a single vector defaults to `data` or `y` -->
+<!--         - any more data than a single vector and you end up with a series being list of lists e.g. build an object with `hchart()` and `highchart()` and `hc_add_series_list()` -->
+<!-- - Random things -->
+<!--     - [ ] highcharter likes as.Date(), but not character values of dates. -->
+</div>
+</div>
