@@ -95,7 +95,7 @@
   
   <url>
     <loc>/authors/admin/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -110,7 +110,7 @@
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -126,7 +126,7 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -141,13 +141,19 @@
   </url>
   
   <url>
-    <loc>/post/2019-05-22-football-clubs-expenses/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <loc>/post/suicide-overview/</loc>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pca/</loc>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -162,7 +168,7 @@
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -178,7 +184,7 @@
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -194,7 +200,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -209,15 +215,19 @@
   </url>
   
   <url>
-    <loc>/tags/clustering/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+    <loc>/tags/data-analysis/</loc>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/data-analysis/</loc>
-    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/data-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/tags/data-analysis/"
+                />
   </url>
   
   <url>
@@ -475,29 +485,6 @@
   </url>
   
   <url>
-    <loc>/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/publication_types/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -529,26 +516,6 @@
   </url>
   
   <url>
-    <loc>/post/2019-05-30-suicide-overview/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-30-suicide-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-30-suicide-overview/"
-                />
-  </url>
-  
-  <url>
-    <loc>/post/football-cluster.rmarkdown/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/courses/</loc>
     <xhtml:link
                 rel="alternate"
@@ -563,17 +530,7 @@
   </url>
   
   <url>
-    <loc>/post/2019-05-30-suicide-overview/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-30-suicide-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/post/2019-05-30-suicide-overview/"
-                />
+    <loc>/post/2019-05-30-suicide-evolution-since-1985/</loc>
   </url>
   
 </urlset>

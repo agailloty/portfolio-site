@@ -348,6 +348,16 @@
     <loc>/fr/tags/data-analysis/</loc>
     <lastmod>2019-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/tags/data-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/data-analysis/"
+                />
   </url>
   
   <url>
