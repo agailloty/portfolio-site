@@ -13,6 +13,15 @@
     
     <item>
       <title>Overview of suicide in the world</title>
+      <link>/post/2019-05-30-suicide-evolution-since-1985/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-30-suicide-evolution-since-1985/</guid>
+      <description>Use R to explore how suicide has evolved since 1985</description>
+    </item>
+    
+    <item>
+      <title>Overview of suicide in the world</title>
       <link>/post/suicide-overview/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       
@@ -54,15 +63,6 @@
       
       <guid>/authors/admin/</guid>
       <description>I am a student in Economics with a demonstrated interest in quantitative economics. I like to find patterns in data and extract knowledge from it to solve problems. From Econometrics modelling to interpreting p-values I like to share the results of my findings in a clear and approachable way. Most importantly I&amp;rsquo;m curious and eager to learn new things. My current pursuits are data science and machine learning for which I&amp;rsquo;ve been spending significant amount of time in learning both theory and programming skills which include R and Python.</description>
-    </item>
-    
-    <item>
-      <title>Overview of suicide in the world</title>
-      <link>/post/2019-05-30-suicide-evolution-since-1985/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-30-suicide-evolution-since-1985/</guid>
-      <description>Use R to explore how suicide has evolved since 1985</description>
     </item>
     
   </channel>

@@ -141,6 +141,11 @@
   </url>
   
   <url>
+    <loc>/post/2019-05-30-suicide-evolution-since-1985/</loc>
+    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/suicide-overview/</loc>
     <lastmod>2019-05-17T00:00:00+00:00</lastmod>
   </url>
@@ -527,10 +532,6 @@
                 hreflang="en"
                 href="/courses/"
                 />
-  </url>
-  
-  <url>
-    <loc>/post/2019-05-30-suicide-evolution-since-1985/</loc>
   </url>
   
 </urlset>

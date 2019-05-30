@@ -2,7 +2,7 @@
 authors:
 - admin
 categories: [R]
-date: "17/05/2019"
+date: 2019-05-17
 draft: false
 featured: false
 image:
