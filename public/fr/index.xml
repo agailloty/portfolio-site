@@ -2606,5 +2606,410 @@ $$&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/fr/post/financial-data-python/2019-02-25-lire-des-informations-financi%C3%A8res/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/financial-data-python/2019-02-25-lire-des-informations-financi%C3%A8res/</guid>
+      <description>
+
+&lt;h1 id=&#34;lire-des-données-financières&#34;&gt;Lire des données financières&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;attachment:image.png&#34; alt=&#34;image.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aujourd&amp;rsquo;hui, grâce à la performance des ordinateurs et leurs puissance de calcul qui ne cesse d&amp;rsquo;augmenter il est facile de traiter une quantité phénoménale des données brutes en très peu de temps. Le traitement et l&amp;rsquo;extraction d&amp;rsquo;informations à partir de ces données en temps réel deviennent décisifs à mesure que croissent les enjeux associés à l&amp;rsquo;utilisation d&amp;rsquo;une information.  Presque toutes les grosses entreprises de la planète sont aujourd&amp;rsquo;hui côtées en bourse: que ce soit Facebook, Google, Amazon ou encore Apple pour ne citer que ces populaires là, les informations les concernant doivent être disponibles ainsi que les prédictions associées pour aider les acteurs des marchés financiers à se décider.&lt;br /&gt;
+Dans cet article, j&amp;rsquo;aimerais vous emmener un peu à l&amp;rsquo;aventure de traitement des données en passant premièrement à leur lecture en ligne, à la visualisation et à l&amp;rsquo;analyse. Allons-y&lt;/p&gt;
+
+&lt;h1 id=&#34;la-librairie-pandas-datareader&#34;&gt;La librairie &lt;code&gt;pandas_datareader&lt;/code&gt;.&lt;/h1&gt;
+
+&lt;p&gt;Python a cet avantage qu&amp;rsquo;il existe beaucoup de librairies permettant de lire en temps réel les données financières. &lt;code&gt;Pandas_datareader&lt;/code&gt;, &lt;code&gt;Quantopian&lt;/code&gt; ou bien &lt;code&gt;Quandl&lt;/code&gt; ne sont que quelques une des librairies qui permettent de faire ce travail. J&amp;rsquo;utiliserais cette première librairie pour cet article car elle est facile et fonctionne très bien avec Pandas.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Importation des librairies
+% matplotlib inline
+import pandas as pd
+from pandas_datareader import DataReader, wb
+import seaborn as sns
+import matplotlib.pyplot as plt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Paramètres graphiques
+plt.rcParams[&amp;quot;figure.figsize&amp;quot;] = [12,6]
+plt.rcParams[&amp;quot;figure.dpi&amp;quot;] = 150
+plt.style.use(&amp;quot;fivethirtyeight&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Les librairies importées, passons maintenant à la lecture des informations financières. J&amp;rsquo;aimerais lire les informations de 3 informations. Une française, une américaine et une autre japonaise.&lt;br /&gt;
+Ces entreprises ne sont rien d&amp;rsquo;autres que Total, Amazon et Toyota.&lt;br /&gt;
+J&amp;rsquo;aimerais avoir leurs informations boursières d&amp;rsquo;il y a 10 ans à aujourd&amp;rsquo;hui 25 février 2019&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;total = DataReader(&amp;quot;TOT&amp;quot;, data_source= &amp;quot;yahoo&amp;quot;, start= &amp;quot;2009-02-25&amp;quot;, end= &amp;quot;2019-02-25&amp;quot;)
+amazon = DataReader(&amp;quot;AMZN&amp;quot;, data_source= &amp;quot;yahoo&amp;quot;, start= &amp;quot;2009-02-25&amp;quot;, end= &amp;quot;2019-02-25&amp;quot;)
+toyota = DataReader(&amp;quot;TYO&amp;quot;, data_source= &amp;quot;yahoo&amp;quot;, start= &amp;quot;2009-02-25&amp;quot;, end= &amp;quot;2019-02-25&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;J&amp;rsquo;ai décidé de lire les informations à partir de Yahoo Finance. Chaque entreprise côtée en bourse a ce qu&amp;rsquo;on applle un &amp;lsquo;ticker&amp;rsquo;, c&amp;rsquo;est le premier argument que j&amp;rsquo;ai rentré dans la fonction &lt;code&gt;DataReader&lt;/code&gt; : pour Total c&amp;rsquo;est &lt;strong&gt;TOT&lt;/strong&gt;, Amazon, &lt;strong&gt;AMZN&lt;/strong&gt; et Toyota, &lt;strong&gt;TYO&lt;/strong&gt;. La liste de ces tickers est en ligne, si vous voulez trouver une entreprise particulière il faut juste taper sur Google , ticker &amp;ldquo;nom de l&amp;rsquo;entreprise&amp;rdquo;.&lt;br /&gt;
+Maintenant, regardons comment se présente chacune de ces données.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;total.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr style=&#34;text-align: right;&#34;&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+      &lt;th&gt;Adj Close&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-02-25&lt;/th&gt;
+      &lt;td&gt;49.730000&lt;/td&gt;
+      &lt;td&gt;47.450001&lt;/td&gt;
+      &lt;td&gt;49.000000&lt;/td&gt;
+      &lt;td&gt;48.900002&lt;/td&gt;
+      &lt;td&gt;5140800.0&lt;/td&gt;
+      &lt;td&gt;28.170866&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-02-26&lt;/th&gt;
+      &lt;td&gt;48.959999&lt;/td&gt;
+      &lt;td&gt;47.759998&lt;/td&gt;
+      &lt;td&gt;48.160000&lt;/td&gt;
+      &lt;td&gt;47.910000&lt;/td&gt;
+      &lt;td&gt;4680700.0&lt;/td&gt;
+      &lt;td&gt;27.600544&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-02-27&lt;/th&gt;
+      &lt;td&gt;48.360001&lt;/td&gt;
+      &lt;td&gt;46.349998&lt;/td&gt;
+      &lt;td&gt;46.759998&lt;/td&gt;
+      &lt;td&gt;47.200001&lt;/td&gt;
+      &lt;td&gt;3990300.0&lt;/td&gt;
+      &lt;td&gt;27.191511&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-03-02&lt;/th&gt;
+      &lt;td&gt;46.189999&lt;/td&gt;
+      &lt;td&gt;43.599998&lt;/td&gt;
+      &lt;td&gt;45.810001&lt;/td&gt;
+      &lt;td&gt;43.720001&lt;/td&gt;
+      &lt;td&gt;4412600.0&lt;/td&gt;
+      &lt;td&gt;25.186716&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-03-03&lt;/th&gt;
+      &lt;td&gt;44.680000&lt;/td&gt;
+      &lt;td&gt;42.880001&lt;/td&gt;
+      &lt;td&gt;44.680000&lt;/td&gt;
+      &lt;td&gt;43.410000&lt;/td&gt;
+      &lt;td&gt;3934000.0&lt;/td&gt;
+      &lt;td&gt;25.008127&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Pour chacune des entreprises ce sont ces informations que nous avons pour toute la période:&lt;br /&gt;
+La date est lue comme l&amp;rsquo;index de la base de donnée, et le grand avantage c&amp;rsquo;est qu&amp;rsquo;on a une donnée Pandas donc on peut utiliser toute la librairie pour analyser et extraire de l&amp;rsquo;information à partir d&amp;rsquo;elle.&lt;br /&gt;
+Les colonnes High et Low représentent le prix le plus haut de l&amp;rsquo;action au jour.  Open et Close sont les prix d&amp;rsquo;ouverture et de fermture ce même jour.
+Volume représente la quantité totale d&amp;rsquo;actions échangée échangée le jour.&lt;/p&gt;
+
+&lt;p&gt;Pour pouvoir analyser ensemble ces données concernant les 3 entreprises on peut les joindre ensemble dans un seul base de donnée.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;tickers = [&amp;quot;TOT&amp;quot;, &amp;quot;AMZN&amp;quot;, &amp;quot;TYO&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;entreprises = pd.concat([total, amazon, toyota], axis = 1, keys= tickers)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;entreprises.head()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div&gt;
+&lt;style scoped&gt;
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+&lt;/style&gt;
+&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th colspan=&#34;6&#34; halign=&#34;left&#34;&gt;TOT&lt;/th&gt;
+      &lt;th colspan=&#34;6&#34; halign=&#34;left&#34;&gt;AMZN&lt;/th&gt;
+      &lt;th colspan=&#34;6&#34; halign=&#34;left&#34;&gt;TYO&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+      &lt;th&gt;Adj Close&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+      &lt;th&gt;Adj Close&lt;/th&gt;
+      &lt;th&gt;High&lt;/th&gt;
+      &lt;th&gt;Low&lt;/th&gt;
+      &lt;th&gt;Open&lt;/th&gt;
+      &lt;th&gt;Close&lt;/th&gt;
+      &lt;th&gt;Volume&lt;/th&gt;
+      &lt;th&gt;Adj Close&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-02-25&lt;/th&gt;
+      &lt;td&gt;49.730000&lt;/td&gt;
+      &lt;td&gt;47.450001&lt;/td&gt;
+      &lt;td&gt;49.000000&lt;/td&gt;
+      &lt;td&gt;48.900002&lt;/td&gt;
+      &lt;td&gt;5140800.0&lt;/td&gt;
+      &lt;td&gt;28.170866&lt;/td&gt;
+      &lt;td&gt;65.750000&lt;/td&gt;
+      &lt;td&gt;62.820000&lt;/td&gt;
+      &lt;td&gt;64.900002&lt;/td&gt;
+      &lt;td&gt;63.709999&lt;/td&gt;
+      &lt;td&gt;9122100&lt;/td&gt;
+      &lt;td&gt;63.709999&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-02-26&lt;/th&gt;
+      &lt;td&gt;48.959999&lt;/td&gt;
+      &lt;td&gt;47.759998&lt;/td&gt;
+      &lt;td&gt;48.160000&lt;/td&gt;
+      &lt;td&gt;47.910000&lt;/td&gt;
+      &lt;td&gt;4680700.0&lt;/td&gt;
+      &lt;td&gt;27.600544&lt;/td&gt;
+      &lt;td&gt;64.730003&lt;/td&gt;
+      &lt;td&gt;62.340000&lt;/td&gt;
+      &lt;td&gt;64.120003&lt;/td&gt;
+      &lt;td&gt;62.340000&lt;/td&gt;
+      &lt;td&gt;7275300&lt;/td&gt;
+      &lt;td&gt;62.340000&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-02-27&lt;/th&gt;
+      &lt;td&gt;48.360001&lt;/td&gt;
+      &lt;td&gt;46.349998&lt;/td&gt;
+      &lt;td&gt;46.759998&lt;/td&gt;
+      &lt;td&gt;47.200001&lt;/td&gt;
+      &lt;td&gt;3990300.0&lt;/td&gt;
+      &lt;td&gt;27.191511&lt;/td&gt;
+      &lt;td&gt;65.080002&lt;/td&gt;
+      &lt;td&gt;60.939999&lt;/td&gt;
+      &lt;td&gt;61.259998&lt;/td&gt;
+      &lt;td&gt;64.790001&lt;/td&gt;
+      &lt;td&gt;11488300&lt;/td&gt;
+      &lt;td&gt;64.790001&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-03-02&lt;/th&gt;
+      &lt;td&gt;46.189999&lt;/td&gt;
+      &lt;td&gt;43.599998&lt;/td&gt;
+      &lt;td&gt;45.810001&lt;/td&gt;
+      &lt;td&gt;43.720001&lt;/td&gt;
+      &lt;td&gt;4412600.0&lt;/td&gt;
+      &lt;td&gt;25.186716&lt;/td&gt;
+      &lt;td&gt;65.519997&lt;/td&gt;
+      &lt;td&gt;61.509998&lt;/td&gt;
+      &lt;td&gt;63.939999&lt;/td&gt;
+      &lt;td&gt;61.990002&lt;/td&gt;
+      &lt;td&gt;10511900&lt;/td&gt;
+      &lt;td&gt;61.990002&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2009-03-03&lt;/th&gt;
+      &lt;td&gt;44.680000&lt;/td&gt;
+      &lt;td&gt;42.880001&lt;/td&gt;
+      &lt;td&gt;44.680000&lt;/td&gt;
+      &lt;td&gt;43.410000&lt;/td&gt;
+      &lt;td&gt;3934000.0&lt;/td&gt;
+      &lt;td&gt;25.008127&lt;/td&gt;
+      &lt;td&gt;63.290001&lt;/td&gt;
+      &lt;td&gt;61.299999&lt;/td&gt;
+      &lt;td&gt;62.750000&lt;/td&gt;
+      &lt;td&gt;61.700001&lt;/td&gt;
+      &lt;td&gt;9691600&lt;/td&gt;
+      &lt;td&gt;61.700001&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;En combinant les informations ensemble, on observe toute de suite que les données concernant Toyota en 2009 sont manquantes. Il semblerait donc que le groupe n&amp;rsquo;ait entré e bourse que plus tard. Regardons à partir de quel moment nous avons les informations le concernant.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;entreprises[&amp;quot;TYO&amp;quot;][&amp;quot;Open&amp;quot;].first_valid_index()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Timestamp(&#39;2009-04-16 00:00:00&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C&amp;rsquo;est donc à partir du 16 avril 2009 qu&amp;rsquo;on commence à trouver des informations disponibles concernant Toyota.&lt;/p&gt;
+
+&lt;h1 id=&#34;visualisation&#34;&gt;Visualisation&lt;/h1&gt;
+
+&lt;h2 id=&#34;evolution-des-prix-plus-haut&#34;&gt;Evolution des prix plus haut&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;tickers
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;[&#39;TOT&#39;, &#39;AMZN&#39;, &#39;TYO&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for i, tick in enumerate(tickers):
+    entreprises[tick][&amp;quot;Open&amp;quot;].plot()
+    plt.legend(tickers)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_20_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;La croissance des prix d&amp;rsquo;ouverture des actions Amazon est tellement fulgurante que sur l&amp;rsquo;echelle les deux autres prix sont mal représentés.&lt;br /&gt;
+On peut zoomer sur ce graphique en ajustant l&amp;rsquo;echelle à un echelle logarithmique pour observer l&amp;rsquo;évolution des données avec le temps.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for i, tick in enumerate(tickers):
+    np.log(entreprises[tick][&amp;quot;Open&amp;quot;]).plot()
+    plt.legend(tickers)
+plt.title(&amp;quot; Evolution du logarithme des prix d&#39;ouverture&amp;quot;)
+plt.ylabel(&amp;quot;Prix en logarithme&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_23_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.figure(figsize = (10,14))
+for i, tick in enumerate(tickers):
+    plt.subplot(3,1, i+1)
+    plt.plot(entreprises[tick][&amp;quot;High&amp;quot;])
+    plt.title(f&amp;quot;High price for {tick}&amp;quot;)
+plt.tight_layout(h_pad = 2.5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_24_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On observe pour ces trois entreprises que les variations des prix des actions diffèrent considérablement. Chez Total on observe une forte volatilité et une sorte de saisonalité, chez Amazon c&amp;rsquo;est une croissance fulgurante qu&amp;rsquo;on observe, depuis 2009 les prix ne cessent de grimper jusqu&amp;rsquo;à atteindre leur maximum mi 2018 pour baisser légrement ensuite. Quand à Toyota sur toute la période les prix ne font que baisser. Essayons de zoomer davantage sur ces données et considérons un horizon temporelle plus court : entre 2015 et 2019.&lt;/p&gt;
+
+&lt;h2 id=&#34;a-partir-de-2015&#34;&gt;A partir de 2015&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from_2015 = entreprises.loc[&amp;quot;2015&amp;quot;:,]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.figure(figsize = (10,14))
+for i, tick in enumerate(tickers):
+    plt.subplot(3,1, i+1)
+    plt.plot(from_2015[tick][&amp;quot;High&amp;quot;])
+    plt.title(f&amp;quot;High price for {tick}&amp;quot;)
+plt.tight_layout(h_pad = 2.5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;output_28_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Voilà donc pour cet article ! Mon but était principalement de vous présenter comment il est possible de lire les informations financières en ligne. Les possibilité d&amp;rsquo;analyse sont nombreuses, on aura pu estimer et prévoir la volatilité de ces prix avec des modèles de type GARCH mais laissons cela pour une prochaine série !&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

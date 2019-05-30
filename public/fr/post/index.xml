@@ -47,5 +47,14 @@
       <description>Utiliser les librairies scientifiques de Python pour analyser un jeu de données.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/fr/post/financial-data-python/2019-02-25-lire-des-informations-financi%C3%A8res/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/post/financial-data-python/2019-02-25-lire-des-informations-financi%C3%A8res/</guid>
+      <description>Lire des données financières Aujourd&amp;rsquo;hui, grâce à la performance des ordinateurs et leurs puissance de calcul qui ne cesse d&amp;rsquo;augmenter il est facile de traiter une quantité phénoménale des données brutes en très peu de temps. Le traitement et l&amp;rsquo;extraction d&amp;rsquo;informations à partir de ces données en temps réel deviennent décisifs à mesure que croissent les enjeux associés à l&amp;rsquo;utilisation d&amp;rsquo;une information. Presque toutes les grosses entreprises de la planète sont aujourd&amp;rsquo;hui côtées en bourse: que ce soit Facebook, Google, Amazon ou encore Apple pour ne citer que ces populaires là, les informations les concernant doivent être disponibles ainsi que les prédictions associées pour aider les acteurs des marchés financiers à se décider.</description>
+    </item>
+    
   </channel>
 </rss>
