@@ -2,7 +2,7 @@
 authors:
 - admin
 categories: [R,Time series]
-date: "2019-05-30T00:00:00Z"
+date: "2019-05-30"
 draft: false
 featured: true
 image:
