@@ -3,4 +3,5 @@
 
 # Redirect default Netlify subdomain to primary domain
 https://gailloty.netlify.com/* https://agailloty.rbind.io/:splat 301!
+http://gailloty.netlify.com/* https://agailloty.rbind.io/:splat 301!
 http://agailloty.rbind.io/* https://agailloty.rbind.io/:splat 301!
