@@ -10,7 +10,7 @@ image:
   focal_point: ""
 projects: []
 subtitle: 
-summary: Use the t-SNE algorithm to perform a reduce dimension and plot the countries in a 2D hexmap
+summary: Use the t-SNE algorithm to perform a dimensionality redyction and plot the countries in a 2D hexmap
 tags: [R, ggplot2, clustering, t-SNE]
 title: Shades of happiness
 ---
@@ -216,7 +216,7 @@ tsne_hexmap(name = "Freedom", variable = "Freedom")
 
 ![png](output_19_0.png)
 
-
+## GDP/Capita
 
 ```R
 tsne_hexmap(name = "GDP/Capita", variable = "Economy..GDP.per.Capita.")
