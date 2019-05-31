@@ -1,7 +1,21 @@
-
+---
+authors:
+- admin
+categories: [R,clustering, ggplot2]
+date: "2019-06-01"
+draft: false
+featured: true
+image:
+  caption: ""
+  focal_point: ""
+projects: []
+subtitle: 
+summary: Use the t-SNE algorithm to perform a reduce dimension and plot the countries in a 2D hexmap
+tags: [R, ggplot2, clustering, t-SNE]
+title: Shades of happiness
+---
 One of my favorite task when I deal with large datasets that contains individuals and a lot of variables is to reduce the dimensionality so to understand which factors differentiate the most these individuals. There exists a lot of dimensionality reduction techniques but the most used is the Principal Components Ananlysis. After using PCA for most of my projects I discovered in this [Kaggle](https://www.kaggle.com/cherzy/spatial-representation-and-dim-reduction-t-sne) kernel a new technique that immediately raises my interest and I would like to use this new technique to analyse happiness in the world.  
 I am going to work on a dataset from `Sustainable Development Solutions Network` which is hosted on here on [Kaggle](https://www.kaggle.com/unsdsn/world-happiness/downloads/world-happiness-report.zip/2). 
-
 
 ```R
 ## Loading the libraries
