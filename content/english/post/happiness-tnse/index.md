@@ -1,7 +1,7 @@
 ---
 authors:
 - admin
-categories: [R,clustering, ggplot2]
+categories: [R,clustering, visualizations]
 date: "2019-05-31"
 draft: false
 featured: true
@@ -10,7 +10,7 @@ image:
   focal_point: ""
 projects: []
 subtitle: 
-summary: Use the t-SNE algorithm to perform a dimensionality redyction and plot the countries in a 2D hexmap
+summary: Use the t-SNE algorithm to perform a dimensionality reduction and plot the countries in a 2D hexmap
 tags: [R, ggplot2, clustering, t-SNE]
 title: Shades of happiness
 ---
