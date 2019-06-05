@@ -30,7 +30,7 @@
 
 [[main]]
   name = "Contact"
-  url = mailto:mr.clerisaxel@hotmail.fr
+  url = mailto:"#contact"
   weight = 60
 
 # Link to a PDF of your resume/CV from the menu.
