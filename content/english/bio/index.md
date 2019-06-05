@@ -1,6 +1,7 @@
-+++
-# Homepage
-type = "widget_page"
-headless = false  # Homepage is headless, other widget pages are not.
-title : Bio
-+++
+---
+header:
+  caption: ""
+  image: ""
+title: Bio
+view: 2
+---
