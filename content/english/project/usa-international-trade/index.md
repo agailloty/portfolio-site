@@ -7,5 +7,6 @@ image:
 summary: A Kaggle kernel I write on a dataset of USA Economics and Business Reports.
 tags: 
 - Kaggle
+- R
 title: USA International Trade
 ---
