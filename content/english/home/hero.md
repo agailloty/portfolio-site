@@ -35,6 +35,10 @@ title = "Welcome"
 #   Remove a link/note by deleting a cta/note block.
 
 +++
+\
+\
+\
+\
 
 
 
@@ -44,8 +48,7 @@ title = "Welcome"
 
 
 
-
-Welcome to **my personal website**,
+Welcome to **my personal website**,\
 	I am glad you pass by here ! 
 	
 	  
