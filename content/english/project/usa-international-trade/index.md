@@ -5,7 +5,7 @@ image:
   caption: US Imports over time
   focal_point: Smart
 summary: A Kaggle kernel I write on a dataset of USA Economics and Business Reports.
-tags:
-- R
+tags: 
+- Kaggle
 title: USA International Trade
 ---
