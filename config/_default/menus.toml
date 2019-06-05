@@ -18,10 +18,10 @@
   url = "#projects"
   weight = 40
 
-[[main]]
-  name = "Publications"
-  url = "#featured"
-  weight = 40
+#[[main]]
+#  name = "Publications"
+#  url = "#featured"
+#  weight = 40
 
 #[[main]]
 # name = "Courses"
@@ -30,7 +30,7 @@
 
 [[main]]
   name = "Contact"
-  url = "#contact"
+  url = mailto:mr.clerisaxel@hotmail.fr
   weight = 60
 
 # Link to a PDF of your resume/CV from the menu.
