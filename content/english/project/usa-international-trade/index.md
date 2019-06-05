@@ -4,7 +4,7 @@ external_link: https://www.kaggle.com/agailloty/the-us-international-trades/repo
 image:
   caption: US Imports over time
   focal_point: Smart
-summary: A Kaggle kernel I write on a dataset of USA Economics and Business Reports `external_link`.
+summary: A Kaggle kernel I write on a dataset of USA Economics and Business Reports.
 tags:
 - R
 title: USA International Trade
