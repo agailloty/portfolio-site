@@ -39,18 +39,17 @@ title = "Welcome"
 \
 \
 \
+\
+\
+\
 
+> Welcome to **my personal website**, I am glad you pass by here ! 
+\
+\
+\
+\
+\
 
-
-
-
-
-
-
-
-Welcome to **my personal website**,\
-	I am glad you pass by here ! 
-	
 	  
 	    
 		
