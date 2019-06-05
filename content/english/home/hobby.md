@@ -22,7 +22,7 @@ I am always happy to meet friends, fellow colleauges or collectors.
 
 Find me on [instagram](https://www.instagram.com/axel_cleris/):
 
-{{< instagram BxAah9CDa-n >}}
+{{< instagram BxAah9CDa-n >}}  
 /
 or on Twitter
 {{< tweet 1136012052600950785 >}}
