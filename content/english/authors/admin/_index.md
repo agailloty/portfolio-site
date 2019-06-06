@@ -1,4 +1,4 @@
----
+﻿---
 # Display name
 name: Axel-Cleris Gailloty
 
@@ -41,13 +41,13 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mr.clerisaxel@hotmail.fr".
+  link: 'mailto:mr.clerisaxel@hotmail.fr'  # For a direct email link, use "mr.clerisaxel@hotmail.fr".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/cleris_mr
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+#- icon: google-scholar
+#  icon_pack: ai
+#  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
 - icon: github
   icon_pack: fab
   link: https://github.com/agailloty
