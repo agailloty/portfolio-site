@@ -2,7 +2,7 @@
 authors:
 - admin
 categories: [Python, ML]
-date: "2019-06-05"
+date: "2019-06-06"
 draft: false
 featured: true
 image:
@@ -14,6 +14,7 @@ summary: Use the Machine Learning capabilities of Python to predict the chance o
 tags: [Python, sklearn, ML]
 title: Chance of admission : Regression and Classification
 ---
+
 
 ```python
 %matplotlib inline
