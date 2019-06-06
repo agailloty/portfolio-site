@@ -11,7 +11,7 @@ image:
 projects: []
 subtitle: 
 summary: Use the Machine Learning capabilities of Python to predict the chance of admission in Universities
-tags: [Python, scikit-learn, ML]
+tags: [Python, sklearn, ML]
 title: Chance of admission : Regression & Classification
 ---
 
