@@ -2,7 +2,7 @@
 authors:
 - admin
 categories: [Python, ML]
-date: "2019-06-06"
+date: "2019-06-05"
 draft: false
 featured: true
 image:
