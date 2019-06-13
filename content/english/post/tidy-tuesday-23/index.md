@@ -12,12 +12,12 @@ projects: []
 subtitle: 
 summary: Make cool graphs with R
 tags: [R, ggplot2, tidytuesday]
-title: My fist Tidytuesday
+title: My first Tidytuesday
 ---
 
 # My first `Tidytuesday`
 
-I've discovered the `Tidytuesday`event on Twitter via this tweet.  
+I've discovered the `Tidytuesday` event on Twitter via this tweet.  
 {{< tweet 1135571764010987521>}} 
 
 I really love the concept and I think it's a good way to share code and learn visualization techniques.   

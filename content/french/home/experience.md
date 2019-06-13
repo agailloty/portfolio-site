@@ -1,4 +1,4 @@
-+++
+﻿+++
 # Experience widget.
 widget = "experience"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
@@ -31,10 +31,10 @@ date_format = "Jan 2006"
 [[experience]]
   title = "Membre Finance"
   company = "AIESEC in Nantes"
-  company_url = ""
+  company_url = "https://aiesec.org/"
   location = "Angers"
   date_start = "2018-08-01"
   date_end = ""
-  description = """Après avoir rejoint l'association en tant membre du Département Community Experience for Youth (CXY) où j'étais chargé de contacter et organiser le voyage des étudiants désirant effectuer une mission à l'étranger, je suis aujourd'hui dans le Département Finance où je participe entre autres à l'élaboration des factures, des contrats et la comptabilité."""
+  description = """Après avoir rejoint l'association en tant que membre du Département Community Experience for Youth (CXY) où j'étais chargé de contacter et organiser le voyage des étudiants désirant effectuer une mission à l'étranger, je suis aujourd'hui dans le Département Finance où je participe entre autres à l'élaboration des factures, des contrats et la comptabilité."""
 
 +++
