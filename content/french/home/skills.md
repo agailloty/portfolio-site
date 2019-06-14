@@ -1,4 +1,4 @@
-+++
+﻿+++
 # A Skills section created with the Featurette widget.
 widget = "featurette"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
@@ -24,13 +24,19 @@ subtitle = ""
   icon = "chart-line"
   icon_pack = "fas"
   name = "Analyse de données multidimensionnelles"
-  description = "Confronté à un jeu de données complexe j'aime utiliser les statistiques multidimensionnelles pour explorer et résumer l'information présente dans le jeu de données. Bonne maîtrise de l'ACP, l'ACM, l'AFC"  
+  description = "Confronté à un jeu de données complexe j'aime utiliser les statistiques multidimensionnelles pour explorer et résumer l'information présente dans le jeu de données. Bonne maîtrise de l'ACP, l'ACM, l'AFC. Applications le langage R via l'extension FactoMineR"  
 
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
   name = "Econométrie Appliquée"
   description = "Modélisation économétrique à la fois des données transversales et des séries temporelles"  
+
+[[feature]]
+  icon = "chart-line"
+  icon_pack = "fas"
+  name = "Visualisation de données"
+  description = "La visualisation des données est ma partie favorite dans mes projets. Bonne maîtrise de la grammaire des graphiques avec ggplot2, de Matplotlib & Seaborn sous Python et des graphiques intéractives plotly et highcharter."  
   
 [[feature]]
   icon = "python"
