@@ -10,8 +10,7 @@ image:
   focal_point: ""
 projects: []
 subtitle: 
-summary: Imputing missing values with the mean or the median values completely ignores the distribution of your column and can lead to weaker models. 
-Thanks to  the #recipes #Rstats package, imputing missing values with #ML algorithms such as #knn or #treebased algorithms is really really easy.
+summary: Imputing missing values with the mean or the median values completely ignores the distribution of your column and can lead to weaker models. Thanks to  the #recipes #Rstats package, imputing missing values with #ML algorithms such as #knn or #treebased algorithms is really really easy.
 tags: [R, ggplot2, recipes]
 title: "Better imputation techniques"
 ---
