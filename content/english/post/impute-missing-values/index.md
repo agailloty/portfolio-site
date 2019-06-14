@@ -15,6 +15,7 @@ tags: [R, ggplot2, recipes]
 title: "Better imputation techniques"
 ---
 
+
 Sometimes when in learning data science and Machine Learning we use cleaned and nice dataset to perform the task. But in real life it is difficult to have a cleaned and ready-to-apply dataset.  
 But this shouldn't stop you from pursuing your task.  
 Data can be missing for many different reasons; however, these reasons are usually lumped into two categories: informative missingess (Kuhn and Johnson 2013) and missingness at random (Little and Rubin 2014).  
