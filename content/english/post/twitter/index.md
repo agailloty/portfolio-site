@@ -10,9 +10,9 @@ image:
   focal_point: ""
 projects: []
 subtitle: 
-summary: 2 steps to embed any Twitter feed
-tags: [Hugo]
-title: "Embed a Twitter feed"
+summary: 2 steps to embed any Twitter feed to your Hugo website
+tags: [Hugo, Twitter]
+title: "Embed a Twitter feed to Hugo"
 ---
 Hi everyone ! In this tutorial I want to guide you through the steps of adding any Twitter feed to your Hugo website.  
 The Twitter feeds may be :
@@ -64,7 +64,7 @@ In this markdown file paste the generated code.
 
 Save the file, make sure it's a Markdown file (`file-name.md`) and save it where you want it to appear your home page or somewhere else. You can adjust the order of apearance with the `weight = XX` in the front matter. 
 
-I'm pasting the generated code to see embed it in this blog post.  
+For demonstration purpose I'm pasting the generated code for my tweets inside this blog post.   
 
 <a class="twitter-timeline" href="https://twitter.com/cleris_mr?ref_src=twsrc%5Etfw">Tweets by cleris_mr</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
