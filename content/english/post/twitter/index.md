@@ -14,12 +14,12 @@ summary: 2 steps to embed any Twitter feed to your Hugo website
 tags: [Hugo, Twitter]
 title: "Embed a Twitter feed to Hugo"
 ---
-Hi everyone ! In this tutorial I want to guide you through the steps of adding any Twitter feed to your Hugo website.  
-The Twitter feeds may be :
-- Your profile feeds
-- Selected feeds
-- Hashtag feeds. 
-- Any other feed you can retrieve from Twitter
+Hi everyone ! In this tutorial I want to guide you through the steps of adding any Twitter feed to your Hugo website.   
+The Twitter feeds may be :  
+- Your profile feeds  
+- Selected feeds  
+- Hashtag feeds  
+- Any other feed you can retrieve from Twitter   
 
 I really like how Hugo makes it easy to customise one own site and when I was editing my personal website I thought it would be a good idea to select some tweets and embed to my website to help the visitors of my website find me easily on Twitter.  
 
@@ -59,7 +59,7 @@ subtitle = ""
 weight = 70
 +++
 ```
-
+### 2.2 - Paste the generated code
 In this markdown file paste the generated code. 
 
 Save the file, make sure it's a Markdown file (`file-name.md`) and save it where you want it to appear your home page or somewhere else. You can adjust the order of apearance with the `weight = XX` in the front matter. 
