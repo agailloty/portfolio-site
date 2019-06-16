@@ -1,3 +1,4 @@
+---
 authors:
 - admin
 categories: [Tutorial, Hugo]
@@ -67,7 +68,6 @@ I'm pasting the generated code to see embed it in this blog post.
 
 <a class="twitter-timeline" href="https://twitter.com/cleris_mr?ref_src=twsrc%5Etfw">Tweets by cleris_mr</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-```python
-
-```
+# References :
+Adding Twitter feed to Hugo page? : https://discourse.gohugo.io/t/adding-twitter-feed-to-hugo-page/15146  
+Twitter Publish : https://publish.twitter.com/  
