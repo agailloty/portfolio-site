@@ -18,7 +18,7 @@ weight = 60
 
 I am really passionate about learning new things, discover the applications of things I've learned.  I also like to to go to the gym, ride my bike and take photos by the way.
 
-I am always happy to meet friends, fellow colleauges or collectors.
+I am always happy to meet friends, share my passion of DS with others!
 
 Find me on [instagram](https://www.instagram.com/axel_cleris/):
 
