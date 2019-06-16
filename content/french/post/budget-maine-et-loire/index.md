@@ -1,4 +1,4 @@
----
+﻿---
 authors:
 - admin
 categories: [R,visualisations]
@@ -10,7 +10,7 @@ image:
   focal_point: ""
 projects: []
 subtitle: 
-summary: Ananlyser les données d'Opendata49 sur le budget primitif du Maine-et-Loire entre 1998 et 2017
+summary: Analyser les données d'Opendata49 sur le budget primitif du Maine-et-Loire entre 1998 et 2017
 tags: [R, Econométrie]
 title: Budget primitif du Maine-et-Loire
 ---
