@@ -13,7 +13,7 @@ subtitle:
 summary: Output a nice HTML summary of your Pandas dataframe
 tags: [Python, Pandas]
 title: Summarize your Pandas dataset
-
+---
 ```python
 import pandas as pd
 import pandas_profiling
