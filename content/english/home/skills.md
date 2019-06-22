@@ -38,5 +38,9 @@ subtitle = ""
   name = "Python"
   description = "I can conduct a deep data analysis with Python using Pandas, Numpy and Matplotlib. I have some knowledge of scikit-learn."  
   
-
+[[feature]]
+  icon = "laptop-code"
+  icon_pack = "fas"
+  name = "Applied Machine Learning"
+  description = "Clustering, classification and regression"  
 +++
