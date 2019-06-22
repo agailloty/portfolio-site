@@ -43,4 +43,10 @@ subtitle = ""
   icon_pack = "fas"
   name = "Applied Machine Learning"
   description = "Clustering, classification and regression"  
+
+[[feature]]
+  icon = "laptop-code"
+  icon_pack = "fas"
+  name = "Data visualization"
+  description = "See the [#Tidytuesday section](#)"  
 +++
