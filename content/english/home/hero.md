@@ -41,7 +41,7 @@ title = "The Data Enthusiast !"
 \
 
 Welcome to **my personal website**, I am glad you pass by here !   
-You may love to look at my `[Data visualization Gallery]`(/data-viz/)
+You may love to look at my [`Data visualization Gallery`](/data-viz/)
 \
 \
 \
