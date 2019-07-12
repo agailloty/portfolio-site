@@ -15,9 +15,9 @@ tags: [R, dplyr, ggplot2, tidyverse]
 title: Visualize your dataset columns
 ---
 For data analysis or Machine Learning, understanding your dataset is crucial if you want to get insights or tune your models. One of the best way to understand your dataset is to see it visually.
-In this short post I'd like to share with you a way I found not so long ago to help you visualize all the columns of your dataset with ggplot2 without the need to make multiple individual plot.  
+In this short post I'd like to share with you a way I found not so long ago to help you visualize all the columns of your dataset with ggplot2 without the need to make multiple individual plots.  
 With the help of useful packages in the R ecosystem working with all sort of data is extremely easy. 
-This tutorial will leverage the ggplot2 package for amazing plot but helper packages such as reshape2, dplyr and caret will also give us more control on what we want to plot.  
+This tutorial will leverage the ggplot2 package for amazing plot but helper packages such as reshape2, dplyr will also give us more control on what we want to plot.  
 To illustrate this I will use the Ames housing dataset.
 
 # Importing packages and dataset
@@ -89,7 +89,7 @@ Let's break down the code we used to produce this plot :
 First we use `dplyr::select_if()` to retain only categorical columns, in our case all categorical columns are factors, but it can be character, just provide is.character as argument in `select_if()`. 
 After that we use `dplyr::mutate()` to create an arbitrary column called id that will act as the id variable for the next function.  
 We then use the `reshape2::melt()` function to gather all the columns and their values into two columns called value and variables. 
-We then pipe this result in ggplot2, the aesthetic takes `value` as x for the `geom_point()` function. We flip the coordinates, set the xlab and ylab to NULL and facet the plot according to the variables column produced by the `reshape2::melt()` function.   
+We then pipe this result in ggplot2, the aesthetic takes `value` as x for the `geom_bar()` function. We flip the coordinates, set the xlab and ylab to NULL and facet the plot according to the variables column produced by the `reshape2::melt()` function.   
 
 Now just for fun let's break this plot into two plots, the first will contain 18 columns and the second 17 so it's more readable.
 
@@ -191,7 +191,7 @@ plot_cols <- function(dataset, col_type = "is.numeric",
 }
 ```
 
-I know this function can be made more robust but I'm pretty happy because it works for my use case
+I know this function can be made more robust but I'm pretty happy because it works for my use case.
 
 
 ```R
@@ -215,4 +215,4 @@ plot_cols(ames, col_type = "is.numeric", subset = 1:8) + theme_classic()
 
 
 # Conclusion 
-As you can see above, ggplot2 is a really powerful visualization package. 
+As you can see above, ggplot2 is a really powerful visualization package. With just few lines of code we can visualize patterns in the dataset, detect anomalies and get insights.
