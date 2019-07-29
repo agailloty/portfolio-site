@@ -13,8 +13,9 @@ subtitle:
 summary: Ce projet implémente en Python la trame générale d'une étude économétrique. Il s'agit d'estimer la relation linéaire entre le revenu et la consommation
 tags: [Python, pandas, statsmodels]
 title: Estimer la relation linéaire entre le revenu et la consommation (python)
-J'aimerais dans cet article réaliser une étude économétrique à partir d'une base de donnée regroupant des indicateurs économétriques sur la France de 1962 à 2012. Il sera question de nettoyer la base pour la préparer à la visualisation des séries temporelles, pour réaliser des statistiques descriptives, analyser les correlations entre les variables de la base de donnée. 
 ---
+J'aimerais dans cet article réaliser une étude économétrique à partir d'une base de donnée regroupant des indicateurs économétriques sur la France de 1962 à 2012. Il sera question de nettoyer la base pour la préparer à la visualisation des séries temporelles, pour réaliser des statistiques descriptives, analyser les correlations entre les variables de la base de donnée. 
+
 
 ```python
 # importation des librairies
