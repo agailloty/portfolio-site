@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stock data on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/tags/stock-data/</link>
+    <description>Recent content in stock data on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Mon, 25 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/tags/stock-data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lire les données financières</title>
+      <link>https://agailloty.rbind.io/fr/post/financial-data-python/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/financial-data-python/</guid>
+      <description>Utiliser Pandas-datareader pour lire les prix des actions</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="# Load the packages library(tidyverse) library(FactoMineR) library(factoextra) library(highcharter) library(ggthemes) library(lubridate) library(treemap)  This kernel is under construction :) !
+Reading and preparing the data fifa &lt;- read_csv(&quot;data.csv&quot;) print(paste(&quot;The dataset contains&quot;, dim(fifa)[1], &quot;observations and&quot;, dim(fifa)[2], &quot;columns&quot;))  ## [1] &quot;The dataset contains 18207 observations and 89 columns&quot;  Missing values With this said let&rsquo;s check the consistency of the dataset by looking for missing values and understanding what each column stands for.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/french/post/football-clubs-expenses/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.829aa389a1e6cd2bb9c0046150743c95.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/french/post/football-clubs-expenses/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Axel-Cleris Gailloty">
+  <meta property="og:url" content="/french/post/football-clubs-expenses/">
+  <meta property="og:title" content="Football clubs expenses | Axel-Cleris Gailloty">
+  <meta property="og:description" content="# Load the packages library(tidyverse) library(FactoMineR) library(factoextra) library(highcharter) library(ggthemes) library(lubridate) library(treemap)  This kernel is under construction :) !
+Reading and preparing the data fifa &lt;- read_csv(&quot;data.csv&quot;) print(paste(&quot;The dataset contains&quot;, dim(fifa)[1], &quot;observations and&quot;, dim(fifa)[2], &quot;columns&quot;))  ## [1] &quot;The dataset contains 18207 observations and 89 columns&quot;  Missing values With this said let&rsquo;s check the consistency of the dataset by looking for missing values and understanding what each column stands for."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-05-22T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-22T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Football clubs expenses | Axel-Cleris Gailloty</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Axel-Cleris Gailloty</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/">
+            
+            <span>Courses</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Football clubs expenses</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-05-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-05-22 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 22, 2019</time>
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/french/post/football-clubs-expenses/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/r/">R</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<pre><code class="language-r"># Load the packages 
+library(tidyverse)
+library(FactoMineR)
+library(factoextra)
+library(highcharter)
+library(ggthemes)
+library(lubridate)
+library(treemap)
+</code></pre>
+
+<p>This kernel is under construction :) !</p>
+
+<h1 id="reading-and-preparing-the-data">Reading and preparing the data</h1>
+
+<pre><code class="language-r">fifa &lt;- read_csv(&quot;data.csv&quot;)
+print(paste(&quot;The dataset contains&quot;, dim(fifa)[1], &quot;observations and&quot;, dim(fifa)[2], &quot;columns&quot;))
+</code></pre>
+
+<pre><code>## [1] &quot;The dataset contains 18207 observations and 89 columns&quot;
+</code></pre>
+
+<h2 id="missing-values">Missing values</h2>
+
+<p>With this said let&rsquo;s check the consistency of the dataset by looking for missing values and understanding what each column stands for.</p>
+
+<pre><code class="language-r">theme_set(theme_solarized_2())
+map_dbl(fifa, function(x) sum(is.na(x))/length(x)*100) %&gt;%
+  stack() %&gt;%
+  ggplot(aes(x = reorder(ind,values), y = values)) + 
+  geom_bar(stat = 'identity') + coord_flip() +
+  labs(y = &quot;% of missing values&quot;, x = &quot;Columns&quot;, title = &quot;Missing values&quot;)
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+
+<p>The loaned from column contains lots of missing values. All the other columns have between 0 and 10% missing values. Overall the dataset contains few missing values.</p>
+
+<h2 id="columns-content">Columns content</h2>
+
+<pre><code class="language-r">head(fifa)
+</code></pre>
+
+<pre><code>## # A tibble: 6 x 89
+##      X1     ID Name    Age Photo Nationality Flag  Overall Potential Club 
+##   &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
+## 1     0 158023 L. M~    31 http~ Argentina   http~      94        94 FC B~
+## 2     1  20801 Cris~    33 http~ Portugal    http~      94        94 Juve~
+## 3     2 190871 Neym~    26 http~ Brazil      http~      92        93 Pari~
+## 4     3 193080 De G~    27 http~ Spain       http~      91        93 Manc~
+## 5     4 192985 K. D~    27 http~ Belgium     http~      91        92 Manc~
+## 6     5 183277 E. H~    27 http~ Belgium     http~      91        91 Chel~
+## # ... with 79 more variables: `Club Logo` &lt;chr&gt;, Value &lt;chr&gt;, Wage &lt;chr&gt;,
+## #   Special &lt;dbl&gt;, `Preferred Foot` &lt;chr&gt;, `International
+## #   Reputation` &lt;dbl&gt;, `Weak Foot` &lt;dbl&gt;, `Skill Moves` &lt;dbl&gt;, `Work
+## #   Rate` &lt;chr&gt;, `Body Type` &lt;chr&gt;, `Real Face` &lt;chr&gt;, Position &lt;chr&gt;,
+## #   `Jersey Number` &lt;dbl&gt;, Joined &lt;chr&gt;, `Loaned From` &lt;chr&gt;, `Contract
+## #   Valid Until` &lt;chr&gt;, Height &lt;chr&gt;, Weight &lt;chr&gt;, LS &lt;chr&gt;, ST &lt;chr&gt;,
+## #   RS &lt;chr&gt;, LW &lt;chr&gt;, LF &lt;chr&gt;, CF &lt;chr&gt;, RF &lt;chr&gt;, RW &lt;chr&gt;, LAM &lt;chr&gt;,
+## #   CAM &lt;chr&gt;, RAM &lt;chr&gt;, LM &lt;chr&gt;, LCM &lt;chr&gt;, CM &lt;chr&gt;, RCM &lt;chr&gt;,
+## #   RM &lt;chr&gt;, LWB &lt;chr&gt;, LDM &lt;chr&gt;, CDM &lt;chr&gt;, RDM &lt;chr&gt;, RWB &lt;chr&gt;,
+## #   LB &lt;chr&gt;, LCB &lt;chr&gt;, CB &lt;chr&gt;, RCB &lt;chr&gt;, RB &lt;chr&gt;, Crossing &lt;dbl&gt;,
+## #   Finishing &lt;dbl&gt;, HeadingAccuracy &lt;dbl&gt;, ShortPassing &lt;dbl&gt;,
+## #   Volleys &lt;dbl&gt;, Dribbling &lt;dbl&gt;, Curve &lt;dbl&gt;, FKAccuracy &lt;dbl&gt;,
+## #   LongPassing &lt;dbl&gt;, BallControl &lt;dbl&gt;, Acceleration &lt;dbl&gt;,
+## #   SprintSpeed &lt;dbl&gt;, Agility &lt;dbl&gt;, Reactions &lt;dbl&gt;, Balance &lt;dbl&gt;,
+## #   ShotPower &lt;dbl&gt;, Jumping &lt;dbl&gt;, Stamina &lt;dbl&gt;, Strength &lt;dbl&gt;,
+## #   LongShots &lt;dbl&gt;, Aggression &lt;dbl&gt;, Interceptions &lt;dbl&gt;,
+## #   Positioning &lt;dbl&gt;, Vision &lt;dbl&gt;, Penalties &lt;dbl&gt;, Composure &lt;dbl&gt;,
+## #   Marking &lt;dbl&gt;, StandingTackle &lt;dbl&gt;, SlidingTackle &lt;dbl&gt;,
+## #   GKDiving &lt;dbl&gt;, GKHandling &lt;dbl&gt;, GKKicking &lt;dbl&gt;,
+## #   GKPositioning &lt;dbl&gt;, GKReflexes &lt;dbl&gt;, `Release Clause` &lt;chr&gt;
+</code></pre>
+
+<h3 id="value-and-wage-columns">Value and wage columns</h3>
+
+<pre><code class="language-r">glimpse(fifa[c(&quot;Value&quot;, &quot;Wage&quot;)])
+</code></pre>
+
+<pre><code>## Observations: 18,207
+## Variables: 2
+## $ Value &lt;chr&gt; &quot;€110.5M&quot;, &quot;€77M&quot;, &quot;€118.5M&quot;, &quot;€72M&quot;, &quot;€102M&quot;, &quot;€93M&quot;, &quot;...
+## $ Wage  &lt;chr&gt; &quot;€565K&quot;, &quot;€405K&quot;, &quot;€290K&quot;, &quot;€260K&quot;, &quot;€355K&quot;, &quot;€340K&quot;, &quot;€...
+</code></pre>
+
+<p>Because of their formats <code>€-NUM-M/K</code>, R doesn&rsquo;t read them properly. We need to do some string manipulations in order to convert them into numerical columns so we can use later in the analysis.<br />
+Let&rsquo;s start by removing the <code>€</code>symbols in both columns.</p>
+
+<pre><code class="language-r">fifa &lt;- fifa %&gt;% mutate(Value = str_replace(Value, &quot;€&quot;, &quot;&quot;),
+                Wage = str_replace(Wage, &quot;€&quot;, &quot;&quot;))
+</code></pre>
+
+<p>Now since since the <code>Value</code> column is not always in million € we need to separate each element of it into two columns <code>raw_value</code> and <code>unit</code> that will hold the amount and the unit (millions (M) or thousands(K))</p>
+
+<pre><code class="language-r">fifa %&gt;% separate(Value, into = c(&quot;raw_value&quot;, &quot;unit_value&quot;), sep = &quot;(?=[:LETTER:])&quot;) %&gt;%
+  select(raw_value, unit_value) %&gt;% group_by(unit_value) %&gt;% summarize(count = n())
+</code></pre>
+
+<pre><code>## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 252 rows
+## [453, 539, 569, 678, 865, 875, 954, 998, 1009, 1121, 1272, 1353, 1603,
+## 1672, 1820, 1903, 1908, 1934, 1937, 1965, ...].
+</code></pre>
+
+<pre><code>## # A tibble: 3 x 2
+##   unit_value count
+##   &lt;chr&gt;      &lt;int&gt;
+## 1 K          11108
+## 2 M           6847
+## 3 &lt;NA&gt;         252
+</code></pre>
+
+<p>As we can see here, there a fewer players who are worth million. Let&rsquo;s save it and do the same for the Wage column.</p>
+
+<pre><code class="language-r">fifa &lt;- fifa %&gt;% separate(Value, into = c(&quot;raw_value&quot;, &quot;unit_value&quot;), sep = &quot;(?=[:LETTER:])&quot;)
+</code></pre>
+
+<pre><code class="language-r">fifa %&gt;% separate(Wage, into = c(&quot;raw_wage&quot;, &quot;unit_wage&quot;), sep = &quot;(?=[:LETTER:])&quot;) %&gt;%
+  select(raw_wage, unit_wage) %&gt;% group_by(unit_wage) %&gt;% summarize(count = n())
+</code></pre>
+
+<pre><code>## # A tibble: 2 x 2
+##   unit_wage count
+##   &lt;chr&gt;     &lt;int&gt;
+## 1 K         17966
+## 2 &lt;NA&gt;        241
+</code></pre>
+
+<p>All the values of this column are expressed in thousands. So we can keep it as it is.</p>
+
+<p>Now let&rsquo;s convert them into numerical values. We will convert the millions that are in the <code>Value</code> column into thousands(K) so that each observation has the same unit.</p>
+
+<pre><code class="language-r"># Converting into numerical columns
+fifa &lt;- fifa %&gt;% mutate(value_k = as.numeric(raw_value)) 
+# Convert it into thousands
+fifa &lt;- fifa %&gt;% mutate(value_k = ifelse(unit_value == &quot;M&quot;, value_k * 1000, value_k))
+fifa &lt;- fifa %&gt;% mutate(Wage = str_replace(Wage, &quot;K&quot;,&quot;&quot;), Wage = as.numeric(Wage))
+</code></pre>
+
+<h2 id="date-columns">Date columns</h2>
+
+<pre><code class="language-r">glimpse(fifa[c(&quot;Joined&quot;, &quot;Contract Valid Until&quot;)])
+</code></pre>
+
+<pre><code>## Observations: 18,207
+## Variables: 2
+## $ Joined                 &lt;chr&gt; &quot;Jul 1, 2004&quot;, &quot;Jul 10, 2018&quot;, &quot;Aug 3, ...
+## $ `Contract Valid Until` &lt;chr&gt; &quot;2021&quot;, &quot;2022&quot;, &quot;2022&quot;, &quot;2020&quot;, &quot;2023&quot;,...
+</code></pre>
+
+<pre><code class="language-r">fifa &lt;- fifa %&gt;% rename(Contract_Validity = `Contract Valid Until`) %&gt;%
+  mutate(Joined = mdy(Joined), 
+                Contract_Validity = ymd(Contract_Validity, truncated = 2L))
+</code></pre>
+
+<h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
+
+<h2 id="visualizations">Visualizations</h2>
+
+<h3 id="value-distribution">Value distribution</h3>
+
+<pre><code class="language-r">fifa %&gt;% filter(value_k &lt; 1000) %&gt;%
+  ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = &quot;lightblue&quot;, color = 'black') +
+  labs(title = &quot;Value distribution of players &lt; million &quot;, x = &quot;Value in €&quot;)
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+
+<pre><code class="language-r">fifa %&gt;% filter(value_k &gt; 1000) %&gt;%
+  ggplot(aes(x = value_k)) + geom_histogram(size = 1.2, fill = &quot;lightblue&quot;, color = 'black') +
+  labs(title = &quot;Value distribution of players &gt;  1 million&quot;, x = &quot;Value in €&quot;)
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+
+<h2 id="distribution-of-wage">Distribution of wage</h2>
+
+<pre><code class="language-r">fifa %&gt;%
+  ggplot(aes(x = Wage)) + geom_histogram() + labs(title = &quot;Distribution of wage&quot;)
+</code></pre>
+
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+
+<h3 id="correlation-between-wage-and-value">Correlation between wage and value</h3>
+
+<pre><code class="language-r">fifa %&gt;%
+  ggplot(aes(x = value_k, y = Wage)) +
+  geom_point(alpha = 1/3) + labs(title = &quot;Correlation between value and wage&quot;, x = &quot;Value (in thousands €)&quot;)
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+
+<h2 id="time-spent-in-current-club">Time spent in current club</h2>
+
+<pre><code class="language-r">fifa &lt;- fifa %&gt;% 
+  mutate(months_in_current_club = interval(Joined, ymd(2019, truncated = 2L))/months(1))
+</code></pre>
+
+<h3 id="link-between-time-spent-in-current-club-and-wage">Link between time spent in current club and wage</h3>
+
+<pre><code class="language-r">fifa %&gt;%
+  ggplot(aes(x = months_in_current_club, y = Wage)) +
+  geom_point() + labs(x = &quot;Number of months&quot;, y = &quot;Wage (thousands €)&quot;)
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+
+<p>There is not obvious relationship between time spent in a club and the wage.</p>
+
+<h2 id="what-are-the-top-nationality-of-the-players">What are the top nationality of the players</h2>
+
+<pre><code class="language-r">fifa %&gt;% group_by(Nationality) %&gt;%
+  summarize(count = n()) %&gt;%
+  treemap(index = &quot;Nationality&quot;, vSize = &quot;count&quot;, title = &quot;Nationality of players&quot;)
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+
+<p>This quite interesting. Out of the Fist five nationalities, 4 are European countries. Football is really popular in Europe in Europe.</p>
+
+<h2 id="which-clubs-have-the-highest-spendings-for-their-players">Which clubs have the highest spendings for their players</h2>
+
+<pre><code class="language-r">fifa %&gt;%
+  group_by(Club) %&gt;% summarize(spending = sum(Wage)) %&gt;% top_n(30) %&gt;%
+  ggplot(aes(y = spending, x = reorder(Club, spending))) + 
+           geom_bar(stat = &quot;identity&quot;) + coord_flip() + 
+  labs(y = &quot;Total wages (in thousands €)&quot;, x = &quot;Clubs&quot;, title = &quot;Clubs spendings in wages&quot;)
+</code></pre>
+
+<pre><code>## Selecting by spending
+</code></pre>
+
+<p><img src="/post/2019-05-22-football-clubs-expenses_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+
+<h1 id="cluster-analysis">Cluster Analysis</h1>
+
+<p>In this section we want to study how can we gather the players based on their characteristics. We will use all the technical columns.</p>
+
+<pre><code class="language-r">library(FactoMineR)
+library(factoextra)
+</code></pre>
+
+<p>Since I am not a football professional I&rsquo;m going to use the columns that mean something in this cluster analysis.</p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/visualizations/">visualizations</a>
+  
+  <a class="badge badge-light" href="/tags/analysis/">analysis</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/english/post/football-clubs-expenses/">Football clubs expenses</a></li>
+          
+          <li><a href="/english/post/football-clubs-spendings/">Football clubs spendings</a></li>
+          
+          <li><a href="/french/post/football-clubs-spendings/">Football clubs spendings</a></li>
+          
+          <li><a href="/english/post/sample/">sample</a></li>
+          
+          <li><a href="/english/post/suicide-in-the-world/">Suicide in the world</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "analytics-3" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/english/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//analytics-3.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.15494b02d66be9b96bab2e305f69c460.js"></script>
+
+  </body>
+</html>
+

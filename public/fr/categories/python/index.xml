@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/categories/python/</link>
+    <description>Recent content in Python on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adapter ses compétences aux besoins du marché du travail</title>
+      <link>https://agailloty.rbind.io/fr/post/webscraping/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/webscraping/</guid>
+      <description>Adapter ses compétences aux besoins du marché du travail en scrapant les offres d&amp;rsquo;emploi</description>
+    </item>
+    
+    <item>
+      <title>Estimer la relation linéaire entre le revenu et la consommation (python)</title>
+      <link>https://agailloty.rbind.io/fr/post/econometrics-python/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/econometrics-python/</guid>
+      <description>Ce projet implémente en Python la trame générale d&amp;rsquo;une étude économétrique. Il s&amp;rsquo;agit d&amp;rsquo;estimer la relation linéaire entre le revenu et la consommation</description>
+    </item>
+    
+    <item>
+      <title>Lire les données financières</title>
+      <link>https://agailloty.rbind.io/fr/post/financial-data-python/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/financial-data-python/</guid>
+      <description>Utiliser Pandas-datareader pour lire les prix des actions</description>
+    </item>
+    
+    <item>
+      <title>Analyser ses données avec Python</title>
+      <link>https://agailloty.rbind.io/fr/post/analyse-python/</link>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/analyse-python/</guid>
+      <description>Utiliser les librairies scientifiques de Python pour analyser un jeu de données.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/courses/example/example1/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/courses/example/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/courses/example/example2/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/authors/admin/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/authors/admin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/authors/admin/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/authors/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/authors/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/authors/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/budget-maine-et-loire/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/categories/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/econom%C3%A9trie/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/r/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/tags/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/tags/r/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/categories/r/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/categories/r/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/categories/r/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/categories/visualisations/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/webscraping/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/python/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/tags/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/categories/python/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/categories/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/categories/python/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/analysis/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/webscrape/</loc>
+    <lastmod>2019-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/categories/econom%C3%A9trie/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/arch/</loc>
+    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/econometrics-python/</loc>
+    <lastmod>2019-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/pandas/</loc>
+    <lastmod>2019-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/tags/pandas/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/tags/pandas/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/statsmodels/</loc>
+    <lastmod>2019-04-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/acp/</loc>
+    <lastmod>2019-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/categories/acp/</loc>
+    <lastmod>2019-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/acp/</loc>
+    <lastmod>2019-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/data-analysis/</loc>
+    <lastmod>2019-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/financial-data-python/</loc>
+    <lastmod>2019-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/tags/stock-data/</loc>
+    <lastmod>2019-02-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/post/analyse-python/</loc>
+    <lastmod>2019-02-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/courses/</loc>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/fr/publication_types/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://agailloty.rbind.io/en/publication_types/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://agailloty.rbind.io/fr/publication_types/"
+                />
+  </url>
+  
+</urlset>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Econométrie on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/tags/econom%C3%A9trie/</link>
+    <description>Recent content in Econométrie on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/tags/econom%C3%A9trie/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Budget primitif du Maine-et-Loire</title>
+      <link>https://agailloty.rbind.io/fr/post/budget-maine-et-loire/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/budget-maine-et-loire/</guid>
+      <description>Analyser les données d&amp;rsquo;Opendata49 sur le budget primitif du Maine-et-Loire entre 1998 et 2017</description>
+    </item>
+    
+    <item>
+      <title>Modélisations ARCH et GARCH</title>
+      <link>https://agailloty.rbind.io/fr/post/arch/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/arch/</guid>
+      <description>Les modélisations avec R</description>
+    </item>
+    
+  </channel>
+</rss>

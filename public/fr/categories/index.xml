@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/categories/</link>
+    <description>Recent content in Categories on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R</title>
+      <link>https://agailloty.rbind.io/fr/categories/r/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualisations</title>
+      <link>https://agailloty.rbind.io/fr/categories/visualisations/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/categories/visualisations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://agailloty.rbind.io/fr/categories/python/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Econométrie</title>
+      <link>https://agailloty.rbind.io/fr/categories/econom%C3%A9trie/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/categories/econom%C3%A9trie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACP</title>
+      <link>https://agailloty.rbind.io/fr/categories/acp/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/categories/acp/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

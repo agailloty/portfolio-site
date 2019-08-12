@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/tags/</link>
+    <description>Recent content in Tags on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Econométrie</title>
+      <link>https://agailloty.rbind.io/fr/tags/econom%C3%A9trie/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/econom%C3%A9trie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://agailloty.rbind.io/fr/tags/r/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://agailloty.rbind.io/fr/tags/python/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>analysis</title>
+      <link>https://agailloty.rbind.io/fr/tags/analysis/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webscrape</title>
+      <link>https://agailloty.rbind.io/fr/tags/webscrape/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/webscrape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandas</title>
+      <link>https://agailloty.rbind.io/fr/tags/pandas/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statsmodels</title>
+      <link>https://agailloty.rbind.io/fr/tags/statsmodels/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/statsmodels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACP</title>
+      <link>https://agailloty.rbind.io/fr/tags/acp/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/acp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>data analysis</title>
+      <link>https://agailloty.rbind.io/fr/tags/data-analysis/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stock data</title>
+      <link>https://agailloty.rbind.io/fr/tags/stock-data/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/tags/stock-data/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

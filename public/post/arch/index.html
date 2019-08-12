@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Axel-Cleris Gailloty">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Les modélisations avec R">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/arch/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.829aa389a1e6cd2bb9c0046150743c95.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/arch/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@cleris_mr">
+  <meta property="twitter:creator" content="@cleris_mr">
+  
+  <meta property="og:site_name" content="Axel-Cleris Gailloty">
+  <meta property="og:url" content="/post/arch/">
+  <meta property="og:title" content="Modélisations ARCH et GARCH | Axel-Cleris Gailloty">
+  <meta property="og:description" content="Les modélisations avec R"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-05-05T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-05T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Modélisations ARCH et GARCH | Axel-Cleris Gailloty</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Axel-Cleris Gailloty</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/courses/">
+            
+            <span>Courses</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Modélisations ARCH et GARCH</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-05-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-05-05 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 5, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/arch/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/r/">R</a>, <a href="">Econométrie</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h1 id="les-modélisations-arch-et-garch">Les modélisations ARCH et GARCH</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Un des avantages principaux qu&rsquo;une série temporelle nous donne est de garder le record de l&rsquo;évolution d&rsquo;une variable, d&rsquo;un grandeur dans le temps. Très vite en économie on a compris l&rsquo;importance de créer des variables fiables dont on peu suivre l&rsquo;évolution sur une période de temps (ex: taux de chômage, taux d&rsquo;inflation, etc&hellip;) et observer à partir des valeurs que cette variable prend à différentes périodes du temps pour et faire des prévisions. L&rsquo;exemple le plus flagrant qu&rsquo;on observe dans la vie de tous les jours c&rsquo;est celle de la saisonalité. Prenons par exemple l&rsquo;exemple d&rsquo;évolution sur une année du nombre de vol d&rsquo;avion : ce qu&rsquo;on observe c&rsquo;est qu&rsquo;il existe des périodes où il y a un pic des vols, ces périodes correspondent souvent aux vacances où les personnes voyagent. Si donc on enregistre les données sur plusieurs années non seulement on est en mesure de détecter les tandances mais aussi d&rsquo;observer les fluctuations et à partir d&rsquo;elles et faire des prévisions sur les périodes à venir. C&rsquo;est cette question qui est au coeur des méthodes d&rsquo;estimation de l&rsquo;économétrie de la finance où on travaille sur souvent de longues périodes de temps.</p>
+
+<h2 id="c-est-quoi-arch-et-garch">C&rsquo;est quoi ARCH et GARCH ?</h2>
+
+<p>Ces acronymes un peu spéciaux sont en anglais et signifient pour l&rsquo;ARCH : AutoRegressive Conditional Heteroskedacity et le GARCH pour Generalised ARCH. Il s&rsquo;agit d&rsquo;un type de modèle qui permet d&rsquo;estimer et prévoir la volatilité du prix d&rsquo;un action ou d&rsquo;un rendement à court terme en se basant sur les valeurs que prennent ces prix ou rendements quelques périodes de temps auparavant.<br />
+Le terme AutoRegressive signifie qu&rsquo;on regresse le modèle à partir de lui-même, c&rsquo;est-à-dire que les variables exogènes sont les retards de la variable endogène à l&rsquo;ordre q. Le terme Heteroskedacity accentue le fait que la variance n&rsquo;est constante dans le temps.
+Nous disons qu&rsquo;il y a hétéroscédasticité si dans la série temporelle il y a une ou des sous-périodes dont la variance est différente de la variance des autres périodes. Dans les séries financières, souvent la variation de la variance est souvent causée par un évennement particulier qui peut surgir sur le marché, donc si notre variance est hétéroscédastique, elle l&rsquo;est <strong>conditionnellement aux intéractions du marché</strong> d&rsquo;où le terme <em>conditional hetereoskedacity</em>.<br />
+La grande nouveauté qu&rsquo;apporte les modèles de types ARCH est que non seulement il prend en compte la valeur de la variable à N-p périodes mais aussi le changement dans la valeur de la variance à N-p, ce faisant il améliore grandement la prévision de la volatilité.</p>
+
+<h3 id="principe-du-modèle-arch">Principe du modèle ARCH</h3>
+
+<p>Le cas le plus simple des modèle ARCH est le modèle ARCH(1) qui ne prend en compte que le changement d&rsquo;ordre 1 de la variance de la série temporelle. Formellement elle se présente sous cette forme $$ \epsilon_t = \omega_t* \sqrt {\alpha_0 + \alpha<em>1*\epsilon</em>{t-1}{^2}}$$
+L&rsquo;expression sous la parenthèse représente la variance conditionnelle. Pour simplifier cette écriture on peut dire que le processus ARCH(1) s&rsquo;écrit de la manière suivante: $$\epsilon = \sigma.\omega_t$$ où $\sigma$ est l&rsquo;expression obtenue plus haut.</p>
+
+<h3 id="principe-des-modèles-garch">Principe des modèles GARCH</h3>
+
+<p>Les modèles GARCH suivent le même principe que le modèle ARCH mais ajoute un second membre à l&rsquo;équation qui est la moyenne mobile d&rsquo;ordre q. Les modèles GARCH s&rsquo;écrivent de manière globale sous cette forme:
+$$ \epsilon{^2}_t = \sum\omega_t* \sqrt {\alpha_0 + \alpha<em>1*\epsilon</em>{t-1}{^2}}$$</p>
+
+<p>$$\sigma^2_t = \alpha<em>0 + \sum\limits</em>{i=1}^q \alpha<em>i\epsilon{^2}</em>{t<em>i} + \sum\limits</em>{i=1}^p \beta<em>j\sigma{^2}</em>{t_j}$$</p>
+
+<h1 id="objet-du-projet">Objet du projet</h1>
+
+<p>Dans ce projet, j&rsquo;aimerais analyser la volatilité des actifs financier (le prix de l&rsquo;action) de l&rsquo;entreprise américaine IBM. Je lirai les données sur une période de 15 ans et j&rsquo;appliquerai différentes familles de modèles GARCH sur les données dans le but de voir si on peut réellement prévoir la volatilité du cours de l&rsquo;action avec le temps.</p>
+
+<h2 id="le-package-quantmod">Le package <code>quantmod</code></h2>
+
+<p>Pour ce projet j&rsquo;utiliserai l&rsquo;excellent package <code>quantmod</code> pour lire directement les informations financières concernant IBM dont j&rsquo;ai besoin.</p>
+
+<pre><code class="language-R"># Chargement les librairies
+library(tidyverse)
+library(quantmod)
+</code></pre>
+
+<h2 id="lecture-des-informations">Lecture des informations</h2>
+
+<pre><code class="language-R">getSymbols(Symbols = &quot;IBM&quot;, src = &quot;yahoo&quot;, 
+           from = as.Date(&quot;2004-01-01&quot;), to = as.Date(&quot;2019-03-01&quot;))
+</code></pre>
+
+<p>Je viens de lire les données d&rsquo;IBM directement à partir de Yahoo Finance pour la période du 1er janvier 2004 au 1er mars 2019.
+En lisant ces données, R crée automatiquement un objet IBM dans notre environnement de travail. On peut voir quel type d&rsquo;objet c&rsquo;est.</p>
+
+<pre><code class="language-R">class(IBM)
+</code></pre>
+
+<ol class=list-inline>
+    <li>'xts'</li>
+    <li>'zoo'</li>
+</ol>
+
+<p>L&rsquo;objet hérite de deux classes<code>xts</code> et <code>zoo</code> qui sont des classes pour séries temporelles. Le package <code>quantmod</code> vient avec une série de méthodes (fonctions) qui pour analyser automatiquement les objets de ces classes. Nous allons les explorer, mais avant, voyons comment la base de donnée se présente.</p>
+
+<pre><code class="language-R">head(IBM)
+</code></pre>
+
+<pre><code>           IBM.Open IBM.High IBM.Low IBM.Close IBM.Volume IBM.Adjusted
+2004-01-02    92.86    93.05   91.20     91.55    5327800     64.01743
+2004-01-05    92.00    93.09   92.00     93.05    5276300     65.06632
+2004-01-06    92.20    93.19   92.14     93.06    4380000     65.07331
+2004-01-07    93.14    93.38   92.47     92.78    4927600     64.87749
+2004-01-08    93.21    93.21   92.03     93.04    6179800     65.05934
+2004-01-09    91.75    92.35   91.00     91.21    7930900     63.77967
+</code></pre>
+
+<p>La base de donné commence à partir du 2 janvier 2004 alors qu&rsquo;on avait demandé à partir du 1er. Des raisons particulières? Oui c&rsquo;est le nouvel an, et ce n&rsquo;était pas un business day. On a les mêmes observations entre les 2 et 5 de cette même année.</p>
+
+<pre><code class="language-R">dim(IBM)
+</code></pre>
+
+<ol class=list-inline>
+    <li>3815</li>
+    <li>6</li>
+</ol>
+
+<p>On a 3815 observations et 6 variables.</p>
+
+<h1 id="visualisation">Visualisation</h1>
+
+<p>La meilleure manière de comprendre la tendance d&rsquo;une série financière c&rsquo;est de l&rsquo;observer graphiquement, nous allons dans cette partie visualiser la série sur toute la période considérée et dégager une première impression.</p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 3) # paramètres graphiques, res pour résolution
+</code></pre>
+
+<pre><code class="language-R">plot(IBM[, &quot;IBM.Open&quot;], main = &quot;Prix d'ouverture de l'action IBM&quot;, col = &quot;lightblue&quot;)
+</code></pre>
+
+<p><img src="output_18_0.png" alt="png" /></p>
+
+<p>On a pris l&rsquo;avantage des classes <code>xts</code> et <code>zoo</code> pour facilement visualiser cette série temporelle avec la fonction générique <code>plot()</code>.<br />
+Sur la période considérée on observe une nette augmentation du prix d&rsquo;ouverture de l&rsquo;action IBM. Ce prix est à son plus bas niveau entre 2008 et 2009, on peut tout de suite voir que la crise des subrpimes a quelque chose à y voir. Les prix des actions sont très volatiles car ils dépendent TOTALEMENT du comportement des acteurs qui interviennent sur le marché financier.</p>
+
+<p>On peut également représenter toutes les prix sur un même graphique pour voir comment ils évoluent. Y a-t-il des différences entre les prix d&rsquo;ouverture, de fermeture&hellip;</p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 4.4) # paramètres graphiques, res pour résolution
+plot.xts(IBM[,1:4],legend.loc = &quot;left&quot;, main = &quot;Prix de l'action IBM&quot;, col = rainbow(4))
+</code></pre>
+
+<p><img src="output_21_0.png" alt="png" /></p>
+
+<p>La plupart du temps ces valeurs se superposent, et la tendance générale est la même pour tous les différents prix.Il y a toutefois une nette différence entre les prix haut et bas. Regardons les dans les détails</p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 4.4) # paramètres graphiques, res pour résolution
+plot.xts(IBM[,2:3],legend.loc = &quot;left&quot;, main = &quot;Prix plus haut et plus bas&quot;, col = rainbow(n= 2))
+</code></pre>
+
+<p><img src="output_23_0.png" alt="png" /></p>
+
+<p>Intéressons-nous maintenant au volume</p>
+
+<pre><code class="language-R">plot(IBM[, &quot;IBM.Volume&quot;]/1000000, col = &quot;lightblue&quot;, main = &quot;Volume d'actions échangées en millions&quot;)
+</code></pre>
+
+<p><img src="output_25_0.png" alt="png" /></p>
+
+<p>Les volumes échangés fluctuent les plus. Il n&rsquo;y a pas une tendance à la hausse comme on a pu l&rsquo;observer pour les prix. Le volume échangé est plus aléatoire.<br />
+La librairie <code>quantmod</code> a une série de fonctions pour représenter les visuellement les graphiques dont <code>candleChart</code>.</p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 5) # paramètres graphiques, res pour résolution
+candleChart(IBM, type = &quot;line&quot;, theme = &quot;white&quot;, show.grid = T)
+</code></pre>
+
+<p><img src="output_27_0.png" alt="png" /></p>
+
+<h1 id="modélisations">Modélisations</h1>
+
+<p>Il existe de nombreux packages pour faire la modélisation GARCH avec R. Ne sachant pas moi-même le meilleur à prendre, je me suis inspiré de la vidéo de Ralph Becker que vous pouvez <a href="https://www.youtube.com/embed/8VXmRl5gzEU" target="_blank">regarder ici</a>.<br />
+On fera la modélisation avec les packages <code>rugarch</code> et <code>rmgarch</code> respectivement pour Univariate GARCH et Multivariate GARCH.</p>
+
+<pre><code class="language-R"># Installons les packages
+#install.packages(c(&quot;rugarch&quot;, &quot;rmgarch&quot;))
+</code></pre>
+
+<pre><code class="language-R">library(rugarch)
+library(rmgarch)
+</code></pre>
+
+<p>Les documentations concernant ces deux packages se trouvent sur les sites suivants : <a href="https://cran.r-project.org/web/packages/rugarch/rugarch.pdf" target="_blank">rugarch</a> et <a href="https://cran.r-project.org/web/packages/rmgarch/rmgarch.pdf" target="_blank">rmgarch</a>. La syntaxe de ces packages diffère un peu des autres fonctions R.</p>
+
+<h2 id="garch-univarié">GARCH Univarié</h2>
+
+<p>Nous n&rsquo;allons utiliser que le GARCH univarié car nous n&rsquo;avons pas d&rsquo;exogènes à proprement parler à inclure dans le modèle. Pour un GARCH multivarié il faudra lire les données de plusieurs entreprises en même temps</p>
+
+<pre><code class="language-R">univ_garch = ugarchspec() # On commence par instancier l'objet ugarch sans y ajouter de paramètres
+</code></pre>
+
+<pre><code class="language-R">univ_garch
+</code></pre>
+
+<pre><code>*---------------------------------*
+*       GARCH Model Spec          *
+*---------------------------------*
+
+Conditional Variance Dynamics   
+------------------------------------
+GARCH Model     : sGARCH(1,1)
+Variance Targeting  : FALSE 
+
+Conditional Mean Dynamics
+------------------------------------
+Mean Model      : ARFIMA(1,0,1)
+Include Mean        : TRUE 
+GARCH-in-Mean       : FALSE 
+
+Conditional Distribution
+------------------------------------
+Distribution    :  norm 
+Includes Skew   :  FALSE 
+Includes Shape  :  FALSE 
+Includes Lambda :  FALSE 
+</code></pre>
+
+<p>Ce sont les configurations par défaut. sGARCH signifie standard GARCH c&rsquo;est le GARCH simple car il existe une grande variété de modèles GARCH. Faisons une première estimation avec ces spécifications.</p>
+
+<pre><code class="language-R">mod &lt;- ugarchfit(spec = univ_garch, data = IBM[, &quot;IBM.Open&quot;])
+</code></pre>
+
+<p>On peut afficher les résultats directement en exécutant l&rsquo;objet mod mais les résultats sont très nombreux et risquent de prendre de la place sur l&rsquo;écran. Donc nous n&rsquo;allons sélectionner que ce qui nous intéresse dans un modèle GARCH, c&rsquo;est-à-dire la variance conditionnelle $ \sigma^2 $</p>
+
+<p>L&rsquo;objet mod qu&rsquo;on a créé contient de familles de résultats: les résultats du modèle et les résultats d&rsquo;estimation. Pour accéder à l&rsquo;un ou l&rsquo;autre de ces résultats on utilise @ après mod.</p>
+
+<pre><code class="language-R"># affichons les noms des informations contenues dans ces deux objets
+print(&quot;Objets contenus dans model@fit&quot;)
+names(mod@fit)
+print(&quot;Objets contenus dans model@model&quot;)
+names(mod@model)
+</code></pre>
+
+<pre><code>[1] &quot;Objets contenus dans model@fit&quot;
+</code></pre>
+
+<ol class=list-inline>
+    <li>'hessian'</li>
+    <li>'cvar'</li>
+    <li>'var'</li>
+    <li>'sigma'</li>
+    <li>'condH'</li>
+    <li>'z'</li>
+    <li>'LLH'</li>
+    <li>'log.likelihoods'</li>
+    <li>'residuals'</li>
+    <li>'coef'</li>
+    <li>'robust.cvar'</li>
+    <li>'A'</li>
+    <li>'B'</li>
+    <li>'scores'</li>
+    <li>'se.coef'</li>
+    <li>'tval'</li>
+    <li>'matcoef'</li>
+    <li>'robust.se.coef'</li>
+    <li>'robust.tval'</li>
+    <li>'robust.matcoef'</li>
+    <li>'fitted.values'</li>
+    <li>'convergence'</li>
+    <li>'kappa'</li>
+    <li>'persistence'</li>
+    <li>'timer'</li>
+    <li>'ipars'</li>
+    <li>'solver'</li>
+</ol>
+
+<pre><code>[1] &quot;Objets contenus dans model@model&quot;
+</code></pre>
+
+<ol class=list-inline>
+    <li>'modelinc'</li>
+    <li>'modeldesc'</li>
+    <li>'modeldata'</li>
+    <li>'pars'</li>
+    <li>'start.pars'</li>
+    <li>'fixed.pars'</li>
+    <li>'maxOrder'</li>
+    <li>'pos.matrix'</li>
+    <li>'fmodel'</li>
+    <li>'pidx'</li>
+    <li>'n.start'</li>
+</ol>
+
+<pre><code class="language-R"># Regardons les coefficients d'estimation
+mod@fit$matcoef
+</code></pre>
+
+<table>
+<thead><tr><th></th><th scope=col> Estimate</th><th scope=col> Std. Error</th><th scope=col> t value</th><th scope=col>Pr(&gt;|t|)</th></tr></thead>
+<tbody>
+    <tr><th scope=row>mu</th><td>92.871630280</td><td>1.375150510 </td><td>  67.535611 </td><td>0.000000e+00</td></tr>
+    <tr><th scope=row>ar1</th><td> 0.999745478</td><td>0.000533952 </td><td>1872.351017 </td><td>0.000000e+00</td></tr>
+    <tr><th scope=row>ma1</th><td>-0.024373350</td><td>0.016509271 </td><td>  -1.476343 </td><td>1.398518e-01</td></tr>
+    <tr><th scope=row>omega</th><td> 0.007360053</td><td>0.001237242 </td><td>   5.948758 </td><td>2.701844e-09</td></tr>
+    <tr><th scope=row>alpha1</th><td> 0.024024398</td><td>0.001488674 </td><td>  16.138116 </td><td>0.000000e+00</td></tr>
+    <tr><th scope=row>beta1</th><td> 0.974604561</td><td>0.002044855 </td><td> 476.612995 </td><td>0.000000e+00</td></tr>
+</tbody>
+</table>
+
+<p>Nous avons dans ce tableau se trouvent les informations de l&rsquo;estimation. Dans la spécification du modèle nous avons choisi un modèle GARCH simple garch(p=1,q=1) c&rsquo;est ce que représentent les $\alpha_1$ et $\beta_1$ dont on a les valeurs.<br />
+On peut présenter ce modèle comme cela : $$ \mu + AR1 + MA1 + \omega + \alpha_1 + \beta_1$$</p>
+
+<h2 id="variance-conditionnelle-estimée">Variance conditionnelle estimée</h2>
+
+<p>Nous allons créer un data frame dans lesquel nous sauvons ces résultats pour les visualiser</p>
+
+<pre><code class="language-R">variance &lt;- xts(mod@fit$var, order.by = as.Date(index(IBM)))
+names(variance) &lt;- &quot;variance&quot;
+head(variance)
+</code></pre>
+
+<pre><code>           variance
+2004-01-02 2.982531
+2004-01-05 2.914152
+2004-01-06 2.865286
+2004-01-07 2.800649
+2004-01-08 2.758303
+2004-01-09 2.695823
+</code></pre>
+
+<pre><code class="language-R">plot(variance, main = &quot;variance conditionnelle estimée&quot;, col = &quot;lightblue&quot;)
+</code></pre>
+
+<p><img src="output_46_0.png" alt="png" /></p>
+
+<h2 id="prévisions-sur-le-passé">Prévisions sur le passé</h2>
+
+<p>Nous allons comparer les performances de notre modèle à prédire les valeurs du passé. Nous construirons un graphique sur lequel les deux séries se superposent pour observer les différences</p>
+
+<pre><code class="language-R">prev &lt;- cbind(c(IBM[, &quot;IBM.Open&quot;]), mod@fit$fitted.values)
+names(prev) &lt;- c(&quot;valeur.observee&quot;, &quot;valeur.predite&quot;)
+head(prev)
+</code></pre>
+
+<pre><code>           valeur.observee valeur.predite
+2004-01-02           92.86       92.87163
+2004-01-05           92.00       92.86029
+2004-01-06           92.20       92.02119
+2004-01-07           93.14       92.19581
+2004-01-08           93.21       93.11692
+2004-01-09           91.75       93.20764
+</code></pre>
+
+<pre><code class="language-R">help(plot.xts)
+</code></pre>
+
+<pre><code class="language-R">plot.xts(prev, col = c(&quot;lightblue&quot;, &quot;red&quot;), legend.loc= &quot;left&quot;, lwd = 1)
+</code></pre>
+
+<p><img src="output_50_0.png" alt="png" /></p>
+
+<p>La performance globale du modèle est très bonne pour la prévision dans le passé. Les modèles GARCH sont généralement très bons lorsque la période considérée est relativement courte.</p>
+
+<p>Pour avoir une idée plus claire de cette différence, nous pouvons représenter graphiquement les résidus et le carré de ces résidus.</p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 3) # paramètres graphiques, res pour résolution
+resid &lt;- xts(mod@fit$residuals, order.by = as.Date(index(IBM)))
+plot.xts(resid, main = &quot;Résidus du modèle&quot;, col = &quot;lightblue&quot;)
+resid2 &lt;- xts(mod@fit$residuals^2, order.by = as.Date(index(IBM)))
+plot.xts(resid2, main = &quot;Carré des résidus du modèle&quot;, col = &quot;lightblue&quot;)
+</code></pre>
+
+<p><img src="output_53_0.png" alt="png" /></p>
+
+<p><img src="output_53_1.png" alt="png" /></p>
+
+<h2 id="les-rendements">Les rendements</h2>
+
+<p>Le calcul du rendement est simple, c&rsquo;est la variation du prix de fermeture de l&rsquo;action sur la période considérée. la formule est la suivante: $$ R = \frac {prix<em>t - prix</em>{t-1}} {prix_{t-1}}$$ Généralement on calcule le rendement journalier. <code>quantmod</code>intègre une série de fonctions qui nous permettent de calculer les rendements dont dailyReturn qui calcule le rendement journalier.</p>
+
+<pre><code class="language-R">rIBM &lt;- dailyReturn(IBM)
+head(rIBM)
+</code></pre>
+
+<pre><code>           daily.returns
+2004-01-02 -0.0141072365
+2004-01-05  0.0163844888
+2004-01-06  0.0001074154
+2004-01-07 -0.0030088008
+2004-01-08  0.0028023497
+2004-01-09 -0.0196689809
+</code></pre>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 3) # paramètres graphiques, res pour résolution
+plot(rIBM, main = &quot;Rendement journalier de l'action IBM&quot;, col = &quot;lightblue&quot;)
+</code></pre>
+
+<p><img src="output_57_0.png" alt="png" /></p>
+
+<h1 id="modélisation-du-rendement">Modélisation du rendement</h1>
+
+<p>Pour le rendement, je choisis les spécifications suivantes: j&rsquo;utilise un &ldquo;eGARCH&rdquo;, ce choix est juste aléatoire, couplé avec un retard d&rsquo;ordre 3 et d&rsquo;une moyenne mobile 3 aussi. La moyenne est une moyenne ARCH-in-mean.</p>
+
+<pre><code class="language-R">return_garch &lt;- ugarchspec(variance.model = list(model = &quot;eGARCH&quot;, garchOrder = c(3,3)), 
+                           mean.model = list(archm = 3))
+</code></pre>
+
+<pre><code class="language-R">fit_return &lt;- ugarchfit(spec = return_garch, data = rIBM)
+</code></pre>
+
+<h2 id="résultats">Résultats</h2>
+
+<pre><code class="language-R">fit_return@fit$matcoef
+</code></pre>
+
+<table>
+<thead><tr><th></th><th scope=col> Estimate</th><th scope=col> Std. Error</th><th scope=col> t value</th><th scope=col>Pr(&gt;|t|)</th></tr></thead>
+<tbody>
+    <tr><th scope=row>mu</th><td> 0.0003373178</td><td>0.0002535284 </td><td>  1.3304929  </td><td>1.833559e-01 </td></tr>
+    <tr><th scope=row>ar1</th><td>-0.2801495873</td><td>0.0209793094 </td><td>-13.3536134  </td><td>0.000000e+00 </td></tr>
+    <tr><th scope=row>ma1</th><td> 0.2575985543</td><td>0.0213733469 </td><td> 12.0523265  </td><td>0.000000e+00 </td></tr>
+    <tr><th scope=row>archm</th><td>-0.0056631658</td><td>0.0277292577 </td><td> -0.2042307  </td><td>8.381732e-01 </td></tr>
+    <tr><th scope=row>omega</th><td>-0.9573623475</td><td>0.1969173808 </td><td> -4.8617463  </td><td>1.163547e-06 </td></tr>
+    <tr><th scope=row>alpha1</th><td>-0.0599571073</td><td>0.0196478443 </td><td> -3.0515870  </td><td>2.276350e-03 </td></tr>
+    <tr><th scope=row>alpha2</th><td>-0.0876103632</td><td>0.0200375304 </td><td> -4.3723134  </td><td>1.229369e-05 </td></tr>
+    <tr><th scope=row>alpha3</th><td> 0.0109273856</td><td>0.0209578236 </td><td>  0.5213989  </td><td>6.020889e-01 </td></tr>
+    <tr><th scope=row>beta1</th><td> 0.1315229696</td><td>0.0920725229 </td><td>  1.4284714  </td><td>1.531562e-01 </td></tr>
+    <tr><th scope=row>beta2</th><td> 0.2711635420</td><td>0.0662792739 </td><td>  4.0912268  </td><td>4.290972e-05 </td></tr>
+    <tr><th scope=row>beta3</th><td> 0.4858771558</td><td>0.0371937507 </td><td> 13.0634084  </td><td>0.000000e+00 </td></tr>
+    <tr><th scope=row>gamma1</th><td> 0.2183713118</td><td>0.0307523642 </td><td>  7.1009601  </td><td>1.239009e-12 </td></tr>
+    <tr><th scope=row>gamma2</th><td> 0.1653053408</td><td>0.0385267970 </td><td>  4.2906588  </td><td>1.781438e-05 </td></tr>
+    <tr><th scope=row>gamma3</th><td>-0.0259919728</td><td>0.0309438681 </td><td> -0.8399717  </td><td>4.009243e-01 </td></tr>
+</tbody>
+</table>
+
+<h2 id="variance-conditionnelle">Variance conditionnelle</h2>
+
+<pre><code class="language-R">return_var &lt;- xts(fit_return@fit$var, order.by = as.Date(index(rIBM)))
+plot(return_var, main = &quot;Variance conditionnelle du rendement&quot;, col = &quot;lightblue&quot;)
+</code></pre>
+
+<p><img src="output_65_0.png" alt="png" /></p>
+
+<pre><code class="language-R">
+</code></pre>
+
+<pre><code class="language-R">
+</code></pre>
+
+<pre><code class="language-R">
+</code></pre>
+
+<h1 id="prévision-sur-le-futur">Prévision sur le futur</h1>
+
+<p>Nous pouvons faire une prévision des prix futurs avec la fonction <code>ugarchforecast</code></p>
+
+<pre><code class="language-R">ugarchforecast(fitORspec = mod, n.ahead = 10)
+</code></pre>
+
+<pre><code>*------------------------------------*
+*       GARCH Model Forecast         *
+*------------------------------------*
+Model: sGARCH
+Horizon: 10
+Roll Steps: 0
+Out of Sample: 0
+
+0-roll forecast [T0=2019-02-28]:
+     Series Sigma
+T+1   138.8 1.919
+T+2   138.8 1.920
+T+3   138.7 1.921
+T+4   138.7 1.921
+T+5   138.7 1.922
+T+6   138.7 1.922
+T+7   138.7 1.923
+T+8   138.7 1.924
+T+9   138.7 1.924
+T+10  138.7 1.925
+</code></pre>
+
+<pre><code class="language-R">mean(IBM[, &quot;IBM.Open&quot;])
+</code></pre>
+
+<p>137.557446927392</p>
+
+<p>Nous venons de faire une prévision sur 10 jours futurs.</p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="">Econométrie</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_hud494d6ac9e3b9d971a8444d41f8fd8ae_606650_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/authors/admin/">Axel-Cleris Gailloty</a></h5>
+      <h6 class="card-subtitle">Student in Economics</h6>
+      <p class="card-text" itemprop="description">I&rsquo;m interested in quantitative Economics, Econometrics and Data Science.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/cleris_mr" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/agailloty" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/project/usa-international-trade/">USA International Trade</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "analytics-3" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//analytics-3.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.15494b02d66be9b96bab2e305f69c460.js"></script>
+
+  </body>
+</html>
+

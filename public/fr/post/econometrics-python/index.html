@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Axel-Cleris Gailloty">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Ce projet implémente en Python la trame générale d&#39;une étude économétrique. Il s&#39;agit d&#39;estimer la relation linéaire entre le revenu et la consommation">
+
+  
+  <link rel="alternate" hreflang="fr" href="https://agailloty.rbind.io/fr/post/econometrics-python/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Fauna+One">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.829aa389a1e6cd2bb9c0046150743c95.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-141537832-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://agailloty.rbind.io/fr/post/econometrics-python/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@cleris_mr">
+  <meta property="twitter:creator" content="@cleris_mr">
+  
+  <meta property="og:site_name" content="Axel-Cleris Gailloty">
+  <meta property="og:url" content="https://agailloty.rbind.io/fr/post/econometrics-python/">
+  <meta property="og:title" content="Estimer la relation linéaire entre le revenu et la consommation (python) | Axel-Cleris Gailloty">
+  <meta property="og:description" content="Ce projet implémente en Python la trame générale d&#39;une étude économétrique. Il s&#39;agit d&#39;estimer la relation linéaire entre le revenu et la consommation"><meta property="og:image" content="https://agailloty.rbind.io/fr/post/econometrics-python/featured.png">
+  <meta property="og:locale" content="fr">
+  
+  <meta property="article:published_time" content="2019-04-19T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-04-19T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Estimer la relation linéaire entre le revenu et la consommation (python) | Axel-Cleris Gailloty</title>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Rechercher</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Recherche..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/fr/">Axel-Cleris Gailloty</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Ouvrir la barre de navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fr/#posts">
+            
+            <span>Articles</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fr/#skills">
+            
+            <span>Compétences</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fr/#about">
+            
+            <span>Moi</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/fr/#projects">
+            
+            <span>Projets</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <div class="featured-image" style="background-image: url('/fr/post/econometrics-python/featured_hubf3923e449c2197c7a3f4c77988287d4_127190_800x0_resize_lanczos_2.png');"></div>
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Estimer la relation linéaire entre le revenu et la consommation (python)</h1>
+
+        
+
+        
+
+
+
+<meta content="2019-04-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-04-19 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fr/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 19, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    14 min de lecture
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/fr/post/econometrics-python/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/fr/categories/python/">Python</a>, <a href="">Econométrie</a></span>
+  
+
+  
+
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Estimer%20la%20relation%20lin%c3%a9aire%20entre%20le%20revenu%20et%20la%20consommation%20%28python%29&amp;url=https%3a%2f%2fagailloty.rbind.io%2ffr%2fpost%2feconometrics-python%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fagailloty.rbind.io%2ffr%2fpost%2feconometrics-python%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fagailloty.rbind.io%2ffr%2fpost%2feconometrics-python%2f&amp;title=Estimer%20la%20relation%20lin%c3%a9aire%20entre%20le%20revenu%20et%20la%20consommation%20%28python%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fagailloty.rbind.io%2ffr%2fpost%2feconometrics-python%2f&amp;title=Estimer%20la%20relation%20lin%c3%a9aire%20entre%20le%20revenu%20et%20la%20consommation%20%28python%29"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Estimer%20la%20relation%20lin%c3%a9aire%20entre%20le%20revenu%20et%20la%20consommation%20%28python%29&amp;body=https%3a%2f%2fagailloty.rbind.io%2ffr%2fpost%2feconometrics-python%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/fr/post/econometrics-python/featured_hubf3923e449c2197c7a3f4c77988287d4_127190_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">Estimer la relation linéaire entre le revenu et la consommation (python)</h1>
+
+  
+
+  
+
+
+
+<meta content="2019-04-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-04-19 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/fr/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Apr 19, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    14 min de lecture
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/fr/post/econometrics-python/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/fr/categories/python/">Python</a>, <a href="">Econométrie</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>J&rsquo;aimerais dans cet article réaliser une étude économétrique à partir d&rsquo;une base de donnée regroupant des indicateurs économétriques sur la France de 1962 à 2012. Il sera question de nettoyer la base pour la préparer à la visualisation des séries temporelles, pour réaliser des statistiques descriptives, analyser les correlations entre les variables de la base de donnée.</p>
+
+<pre><code class="language-python"># importation des librairies
+%matplotlib inline
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+</code></pre>
+
+<pre><code class="language-python"># Paramètres graphiques
+plt.rcParams[&quot;figure.figsize&quot;] = [12,6]
+plt.rcParams[&quot;figure.dpi&quot;] = 150
+plt.style.use(&quot;fivethirtyeight&quot;)
+</code></pre>
+
+<pre><code class="language-python">base = pd.read_excel(&quot;DATABASE1963-2012.xls&quot;)
+</code></pre>
+
+<p>Regardons comment se présente la base</p>
+
+<pre><code class="language-python">base.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBS</th>
+      <th>UN</th>
+      <th>Unnamed: 2</th>
+      <th>CPC</th>
+      <th>DAT</th>
+      <th>DLT</th>
+      <th>DP</th>
+      <th>DSPS</th>
+      <th>DUC</th>
+      <th>GPG</th>
+      <th>...</th>
+      <th>TDE</th>
+      <th>TE</th>
+      <th>TINFL</th>
+      <th>TPRES</th>
+      <th>TR</th>
+      <th>TSP</th>
+      <th>W</th>
+      <th>XPX</th>
+      <th>YPY</th>
+      <th>TEF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1963-1</td>
+      <td>274.252399</td>
+      <td>1859.226699</td>
+      <td>40.0</td>
+      <td>14.999408</td>
+      <td>4.575718</td>
+      <td>82.798301</td>
+      <td>103.402718</td>
+      <td>...</td>
+      <td>25.207117</td>
+      <td>19.547539</td>
+      <td>5.160079</td>
+      <td>32.019116</td>
+      <td>6.465074</td>
+      <td>-0.142149</td>
+      <td>0.759338</td>
+      <td>33.289599</td>
+      <td>476.046181</td>
+      <td>8.815188</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1963-2</td>
+      <td>279.979818</td>
+      <td>1876.450261</td>
+      <td>40.0</td>
+      <td>16.075849</td>
+      <td>1.588363</td>
+      <td>84.328672</td>
+      <td>105.287914</td>
+      <td>...</td>
+      <td>25.919505</td>
+      <td>18.990496</td>
+      <td>4.982553</td>
+      <td>32.541230</td>
+      <td>6.482865</td>
+      <td>0.302659</td>
+      <td>0.767427</td>
+      <td>33.197693</td>
+      <td>486.892013</td>
+      <td>7.582511</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1963-3</td>
+      <td>284.897175</td>
+      <td>1887.905376</td>
+      <td>40.0</td>
+      <td>16.901766</td>
+      <td>-0.326363</td>
+      <td>85.182034</td>
+      <td>107.088900</td>
+      <td>...</td>
+      <td>26.345618</td>
+      <td>18.640453</td>
+      <td>4.705747</td>
+      <td>32.955774</td>
+      <td>6.457475</td>
+      <td>0.616460</td>
+      <td>0.776522</td>
+      <td>33.452026</td>
+      <td>496.462215</td>
+      <td>6.721496</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1963-4</td>
+      <td>289.130436</td>
+      <td>1894.530152</td>
+      <td>40.0</td>
+      <td>17.505219</td>
+      <td>-1.354848</td>
+      <td>85.477076</td>
+      <td>108.809399</td>
+      <td>...</td>
+      <td>26.518268</td>
+      <td>18.465213</td>
+      <td>4.357520</td>
+      <td>33.274753</td>
+      <td>6.402607</td>
+      <td>0.816080</td>
+      <td>0.786548</td>
+      <td>33.995435</td>
+      <td>504.953332</td>
+      <td>6.172891</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>1</td>
+      <td>1964-1</td>
+      <td>292.752877</td>
+      <td>1897.266903</td>
+      <td>40.0</td>
+      <td>17.909676</td>
+      <td>-1.687237</td>
+      <td>85.340560</td>
+      <td>110.427187</td>
+      <td>...</td>
+      <td>26.473363</td>
+      <td>18.431377</td>
+      <td>3.972974</td>
+      <td>33.507235</td>
+      <td>6.333507</td>
+      <td>0.917762</td>
+      <td>0.797246</td>
+      <td>34.755299</td>
+      <td>512.449470</td>
+      <td>5.879116</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 39 columns</p>
+</div>
+
+<p>Il s&rsquo;agit d&rsquo;une base de donnée économique regroupant des variables macroéconomiques sur la France. Nous n&rsquo;allons pas détailler tous les noms des variables, mais nous tâcherons d&rsquo;expliquer les variables que nous utiliserons pour notre analyse.</p>
+
+<h2 id="statistiques-descriptives">Statistiques descriptives</h2>
+
+<pre><code class="language-python">base.shape
+</code></pre>
+
+<pre><code>(200, 39)
+</code></pre>
+
+<p>Notre base de donnée est constituée de 200 observations et de 39 variables.</p>
+
+<pre><code class="language-python">base.describe()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBS</th>
+      <th>UN</th>
+      <th>CPC</th>
+      <th>DAT</th>
+      <th>DLT</th>
+      <th>DP</th>
+      <th>DSPS</th>
+      <th>DUC</th>
+      <th>GPG</th>
+      <th>H</th>
+      <th>...</th>
+      <th>TDE</th>
+      <th>TE</th>
+      <th>TINFL</th>
+      <th>TPRES</th>
+      <th>TR</th>
+      <th>TSP</th>
+      <th>W</th>
+      <th>XPX</th>
+      <th>YPY</th>
+      <th>TEF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>200.000000</td>
+      <td>200.0</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>...</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+      <td>200.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>100.500000</td>
+      <td>1.0</td>
+      <td>667.976435</td>
+      <td>1581.860187</td>
+      <td>38.320205</td>
+      <td>495.842394</td>
+      <td>-1.434067</td>
+      <td>84.338210</td>
+      <td>289.095131</td>
+      <td>131.821682</td>
+      <td>...</td>
+      <td>40.329048</td>
+      <td>16.694269</td>
+      <td>4.666106</td>
+      <td>40.115857</td>
+      <td>7.232212</td>
+      <td>-2.400353</td>
+      <td>8.899128</td>
+      <td>232.055791</td>
+      <td>1204.883787</td>
+      <td>5.687504</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>57.879185</td>
+      <td>0.0</td>
+      <td>219.857030</td>
+      <td>161.707290</td>
+      <td>2.026990</td>
+      <td>519.926384</td>
+      <td>8.667881</td>
+      <td>2.804489</td>
+      <td>105.181059</td>
+      <td>13.475607</td>
+      <td>...</td>
+      <td>21.782975</td>
+      <td>2.796075</td>
+      <td>3.852316</td>
+      <td>3.975054</td>
+      <td>3.768669</td>
+      <td>2.064637</td>
+      <td>5.940982</td>
+      <td>153.442257</td>
+      <td>401.474897</td>
+      <td>1.714773</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.0</td>
+      <td>274.252399</td>
+      <td>1378.022919</td>
+      <td>34.284686</td>
+      <td>14.999408</td>
+      <td>-18.214287</td>
+      <td>72.446980</td>
+      <td>103.402718</td>
+      <td>114.835243</td>
+      <td>...</td>
+      <td>12.693384</td>
+      <td>10.877190</td>
+      <td>-0.384555</td>
+      <td>32.019116</td>
+      <td>0.167617</td>
+      <td>-8.265285</td>
+      <td>0.759338</td>
+      <td>33.197693</td>
+      <td>476.046181</td>
+      <td>0.323111</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>50.750000</td>
+      <td>1.0</td>
+      <td>486.067715</td>
+      <td>1426.873623</td>
+      <td>35.244837</td>
+      <td>36.631097</td>
+      <td>-7.761538</td>
+      <td>83.108515</td>
+      <td>199.082330</td>
+      <td>118.906135</td>
+      <td>...</td>
+      <td>20.953342</td>
+      <td>14.739361</td>
+      <td>1.900946</td>
+      <td>35.800408</td>
+      <td>3.723566</td>
+      <td>-3.377893</td>
+      <td>2.677703</td>
+      <td>105.780221</td>
+      <td>884.587609</td>
+      <td>4.991652</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>100.500000</td>
+      <td>1.0</td>
+      <td>678.466020</td>
+      <td>1529.531753</td>
+      <td>39.000379</td>
+      <td>292.753615</td>
+      <td>-1.415239</td>
+      <td>84.607695</td>
+      <td>301.039485</td>
+      <td>127.460979</td>
+      <td>...</td>
+      <td>33.357799</td>
+      <td>15.936473</td>
+      <td>2.858203</td>
+      <td>41.823950</td>
+      <td>7.539372</td>
+      <td>-2.512027</td>
+      <td>9.335488</td>
+      <td>173.734371</td>
+      <td>1189.764734</td>
+      <td>6.027491</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>150.250000</td>
+      <td>1.0</td>
+      <td>854.507537</td>
+      <td>1710.212066</td>
+      <td>39.999998</td>
+      <td>825.963580</td>
+      <td>4.709407</td>
+      <td>86.007016</td>
+      <td>374.805154</td>
+      <td>142.517672</td>
+      <td>...</td>
+      <td>59.287390</td>
+      <td>19.152971</td>
+      <td>6.700211</td>
+      <td>43.245983</td>
+      <td>10.365802</td>
+      <td>-0.832687</td>
+      <td>14.051128</td>
+      <td>409.184189</td>
+      <td>1586.473061</td>
+      <td>6.670885</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>200.000000</td>
+      <td>1.0</td>
+      <td>1013.837952</td>
+      <td>1897.266903</td>
+      <td>40.179177</td>
+      <td>1859.217287</td>
+      <td>24.796444</td>
+      <td>90.185537</td>
+      <td>457.730691</td>
+      <td>158.105575</td>
+      <td>...</td>
+      <td>91.179840</td>
+      <td>22.687047</td>
+      <td>14.242208</td>
+      <td>45.382268</td>
+      <td>15.817231</td>
+      <td>0.942276</td>
+      <td>18.945301</td>
+      <td>518.429723</td>
+      <td>1812.921288</td>
+      <td>9.400338</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 38 columns</p>
+</div>
+
+<p>On remarque qu&rsquo;il y a une colonne qui ne nous dit pas grand chose sur les données. C&rsquo;est la colonne <code>UN</code> qui prend partout 1.<br />
+A la lecture de la base il y avait une colonne appélée <code>Unnamed</code>. Nous allons essayer de la corriger</p>
+
+<h2 id="signification-des-libéllés">Signification des libéllés</h2>
+
+<p>PY PRIX DE LA PRODUCTION (PIB)<br />
+PINV PRIX DE L’INVESTISSEMENT<br />
+PM PRIX DES IMPORTATIONS<br />
+PX PRIX DES EXPORTATIONS<br />
+PG PRIX DES DEPENSES PUBLIQUES<br />
+PDI PRIX DE LA DEMANDE INTERIEURE<br />
+PC PRIX DE LA CONSOMMATION<br />
+L EMPLOI TOTAL<br />
+PAP POPULATION ACTIVE<br />
+POP POPULATION TOTALE<br />
+YPY PIB en volume
+INVP FBCF en volume<br />
+CPC CONSOMATION DES MENAGES en volume<br />
+XPX EXPORTATIONS en volume<br />
+MPM IMPORTATIONS en volume<br />
+RD REVENU DISPONIBLE en volume<br />
+GPG CONSOMMATION DE L’ETAT (dépenses publiques) en volume<br />
+K CAPITAL<br />
+DSPS VARIATION DE STOCKS en volume<br />
+TCHO TAUX DE CHOMAGE en %<br />
+TINFL TAUX D’INFLATION en %<br />
+TPRES TAUX DE PRELEVEMENT OBLIGATOIRE en % du PIB<br />
+TCOT TAUX DE COTISATION SOCIALES DES MENAGES en %<br />
+DUC DEGRES D’UTILISATION DES CAPACITE DE PRODUCTION en %<br />
+DAT DUREE ANNUELLE DU TRAVAIL en heure/personne<br />
+DLT DUREE LEGALE DU TRAVAIL en heure<br />
+H DUREE MENSUELLE DU TRAVAIL en heure/personne<br />
+DP DETTE PUBLIQUE en valeur<br />
+SP SOLDE PUBLIQUE en valeur<br />
+TDE DETTE PUBLIQUE en % du PIB<br />
+TE TAUX D’EPARGNE DES MENAGES<br />
+TSP SOLDE PUBLIQUE (DEFICIT) en % du PIB<br />
+TR EURIBOR 3 mois
+W SALAIRE</p>
+
+<pre><code class="language-python">base[&quot;Unnamed: 2&quot;].head()
+</code></pre>
+
+<pre><code>0    1963-1
+1    1963-2
+2    1963-3
+3    1963-4
+4    1964-1
+Name: Unnamed: 2, dtype: object
+</code></pre>
+
+<pre><code class="language-python">base[&quot;Unnamed: 2&quot;].tail()
+</code></pre>
+
+<pre><code>195    2011-T4
+196    2012-T1
+197    2012-T2
+198    2012-T3
+199    2012-T4
+Name: Unnamed: 2, dtype: object
+</code></pre>
+
+<p>Il s&rsquo;agit de 200 périodes de temps commençant du premier semestre de 1964 au quatrième semestre de l&rsquo;année 2012. Ce type de donnée n&rsquo;est pas correctement lue par Pandas, nous devons donc résoudre celà pour pouvoir visualiser les séries temporelles.</p>
+
+<pre><code class="language-python"># Commençons par nommer la colonnes
+base = base.rename({&quot;Unnamed: 2&quot;:&quot;Année&quot;}, axis= 1)
+</code></pre>
+
+<pre><code class="language-python">base[&quot;Année&quot;].head(3)
+</code></pre>
+
+<pre><code>0    1963-1
+1    1963-2
+2    1963-3
+Name: Année, dtype: object
+</code></pre>
+
+<pre><code class="language-python">base[&quot;Année&quot;].tail(3)
+</code></pre>
+
+<pre><code>197    2012-T2
+198    2012-T3
+199    2012-T4
+Name: Année, dtype: object
+</code></pre>
+
+<pre><code class="language-python">import warnings
+warnings.filterwarnings(&quot;ignore&quot;)
+</code></pre>
+
+<pre><code class="language-python"># Générons une série temporelle
+pd.date_range(start = &quot;1963/01&quot;, end = &quot;2012/12&quot;, freq= &quot;3 m&quot;)
+</code></pre>
+
+<pre><code>DatetimeIndex(['1963-01-31', '1963-04-30', '1963-07-31', '1963-10-31',
+               '1964-01-31', '1964-04-30', '1964-07-31', '1964-10-31',
+               '1965-01-31', '1965-04-30',
+               ...
+               '2010-07-31', '2010-10-31', '2011-01-31', '2011-04-30',
+               '2011-07-31', '2011-10-31', '2012-01-31', '2012-04-30',
+               '2012-07-31', '2012-10-31'],
+              dtype='datetime64[ns]', length=200, freq='3M')
+</code></pre>
+
+<pre><code class="language-python"># On peut remplacer l'année par cette série
+base[&quot;Année&quot;] = pd.date_range(start = &quot;1963/01&quot;, end = &quot;2012/12&quot;, freq= &quot;3 m&quot;)
+</code></pre>
+
+<pre><code class="language-python">base.head(3)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBS</th>
+      <th>UN</th>
+      <th>Année</th>
+      <th>CPC</th>
+      <th>DAT</th>
+      <th>DLT</th>
+      <th>DP</th>
+      <th>DSPS</th>
+      <th>DUC</th>
+      <th>GPG</th>
+      <th>...</th>
+      <th>TDE</th>
+      <th>TE</th>
+      <th>TINFL</th>
+      <th>TPRES</th>
+      <th>TR</th>
+      <th>TSP</th>
+      <th>W</th>
+      <th>XPX</th>
+      <th>YPY</th>
+      <th>TEF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1963-01-31</td>
+      <td>274.252399</td>
+      <td>1859.226699</td>
+      <td>40.0</td>
+      <td>14.999408</td>
+      <td>4.575718</td>
+      <td>82.798301</td>
+      <td>103.402718</td>
+      <td>...</td>
+      <td>25.207117</td>
+      <td>19.547539</td>
+      <td>5.160079</td>
+      <td>32.019116</td>
+      <td>6.465074</td>
+      <td>-0.142149</td>
+      <td>0.759338</td>
+      <td>33.289599</td>
+      <td>476.046181</td>
+      <td>8.815188</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1963-04-30</td>
+      <td>279.979818</td>
+      <td>1876.450261</td>
+      <td>40.0</td>
+      <td>16.075849</td>
+      <td>1.588363</td>
+      <td>84.328672</td>
+      <td>105.287914</td>
+      <td>...</td>
+      <td>25.919505</td>
+      <td>18.990496</td>
+      <td>4.982553</td>
+      <td>32.541230</td>
+      <td>6.482865</td>
+      <td>0.302659</td>
+      <td>0.767427</td>
+      <td>33.197693</td>
+      <td>486.892013</td>
+      <td>7.582511</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1963-07-31</td>
+      <td>284.897175</td>
+      <td>1887.905376</td>
+      <td>40.0</td>
+      <td>16.901766</td>
+      <td>-0.326363</td>
+      <td>85.182034</td>
+      <td>107.088900</td>
+      <td>...</td>
+      <td>26.345618</td>
+      <td>18.640453</td>
+      <td>4.705747</td>
+      <td>32.955774</td>
+      <td>6.457475</td>
+      <td>0.616460</td>
+      <td>0.776522</td>
+      <td>33.452026</td>
+      <td>496.462215</td>
+      <td>6.721496</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 39 columns</p>
+</div>
+
+<p>Nous pouvons maintenant enlever les colonnes <code>OBS</code>, et <code>UN</code> et choisir la colonne <code>Année</code> comme l&rsquo;index de notre base.</p>
+
+<pre><code class="language-python">base.drop(columns= [&quot;OBS&quot;, &quot;UN&quot;], inplace= True)
+</code></pre>
+
+<pre><code class="language-python"># Définissons Année comme indice
+base.set_index(&quot;Année&quot;, inplace= True)
+</code></pre>
+
+<h2 id="distribution-des-colonnes-de-la-base-de-donnée">Distribution des colonnes de la base de donnée</h2>
+
+<p>Nous allons maintenant essayer de regarder comment sont distribuées les colonnes de notre base données. Et regarder comment elles sont corrélées entre elles.</p>
+
+<p>La librairie <code>Seaborn</code> est très puissante pour l&rsquo;analyse exploratoire des données car elle ajoute à <code>matplotlib</code> des types de graphiques inédits.</p>
+
+<pre><code class="language-python">base.columns
+</code></pre>
+
+<pre><code>Index(['CPC', 'DAT', 'DLT', 'DP', 'DSPS', 'DUC', 'GPG', 'H', 'INVP', 'K', 'L',
+       'MPM', 'PAP', 'PC', 'PDI', 'PG', 'PINV', 'PM', 'POP', 'PX', 'PY', 'RD',
+       'SP', 'TCHO', 'TCHO.1', 'TCOT', 'TDE', 'TE', 'TINFL', 'TPRES', 'TR',
+       'TSP', 'W', 'XPX', 'YPY', 'TEF'],
+      dtype='object')
+</code></pre>
+
+<p>Etant donné qu&rsquo;il y a plus de 30 variables dans la base de donnée, nous n&rsquo;allons représenter que les 7 premières dans un pairplot (le principe est de représenter des combinaisons de deux variables).</p>
+
+<pre><code class="language-python">sns.pairplot(base.iloc[:, 1:7], diag_kind= &quot;kde&quot;)
+</code></pre>
+
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x1e9cd587d30&gt;
+</code></pre>
+
+<p><img src="output_30_1.png" alt="png" /></p>
+
+<h2 id="mesure-de-la-correlation-entre-les-variables">Mesure de la correlation entre les variables</h2>
+
+<pre><code class="language-python">#base.corr()
+</code></pre>
+
+<pre><code class="language-python">plt.figure(figsize = (14,8))
+sns.heatmap(base.corr(), cmap= &quot;viridis&quot;)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1e9d04f3da0&gt;
+</code></pre>
+
+<p><img src="output_33_1.png" alt="png" /></p>
+
+<p>Ce graphique est une représentation de la matrice des correlations. EN diagonale la correlation vaut 1 car la variable corrèle avec elle-même.<br />
+D&rsquo;une vue globale, ce qu&rsquo;on remarque c&rsquo;est que la plupart des variables sont corrélées entre elles.<br />
+Si on veut facilement répérer visuellement quelles variables sont corrélées entre elles, on peut utiliser l&rsquo;algorithme de classification hiérarchique pour visualiser.</p>
+
+<pre><code class="language-python">sns.clustermap(base.corr(), cmap = &quot;viridis&quot;)
+</code></pre>
+
+<pre><code>&lt;seaborn.matrix.ClusterGrid at 0x1e9d1a33c18&gt;
+</code></pre>
+
+<p><img src="output_35_1.png" alt="png" /></p>
+
+<p>Plus la couleur tend vers jaune, plus forte est la correlation. on remarque dans la partie gauche du graphique un fort regroupement des variables.<br />
+On remarque que le revenu disponible (RD) corrèle très fortement avec plusieurs variables dont la population totale, le prix de la production, le prix de la consommation. Ces correlations ne traduisent en rien une causalité, elles signifient seulement que ces variables évoluent dans le même sens.</p>
+
+<h1 id="visualisation-des-séries-temporelles">Visualisation des séries temporelles</h1>
+
+<p>Après avoir transformée notre colonne année en indice, nous pouvons facilement représenter la série temporelle des variables.<br />
+Intéressons-nous, pour commencer à l&rsquo;évolution du taux de chômage en France depuis les années 1960</p>
+
+<pre><code class="language-python">base[&quot;TCHO&quot;].plot()
+plt.title(&quot;Taux de chômage en France de 1960 à 2012&quot;)
+plt.ylabel(&quot;Taux de chômage&quot;)
+</code></pre>
+
+<pre><code>Text(0, 0.5, 'Taux de chômage')
+</code></pre>
+
+<p><img src="output_39_1.png" alt="png" /></p>
+
+<p>Il semble bien que depuis 1960, le taux de chômage en France ne cesse de croître. On observe une baisse nette vers les années 2008 avant que le taux de chômage ne reprenne de croître.</p>
+
+<p>Regardons maintenant l&rsquo;évolution du travail et du capital sur la même période.</p>
+
+<pre><code class="language-python">base[[&quot;K&quot;, &quot;L&quot;]].plot()
+plt.title(&quot;Evolution du travail (L) et du capital (K) entre 1960-2012&quot;)
+</code></pre>
+
+<pre><code>Text(0.5, 1.0, 'Evolution du travail (L) et du capital (K) entre 1960-2012')
+</code></pre>
+
+<p><img src="output_42_1.png" alt="png" /></p>
+
+<p>Essayons de tester la courbe de Phillips.<br />
+Phillips était un économiste keynésien du XXè siècle, il est connu pour sa courbe qui prédisait que le taux d&rsquo;inflation corrèlait négativement avec le taux de chômage. Pour lui donc, plus il y a de l&rsquo;inflation, moins il y a du chômage. Essayons donc de voir l&rsquo;évolution de ces indicateurs dans le temps et représentons un nuage de point pour voir leur correlation</p>
+
+<pre><code class="language-python">base[[&quot;TCHO&quot;, &quot;TINFL&quot;]].plot()
+plt.title(&quot; Evolution des taux d'inflation (TINFL) et du taux de chômage (TCHO)&quot;)
+</code></pre>
+
+<pre><code>Text(0.5, 1.0, &quot; Evolution des taux d'inflation (TINFL) et du taux de chômage (TCHO)&quot;)
+</code></pre>
+
+<p><img src="output_44_1.png" alt="png" /></p>
+
+<p>On observe que sur cette période les taux d&rsquo;inflation et de chômage fluctuent fortement. Ils se coupent deux fois, une fois première vers les années 65 à un moment où les dux taux sont très bas et une deuxième vers les années 1980.</p>
+
+<pre><code class="language-python"># Correlation
+sns.scatterplot(x= &quot;TCHO&quot;, y = &quot;TINFL&quot;, data = base)
+plt.title(&quot;Nuage de points entre taux de chômage et taux d'inflation&quot;)
+plt.xlabel(&quot;Taux de chômage en %&quot;)
+plt.ylabel(&quot;Taux d'inflation en %&quot;)
+</code></pre>
+
+<pre><code>Text(0, 0.5, &quot;Taux d'inflation en %&quot;)
+</code></pre>
+
+<p><img src="output_46_1.png" alt="png" /></p>
+
+<p>Il ne smble pas y avoir une relation évidente entre ces deux variables. Les deux n&rsquo;évoluent ni dans le même sens ni dans le sens inverse.</p>
+
+<p>Regardons les densités de ces deux variables</p>
+
+<pre><code class="language-python">sns.kdeplot(base[&quot;TCHO&quot;])
+sns.kdeplot(base[&quot;TINFL&quot;])
+plt.title(&quot;Densité des taux de chômage et taux d'inflation&quot;)
+</code></pre>
+
+<pre><code>Text(0.5, 1.0, &quot;Densité des taux de chômage et taux d'inflation&quot;)
+</code></pre>
+
+<p><img src="output_49_1.png" alt="png" /></p>
+
+<p>Le taux de chômage a une répartition bimodale tandis que le taux d&rsquo;inflation est unimodal.</p>
+
+<p>C&rsquo;est quoi le lien entre le taux de chômage et la population active?</p>
+
+<pre><code class="language-python">sns.scatterplot(x = &quot;TCHO&quot;, y = &quot;PAP&quot;, data = base)
+plt.title(&quot;Taux de chômage vs. Population active&quot;)
+plt.xlabel(&quot;Taux de chômage&quot;)
+plt.ylabel(&quot;Population active&quot;)
+</code></pre>
+
+<pre><code>Text(0, 0.5, 'Population active')
+</code></pre>
+
+<p><img src="output_52_1.png" alt="png" /></p>
+
+<pre><code class="language-python">base[[&quot;POP&quot;, &quot;PAP&quot;]].plot()
+plt.title(&quot;Evolution de la population active (PAP) et de la population totale (POP)&quot;)
+</code></pre>
+
+<pre><code>Text(0.5, 1.0, 'Evolution de la population active (PAP) et de la population totale (POP)')
+</code></pre>
+
+<p><img src="output_53_1.png" alt="png" /></p>
+
+<p>Comment évolue la dette publique?</p>
+
+<pre><code class="language-python">base[&quot;DP&quot;].plot()
+plt.title(&quot;Evolution de la dette publique en Milliard d'€&quot;)
+plt.show()
+</code></pre>
+
+<p><img src="output_55_0.png" alt="png" /></p>
+
+<p>la dette publique a une augmentation exponentielle avec le temps. Une très légère baisse s&rsquo;observe vers 2008 mais le cours de l&rsquo;augmentation reprend toute juste après</p>
+
+<pre><code class="language-python">base[&quot;TPRES&quot;].plot()
+plt.title(&quot;Taux de prélèvement obligatoire en % &quot;)
+</code></pre>
+
+<pre><code>Text(0.5, 1.0, 'Taux de prélèvement obligatoire en % ')
+</code></pre>
+
+<p><img src="output_57_1.png" alt="png" /></p>
+
+<p>La France est l&rsquo;un des pays qui ont les taux de prélèvements obligatoires très élevés au monde. SUr ce graphique, on observe que ce n&rsquo;était pas le cas au début des années 1960.</p>
+
+<pre><code class="language-python">base[[&quot;PY&quot;, &quot;PC&quot;]].plot()
+plt.title(&quot;Evolution des prix de la production (PY) et prix de la consommation&quot;)
+plt.show()
+</code></pre>
+
+<p><img src="output_59_0.png" alt="png" /></p>
+
+<p>Ces deux sont évoluent très étroitement.</p>
+
+<h1 id="estimation-d-une-fonction-de-la-consommation-keynésienne">Estimation d&rsquo;une fonction de la consommation keynésienne</h1>
+
+<h2 id="première-estimation-modèle-double-linéaire">Première estimation : modèle double linéaire</h2>
+
+<p>La fonction de consommation keynésienne se présente comme suit:
+\begin{equation*}
+C = C_0 + _c * y^d
+\end{equation*}</p>
+
+<p>La consommation C est égale à la comsommation incompréssible (le niveau de consommation quand le revenu est égal à 0) + la propension marginale à consommer multipliée par le revenu disponible.</p>
+
+<p>Nous allons estimer cette fonction grâce à notre base de donnée</p>
+
+<pre><code class="language-python">import numpy as np
+</code></pre>
+
+<pre><code class="language-python">import statsmodels.api as sm
+</code></pre>
+
+<p>La notation matricielle d&rsquo;une équation économétrique se présente comme suit :<br />
+\begin{equation<em>}
+y = cste + X + \epsilon<br />
+\end{equation</em>}</p>
+
+<pre><code class="language-python"># Choisissons y notre variable endogène: celle qu'on veut expliquer. Ici c'est la consommation
+y = base[&quot;CPC&quot;]
+</code></pre>
+
+<pre><code class="language-python"># Trouvons X la matrice des variables exogènes; dans ce cas on ne prend que le revenu disponible
+X = base[&quot;RD&quot;]
+# Ajoutons une constante à la base
+X = sm.add_constant(X)
+</code></pre>
+
+<pre><code class="language-python"># Estimons
+premiere_estimation = sm.OLS(endog= y, exog= X).fit()
+</code></pre>
+
+<pre><code class="language-python">premiere_estimation.summary()
+</code></pre>
+
+<p><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>           <td>CPC</td>       <th>  R-squared:         </th> <td>   0.992</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.992</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>2.485e+04</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Tue, 19 Feb 2019</td> <th>  Prob (F-statistic):</th> <td>4.49e-210</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>21:23:43</td>     <th>  Log-Likelihood:    </th> <td> -877.87</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   200</td>      <th>  AIC:               </th> <td>   1760.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   198</td>      <th>  BIC:               </th> <td>   1766.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td><br />
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td><br />
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+    <td></td>       <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P&gt;|t|</th>  <th>[0.025</th>    <th>0.975]</th><br />
+</tr>
+<tr>
+  <th>const</th> <td>  -94.0566</td> <td>    5.029</td> <td>  -18.702</td> <td> 0.000</td> <td> -103.974</td> <td>  -84.139</td>
+</tr>
+<tr>
+  <th>RD</th>    <td>    1.0772</td> <td>    0.007</td> <td>  157.627</td> <td> 0.000</td> <td>    1.064</td> <td>    1.091</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 5.737</td> <th>  Durbin-Watson:     </th> <td>   0.034</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.057</td> <th>  Jarque-Bera (JB):  </th> <td>   5.557</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.321</td> <th>  Prob(JB):          </th> <td>  0.0621</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.504</td> <th>  Cond. No.          </th> <td>2.67e+03</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 2.67e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</p>
+
+<p>A l&rsquo;estimation de ce modèle on retrouve des un résultat surprenant. La constante qui est supposée être notre consommation incompressible est négtive, économétriquement ces résultats sont bons (R² proche de 1, p-values des deux coefficients très faibles) mais on observe bien que la théorie économique sous-jacente n&rsquo;est pas vérifiée. De plus la valeur du <code>Durbin-Watson</code> est loin de 2, ce qui signifie qu&rsquo;il existe une autocorrelation des résidus.</p>
+
+<p>Il nous faut donc transformer les variables.</p>
+
+<h3 id="traitement-des-erreurs">Traitement des erreurs</h3>
+
+<pre><code class="language-python">from scipy import stats
+</code></pre>
+
+<pre><code class="language-python">premiere_estimation.resid.plot()
+plt.title(&quot;Erreurs d'estimation&quot;)
+</code></pre>
+
+<pre><code>Text(0.5, 1.0, &quot;Erreurs d'estimation&quot;)
+</code></pre>
+
+<p><img src="output_74_1.png" alt="png" /></p>
+
+<pre><code class="language-python">stats.shapiro(premiere_estimation.resid)
+</code></pre>
+
+<pre><code>(0.9824138879776001, 0.013233800418674946)
+</code></pre>
+
+<pre><code class="language-python">from matplotlib.ticker import NullFormatter 
+plt.style.use(&quot;seaborn&quot;)
+plt.figure(1, dpi = 120)
+
+# Residuals vs. Predicted values
+plt.subplot(221)
+plt.scatter(premiere_estimation.fittedvalues, base[&quot;CPC&quot;])
+plt.title(&quot;Valeurs prédites vs. Valeurs observées&quot;)
+plt.xlabel(&quot;Valeurs prédites&quot;)
+plt.ylabel(&quot;Valeurs observées&quot;)
+plt.grid(True)
+
+# Predicted values vs. Residuals
+plt.subplot(222)
+plt.scatter(premiere_estimation.fittedvalues, premiere_estimation.resid)
+plt.title(&quot;Valeurs prédites vs. Résidus&quot;)
+plt.xlabel(&quot;Valeurs prédites&quot;)
+plt.ylabel(&quot;Résidus&quot;)
+plt.grid(True)
+
+# Residuals
+plt.subplot(223)
+sns.distplot(premiere_estimation.resid)
+plt.grid(True)
+
+plt.gca().yaxis.set_minor_formatter(NullFormatter())
+</code></pre>
+
+<p><img src="output_76_0.png" alt="png" /></p>
+
+<pre><code class="language-python">plt.style.use(&quot;fivethirtyeight&quot;)
+sm.qqplot(premiere_estimation.resid)
+</code></pre>
+
+<p><img src="output_77_0.png" alt="png" /></p>
+
+<p><img src="output_77_1.png" alt="png" /></p>
+
+<pre><code class="language-python">sns.kdeplot(premiere_estimation.resid)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1e9d8e7aac8&gt;
+</code></pre>
+
+<p><img src="output_78_1.png" alt="png" /></p>
+
+<h2 id="deuxième-estimation-modèle-semi-linéaire">Deuxième estimation : modèle semi-linéaire</h2>
+
+<p>Dans ce modèle, nous allons transformer la variable exogène pour la linéariser</p>
+
+<pre><code class="language-python">X = np.log(X)
+</code></pre>
+
+<pre><code class="language-python"># Estimons
+seconde_estimation = sm.OLS(endog= y, exog= X).fit()
+</code></pre>
+
+<pre><code class="language-python">seconde_estimation.summary()
+</code></pre>
+
+<p><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>           <td>CPC</td>       <th>  R-squared:         </th> <td>   0.929</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.928</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   2590.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Tue, 19 Feb 2019</td> <th>  Prob (F-statistic):</th> <td>4.78e-116</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>21:23:46</td>     <th>  Log-Likelihood:    </th> <td> -1330.9</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   200</td>      <th>  AIC:               </th> <td>   2664.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   199</td>      <th>  BIC:               </th> <td>   2667.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td><br />
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td><br />
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+    <td></td>       <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P&gt;|t|</th>  <th>[0.025</th>    <th>0.975]</th><br />
+</tr>
+<tr>
+  <th>const</th> <td>         0</td> <td>        0</td> <td>      nan</td> <td>   nan</td> <td>        0</td> <td>        0</td>
+</tr>
+<tr>
+  <th>RD</th>    <td>  103.8591</td> <td>    2.041</td> <td>   50.893</td> <td> 0.000</td> <td>   99.835</td> <td>  107.883</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>63.669</td> <th>  Durbin-Watson:     </th> <td>   0.000</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>  10.656</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.011</td> <th>  Prob(JB):          </th> <td> 0.00485</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 1.869</td> <th>  Cond. No.          </th> <td>     inf</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The smallest eigenvalue is      0. This might indicate that there are<br/>strong multicollinearity problems or that the design matrix is singular.</p>
+
+<p>Ce modèle est encore plus pire que le dernier que nous avons estimé. Nous allons ajouter effectuer des transformations puis réestimer.</p>
+
+<h2 id="modèle-double-log-avec-variable-de-retard">Modèle double log avec variable de retard</h2>
+
+<p>Dans un modèle avec une variable de retard on décale d&rsquo;un rang notre variable endogène et on l&rsquo;introduit dans le modèle comme variable explicative.
+\begin{equation<em>}
+y_t =y_t-_1  + X + epsilon
+\end{equation</em>}</p>
+
+<pre><code class="language-python">nouvelle_base = base[[&quot;CPC&quot;, &quot;RD&quot;]]
+nouvelle_base[&quot;log_rd&quot;] = np.log(nouvelle_base[&quot;RD&quot;])
+nouvelle_base[&quot;log_y&quot;] = np.log(nouvelle_base[&quot;CPC&quot;])
+nouvelle_base[&quot;y_retardée&quot;] = np.roll(nouvelle_base[&quot;log_y&quot;], shift= -1)
+nouvelle_base.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CPC</th>
+      <th>RD</th>
+      <th>log_rd</th>
+      <th>log_y</th>
+      <th>y_retardée</th>
+    </tr>
+    <tr>
+      <th>Année</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1963-01-31</th>
+      <td>274.252399</td>
+      <td>323.844394</td>
+      <td>5.780263</td>
+      <td>5.614049</td>
+      <td>5.634718</td>
+    </tr>
+    <tr>
+      <th>1963-04-30</th>
+      <td>279.979818</td>
+      <td>328.496646</td>
+      <td>5.794527</td>
+      <td>5.634718</td>
+      <td>5.652128</td>
+    </tr>
+    <tr>
+      <th>1963-07-31</th>
+      <td>284.897175</td>
+      <td>332.822369</td>
+      <td>5.807609</td>
+      <td>5.652128</td>
+      <td>5.666878</td>
+    </tr>
+    <tr>
+      <th>1963-10-31</th>
+      <td>289.130436</td>
+      <td>336.893221</td>
+      <td>5.819766</td>
+      <td>5.666878</td>
+      <td>5.679329</td>
+    </tr>
+    <tr>
+      <th>1964-01-31</th>
+      <td>292.752877</td>
+      <td>340.720822</td>
+      <td>5.831063</td>
+      <td>5.679329</td>
+      <td>5.690124</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="language-python">y = nouvelle_base[&quot;log_y&quot;]
+X = nouvelle_base[[&quot;y_retardée&quot;, &quot;log_rd&quot;]]
+</code></pre>
+
+<pre><code class="language-python"># Ajoutons la constante 
+X = sm.add_constant(X)
+</code></pre>
+
+<pre><code class="language-python"># Estimons le modèle
+troisieme_modele = sm.OLS(endog= y, exog = X).fit()
+</code></pre>
+
+<pre><code class="language-python">troisieme_modele.summary()
+</code></pre>
+
+<p><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>log_y</td>      <th>  R-squared:         </th> <td>   0.992</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.991</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>1.153e+04</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Tue, 19 Feb 2019</td> <th>  Prob (F-statistic):</th> <td>8.04e-205</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>21:23:46</td>     <th>  Log-Likelihood:    </th> <td>  394.89</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   200</td>      <th>  AIC:               </th> <td>  -783.8</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   197</td>      <th>  BIC:               </th> <td>  -773.9</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>     <td> </td><br />
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td><br />
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+       <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P&gt;|t|</th>  <th>[0.025</th>    <th>0.975]</th><br />
+</tr>
+<tr>
+  <th>const</th>      <td>   -1.0456</td> <td>    0.055</td> <td>  -19.005</td> <td> 0.000</td> <td>   -1.154</td> <td>   -0.937</td>
+</tr>
+<tr>
+  <th>y_retardée</th> <td>    0.1077</td> <td>    0.025</td> <td>    4.300</td> <td> 0.000</td> <td>    0.058</td> <td>    0.157</td>
+</tr>
+<tr>
+  <th>log_rd</th>     <td>    1.0428</td> <td>    0.029</td> <td>   35.601</td> <td> 0.000</td> <td>    0.985</td> <td>    1.101</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>22.033</td> <th>  Durbin-Watson:     </th> <td>   0.119</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>  81.919</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.255</td> <th>  Prob(JB):          </th> <td>1.63e-18</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 6.093</td> <th>  Cond. No.          </th> <td>    233.</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</p>
+
+<pre><code class="language-python">troisieme_modele.resid.plot()
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1e9d8e52c88&gt;
+</code></pre>
+
+<p><img src="output_92_1.png" alt="png" /></p>
+
+<p>Les erreurs ne sont toujours pas bruit blanc, pour améliorer la capacité du modèle à expliquer la réalité il nous faudra ajouter d&rsquo;autres explicatives. Ce modèle était simpliste.<br />
+Avant de finir j&rsquo;aimerais vous montrer la règle d&rsquo;interprétation d&rsquo;un tel modèle. Etant donnée qu&rsquo;on a regressé un modèle log-log, les coefficients s&rsquo;interprêront comme une élasticité.<br />
+Dans ce modèle en l&rsquo;occurence, l&rsquo;augmentation du revenu disponible d&rsquo;un 1% entraîne l&rsquo;augmentation de la consommation de 1.04%</p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/fr/tags/python/">Python</a>
+  
+  <a class="badge badge-light" href="/fr/tags/pandas/">pandas</a>
+  
+  <a class="badge badge-light" href="/fr/tags/statsmodels/">statsmodels</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/fr/authors/admin/avatar_hud494d6ac9e3b9d971a8444d41f8fd8ae_606650_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/fr/authors/admin/">Axel-Cleris Gailloty</a></h5>
+      <h6 class="card-subtitle">Aspirant Data scientist</h6>
+      <p class="card-text" itemprop="description">I&rsquo;m interested in quantitative Economics, Econometrics and Data Science.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="/fr/#contact" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/cleris_mr" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/agailloty" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Sur le même sujet</h3>
+        <ul>
+          
+          <li><a href="/fr/post/financial-data-python/">Lire les données financières</a></li>
+          
+          <li><a href="/fr/post/analyse-python/">Analyser ses données avec Python</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "analytics-3" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    2019 &middot; 
+
+    Maintained by <a href="https://agailloty.rbind.io/en/bio/" target="_blank" rel="noopener">Axel-Cleris Gailloty<a/>. <br> All credits go to the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Citation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copier
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Télécharger
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//analytics-3.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/fr/index.json";
+      const i18n = {
+        'placeholder': "Recherche...",
+        'results': "Résultats trouvés",
+        'no_results': "Aucun résultat n'a été trouvé"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projets",
+        'publication' : "Publications",
+        'talk' : "Présentations"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.15494b02d66be9b96bab2e305f69c460.js"></script>
+
+  </body>
+</html>
+

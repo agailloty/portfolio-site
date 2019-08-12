@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pandas on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/tags/pandas/</link>
+    <description>Recent content in pandas on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Estimer la relation linéaire entre le revenu et la consommation (python)</title>
+      <link>https://agailloty.rbind.io/fr/post/econometrics-python/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/econometrics-python/</guid>
+      <description>Ce projet implémente en Python la trame générale d&amp;rsquo;une étude économétrique. Il s&amp;rsquo;agit d&amp;rsquo;estimer la relation linéaire entre le revenu et la consommation</description>
+    </item>
+    
+  </channel>
+</rss>

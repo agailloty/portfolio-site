@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/fr/authors/admin/</link>
+    <description>Recent content on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/fr/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Budget primitif du Maine-et-Loire</title>
+      <link>https://agailloty.rbind.io/fr/post/budget-maine-et-loire/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/budget-maine-et-loire/</guid>
+      <description>Analyser les données d&amp;rsquo;Opendata49 sur le budget primitif du Maine-et-Loire entre 1998 et 2017</description>
+    </item>
+    
+    <item>
+      <title>Adapter ses compétences aux besoins du marché du travail</title>
+      <link>https://agailloty.rbind.io/fr/post/webscraping/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/webscraping/</guid>
+      <description>Adapter ses compétences aux besoins du marché du travail en scrapant les offres d&amp;rsquo;emploi</description>
+    </item>
+    
+    <item>
+      <title>Modélisations ARCH et GARCH</title>
+      <link>https://agailloty.rbind.io/fr/post/arch/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/arch/</guid>
+      <description>Les modélisations avec R</description>
+    </item>
+    
+    <item>
+      <title>Estimer la relation linéaire entre le revenu et la consommation (python)</title>
+      <link>https://agailloty.rbind.io/fr/post/econometrics-python/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/econometrics-python/</guid>
+      <description>Ce projet implémente en Python la trame générale d&amp;rsquo;une étude économétrique. Il s&amp;rsquo;agit d&amp;rsquo;estimer la relation linéaire entre le revenu et la consommation</description>
+    </item>
+    
+    <item>
+      <title>Analyse en composantes principales</title>
+      <link>https://agailloty.rbind.io/fr/post/acp/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/acp/</guid>
+      <description>Etudier le taux de fertilité des femmes dans les pays européens</description>
+    </item>
+    
+    <item>
+      <title>Lire les données financières</title>
+      <link>https://agailloty.rbind.io/fr/post/financial-data-python/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/financial-data-python/</guid>
+      <description>Utiliser Pandas-datareader pour lire les prix des actions</description>
+    </item>
+    
+    <item>
+      <title>Analyser ses données avec Python</title>
+      <link>https://agailloty.rbind.io/fr/post/analyse-python/</link>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/post/analyse-python/</guid>
+      <description>Utiliser les librairies scientifiques de Python pour analyser un jeu de données.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://agailloty.rbind.io/fr/authors/admin/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/fr/authors/admin/</guid>
+      <description>Après une licence en Économie et une première expérience en tant que programmeur statistique je me projette sur les métiers de la data science. J&amp;rsquo;aime particulièrement extraire de l&amp;rsquo;information à partir d&amp;rsquo;un jeu de donnée complexe en vue de fournir des éléments d&amp;rsquo;aides à la décision.</description>
+    </item>
+    
+  </channel>
+</rss>
