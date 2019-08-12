@@ -1,5 +1,6 @@
 +++
 # Homepage
-type = "widget_page"
+type = "custom"
 headless = true  # Homepage is headless, other widget pages are not.
+showFooter = false
 +++

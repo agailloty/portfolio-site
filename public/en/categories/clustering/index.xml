@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clustering on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/categories/clustering/</link>
+    <description>Recent content in clustering on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Fri, 31 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/categories/clustering/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shades of happiness</title>
+      <link>https://agailloty.rbind.io/en/post/happiness-tnse/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/happiness-tnse/</guid>
+      <description>Use the t-SNE algorithm to perform a dimensionality reduction and plot the countries in a 2D hexmap</description>
+    </item>
+    
+  </channel>
+</rss>

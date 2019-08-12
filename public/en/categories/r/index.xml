@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/categories/r/</link>
+    <description>Recent content in R on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Fri, 12 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Visualize your dataset columns</title>
+      <link>https://agailloty.rbind.io/en/post/plot-cols/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/plot-cols/</guid>
+      <description>Plot all the columns of your dataset</description>
+    </item>
+    
+    <item>
+      <title>Dummy columns with the Tidyverse</title>
+      <link>https://agailloty.rbind.io/en/post/dummy-cols/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/dummy-cols/</guid>
+      <description>Combine dplyr &amp;amp; tidyr to create dummy columns from your multiple levels columns</description>
+    </item>
+    
+    <item>
+      <title>Better imputation techniques</title>
+      <link>https://agailloty.rbind.io/en/post/impute-missing-values/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/impute-missing-values/</guid>
+      <description>Imputing missing values with the mean or the median values completely ignores the distribution of your column and can lead to weaker models. Thanks to  the</description>
+    </item>
+    
+    <item>
+      <title>Tidytuesday #2</title>
+      <link>https://agailloty.rbind.io/en/post/tidy-tuesday-24/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/tidy-tuesday-24/</guid>
+      <description>Make cool graphs with R</description>
+    </item>
+    
+    <item>
+      <title>How suicide rate evolved worlwide from 1986 to 2014</title>
+      <link>https://agailloty.rbind.io/en/post/suicide-evolution/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/suicide-evolution/</guid>
+      <description>In this short post I want to share with the R code I used to make beautiful ggplot2 plot</description>
+    </item>
+    
+    <item>
+      <title>My first Tidytuesday</title>
+      <link>https://agailloty.rbind.io/en/post/tidy-tuesday-23/</link>
+      <pubDate>Tue, 04 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/tidy-tuesday-23/</guid>
+      <description>Make cool graphs with R</description>
+    </item>
+    
+    <item>
+      <title>Shades of happiness</title>
+      <link>https://agailloty.rbind.io/en/post/happiness-tnse/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/happiness-tnse/</guid>
+      <description>Use the t-SNE algorithm to perform a dimensionality reduction and plot the countries in a 2D hexmap</description>
+    </item>
+    
+    <item>
+      <title>Retrieve stock data with tidyquant</title>
+      <link>https://agailloty.rbind.io/en/post/time-series/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/time-series/</guid>
+      <description>Time series visualizations</description>
+    </item>
+    
+  </channel>
+</rss>

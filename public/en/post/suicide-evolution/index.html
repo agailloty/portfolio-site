@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Axel-Cleris Gailloty">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="In this short post I want to share with the R code I used to make beautiful ggplot2 plot">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://agailloty.rbind.io/en/post/suicide-evolution/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Fauna+One">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.829aa389a1e6cd2bb9c0046150743c95.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-141537832-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://agailloty.rbind.io/en/post/suicide-evolution/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@cleris_mr">
+  <meta property="twitter:creator" content="@cleris_mr">
+  
+  <meta property="og:site_name" content="Axel-Cleris Gailloty">
+  <meta property="og:url" content="https://agailloty.rbind.io/en/post/suicide-evolution/">
+  <meta property="og:title" content="How suicide rate evolved worlwide from 1986 to 2014 | Axel-Cleris Gailloty">
+  <meta property="og:description" content="In this short post I want to share with the R code I used to make beautiful ggplot2 plot"><meta property="og:image" content="https://agailloty.rbind.io/en/post/suicide-evolution/featured.PNG">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-06-07T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-06-07T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>How suicide rate evolved worlwide from 1986 to 2014 | Axel-Cleris Gailloty</title>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/en/">Axel-Cleris Gailloty</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/bio/">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <div class="featured-image" style="background-image: url('/en/post/suicide-evolution/featured_hu6ea7efffa14b6791eac22e30d0421e00_106003_800x0_resize_lanczos_2.PNG');"></div>
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">How suicide rate evolved worlwide from 1986 to 2014</h1>
+
+        
+
+        
+
+
+
+<meta content="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 7, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/suicide-evolution/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/r/">R</a>, <a href="/en/categories/visualizations/">visualizations</a></span>
+  
+
+  
+
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=How%20suicide%20rate%20evolved%20worlwide%20from%201986%20to%202014&amp;url=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fsuicide-evolution%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fsuicide-evolution%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fsuicide-evolution%2f&amp;title=How%20suicide%20rate%20evolved%20worlwide%20from%201986%20to%202014"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fsuicide-evolution%2f&amp;title=How%20suicide%20rate%20evolved%20worlwide%20from%201986%20to%202014"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=How%20suicide%20rate%20evolved%20worlwide%20from%201986%20to%202014&amp;body=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fsuicide-evolution%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/en/post/suicide-evolution/featured_hu6ea7efffa14b6791eac22e30d0421e00_106003_680x500_fill_q90_lanczos_smart1_2.PNG" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">How suicide rate evolved worlwide from 1986 to 2014</h1>
+
+  
+
+  
+
+
+
+<meta content="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-07 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 7, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/suicide-evolution/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/r/">R</a>, <a href="/en/categories/visualizations/">visualizations</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>In <a href="https://agailloty.rbind.io/en/project/suicide-evolution/" target="_blank">one</a> of my Kaggle kernels I used ggplot2 to represent the difference of suicide rate in many countries between 1985 and 2014 ! In this short post I want to focus on this time period (1986 and 2014) to visualize so we can see how suicide evolved in some countries of the world.</p>
+
+<pre><code class="language-R">options(warn = -1)
+suppressPackageStartupMessages(library(tidyverse))
+library(ggthemes)
+library(ggrepel)
+</code></pre>
+
+<h2 id="let-s-read-in-the-dataset">Let&rsquo;s read in the dataset</h2>
+
+<pre><code class="language-R">suicide &lt;- read.csv(&quot;master.csv&quot;)
+</code></pre>
+
+<pre><code class="language-R">glimpse(suicide)
+</code></pre>
+
+<pre><code>Observations: 27,820
+Variables: 12
+$ ï..country         &lt;fct&gt; Albania, Albania, Albania, Albania, Albania, Alb...
+$ year               &lt;int&gt; 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, ...
+$ sex                &lt;fct&gt; male, male, female, male, male, female, female, ...
+$ age                &lt;fct&gt; 15-24 years, 35-54 years, 15-24 years, 75+ years...
+$ suicides_no        &lt;int&gt; 21, 16, 14, 1, 9, 1, 6, 4, 1, 0, 0, 0, 2, 17, 1,...
+$ population         &lt;int&gt; 312900, 308000, 289700, 21800, 274300, 35600, 27...
+$ suicides.100k.pop  &lt;dbl&gt; 6.71, 5.19, 4.83, 4.59, 3.28, 2.81, 2.15, 1.56, ...
+$ country.year       &lt;fct&gt; Albania1987, Albania1987, Albania1987, Albania19...
+$ HDI.for.year       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ gdp_for_year....   &lt;fct&gt; &quot;2,156,624,900&quot;, &quot;2,156,624,900&quot;, &quot;2,156,624,900...
+$ gdp_per_capita.... &lt;int&gt; 796, 796, 796, 796, 796, 796, 796, 796, 796, 796...
+$ generation         &lt;fct&gt; Generation X, Silent, Generation X, G.I. Generat...
+</code></pre>
+
+<pre><code class="language-R">suicide &lt;- suicide %&gt;%
+rename(country = ï..country, 
+       gdp_per_capita = gdp_per_capita...., 
+       gdp_for_year = gdp_for_year....)
+</code></pre>
+
+<p>The dataset contains 27820 rows and 12 columns. Since the purpose of this post is to plot the graph of evolution I&rsquo;m skipping all the exploratory data analysis. I already did it in my Kaggle kernel</p>
+
+<pre><code class="language-R">options(repr.plot.height = 12, repr.plot.res = 250)
+
+# Need to reshape the data
+mixed_df &lt;- suicide %&gt;% 
+group_by(country, year, sex) %&gt;% 
+summarize(nb_occurence = n(), 
+          nb_suicide = sum(suicides.100k.pop)) %&gt;% 
+data.frame %&gt;%
+spread_(key_col = &quot;year&quot;, value_col = &quot;nb_suicide&quot;) %&gt;% 
+select(country, sex, &quot;1986&quot;, &quot;2014&quot;) %&gt;% na.omit # From long to wide data
+
+
+colnames(mixed_df) &lt;- c(&quot;country&quot;, &quot;sex&quot;, &quot;yr_1986&quot;, &quot;yr_2014&quot;)
+comparison_mixed_df &lt;- mixed_df 
+sex_label &lt;- c(&quot;Female&quot;, &quot;Male&quot;)
+names(sex_label) &lt;- c(&quot;female&quot;, &quot;male&quot;) # for the facet_grid in ggplot
+
+# The actual ggplot object 
+
+pl &lt;- ggplot(comparison_mixed_df) +
+  geom_segment( aes(x=country, xend=country, y=yr_1986, yend=yr_2014), color=&quot;#6E6A6A&quot;) +
+  geom_point( aes(x=country, y=yr_1986), color=&quot;#F74B4B&quot;, size=3 ) +
+  geom_point( aes(x=country, y=yr_2014),color=&quot;#36ACD7&quot;, size=3 ) +
+  coord_flip()+ 
+  theme_fivethirtyeight() + theme(
+    legend.position = &quot;top&quot;,
+      plot.title=element_text(hjust=0.5),
+      plot.background=element_rect(fill=&quot;#F4F6F8&quot;)
+  ) + facet_grid(~sex, scale = &quot;free_x&quot;, labeller = labeller(sex = sex_label)) + 
+labs(title=&quot;Suicide evolution \n (1986 - 2014)&quot;, x=&quot;&quot;, 
+     y=&quot;Suicide per 100K deaths&quot;,
+    caption=&quot;Red: 1986, Blue: 2014&quot;)
+pl
+</code></pre>
+
+<p><img src="output_7_0.png" alt="png" /></p>
+
+<pre><code class="language-R">suicide_features &lt;- suicide %&gt;% 
+select(country, year, sex, population, gdp_per_capita, suicides.100k.pop)
+
+suicide_1986_2014 &lt;- suicide_features %&gt;% 
+filter(year == 1986 | year == 2014)
+</code></pre>
+
+<pre><code class="language-R">options(repr.plot.width = 8, repr.plot.height = 18, repr.plot.res = 300)
+suicide_1986_2014 %&gt;% 
+group_by(country, year, sex) %&gt;%
+summarize(gdp_per_capita = mean(gdp_per_capita), 
+          suicide_100k = sum(suicides.100k.pop), population = sum(population)) %&gt;% 
+arrange(desc(suicide_100k)) %&gt;% ungroup %&gt;% mutate(rank = 1:nrow(.)) %&gt;% 
+ggplot(aes(x = rank, y = suicide_100k)) +
+geom_point() + stat_summary_hex(aes(z =  suicide_100k), 
+                   bins=10, fun = mean, alpha = 0.9, name = &quot;suicide / 100k deaths&quot;) +  
+scale_fill_viridis_c() +
+facet_wrap(year~sex, scales = &quot;free&quot;, nrow = 4, labeller = labeller(sex = sex_label)) + 
+geom_text_repel(aes(label = country), size = 2.5) + theme_void() +
+theme(
+    legend.position = &quot;left&quot;,
+      plot.title=element_text(hjust=0.5),
+      plot.background=element_rect(fill=&quot;#F4F6F8&quot;)) +
+labs(title = &quot;Another perspective of suicide rate&quot;)
+</code></pre>
+
+<p><img src="output_9_0.png" alt="png" /></p>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/en/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/en/tags/ggplot2/">ggplot2</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/en/authors/admin/avatar_hud494d6ac9e3b9d971a8444d41f8fd8ae_606650_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></h5>
+      <h6 class="card-subtitle">Student in Economics</h6>
+      <p class="card-text" itemprop="description">I&rsquo;m interested in quantitative Economics, Econometrics and Data Science.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:mr.clerisaxel@hotmail.fr" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/cleris_mr" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/agailloty" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/en/post/tidy-tuesday-23/">My first Tidytuesday</a></li>
+          
+          <li><a href="/en/post/happiness-tnse/">Shades of happiness</a></li>
+          
+          <li><a href="/en/post/time-series/">Retrieve stock data with tidyquant</a></li>
+          
+          <li><a href="/en/project/suicide-evolution/">Overview of suicide in the world from 1985 to 2016</a></li>
+          
+          <li><a href="/en/project/usa-international-trade/">USA International Trade</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "analytics-3" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    2019 &middot; 
+
+    Maintained by <a href="https://agailloty.rbind.io/en/bio/" target="_blank" rel="noopener">Axel-Cleris Gailloty<a/>. <br> All credits go to the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//analytics-3.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/en/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.15494b02d66be9b96bab2e305f69c460.js"></script>
+
+  </body>
+</html>
+

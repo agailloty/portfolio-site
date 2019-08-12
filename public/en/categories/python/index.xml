@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/categories/python/</link>
+    <description>Recent content in Python on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Summarize your Pandas dataset</title>
+      <link>https://agailloty.rbind.io/en/post/pandas-profiling/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/pandas-profiling/</guid>
+      <description>Output a nice HTML summary of your Pandas dataframe</description>
+    </item>
+    
+    <item>
+      <title>Chance of admission Regression and Classification</title>
+      <link>https://agailloty.rbind.io/en/post/admission-universities/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/admission-universities/</guid>
+      <description>Use the Machine Learning capabilities of Python to predict the chance of admission in Universities</description>
+    </item>
+    
+  </channel>
+</rss>

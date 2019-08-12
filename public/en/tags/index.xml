@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/tags/</link>
+    <description>Recent content in Tags on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Fri, 12 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R</title>
+      <link>https://agailloty.rbind.io/en/tags/r/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>https://agailloty.rbind.io/en/tags/dplyr/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>https://agailloty.rbind.io/en/tags/ggplot2/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>https://agailloty.rbind.io/en/tags/tidyverse/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyr</title>
+      <link>https://agailloty.rbind.io/en/tags/tidyr/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/tidyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pandas</title>
+      <link>https://agailloty.rbind.io/en/tags/pandas/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://agailloty.rbind.io/en/tags/python/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://agailloty.rbind.io/en/tags/hugo/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Twitter</title>
+      <link>https://agailloty.rbind.io/en/tags/twitter/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recipes</title>
+      <link>https://agailloty.rbind.io/en/tags/recipes/</link>
+      <pubDate>Fri, 14 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/recipes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidytuesday</title>
+      <link>https://agailloty.rbind.io/en/tags/tidytuesday/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/tidytuesday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML</title>
+      <link>https://agailloty.rbind.io/en/tags/ml/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sklearn</title>
+      <link>https://agailloty.rbind.io/en/tags/sklearn/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/sklearn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clustering</title>
+      <link>https://agailloty.rbind.io/en/tags/clustering/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>t-SNE</title>
+      <link>https://agailloty.rbind.io/en/tags/t-sne/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/t-sne/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time series</title>
+      <link>https://agailloty.rbind.io/en/tags/time-series/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/time-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualizations</title>
+      <link>https://agailloty.rbind.io/en/tags/visualizations/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/visualizations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kaggle</title>
+      <link>https://agailloty.rbind.io/en/tags/kaggle/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

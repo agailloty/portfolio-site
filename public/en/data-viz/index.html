@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Axel-Cleris Gailloty">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://agailloty.rbind.io/en/data-viz/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Fauna+One">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.829aa389a1e6cd2bb9c0046150743c95.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-141537832-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://agailloty.rbind.io/en/data-viz/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@cleris_mr">
+  <meta property="twitter:creator" content="@cleris_mr">
+  
+  <meta property="og:site_name" content="Axel-Cleris Gailloty">
+  <meta property="og:url" content="https://agailloty.rbind.io/en/data-viz/">
+  <meta property="og:title" content=" | Axel-Cleris Gailloty">
+  <meta property="og:description" content=""><meta property="og:image" content="https://agailloty.rbind.io/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  
+  
+  
+
+  
+
+  
+
+  <title> | Axel-Cleris Gailloty</title>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/en/">Axel-Cleris Gailloty</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/bio/">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<span class="js-widget-page d-none"></span>
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    
+  
+
+  
+    
+    
+    
+    
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="hero" class="home-section wg-hero dark parallax " style="background-image: linear-gradient(#4bb4e3, #2b94c3);background-image:  url(&#39;https://agailloty.rbind.io/img/accueil.jpeg&#39;);" >
+    <div class="container">
+      
+
+
+
+
+
+    <h1 class="hero-title" itemprop="headline">
+      Data visualization Gallery !
+    </h1>
+
+    
+    <div class="hero-lead"><p><br />
+<br />
+<br />
+</p>
+
+<p>Welcome to <strong>my personal website</strong>, I am glad you pass by here !<br />
+You may love to look at my <a href="/en/data-viz/"><code>Data visualization Gallery</code></a>
+<br />
+<br />
+<br />
+</p>
+</div>
+    
+
+    
+    
+
+    
+    
+
+  
+  
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="posts" class="home-section wg-pages   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="row">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>Recent Posts</h1>
+    
+  </div>
+  <div class="col-12 col-lg-8">
+
+    
+
+    
+      
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/en/post/plot-cols/" itemprop="url">Visualize your dataset columns</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Plot all the columns of your dataset
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<meta content="2019-07-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-07-12 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 12, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/plot-cols/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/r/">R</a>, <a href="/en/categories/visualization/">visualization</a>, <a href="/en/categories/tidyvserse/">Tidyvserse</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/en/post/plot-cols/">
+      <img src="/en/post/plot-cols/featured_hu022c816186fa04011d1ba0c471b0e38b_118107_150x0_resize_lanczos_2.png" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/en/post/dummy-cols/" itemprop="url">Dummy columns with the Tidyverse</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Combine dplyr &amp; tidyr to create dummy columns from your multiple levels columns
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<meta content="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jul 10, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/dummy-cols/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/r/">R</a>, <a href="/en/categories/wrangling/">wrangling</a>, <a href="/en/categories/tidyvserse/">Tidyvserse</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/en/post/dummy-cols/">
+      <img src="/en/post/dummy-cols/featured_hu6c788a3d68f8d41469ec24beb2053ced_9275_150x0_resize_lanczos_2.PNG" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/en/post/pandas-profiling/" itemprop="url">Summarize your Pandas dataset</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Output a nice HTML summary of your Pandas dataframe
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<meta content="2019-06-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-18 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 18, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    19 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/pandas-profiling/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/python/">Python</a>, <a href="/en/categories/pandas/">Pandas</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/en/post/twitter/" itemprop="url">Embed a Twitter feed to Hugo</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      2 steps to embed any Twitter feed to your Hugo website
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<meta content="2019-06-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-16 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 16, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/twitter/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/tutorial/">Tutorial</a>, <a href="/en/categories/hugo/">Hugo</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/en/post/twitter/">
+      <img src="/en/post/twitter/featured_hua5c065e0dfe9f28f36e9a58ba1a38ffd_252701_150x0_resize_lanczos_2.PNG" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0" itemprop="name">
+      <a href="/en/post/impute-missing-values/" itemprop="url">Better imputation techniques</a>
+    </h3>
+
+    
+    <div class="article-style" itemprop="articleBody">
+      Imputing missing values with the mean or the median values completely ignores the distribution of your column and can lead to weaker …
+    </div>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+
+<meta content="2019-06-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-14 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 14, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/impute-missing-values/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/r/">R</a>, <a href="/en/categories/tutorial/">Tutorial</a></span>
+  
+
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+    
+    <a href="/en/post/impute-missing-values/">
+      <img src="/en/post/impute-missing-values/featured_hu2b3a5df15c82abccea8271915f288f1c_92528_150x0_resize_lanczos_2.png" itemprop="image">
+    </a>
+    
+  </div>
+</div>
+
+      
+    
+
+    
+    <div class="see-all">
+      <a href="/en/post/">
+        See all posts
+        <i class="fas fa-angle-right"></i>
+      </a>
+    </div>
+    
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="projects" class="home-section wg-portfolio   "  >
+    <div class="container">
+      
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-4 section-heading">
+
+    <h1>All of visualizations I produced</h1>
+    <p>Using R or Python</p>
+
+  </div>
+  <div class="col-xs-12 col-md-8">
+
+
+
+    
+
+    
+
+      
+
+      
+      
+      
+      
+        
+      
+
+      <span class="d-none default-project-filter">*</span>
+
+      
+      
+      <div class="project-toolbar">
+        <div class="project-filters">
+          <div class="btn-toolbar">
+            <div class="btn-group flex-wrap">
+              
+                
+                
+                
+                  
+                
+                <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
+              
+                
+                
+                
+                <a href="#" data-filter=".js-id-Kaggle" class="btn btn-primary btn-lg">Kaggle</a>
+              
+                
+                
+                
+                <a href="#" data-filter=".js-id-GitHub" class="btn btn-primary btn-lg">GitHub</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+
+    <div class="isotope projects-container row js-layout-row project-showcase mt-5">
+      
+        
+        
+        
+          
+          
+        
+        
+          
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-12 project-item isotope-item js-id-Kaggle js-id-R" itemscope itemtype="http://schema.org/CreativeWork">
+  <div class="row align-items-center">
+    <div class="col-12 col-md-6">
+      <h3 class="article-title mb-0 mt-0" itemprop="name"><a href="https://www.kaggle.com/agailloty/overview-of-suicide-in-the-world/report" target="_blank" rel="noopener" itemprop="url">Overview of suicide in the world from 1985 to 2016</a></h3>
+
+      
+      
+        
+      
+      
+      <div class="article-style" itemprop="articleBody">
+        This Kaggle kernel aims to explore how suicide rate has evolved in the world since 1985.
+      </div>
+      
+
+      <div class="btn-links">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+    <div class="col-12 col-md-6 order-first ">
+      
+      
+      
+      <a href="https://www.kaggle.com/agailloty/overview-of-suicide-in-the-world/report" target="_blank" rel="noopener">
+        <img src="/en/project/suicide-evolution/featured_hu0520d6ac990801cec95881ff32a5b110_202538_540x0_resize_lanczos_2.png" itemprop="image" alt="">
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+        
+        
+          
+          
+        
+        
+          
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<div class="col-lg-12 project-item isotope-item js-id-Kaggle js-id-R" itemscope itemtype="http://schema.org/CreativeWork">
+  <div class="row align-items-center">
+    <div class="col-12 col-md-6">
+      <h3 class="article-title mb-0 mt-0" itemprop="name"><a href="https://www.kaggle.com/agailloty/the-us-international-trades/report" target="_blank" rel="noopener" itemprop="url">USA International Trade</a></h3>
+
+      
+      
+        
+      
+      
+      <div class="article-style" itemprop="articleBody">
+        A Kaggle kernel I write on a dataset of USA Economics and Business Reports.
+      </div>
+      
+
+      <div class="btn-links">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+    <div class="col-12 col-md-6 order-first ">
+      
+      
+      
+      <a href="https://www.kaggle.com/agailloty/the-us-international-trades/report" target="_blank" rel="noopener">
+        <img src="/en/project/usa-international-trade/featured_hu97275b62b55561ac9c1f37c9862268b3_30547_540x0_resize_lanczos_2.PNG" itemprop="image" alt="">
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+        
+      
+    </div>
+
+  </div>
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="tidy-tuesday-24" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Tidytuesday #2</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      
+
+<h2 id="tidytuesday-2">Tidytuesday #2</h2>
+
+<p>I&rsquo;m always happy to participate to the #tidytuesday event held by the R for Data science community (R4DS). This week the data on which we work on is about Meteorites !</p>
+
+<pre><code class="language-R">meteorites &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-11/meteorites.csv&quot;)
+</code></pre>
+
+<pre><code>Parsed with column specification:
+cols(
+  name = col_character(),
+  id = col_double(),
+  name_type = col_character(),
+  class = col_character(),
+  mass = col_double(),
+  fall = col_character(),
+  year = col_double(),
+  lat = col_double(),
+  long = col_double(),
+  geolocation = col_character()
+)
+</code></pre>
+
+<pre><code class="language-R">options(warn = -1)
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(ggrepel))
+</code></pre>
+
+<h2 id="check-understand-the-data">Check &amp; understand the data</h2>
+
+<pre><code class="language-R">glimpse(meteorites)
+</code></pre>
+
+<pre><code>Observations: 45,716
+Variables: 10
+$ name        &lt;chr&gt; &quot;Aachen&quot;, &quot;Aarhus&quot;, &quot;Abee&quot;, &quot;Acapulco&quot;, &quot;Achiras&quot;, &quot;Adh...
+$ id          &lt;dbl&gt; 1, 2, 6, 10, 370, 379, 390, 392, 398, 417, 423, 424, 42...
+$ name_type   &lt;chr&gt; &quot;Valid&quot;, &quot;Valid&quot;, &quot;Valid&quot;, &quot;Valid&quot;, &quot;Valid&quot;, &quot;Valid&quot;, &quot;...
+$ class       &lt;chr&gt; &quot;L5&quot;, &quot;H6&quot;, &quot;EH4&quot;, &quot;Acapulcoite&quot;, &quot;L6&quot;, &quot;EH4&quot;, &quot;LL3-6&quot;,...
+$ mass        &lt;dbl&gt; 21, 720, 107000, 1914, 780, 4239, 910, 30000, 1620, 144...
+$ fall        &lt;chr&gt; &quot;Fell&quot;, &quot;Fell&quot;, &quot;Fell&quot;, &quot;Fell&quot;, &quot;Fell&quot;, &quot;Fell&quot;, &quot;Fell&quot;,...
+$ year        &lt;dbl&gt; 1880, 1951, 1952, 1976, 1902, 1919, 1949, 1814, 1930, 1...
+$ lat         &lt;dbl&gt; 50.77500, 56.18333, 54.21667, 16.88333, -33.16667, 32.1...
+$ long        &lt;dbl&gt; 6.08333, 10.23333, -113.00000, -99.90000, -64.95000, 71...
+$ geolocation &lt;chr&gt; &quot;(50.775, 6.08333)&quot;, &quot;(56.18333, 10.23333)&quot;, &quot;(54.21667...
+</code></pre>
+
+<p>It&rsquo;s quite a huge dataset. We have lots of observations.<br />
+Let&rsquo;s check unique values within each column</p>
+
+<pre><code class="language-R">purrr::map_int(meteorites, function(x) length(unique(x)))
+</code></pre>
+
+<dl class=dl-horizontal>
+    <dt>name</dt>
+        <dd>45716</dd>
+    <dt>id</dt>
+        <dd>45716</dd>
+    <dt>name_type</dt>
+        <dd>2</dd>
+    <dt>class</dt>
+        <dd>455</dd>
+    <dt>mass</dt>
+        <dd>12577</dd>
+    <dt>fall</dt>
+        <dd>2</dd>
+    <dt>year</dt>
+        <dd>266</dd>
+    <dt>lat</dt>
+        <dd>12739</dd>
+    <dt>long</dt>
+        <dd>14641</dd>
+    <dt>geolocation</dt>
+        <dd>17101</dd>
+</dl>
+
+<p>As we see above, all the meteorites present in the dataset are unique (the name &amp; id match the number of observations).<br />
+On the Github repository where we find the link to the dataset, we find the following information on the columns.</p>
+
+<p><strong>variable  class   description</strong><br />
+&gt; <strong>name</strong>  character   Meteorite name<br />
+<strong>id</strong>  double  Meteorite numerical ID<br />
+<strong>name_type</strong>   character   Name type either valid or relict, where relict = a meteorite that cannot be assigned easily to a class<br />
+<strong>class</strong>   character   Class of the meteorite, please see Wikipedia for full context<br />
+<strong>mass</strong>    double  Mass in grams<br />
+<strong>fall</strong>    character   Fell or Found meteorite<br />
+<strong>year</strong>    integer Year found<br />
+<strong>lat</strong> double  Latitude<br />
+<strong>long</strong>    double  Longitude<br />
+<strong>geolocation</strong> character   Geolocation</p>
+
+<h2 id="goal-of-this-post">Goal of this post</h2>
+
+<p>The main goal of this post is to create a world map with all the meteorites zones. I&rsquo;ll be using {ggplot2}</p>
+
+<p>First, let&rsquo;s plot all the longitude and latitude coordinates to have an idea of where the meteorites fell or where found.</p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.height = 4)
+meteorites %&gt;%
+ggplot(aes(x = long, y = lat, color = fall)) +
+geom_point(alpha = 1/5) + theme_void()
+</code></pre>
+
+<p><img src="output_11_0.png" alt="png" /></p>
+
+<p>There seem to be an outlier in the dataset. There is a point really far from the other on the x axis.</p>
+
+<pre><code class="language-R">meteorites %&gt;%
+filter(long &gt;300)
+</code></pre>
+
+<table>
+<thead><tr><th scope=col>name</th><th scope=col>id</th><th scope=col>name_type</th><th scope=col>class</th><th scope=col>mass</th><th scope=col>fall</th><th scope=col>year</th><th scope=col>lat</th><th scope=col>long</th><th scope=col>geolocation</th></tr></thead>
+<tbody>
+    <tr><td>Meridiani Planum     </td><td>32789                </td><td>Valid                </td><td>Iron, IAB complex    </td><td>NA                   </td><td>Found                </td><td>2005                 </td><td>-1.94617             </td><td>354.4733             </td><td>(-1.94617, 354.47333)</td></tr>
+</tbody>
+</table>
+
+<p>After some research I found this about Medirani Plannum:<br />
+Basketball-sized iron meteorite, found by the Mars rover Opportunity in January 2005. This was the first meteorite found on another planet and the third found on another Solar System body — two others, Bench Crater and Hadley Rille, were found on the Moon.</p>
+
+<pre><code class="language-R"># Let's remove that point
+cleaned_data &lt;- meteorites %&gt;% filter(long &lt; 300)
+</code></pre>
+
+<pre><code class="language-R"># Let's create a world map with ggplot2
+world_map &lt;- ggplot2::borders(&quot;world&quot;)
+</code></pre>
+
+<p>It was as simple as <code>Bonjour</code> !</p>
+
+<pre><code class="language-R"># Now let's plot it
+options(repr.plot.height = 5.6, repr.plot.res = 450, repr.plot.width = 8)
+cleaned_data %&gt;%
+ggplot(aes(x = long, y = lat, col = fall)) +
+geom_point(size = 0.8, alpha = 1/5) + theme_void() +
+geom_label_repel(aes(label=ifelse(mass&gt;2e07, name,''), 
+                     fill = fall, size = mass), col = &quot;black&quot;) + 
+world_map +
+labs(title = &quot;World Map of Meteorites \n&quot;, subtitle = &quot;The impact zones show where scientists have found meteorites, or the impact craters of meteorites, \n
+some dating back as far as the year 2,300BC&quot;, caption = &quot; Data source : Meteocritical Society&quot;) + 
+guides(size = FALSE) +
+theme(plot.background=element_rect(fill=&quot;#f4f8ff&quot;),
+      plot.subtitle = element_text(size = 8),
+     plot.caption = element_text(size = 6))
+</code></pre>
+
+<p><img src="output_18_0.png" alt="png" /></p>
+
+<p>Voilà !<br />
+I uploaded this on Twitter ! So in case you want to retweet it</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">World map of Meteorites !<br>Entirely done with <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> &amp; <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> for the <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> event !<br>Code here : <a href="https://t.co/HFepgYzZwD">https://t.co/HFepgYzZwD</a><br>Data here : <a href="https://t.co/GhDt22Sd8G">https://t.co/GhDt22Sd8G</a> <a href="https://t.co/6laZroIxrT">pic.twitter.com/6laZroIxrT</a></p>&mdash; Axel-Cleris Gailloty (@cleris_mr) <a href="https://twitter.com/cleris_mr/status/1138407944612175872?ref_src=twsrc%5Etfw">June 11, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<pre><code class="language-R">
+</code></pre>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="suicide-evolution" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>How suicide rate evolved worlwide from 1986 to 2014</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      
+
+<p>In <a href="https://agailloty.rbind.io/en/project/suicide-evolution/" target="_blank">one</a> of my Kaggle kernels I used ggplot2 to represent the difference of suicide rate in many countries between 1985 and 2014 ! In this short post I want to focus on this time period (1986 and 2014) to visualize so we can see how suicide evolved in some countries of the world.</p>
+
+<pre><code class="language-R">options(warn = -1)
+suppressPackageStartupMessages(library(tidyverse))
+library(ggthemes)
+library(ggrepel)
+</code></pre>
+
+<h2 id="let-s-read-in-the-dataset">Let&rsquo;s read in the dataset</h2>
+
+<pre><code class="language-R">suicide &lt;- read.csv(&quot;master.csv&quot;)
+</code></pre>
+
+<pre><code class="language-R">glimpse(suicide)
+</code></pre>
+
+<pre><code>Observations: 27,820
+Variables: 12
+$ ï..country         &lt;fct&gt; Albania, Albania, Albania, Albania, Albania, Alb...
+$ year               &lt;int&gt; 1987, 1987, 1987, 1987, 1987, 1987, 1987, 1987, ...
+$ sex                &lt;fct&gt; male, male, female, male, male, female, female, ...
+$ age                &lt;fct&gt; 15-24 years, 35-54 years, 15-24 years, 75+ years...
+$ suicides_no        &lt;int&gt; 21, 16, 14, 1, 9, 1, 6, 4, 1, 0, 0, 0, 2, 17, 1,...
+$ population         &lt;int&gt; 312900, 308000, 289700, 21800, 274300, 35600, 27...
+$ suicides.100k.pop  &lt;dbl&gt; 6.71, 5.19, 4.83, 4.59, 3.28, 2.81, 2.15, 1.56, ...
+$ country.year       &lt;fct&gt; Albania1987, Albania1987, Albania1987, Albania19...
+$ HDI.for.year       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
+$ gdp_for_year....   &lt;fct&gt; &quot;2,156,624,900&quot;, &quot;2,156,624,900&quot;, &quot;2,156,624,900...
+$ gdp_per_capita.... &lt;int&gt; 796, 796, 796, 796, 796, 796, 796, 796, 796, 796...
+$ generation         &lt;fct&gt; Generation X, Silent, Generation X, G.I. Generat...
+</code></pre>
+
+<pre><code class="language-R">suicide &lt;- suicide %&gt;%
+rename(country = ï..country, 
+       gdp_per_capita = gdp_per_capita...., 
+       gdp_for_year = gdp_for_year....)
+</code></pre>
+
+<p>The dataset contains 27820 rows and 12 columns. Since the purpose of this post is to plot the graph of evolution I&rsquo;m skipping all the exploratory data analysis. I already did it in my Kaggle kernel</p>
+
+<pre><code class="language-R">options(repr.plot.height = 12, repr.plot.res = 250)
+
+# Need to reshape the data
+mixed_df &lt;- suicide %&gt;% 
+group_by(country, year, sex) %&gt;% 
+summarize(nb_occurence = n(), 
+          nb_suicide = sum(suicides.100k.pop)) %&gt;% 
+data.frame %&gt;%
+spread_(key_col = &quot;year&quot;, value_col = &quot;nb_suicide&quot;) %&gt;% 
+select(country, sex, &quot;1986&quot;, &quot;2014&quot;) %&gt;% na.omit # From long to wide data
+
+
+colnames(mixed_df) &lt;- c(&quot;country&quot;, &quot;sex&quot;, &quot;yr_1986&quot;, &quot;yr_2014&quot;)
+comparison_mixed_df &lt;- mixed_df 
+sex_label &lt;- c(&quot;Female&quot;, &quot;Male&quot;)
+names(sex_label) &lt;- c(&quot;female&quot;, &quot;male&quot;) # for the facet_grid in ggplot
+
+# The actual ggplot object 
+
+pl &lt;- ggplot(comparison_mixed_df) +
+  geom_segment( aes(x=country, xend=country, y=yr_1986, yend=yr_2014), color=&quot;#6E6A6A&quot;) +
+  geom_point( aes(x=country, y=yr_1986), color=&quot;#F74B4B&quot;, size=3 ) +
+  geom_point( aes(x=country, y=yr_2014),color=&quot;#36ACD7&quot;, size=3 ) +
+  coord_flip()+ 
+  theme_fivethirtyeight() + theme(
+    legend.position = &quot;top&quot;,
+      plot.title=element_text(hjust=0.5),
+      plot.background=element_rect(fill=&quot;#F4F6F8&quot;)
+  ) + facet_grid(~sex, scale = &quot;free_x&quot;, labeller = labeller(sex = sex_label)) + 
+labs(title=&quot;Suicide evolution \n (1986 - 2014)&quot;, x=&quot;&quot;, 
+     y=&quot;Suicide per 100K deaths&quot;,
+    caption=&quot;Red: 1986, Blue: 2014&quot;)
+pl
+</code></pre>
+
+<p><img src="output_7_0.png" alt="png" /></p>
+
+<pre><code class="language-R">suicide_features &lt;- suicide %&gt;% 
+select(country, year, sex, population, gdp_per_capita, suicides.100k.pop)
+
+suicide_1986_2014 &lt;- suicide_features %&gt;% 
+filter(year == 1986 | year == 2014)
+</code></pre>
+
+<pre><code class="language-R">options(repr.plot.width = 8, repr.plot.height = 18, repr.plot.res = 300)
+suicide_1986_2014 %&gt;% 
+group_by(country, year, sex) %&gt;%
+summarize(gdp_per_capita = mean(gdp_per_capita), 
+          suicide_100k = sum(suicides.100k.pop), population = sum(population)) %&gt;% 
+arrange(desc(suicide_100k)) %&gt;% ungroup %&gt;% mutate(rank = 1:nrow(.)) %&gt;% 
+ggplot(aes(x = rank, y = suicide_100k)) +
+geom_point() + stat_summary_hex(aes(z =  suicide_100k), 
+                   bins=10, fun = mean, alpha = 0.9, name = &quot;suicide / 100k deaths&quot;) +  
+scale_fill_viridis_c() +
+facet_wrap(year~sex, scales = &quot;free&quot;, nrow = 4, labeller = labeller(sex = sex_label)) + 
+geom_text_repel(aes(label = country), size = 2.5) + theme_void() +
+theme(
+    legend.position = &quot;left&quot;,
+      plot.title=element_text(hjust=0.5),
+      plot.background=element_rect(fill=&quot;#F4F6F8&quot;)) +
+labs(title = &quot;Another perspective of suicide rate&quot;)
+</code></pre>
+
+<p><img src="output_9_0.png" alt="png" /></p>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="tidy-tuesday-23" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>My first Tidytuesday</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      
+
+<h1 id="my-first-tidytuesday">My first <code>Tidytuesday</code></h1>
+
+<p>I&rsquo;ve discovered the <code>Tidytuesday</code> event on Twitter via this tweet.<br />
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The <a href="https://twitter.com/R4DScommunity?ref_src=twsrc%5Etfw">@R4DScommunity</a> welcomes you to week 23 of <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a>!  We&#39;re exploring Ramen ratings!!<br><br>📁 <a href="https://t.co/sElb4fcv3u">https://t.co/sElb4fcv3u</a><br>📰 <a href="https://t.co/3XSIzBW3qm">https://t.co/3XSIzBW3qm</a><a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">#r4ds</a> <a href="https://twitter.com/hashtag/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw">#tidyverse</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://t.co/r3Ja5siZo2">pic.twitter.com/r3Ja5siZo2</a></p>&mdash; Thomas Mock 👨🏼‍💻 (@thomas_mock) <a href="https://twitter.com/thomas_mock/status/1135571764010987521?ref_src=twsrc%5Etfw">June 3, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+
+<p>I really love the concept and I think it&rsquo;s a good way to share code and learn visualization techniques.<br />
+This week the theme is about Ramens and here&rsquo;s my participation !</p>
+
+<pre><code class="language-R">ramen_ratings &lt;- readr::read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-06-04/ramen_ratings.csv&quot;)
+</code></pre>
+
+<pre><code>Parsed with column specification:
+cols(
+  review_number = col_double(),
+  brand = col_character(),
+  variety = col_character(),
+  style = col_character(),
+  country = col_character(),
+  stars = col_double()
+)
+</code></pre>
+
+<pre><code class="language-R">library(tidyverse)
+library(ggrepel)
+library(cowplot)
+library(ggthemes)
+</code></pre>
+
+<pre><code>Warning message:
+&quot;package 'tidyverse' was built under R version 3.5.2&quot;-- Attaching packages --------------------------------------- tidyverse 1.2.1 --
+v ggplot2 3.1.0     v purrr   0.3.0
+v tibble  2.0.1     v dplyr   0.7.8
+v tidyr   0.8.2     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.3.0
+Warning message:
+&quot;package 'ggplot2' was built under R version 3.5.2&quot;Warning message:
+&quot;package 'tibble' was built under R version 3.5.2&quot;Warning message:
+&quot;package 'tidyr' was built under R version 3.5.2&quot;Warning message:
+&quot;package 'readr' was built under R version 3.5.2&quot;Warning message:
+&quot;package 'purrr' was built under R version 3.5.2&quot;Warning message:
+&quot;package 'dplyr' was built under R version 3.5.2&quot;Warning message:
+&quot;package 'stringr' was built under R version 3.5.2&quot;-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+Warning message:
+&quot;package 'ggrepel' was built under R version 3.5.3&quot;Warning message:
+&quot;package 'cowplot' was built under R version 3.5.3&quot;
+Attaching package: 'cowplot'
+
+The following object is masked from 'package:ggplot2':
+
+    ggsave
+
+
+Attaching package: 'ggthemes'
+
+The following object is masked from 'package:cowplot':
+
+    theme_map
+</code></pre>
+
+<pre><code class="language-R">map_int(ramen_ratings, function(x) length(unique(x)))
+</code></pre>
+
+<dl class=dl-horizontal>
+    <dt>review_number</dt>
+        <dd>3178</dd>
+    <dt>brand</dt>
+        <dd>456</dd>
+    <dt>variety</dt>
+        <dd>2971</dd>
+    <dt>style</dt>
+        <dd>9</dd>
+    <dt>country</dt>
+        <dd>44</dd>
+    <dt>stars</dt>
+        <dd>40</dd>
+</dl>
+
+<pre><code class="language-R">ramen_no_na &lt;- ramen_ratings %&gt;% na.omit
+</code></pre>
+
+<pre><code class="language-R">map_int(ramen_no_na, function(x) length(unique(x)))
+</code></pre>
+
+<dl class=dl-horizontal>
+    <dt>review_number</dt>
+        <dd>3161</dd>
+    <dt>brand</dt>
+        <dd>454</dd>
+    <dt>variety</dt>
+        <dd>2955</dd>
+    <dt>style</dt>
+        <dd>8</dd>
+    <dt>country</dt>
+        <dd>44</dd>
+    <dt>stars</dt>
+        <dd>39</dd>
+</dl>
+
+<pre><code class="language-R">options(repr.plot.res = 150)
+ramen_no_na %&gt;% ggplot(aes(x = stars)) + 
+geom_histogram(bins = 40) + facet_wrap(~style, scales = &quot;free_y&quot;) +
+theme_economist()
+</code></pre>
+
+<p><img src="output_7_0.png" alt="png" /></p>
+
+<p>I will only plot the styles with high rating counts.</p>
+
+<pre><code class="language-R">ramen_no_na &lt;- ramen_no_na %&gt;% 
+mutate(country = str_replace(string = country, 
+                             pattern = &quot;USA&quot;, replacement = &quot;United States&quot;))
+</code></pre>
+
+<pre><code class="language-R">scale_fill_viridis_c()
+</code></pre>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.width = 6, repr.plot.height = 5)
+ramen_no_na %&gt;% filter(style == &quot;Pack&quot;) %&gt;%
+group_by(country) %&gt;% summarize( mean_rating = mean(stars)) %&gt;%
+arrange(desc(mean_rating)) %&gt;% mutate(rank = 1:length(country)) %&gt;%
+ggplot(aes(y = mean_rating, x = rank)) + geom_point(alpha = 0.2) + 
+stat_summary_hex(aes(z =  mean_rating), 
+                   bins=10, fun = mean, alpha = 0.9) + 
+geom_text_repel(aes(label = country), 
+                size = 3, col = 'black') + 
+scale_fill_viridis_c(name = &quot;Stars&quot;) +
+labs(title = &quot;Pack&quot;) + theme_economist() + 
+theme(legend.position = &quot;left&quot;, legend.key.size = unit(7, &quot;mm&quot;),
+      axis.title.y = element_blank(), axis.text.y = element_blank(),
+     axis.title.x = element_blank(), axis.ticks.x = element_blank() ,axis.text.x = element_blank())
+</code></pre>
+
+<p><img src="output_11_0.png" alt="png" /></p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.width = 6, repr.plot.height = 5)
+ramen_no_na %&gt;% filter(style == &quot;Bowl&quot;) %&gt;%
+group_by(country) %&gt;% summarize( mean_rating = mean(stars)) %&gt;%
+arrange(desc(mean_rating)) %&gt;% mutate(rank = 1:length(country)) %&gt;%
+ggplot(aes(y = mean_rating, x = rank)) + geom_point(alpha = 0.2) + 
+stat_summary_hex(aes(z =  mean_rating), 
+                   bins=10, fun = mean, alpha = 0.9) + 
+geom_text_repel(aes(label = country), 
+                size = 3, col = 'black') + 
+scale_fill_viridis_c(name=&quot;stars&quot;) +
+labs(title = &quot;Bowl&quot;) + theme_economist() + 
+theme(legend.position = &quot;left&quot;, legend.key.size = unit(7, &quot;mm&quot;),
+      axis.title.y = element_blank(), axis.text.y = element_blank(),
+     axis.title.x = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank())
+</code></pre>
+
+<p><img src="output_12_0.png" alt="png" /></p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.width = 6, repr.plot.height = 5)
+ramen_no_na %&gt;% filter(style == &quot;Cup&quot;) %&gt;%
+group_by(country) %&gt;% summarize( mean_rating = mean(stars)) %&gt;%
+arrange(desc(mean_rating)) %&gt;% mutate(rank = 1:length(country)) %&gt;%
+ggplot(aes(y = mean_rating, x = rank)) + geom_point(alpha = 0.2) + 
+stat_summary_hex(aes(z =  mean_rating), 
+                   bins=10, fun = mean, alpha = 0.9) + 
+geom_text_repel(aes(label = country), 
+                size = 3, col = 'black') + 
+scale_fill_viridis_c(name=&quot;stars&quot;) +
+labs(title = &quot;Cup&quot;) + theme_economist() + 
+theme(legend.position = &quot;left&quot;, legend.key.size = unit(7, &quot;mm&quot;),
+      axis.title.y = element_blank(), axis.text.y = element_blank(),
+     axis.title.x = element_blank(), 
+      axis.text.x = element_blank(), axis.ticks.x = element_blank(), )
+</code></pre>
+
+<p><img src="output_13_0.png" alt="png" /></p>
+
+<pre><code class="language-R">options(repr.plot.res = 300, repr.plot.width = 6, repr.plot.height = 5)
+ramen_no_na %&gt;% filter(style == &quot;Tray&quot;) %&gt;%
+group_by(country) %&gt;% summarize( mean_rating = mean(stars)) %&gt;%
+arrange(desc(mean_rating)) %&gt;% mutate(rank = 1:length(country)) %&gt;%
+ggplot(aes(y = mean_rating, x = rank)) + geom_point(alpha = 0.2) + 
+stat_summary_hex(aes(z =  mean_rating), 
+                   bins=10, fun = mean, alpha = 0.9) + 
+geom_text_repel(aes(label = country), 
+                size = 3, col = 'black') + 
+scale_fill_viridis_c(name=&quot;stars&quot;) +
+labs(title = &quot;Tray&quot;) + theme_economist() + 
+theme(legend.position = &quot;left&quot;, legend.key.size = unit(7, &quot;mm&quot;),
+      axis.title.y = element_blank(), axis.text.y = element_blank(),
+     axis.title.x = element_blank(), axis.ticks.x = element_blank() ,axis.text.x = element_blank())
+</code></pre>
+
+<p><img src="output_14_0.png" alt="png" /></p>
+
+<pre><code class="language-R">
+</code></pre>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="happiness-tnse" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Shades of happiness</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      
+
+<p>One of my favorite task when I deal with large datasets that contains individuals and a lot of variables is to reduce the dimensionality so to understand which factors differentiate the most these individuals. There exists a lot of dimensionality reduction techniques but the most used is the Principal Components Ananlysis. After using PCA for most of my projects I discovered in this <a href="https://www.kaggle.com/cherzy/spatial-representation-and-dim-reduction-t-sne" target="_blank">Kaggle</a> kernel a new technique that immediately raises my interest and I would like to use this new technique to analyse happiness in the world.<br />
+I am going to work on a dataset from <code>Sustainable Development Solutions Network</code> which is hosted on here on <a href="https://www.kaggle.com/unsdsn/world-happiness/downloads/world-happiness-report.zip/2" target="_blank">Kaggle</a>.</p>
+
+<pre><code class="language-R">## Loading the libraries
+options(warn = -1)
+suppressPackageStartupMessages(library(Rtsne))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(ggrepel))
+suppressPackageStartupMessages(library(GGally))
+</code></pre>
+
+<pre><code class="language-R">dataset &lt;- read_csv(&quot;2017.csv&quot;)
+</code></pre>
+
+<pre><code>Parsed with column specification:
+cols(
+  Country = col_character(),
+  Happiness.Rank = col_double(),
+  Happiness.Score = col_double(),
+  Whisker.high = col_double(),
+  Whisker.low = col_double(),
+  Economy..GDP.per.Capita. = col_double(),
+  Family = col_double(),
+  Health..Life.Expectancy. = col_double(),
+  Freedom = col_double(),
+  Generosity = col_double(),
+  Trust..Government.Corruption. = col_double(),
+  Dystopia.Residual = col_double()
+)
+</code></pre>
+
+<pre><code class="language-R">glimpse(dataset)
+</code></pre>
+
+<pre><code>Observations: 155
+Variables: 12
+$ Country                       &lt;chr&gt; &quot;Norway&quot;, &quot;Denmark&quot;, &quot;Iceland&quot;, &quot;Swit...
+$ Happiness.Rank                &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12...
+$ Happiness.Score               &lt;dbl&gt; 7.537, 7.522, 7.504, 7.494, 7.469, 7....
+$ Whisker.high                  &lt;dbl&gt; 7.594445, 7.581728, 7.622030, 7.56177...
+$ Whisker.low                   &lt;dbl&gt; 7.479556, 7.462272, 7.385970, 7.42622...
+$ Economy..GDP.per.Capita.      &lt;dbl&gt; 1.616463, 1.482383, 1.480633, 1.56498...
+$ Family                        &lt;dbl&gt; 1.533524, 1.551122, 1.610574, 1.51691...
+$ Health..Life.Expectancy.      &lt;dbl&gt; 0.7966665, 0.7925655, 0.8335521, 0.85...
+$ Freedom                       &lt;dbl&gt; 0.6354226, 0.6260067, 0.6271626, 0.62...
+$ Generosity                    &lt;dbl&gt; 0.36201224, 0.35528049, 0.47554022, 0...
+$ Trust..Government.Corruption. &lt;dbl&gt; 0.31596383, 0.40077007, 0.15352656, 0...
+$ Dystopia.Residual             &lt;dbl&gt; 2.277027, 2.313707, 2.322715, 2.27671...
+</code></pre>
+
+<p>The dataset contains 155 countries with 12 socio-economic variables. All the columns, except the country names, are numeric.</p>
+
+<pre><code class="language-R">head(dataset)
+</code></pre>
+
+<table>
+<thead><tr><th scope=col>Country</th><th scope=col>Happiness.Rank</th><th scope=col>Happiness.Score</th><th scope=col>Whisker.high</th><th scope=col>Whisker.low</th><th scope=col>Economy..GDP.per.Capita.</th><th scope=col>Family</th><th scope=col>Health..Life.Expectancy.</th><th scope=col>Freedom</th><th scope=col>Generosity</th><th scope=col>Trust..Government.Corruption.</th><th scope=col>Dystopia.Residual</th></tr></thead>
+<tbody>
+    <tr><td>Norway     </td><td>1          </td><td>7.537      </td><td>7.594445   </td><td>7.479556   </td><td>1.616463   </td><td>1.533524   </td><td>0.7966665  </td><td>0.6354226  </td><td>0.3620122  </td><td>0.3159638  </td><td>2.277027   </td></tr>
+    <tr><td>Denmark    </td><td>2          </td><td>7.522      </td><td>7.581728   </td><td>7.462272   </td><td>1.482383   </td><td>1.551122   </td><td>0.7925655  </td><td>0.6260067  </td><td>0.3552805  </td><td>0.4007701  </td><td>2.313707   </td></tr>
+    <tr><td>Iceland    </td><td>3          </td><td>7.504      </td><td>7.622030   </td><td>7.385970   </td><td>1.480633   </td><td>1.610574   </td><td>0.8335521  </td><td>0.6271626  </td><td>0.4755402  </td><td>0.1535266  </td><td>2.322715   </td></tr>
+    <tr><td>Switzerland</td><td>4          </td><td>7.494      </td><td>7.561772   </td><td>7.426227   </td><td>1.564980   </td><td>1.516912   </td><td>0.8581313  </td><td>0.6200706  </td><td>0.2905493  </td><td>0.3670073  </td><td>2.276716   </td></tr>
+    <tr><td>Finland    </td><td>5          </td><td>7.469      </td><td>7.527542   </td><td>7.410458   </td><td>1.443572   </td><td>1.540247   </td><td>0.8091577  </td><td>0.6179509  </td><td>0.2454828  </td><td>0.3826115  </td><td>2.430182   </td></tr>
+    <tr><td>Netherlands</td><td>6          </td><td>7.377      </td><td>7.427426   </td><td>7.326574   </td><td>1.503945   </td><td>1.428939   </td><td>0.8106961  </td><td>0.5853845  </td><td>0.4704898  </td><td>0.2826618  </td><td>2.294804   </td></tr>
+</tbody>
+</table>
+
+<p>Are there any missing value?</p>
+
+<pre><code class="language-R">map_int(dataset, function(x) sum(is.na(x)))
+</code></pre>
+
+<dl class=dl-horizontal>
+    <dt>Country</dt>
+        <dd>0</dd>
+    <dt>Happiness.Rank</dt>
+        <dd>0</dd>
+    <dt>Happiness.Score</dt>
+        <dd>0</dd>
+    <dt>Whisker.high</dt>
+        <dd>0</dd>
+    <dt>Whisker.low</dt>
+        <dd>0</dd>
+    <dt>Economy..GDP.per.Capita.</dt>
+        <dd>0</dd>
+    <dt>Family</dt>
+        <dd>0</dd>
+    <dt>Health..Life.Expectancy.</dt>
+        <dd>0</dd>
+    <dt>Freedom</dt>
+        <dd>0</dd>
+    <dt>Generosity</dt>
+        <dd>0</dd>
+    <dt>Trust..Government.Corruption.</dt>
+        <dd>0</dd>
+    <dt>Dystopia.Residual</dt>
+        <dd>0</dd>
+</dl>
+
+<p>We are good to go because there is not missing data in the dataset.</p>
+
+<pre><code class="language-R"># Remove the country column (non numeric) and transform the dataset to matrix
+matrix_df &lt;- dataset %&gt;% select(-Country) %&gt;% as.matrix
+</code></pre>
+
+<pre><code class="language-R">tsne &lt;- Rtsne(matrix_df, perplexity = 20, pca = F)
+</code></pre>
+
+<p>The tsne object contains the results of which <code>Y</code> which stores the dimensionality reduction. I&rsquo;m going to store them in a tibble and bind them together with the initial dataset.</p>
+
+<pre><code class="language-R">results &lt;- as_tibble(tsne$Y) %&gt;% rename(&quot;dim1&quot; = &quot;V1&quot;, &quot;dim2&quot; = &quot;V2&quot;) %&gt;%
+bind_cols(dataset)
+</code></pre>
+
+<pre><code class="language-R">head(results)
+</code></pre>
+
+<table>
+<thead><tr><th scope=col>dim1</th><th scope=col>dim2</th><th scope=col>Country</th><th scope=col>Happiness.Rank</th><th scope=col>Happiness.Score</th><th scope=col>Whisker.high</th><th scope=col>Whisker.low</th><th scope=col>Economy..GDP.per.Capita.</th><th scope=col>Family</th><th scope=col>Health..Life.Expectancy.</th><th scope=col>Freedom</th><th scope=col>Generosity</th><th scope=col>Trust..Government.Corruption.</th><th scope=col>Dystopia.Residual</th></tr></thead>
+<tbody>
+    <tr><td>-12.99386  </td><td>12.02412   </td><td>Norway     </td><td>1          </td><td>7.537      </td><td>7.594445   </td><td>7.479556   </td><td>1.616463   </td><td>1.533524   </td><td>0.7966665  </td><td>0.6354226  </td><td>0.3620122  </td><td>0.3159638  </td><td>2.277027   </td></tr>
+    <tr><td>-13.17428  </td><td>11.87064   </td><td>Denmark    </td><td>2          </td><td>7.522      </td><td>7.581728   </td><td>7.462272   </td><td>1.482383   </td><td>1.551122   </td><td>0.7925655  </td><td>0.6260067  </td><td>0.3552805  </td><td>0.4007701  </td><td>2.313707   </td></tr>
+    <tr><td>-13.31577  </td><td>11.67545   </td><td>Iceland    </td><td>3          </td><td>7.504      </td><td>7.622030   </td><td>7.385970   </td><td>1.480633   </td><td>1.610574   </td><td>0.8335521  </td><td>0.6271626  </td><td>0.4755402  </td><td>0.1535266  </td><td>2.322715   </td></tr>
+    <tr><td>-12.70514  </td><td>11.70555   </td><td>Switzerland</td><td>4          </td><td>7.494      </td><td>7.561772   </td><td>7.426227   </td><td>1.564980   </td><td>1.516912   </td><td>0.8581313  </td><td>0.6200706  </td><td>0.2905493  </td><td>0.3670073  </td><td>2.276716   </td></tr>
+    <tr><td>-12.47832  </td><td>11.54882   </td><td>Finland    </td><td>5          </td><td>7.469      </td><td>7.527542   </td><td>7.410458   </td><td>1.443572   </td><td>1.540247   </td><td>0.8091577  </td><td>0.6179509  </td><td>0.2454828  </td><td>0.3826115  </td><td>2.430182   </td></tr>
+    <tr><td>-12.60136  </td><td>11.35498   </td><td>Netherlands</td><td>6          </td><td>7.377      </td><td>7.427426   </td><td>7.326574   </td><td>1.503945   </td><td>1.428939   </td><td>0.8106961  </td><td>0.5853845  </td><td>0.4704898  </td><td>0.2826618  </td><td>2.294804   </td></tr>
+</tbody>
+</table>
+
+<pre><code class="language-R">
+</code></pre>
+
+<pre><code class="language-R">tsne_hexmap &lt;- function(data = results, name = NULL, variable) {
+    ggplot() +
+  stat_summary_hex(data = data, 
+                   aes_string(x=&quot;dim1&quot;, y=&quot;dim2&quot;, z =  variable), 
+                   bins=10, fun = mean, alpha = 0.9) +
+  geom_point(data = results, aes_string(x = &quot;dim1&quot;, y = &quot;dim2&quot;), 
+             alpha = 0.3, size = 1, col = 'black') +
+    scale_fill_gradient(high = 'lightgreen', low = 'red', name=name) +
+  coord_fixed(ratio = 1) +
+  theme_void() +
+geom_text_repel(data = data, 
+                aes_string(x = &quot;dim1&quot;, y = &quot;dim2&quot;, label = &quot;Country&quot;), 
+                size = 1.7, col = 'black') +
+    theme(plot.title = element_text(hjust = 0.5),
+       legend.title.align=0.5)
+}
+</code></pre>
+
+<h2 id="happiness">Happiness</h2>
+
+<pre><code class="language-R">tsne_hexmap(name = &quot;Happiness&quot;, variable = &quot;Happiness.Score&quot;)
+</code></pre>
+
+<p><img src="output_17_0.png" alt="png" /></p>
+
+<h2 id="freedom">Freedom</h2>
+
+<pre><code class="language-R">tsne_hexmap(name = &quot;Freedom&quot;, variable = &quot;Freedom&quot;)
+</code></pre>
+
+<p><img src="output_19_0.png" alt="png" /></p>
+
+<h2 id="gdp-capita">GDP/Capita</h2>
+
+<pre><code class="language-R">tsne_hexmap(name = &quot;GDP/Capita&quot;, variable = &quot;Economy..GDP.per.Capita.&quot;)
+</code></pre>
+
+<p><img src="output_20_0.png" alt="png" /></p>
+
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  <section id="_post" class="home-section wg-blank   "  >
+    <div class="container">
+      
+
+
+<div class="row">
+  
+    <div class="col-12 col-lg-4 section-heading">
+      <h1>Posts</h1>
+      
+    </div>
+    <div class="col-12 col-lg-8">
+      
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    2019 &middot; 
+
+    Maintained by <a href="https://agailloty.rbind.io/en/bio/" target="_blank" rel="noopener">Axel-Cleris Gailloty<a/>. <br> All credits go to the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//analytics-3.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/en/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.15494b02d66be9b96bab2e305f69c460.js"></script>
+
+  </body>
+</html>
+
+

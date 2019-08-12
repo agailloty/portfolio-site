@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>visualizations on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/categories/visualizations/</link>
+    <description>Recent content in visualizations on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Fri, 07 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/categories/visualizations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How suicide rate evolved worlwide from 1986 to 2014</title>
+      <link>https://agailloty.rbind.io/en/post/suicide-evolution/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/suicide-evolution/</guid>
+      <description>In this short post I want to share with the R code I used to make beautiful ggplot2 plot</description>
+    </item>
+    
+    <item>
+      <title>Shades of happiness</title>
+      <link>https://agailloty.rbind.io/en/post/happiness-tnse/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/happiness-tnse/</guid>
+      <description>Use the t-SNE algorithm to perform a dimensionality reduction and plot the countries in a 2D hexmap</description>
+    </item>
+    
+  </channel>
+</rss>

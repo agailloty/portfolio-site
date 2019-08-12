@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.3.1">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Axel-Cleris Gailloty">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Use the Machine Learning capabilities of Python to predict the chance of admission in Universities">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://agailloty.rbind.io/en/post/admission-universities/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playfair+Display:400,700|Fauna+One">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.829aa389a1e6cd2bb9c0046150743c95.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-141537832-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://agailloty.rbind.io/en/post/admission-universities/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@cleris_mr">
+  <meta property="twitter:creator" content="@cleris_mr">
+  
+  <meta property="og:site_name" content="Axel-Cleris Gailloty">
+  <meta property="og:url" content="https://agailloty.rbind.io/en/post/admission-universities/">
+  <meta property="og:title" content="Chance of admission Regression and Classification | Axel-Cleris Gailloty">
+  <meta property="og:description" content="Use the Machine Learning capabilities of Python to predict the chance of admission in Universities"><meta property="og:image" content="https://agailloty.rbind.io/en/post/admission-universities/featured.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-06-06T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-06-06T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>Chance of admission Regression and Classification | Axel-Cleris Gailloty</title>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/en/">Axel-Cleris Gailloty</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/bio/">
+            
+            <span>About</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/en/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <div class="featured-image" style="background-image: url('/en/post/admission-universities/featured_hu3099fcec9110d01c787332462a63f5bc_76125_800x0_resize_lanczos_2.png');"></div>
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name">Chance of admission Regression and Classification</h1>
+
+        
+
+        
+
+
+
+<meta content="2019-06-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-06 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 6, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/admission-universities/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/python/">Python</a>, <a href="/en/categories/ml/">ML</a></span>
+  
+
+  
+
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Chance%20of%20admission%20Regression%20and%20Classification&amp;url=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fadmission-universities%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fadmission-universities%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fadmission-universities%2f&amp;title=Chance%20of%20admission%20Regression%20and%20Classification"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fadmission-universities%2f&amp;title=Chance%20of%20admission%20Regression%20and%20Classification"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Chance%20of%20admission%20Regression%20and%20Classification&amp;body=https%3a%2f%2fagailloty.rbind.io%2fen%2fpost%2fadmission-universities%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/en/post/admission-universities/featured_hu3099fcec9110d01c787332462a63f5bc_76125_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name">Chance of admission Regression and Classification</h1>
+
+  
+
+  
+
+
+
+<meta content="2019-06-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-06 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+
+
+  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></span>
+
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 6, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/en/post/admission-universities/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/en/categories/python/">Python</a>, <a href="/en/categories/ml/">ML</a></span>
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<pre><code class="language-python">%matplotlib inline
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt
+import seaborn as sns
+</code></pre>
+
+<h1 id="read-in-the-dataset">Read in the dataset</h1>
+
+<pre><code class="language-python">dataset = pd.read_csv(&quot;Admission_Predict_Ver1.1.csv&quot;)
+</code></pre>
+
+<p>The dataset has been read successfully. Now it is good that we explore it to understand the features</p>
+
+<pre><code class="language-python">print(f&quot;The dataset contains {dataset.shape[0]} observations and {dataset.shape[1]} columns&quot;)
+</code></pre>
+
+<pre><code>The dataset contains 500 observations and 9 columns
+</code></pre>
+
+<p>Let&rsquo;s have a glimpse on a sample of the dataset.</p>
+
+<pre><code class="language-python">dataset.sample(5)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Serial No.</th>
+      <th>GRE Score</th>
+      <th>TOEFL Score</th>
+      <th>University Rating</th>
+      <th>SOP</th>
+      <th>LOR</th>
+      <th>CGPA</th>
+      <th>Research</th>
+      <th>Chance of Admit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>404</th>
+      <td>405</td>
+      <td>311</td>
+      <td>101</td>
+      <td>3</td>
+      <td>2.0</td>
+      <td>2.5</td>
+      <td>7.64</td>
+      <td>1</td>
+      <td>0.62</td>
+    </tr>
+    <tr>
+      <th>435</th>
+      <td>436</td>
+      <td>309</td>
+      <td>105</td>
+      <td>2</td>
+      <td>2.5</td>
+      <td>4.0</td>
+      <td>7.68</td>
+      <td>0</td>
+      <td>0.55</td>
+    </tr>
+    <tr>
+      <th>264</th>
+      <td>265</td>
+      <td>325</td>
+      <td>110</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>2.5</td>
+      <td>8.76</td>
+      <td>1</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>61</td>
+      <td>309</td>
+      <td>100</td>
+      <td>2</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>8.10</td>
+      <td>0</td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <th>424</th>
+      <td>425</td>
+      <td>325</td>
+      <td>114</td>
+      <td>5</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>9.46</td>
+      <td>1</td>
+      <td>0.91</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>**Taken from the data description : **
+ &gt; The dataset contains several parameters which are considered important during the application for Masters Programs. The parameters included are :
+ &gt; 1. GRE Scores ( out of 340 )
+ &gt; 2. TOEFL Scores ( out of 120 )
+ &gt; 3. University Rating ( out of 5 )
+ &gt; 4. Statement of Purpose and Letter of Recommendation Strength ( out of 5 )
+ &gt; 5. Undergraduate GPA ( out of 10 )
+ &gt; 6. Research Experience ( either 0 or 1 )
+ &gt; 7. Chance of Admit ( ranging from 0 to 1 )</p>
+
+<pre><code class="language-python">dataset.drop(columns= &quot;Serial No.&quot;, axis = 1).describe()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GRE Score</th>
+      <th>TOEFL Score</th>
+      <th>University Rating</th>
+      <th>SOP</th>
+      <th>LOR</th>
+      <th>CGPA</th>
+      <th>Research</th>
+      <th>Chance of Admit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>500.000000</td>
+      <td>500.000000</td>
+      <td>500.000000</td>
+      <td>500.000000</td>
+      <td>500.00000</td>
+      <td>500.000000</td>
+      <td>500.000000</td>
+      <td>500.00000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>316.472000</td>
+      <td>107.192000</td>
+      <td>3.114000</td>
+      <td>3.374000</td>
+      <td>3.48400</td>
+      <td>8.576440</td>
+      <td>0.560000</td>
+      <td>0.72174</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>11.295148</td>
+      <td>6.081868</td>
+      <td>1.143512</td>
+      <td>0.991004</td>
+      <td>0.92545</td>
+      <td>0.604813</td>
+      <td>0.496884</td>
+      <td>0.14114</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>290.000000</td>
+      <td>92.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.00000</td>
+      <td>6.800000</td>
+      <td>0.000000</td>
+      <td>0.34000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>308.000000</td>
+      <td>103.000000</td>
+      <td>2.000000</td>
+      <td>2.500000</td>
+      <td>3.00000</td>
+      <td>8.127500</td>
+      <td>0.000000</td>
+      <td>0.63000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>317.000000</td>
+      <td>107.000000</td>
+      <td>3.000000</td>
+      <td>3.500000</td>
+      <td>3.50000</td>
+      <td>8.560000</td>
+      <td>1.000000</td>
+      <td>0.72000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>325.000000</td>
+      <td>112.000000</td>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>4.00000</td>
+      <td>9.040000</td>
+      <td>1.000000</td>
+      <td>0.82000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>340.000000</td>
+      <td>120.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.00000</td>
+      <td>9.920000</td>
+      <td>1.000000</td>
+      <td>0.97000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="visualizations">Visualizations</h1>
+
+<p>Let&rsquo;s visualize the columns to have insights on the dataset</p>
+
+<pre><code class="language-python"># Plot settings
+plt.rcParams[&quot;figure.figsize&quot;] = [10,8]
+plt.rcParams[&quot;figure.dpi&quot;] = 150
+plt.style.use(&quot;ggplot&quot;)
+</code></pre>
+
+<h1 id="histograms">Histograms</h1>
+
+<pre><code class="language-python">dataset.hist(bins = 20);
+</code></pre>
+
+<p><img src="output_13_0.png" alt="png" /></p>
+
+<h2 id="insights">Insights :</h2>
+
+<ul>
+<li>Most of the continuous numerical columns seem to be relatively normally distributed (gaussian distribution).</li>
+<li>More universities have a ranking of <sup>3</sup>&frasl;<sub>5</sub></li>
+<li>There are more students with a Research experience than without.</li>
+</ul>
+
+<h1 id="correlation-among-continuous-variables">Correlation among continuous variables</h1>
+
+<pre><code class="language-python">sns.heatmap(dataset.drop(columns= [&quot;Research&quot;, &quot;Serial No.&quot;]).corr(), 
+            cmap= &quot;viridis&quot;, annot = True);
+plt.title(&quot;Matrix of correlations&quot;);
+</code></pre>
+
+<p><img src="output_16_0.png" alt="png" /></p>
+
+<p>All the variables are positively correlated among them. The weakest correlation is around 0.52 (LOR and GRE Score).</p>
+
+<p>Let&rsquo;s continue exploring the data by taking a look at the pairplot</p>
+
+<pre><code class="language-python">sns.pairplot(dataset.drop(columns= [&quot;Research&quot;, &quot;Serial No.&quot;]));
+</code></pre>
+
+<p><img src="output_19_0.png" alt="png" /></p>
+
+<h1 id="modelling">Modelling</h1>
+
+<p>My goal here is to predict the chance of admit using a logistic regression.</p>
+
+<pre><code class="language-python">from statsmodels.api import Logit
+</code></pre>
+
+<pre><code class="language-python">train = dataset.drop(columns= [&quot;Serial No.&quot;])
+</code></pre>
+
+<p>The <code>Research</code> column need to be transformed into a dummy column</p>
+
+<pre><code class="language-python">train = pd.get_dummies(train, columns= [&quot;Research&quot;], drop_first= True)
+</code></pre>
+
+<pre><code class="language-python">from sklearn.linear_model import LogisticRegression
+</code></pre>
+
+<pre><code class="language-python">train.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GRE Score</th>
+      <th>TOEFL Score</th>
+      <th>University Rating</th>
+      <th>SOP</th>
+      <th>LOR</th>
+      <th>CGPA</th>
+      <th>Chance of Admit</th>
+      <th>Research_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>337</td>
+      <td>118</td>
+      <td>4</td>
+      <td>4.5</td>
+      <td>4.5</td>
+      <td>9.65</td>
+      <td>0.92</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>324</td>
+      <td>107</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>4.5</td>
+      <td>8.87</td>
+      <td>0.76</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>316</td>
+      <td>104</td>
+      <td>3</td>
+      <td>3.0</td>
+      <td>3.5</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>322</td>
+      <td>110</td>
+      <td>3</td>
+      <td>3.5</td>
+      <td>2.5</td>
+      <td>8.67</td>
+      <td>0.80</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>314</td>
+      <td>103</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>8.21</td>
+      <td>0.65</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="language-python">np.median(dataset[&quot;Chance of Admit &quot;])
+</code></pre>
+
+<pre><code>0.72
+</code></pre>
+
+<p>Let&rsquo;s create a binary column called <code>admit</code> from the <code>Chance of Admit</code> column. The threshold is : if <code>Chance of Admit</code> &gt; 0.72 then admit = 1</p>
+
+<pre><code class="language-python">train[&quot;admit&quot;] = dataset[&quot;Chance of Admit &quot;].apply(lambda x: 1 if x&gt;0.6 else 0)
+</code></pre>
+
+<pre><code class="language-python">train[&quot;admit&quot;].value_counts()
+</code></pre>
+
+<pre><code>1    403
+0     97
+Name: admit, dtype: int64
+</code></pre>
+
+<pre><code class="language-python">logistic = LogisticRegression()
+</code></pre>
+
+<pre><code class="language-python">X = train.drop(columns= &quot;Chance of Admit &quot;) # remove 
+y = train[&quot;admit&quot;]
+</code></pre>
+
+<pre><code class="language-python">res = logistic.fit(X = X, y = y)
+</code></pre>
+
+<pre><code>E:\Continuum\anaconda3\lib\site-packages\sklearn\linear_model\logistic.py:433: FutureWarning: Default solver will be changed to 'lbfgs' in 0.22. Specify a solver to silence this warning.
+  FutureWarning)
+</code></pre>
+
+<pre><code class="language-python">prob_admission = []
+for not_admitted, admitted in res.predict_proba(X):
+    prob_admission.append(admitted)
+</code></pre>
+
+<pre><code class="language-python">plt.subplot(1,2,1)
+plt.hist(dataset[&quot;Chance of Admit &quot;], bins = 30)
+plt.title(&quot;Original&quot;)
+plt.subplot(1,2,2)
+plt.hist(prob_admission, bins = 30)
+plt.title(&quot;Predicted&quot;);
+</code></pre>
+
+<p><img src="output_36_0.png" alt="png" /></p>
+
+<h2 id="accuracy">Accuracy</h2>
+
+<pre><code class="language-python">logit_results = pd.DataFrame({&quot;prob_admission&quot;:prob_admission, 
+                             &quot;chance_of_admit&quot;: dataset[&quot;Chance of Admit &quot;],
+                             &quot;admitted&quot;:res.predict(X)})
+logit_results.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>prob_admission</th>
+      <th>chance_of_admit</th>
+      <th>admitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.996440</td>
+      <td>0.92</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.993823</td>
+      <td>0.76</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.977416</td>
+      <td>0.72</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.984955</td>
+      <td>0.80</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.946737</td>
+      <td>0.65</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="language-python">logit_results[&quot;prob_admission&quot;] = np.sort(logit_results[&quot;prob_admission&quot;])
+logit_results[&quot;rank&quot;] = np.arange(1, len(logit_results)+1)
+</code></pre>
+
+<pre><code class="language-python">sns.scatterplot(x = &quot;rank&quot;, y = &quot;prob_admission&quot;, 
+                data = logit_results, hue = &quot;admitted&quot;);
+</code></pre>
+
+<p><img src="output_40_0.png" alt="png" /></p>
+
+<h1 id="linear-regression">Linear regression</h1>
+
+<pre><code class="language-python">train.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GRE Score</th>
+      <th>TOEFL Score</th>
+      <th>University Rating</th>
+      <th>SOP</th>
+      <th>LOR</th>
+      <th>CGPA</th>
+      <th>Chance of Admit</th>
+      <th>Research_1</th>
+      <th>admit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>337</td>
+      <td>118</td>
+      <td>4</td>
+      <td>4.5</td>
+      <td>4.5</td>
+      <td>9.65</td>
+      <td>0.92</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>324</td>
+      <td>107</td>
+      <td>4</td>
+      <td>4.0</td>
+      <td>4.5</td>
+      <td>8.87</td>
+      <td>0.76</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>316</td>
+      <td>104</td>
+      <td>3</td>
+      <td>3.0</td>
+      <td>3.5</td>
+      <td>8.00</td>
+      <td>0.72</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>322</td>
+      <td>110</td>
+      <td>3</td>
+      <td>3.5</td>
+      <td>2.5</td>
+      <td>8.67</td>
+      <td>0.80</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>314</td>
+      <td>103</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>8.21</td>
+      <td>0.65</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="language-python">from sklearn.linear_model import LinearRegression
+</code></pre>
+
+<pre><code class="language-python">X_linreg = train.drop(columns= [&quot;Chance of Admit &quot;, &quot;admit&quot;])
+y_linreg = train[&quot;Chance of Admit &quot;]
+</code></pre>
+
+<pre><code class="language-python">lin_res = LinearRegression()
+lin_res = lin_res.fit(X_linreg, y_linreg)
+</code></pre>
+
+<h1 id="the-shape-of-the-two">The shape of the two</h1>
+
+<pre><code class="language-python">plt.subplot(1,2,1)
+plt.hist(dataset[&quot;Chance of Admit &quot;], bins = 30)
+plt.title(&quot;Original&quot;)
+plt.subplot(1,2,2)
+plt.hist(lin_res.predict(X_linreg), bins = 30)
+plt.title(&quot;Predicted&quot;);
+</code></pre>
+
+<p><img src="output_47_0.png" alt="png" /></p>
+
+<pre><code class="language-python">plt.scatter(dataset[&quot;Chance of Admit &quot;], lin_res.predict(X_linreg))
+plt.title(&quot;Chance of prediction prediction accuracy&quot;);
+plt.xlabel(&quot;Original&quot;)
+plt.xlabel(&quot;Predicted&quot;);
+</code></pre>
+
+<p><img src="output_48_0.png" alt="png" /></p>
+
+<pre><code class="language-python">
+</code></pre>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/en/tags/python/">Python</a>
+  
+  <a class="badge badge-light" href="/en/tags/sklearn/">sklearn</a>
+  
+  <a class="badge badge-light" href="/en/tags/ml/">ML</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/en/authors/admin/avatar_hud494d6ac9e3b9d971a8444d41f8fd8ae_606650_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/en/authors/admin/">Axel-Cleris Gailloty</a></h5>
+      <h6 class="card-subtitle">Student in Economics</h6>
+      <p class="card-text" itemprop="description">I&rsquo;m interested in quantitative Economics, Econometrics and Data Science.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:mr.clerisaxel@hotmail.fr" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/cleris_mr" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/agailloty" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "analytics-3" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    2019 &middot; 
+
+    Maintained by <a href="https://agailloty.rbind.io/en/bio/" target="_blank" rel="noopener">Axel-Cleris Gailloty<a/>. <br> All credits go to the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//analytics-3.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/en/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.15494b02d66be9b96bab2e305f69c460.js"></script>
+
+  </body>
+</html>
+

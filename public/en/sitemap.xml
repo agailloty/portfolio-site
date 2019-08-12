@@ -3,534 +3,426 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/authors/admin/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/courses/example/example1/"
+                href="https://agailloty.rbind.io/fr/authors/admin/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/courses/example/example1/"
+                href="https://agailloty.rbind.io/en/authors/admin/"
                 />
   </url>
   
   <url>
-    <loc>/courses/example/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/courses/example/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/courses/example/"
-                />
-  </url>
-  
-  <url>
-    <loc>/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/courses/example/example2/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/courses/example/example2/"
-                />
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/authors/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/"
+                href="https://agailloty.rbind.io/fr/authors/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/"
+                href="https://agailloty.rbind.io/en/authors/"
                 />
   </url>
   
   <url>
-    <loc>/talk/example/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/talk/example/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/talk/example/"
-                />
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/talk/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/talk/"
-                />
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/authors/admin/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/authors/admin/"
-                />
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/authors/"
+                href="https://agailloty.rbind.io/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/authors/"
+                href="https://agailloty.rbind.io/en/"
                 />
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/categories/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/categories/"
+                href="https://agailloty.rbind.io/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/categories/"
+                href="https://agailloty.rbind.io/en/categories/"
                 />
   </url>
   
   <url>
-    <loc>/post/2019-05-30-suicide-evolution-since-1985/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/suicide-overview/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/pca/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/post/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/post/"
+                href="https://agailloty.rbind.io/fr/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/post/"
+                href="https://agailloty.rbind.io/en/post/"
                 />
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/categories/r/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/categories/r/"
+                href="https://agailloty.rbind.io/fr/categories/r/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/categories/r/"
+                href="https://agailloty.rbind.io/en/categories/r/"
                 />
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/tags/r/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/r/"
+                href="https://agailloty.rbind.io/fr/tags/r/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/tags/r/"
+                href="https://agailloty.rbind.io/en/tags/r/"
                 />
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/tags/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/"
+                href="https://agailloty.rbind.io/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/tags/"
+                href="https://agailloty.rbind.io/en/tags/"
                 />
   </url>
   
   <url>
-    <loc>/tags/data-analysis/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/categories/tidyvserse/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/plot-cols/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/dplyr/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/ggplot2/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/tidyverse/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/visualization/</loc>
+    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/dummy-cols/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/tidyr/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/wrangling/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/pandas/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/pandas/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/tags/data-analysis/"
+                href="https://agailloty.rbind.io/fr/tags/pandas/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/tags/data-analysis/"
+                href="https://agailloty.rbind.io/en/tags/pandas/"
                 />
   </url>
   
   <url>
-    <loc>/publication_types/3/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/categories/python/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/publication_types/3/"
+                href="https://agailloty.rbind.io/fr/categories/python/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/publication_types/3/"
+                href="https://agailloty.rbind.io/en/categories/python/"
                 />
   </url>
   
   <url>
-    <loc>/publication/preprint/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/publication/preprint/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/publication/preprint/"
-                />
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/tags/python/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/publication_types/"
+                href="https://agailloty.rbind.io/fr/tags/python/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/publication_types/"
+                href="https://agailloty.rbind.io/en/tags/python/"
                 />
   </url>
   
   <url>
-    <loc>/publication/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/publication/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/publication/"
-                />
+    <loc>https://agailloty.rbind.io/en/post/pandas-profiling/</loc>
+    <lastmod>2019-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/source-themes/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/post/twitter/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/hugo/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/source-themes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/source-themes/"
-                />
   </url>
   
   <url>
-    <loc>/slides/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/tags/hugo/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/slides/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/slides/"
-                />
   </url>
   
   <url>
-    <loc>/slides/example/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/slides/example/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/slides/example/"
-                />
+    <loc>https://agailloty.rbind.io/en/categories/tutorial/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/privacy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/privacy/"
-                />
+    <loc>https://agailloty.rbind.io/en/tags/twitter/</loc>
+    <lastmod>2019-06-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/deep-learning/</loc>
+    <loc>https://agailloty.rbind.io/en/post/impute-missing-values/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/recipes/</loc>
+    <lastmod>2019-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/tidytuesday/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/tidy-tuesday-24/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/tidytuesday/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/suicide-evolution/</loc>
+    <lastmod>2019-06-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/visualizations/</loc>
+    <lastmod>2019-06-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/admission-universities/</loc>
+    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/ml/</loc>
+    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/ml/</loc>
+    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/sklearn/</loc>
+    <lastmod>2019-06-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/tidy-tuesday-23/</loc>
+    <lastmod>2019-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/happiness-tnse/</loc>
+    <lastmod>2019-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/clustering/</loc>
+    <lastmod>2019-05-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/clustering/</loc>
+    <lastmod>2019-05-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/t-sne/</loc>
+    <lastmod>2019-05-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/post/time-series/</loc>
+    <lastmod>2019-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/categories/time-series/</loc>
+    <lastmod>2019-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/time-series/</loc>
+    <lastmod>2019-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/visualizations/</loc>
+    <lastmod>2019-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/tags/kaggle/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/deep-learning/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/deep-learning/"
-                />
   </url>
   
   <url>
-    <loc>/tags/demo/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/tags/demo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/tags/demo/"
-                />
-  </url>
-  
-  <url>
-    <loc>/project/external-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/project/external-project/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/project/external-project/"
-                />
-  </url>
-  
-  <url>
-    <loc>/project/internal-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/project/internal-project/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/project/internal-project/"
-                />
-  </url>
-  
-  <url>
-    <loc>/project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/project/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/project/"
-                />
-  </url>
-  
-  <url>
-    <loc>/project/usa-international-trade/</loc>
+    <loc>https://agailloty.rbind.io/en/project/suicide-evolution/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/publication_types/2/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <loc>https://agailloty.rbind.io/en/project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/project/usa-international-trade/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/bio/</loc>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/data-viz/</loc>
+  </url>
+  
+  <url>
+    <loc>https://agailloty.rbind.io/en/publication_types/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="/fr/publication_types/2/"
+                href="https://agailloty.rbind.io/fr/publication_types/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/publication_types/2/"
-                />
-  </url>
-  
-  <url>
-    <loc>/publication/journal-article/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/publication/journal-article/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/publication/journal-article/"
-                />
-  </url>
-  
-  <url>
-    <loc>/authors/robert-ford/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/authors/robert-ford/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/authors/robert-ford/"
-                />
-  </url>
-  
-  <url>
-    <loc>/publication_types/1/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/publication_types/1/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/publication_types/1/"
-                />
-  </url>
-  
-  <url>
-    <loc>/publication/conference-paper/</loc>
-    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/publication/conference-paper/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/publication/conference-paper/"
-                />
-  </url>
-  
-  <url>
-    <loc>/courses/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="/fr/courses/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/courses/"
+                href="https://agailloty.rbind.io/en/publication_types/"
                 />
   </url>
   

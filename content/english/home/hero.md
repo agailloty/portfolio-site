@@ -40,8 +40,8 @@ title = "The Data Enthusiast !"
 \
 \
 
-Welcome to **my personal website**, I am glad you pass by here !   
-You may love to look at my [`Data visualization Gallery`](/en/data-viz/)
+Welcome to **my personal website**, <br/> 
+I am glad you pass by here !   
 \
 \
 \

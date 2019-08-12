@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ML on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/tags/ml/</link>
+    <description>Recent content in ML on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Thu, 06 Jun 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/tags/ml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chance of admission Regression and Classification</title>
+      <link>https://agailloty.rbind.io/en/post/admission-universities/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/post/admission-universities/</guid>
+      <description>Use the Machine Learning capabilities of Python to predict the chance of admission in Universities</description>
+    </item>
+    
+  </channel>
+</rss>

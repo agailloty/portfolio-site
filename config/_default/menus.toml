@@ -44,3 +44,8 @@
   name = "About"
   url = "bio/"
   weight = 20
+  
+[[main]]
+  name = "Content"
+  url = "content/"
+  weight = 50

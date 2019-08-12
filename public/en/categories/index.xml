@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Axel-Cleris Gailloty</title>
+    <link>https://agailloty.rbind.io/en/categories/</link>
+    <description>Recent content in Categories on Axel-Cleris Gailloty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>{year}</copyright>
+    <lastBuildDate>Fri, 12 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://agailloty.rbind.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R</title>
+      <link>https://agailloty.rbind.io/en/categories/r/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidyvserse</title>
+      <link>https://agailloty.rbind.io/en/categories/tidyvserse/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/tidyvserse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualization</title>
+      <link>https://agailloty.rbind.io/en/categories/visualization/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wrangling</title>
+      <link>https://agailloty.rbind.io/en/categories/wrangling/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/wrangling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pandas</title>
+      <link>https://agailloty.rbind.io/en/categories/pandas/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/pandas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://agailloty.rbind.io/en/categories/python/</link>
+      <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://agailloty.rbind.io/en/categories/hugo/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://agailloty.rbind.io/en/categories/tutorial/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tidytuesday</title>
+      <link>https://agailloty.rbind.io/en/categories/tidytuesday/</link>
+      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/tidytuesday/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualizations</title>
+      <link>https://agailloty.rbind.io/en/categories/visualizations/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/visualizations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML</title>
+      <link>https://agailloty.rbind.io/en/categories/ml/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>clustering</title>
+      <link>https://agailloty.rbind.io/en/categories/clustering/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time series</title>
+      <link>https://agailloty.rbind.io/en/categories/time-series/</link>
+      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://agailloty.rbind.io/en/categories/time-series/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
