@@ -35,7 +35,7 @@ title = "The Data Enthusiast !"
 #   Remove a link/note by deleting a cta/note block.
 
 [cta]
-     url = "/fr/"
+     url = "/https://agailloty.rbind.io/fr/"
      label = "French"
      icon_pack = "fas"
      icon = "fas fa-language"
