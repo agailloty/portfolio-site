@@ -34,14 +34,31 @@ title = "The Data Enthusiast !"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 
+[cta]
+     url = "/fr/"
+     label = "French"
+     icon_pack = "fas"
+     icon = "fas fa-language"
+
+
 +++
+
+
 \
 \
 \
-\
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons to buttons  -->
+
+<button onclick="location.href='post/'"style="color:white;margin-left:10px;font-size:1.0em;" class="btn"><i class="fas fa-book-reader"></i> Blog posts </a></button>
+<button onclick="location.href='project/'" style="color:white;margin-left:10px;font-size:1.0em;" class="btn"><i class="fa fa-folder"></i> My projects</button>
 
 Welcome to **my personal website**, <br/> 
 I am glad you pass by here !   
+
+
 \
 \
 \
