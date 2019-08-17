@@ -1,13 +1,15 @@
 ---
 date: "2019-08-17T00:00:00Z"
-internal_link: https://www.kaggle.com/agailloty/overview-of-suicide-in-the-world/report
+external_link: https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%20a%20text.ipynb
 image:
-  caption: Python 
+  caption: https://arts.unimelb.edu.au/research/digital-studio/events/archive-events/textual-analysis-with-nltk
   focal_point: Smart
-summary: Cleaning a text for NLP
+summary: This is the first project in my Natural language processing learning journey. I make use of of the NLTK python library to remove punctuations, lemmatize, remove stopwords
 tags: 
-- Kaggle
-title: Cleaning text NLP
+- NLP
+- Python
+- NLTK
+title: Use NLTK to normalize a text
 ---
 
 
