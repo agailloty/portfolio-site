@@ -1,33 +1,33 @@
-+++
+---
 # Project title.
-title = "Cleaning a text corpus"
+title: "Cleaning a text corpus"
 
 # Date this page was created.
-date = 2019-08-17T15:38:00
+date : 2019-08-17T15:38:00
 
 # Project summary to display on homepage.
-summary = "Preprocessing text for natural language processing (NLP)"
+summary : "Preprocessing text for natural language processing (NLP)"
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["royalties", "pcr"]`
-tags = ["NLP", "Python", "text"]
+tags : ["NLP", "Python", "text"]
 
 # Optional external URL for project (replaces project detail page).
-external_link = ""
+external_link : ""
 
 # Slides (optional).
 #   Associate this project with Markdown slides.
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references 
 #   `content/slides/example-slides.md`.
-#   Otherwise, set `slides = ""`.
-slides = ""
+#   Otherwise, set `slides : ""`.
+slides : ""
 
 # Links (optional).
-url_pdf = ""
-url_slides = ""
-url_video = ""
-url_code = "https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%20a%20text.ipynb"
+url_pdf : ""
+url_slides : ""
+url_video : ""
+url_code : "https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%20a%20text.ipynb"
 
 # Custom links (optional).
 #   Uncomment line below to enable. For multiple links, use the form `[{...}, {...}, {...}]`.
@@ -38,12 +38,12 @@ url_code = "https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%
 
 [image]
   # Caption (optional)
-  caption = ""
+  caption : ""
   
   # Focal point (optional)
   # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point = "Smart"
-+++
+  focal_point : "Smart"
+---
 
 
 # Cleaning a corpus of text
