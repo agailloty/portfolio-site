@@ -35,11 +35,11 @@ url_code : "https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%
 # Featured image
 # To use, add an image named `featured.jpg/png` to your project's folder. 
 image:
-	caption : ""
+caption : ""
   
-	# Focal point (optional)
-	# Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-	focal_point : "Smart"
+# Focal point (optional)
+# Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+focal_point : "Smart"
 ---
 
 
