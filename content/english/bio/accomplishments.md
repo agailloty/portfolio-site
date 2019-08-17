@@ -19,6 +19,16 @@ date_format = "Jan 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
 [[item]]
+  organization = "University of California San Diego (UCSanDiegoX)"
+  organization_url = "https://ucsd.edu/"
+  title = "Machine Learning Fundamentals"
+  url = ""
+  certificate_url = "https://courses.edx.org/certificates/d5790348194c46c6956164ad08236152"
+  date_start = "2019-08-11"
+  date_end = ""
+  description = "Part of the MicroMasters in Data Science offered by the University of California San Diego through edX. "
+
+[[item]]
   organization = "AgroCampus Ouest"
   organization_url = "https://www.agrocampus-ouest.fr/"
   title = "Multivariate Exploratory Data Analysis"
