@@ -1,4 +1,4 @@
-+++
+﻿+++
 # Accomplishments widget.
 widget = "accomplishments"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
@@ -17,6 +17,16 @@ date_format = "Jan 2006"
 #   `title`, `organization` and `date_start` are the required parameters.
 #   Leave other parameters empty if not required.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+[[item]]
+  organization = "University of California San Diego (UCSanDiegoX)"
+  organization_url = "https://ucsd.edu/"
+  title = "Machine Learning Fundamentals"
+  url = ""
+  certificate_url = "https://courses.edx.org/certificates/d5790348194c46c6956164ad08236152"
+  date_start = "2019-08-11"
+  date_end = ""
+  description = "Cours offert par l'Université de Californie San Diego dans le cadre du programme MicroMasters in Data Science. Le cours équipe l'étudiant des fondamentaux en mathématiques, en probabilité et statistiques et en programmation en Python pour l'implémentation des algorithmes de Machine Learning."
 
 [[item]]
   organization = "AgroCampus Ouest"
