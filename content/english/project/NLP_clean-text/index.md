@@ -3,14 +3,15 @@
 title: "Cleaning a text corpus"
 
 # Date this page was created.
-date : 2019-08-17T15:38:00
+date : "2019-08-17T15:38:00"
 
 # Project summary to display on homepage.
 summary : "Preprocessing text for natural language processing (NLP)"
 
 # Tags: can be used for filtering projects.
-# Example: `tags = ["royalties", "pcr"]`
-tags : ["NLP", "Python", "text"]
+tags : 
+	-GitHub
+	- NLP
 
 # Optional external URL for project (replaces project detail page).
 external_link : ""
@@ -35,14 +36,12 @@ url_code : "https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your project's folder. 
-
-[image]
-  # Caption (optional)
-  caption : ""
+image:
+	caption : ""
   
-  # Focal point (optional)
-  # Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-  focal_point : "Smart"
+	# Focal point (optional)
+	# Options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+	focal_point : "Smart"
 ---
 
 
