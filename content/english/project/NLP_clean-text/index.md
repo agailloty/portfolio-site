@@ -10,8 +10,6 @@ summary : "Preprocessing text for natural language processing (NLP)"
 
 # Tags: can be used for filtering projects.
 tags : 
-	- GitHub
-	- NLP
 
 # Optional external URL for project (replaces project detail page).
 external_link : ""
