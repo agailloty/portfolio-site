@@ -45,15 +45,6 @@ url_code = "https://github.com/agailloty/NLP-Projects/blob/master/1%20-%20Clean%
   focal_point = "Smart"
 +++
 
-Governments, the EU, international organizations and private donors often support causes of public interest with grants and donations. In some cases, these grants are aimed to help starting or sustaining economic activities. In other cases, they are supporting artistic activities or education.
-
-I had been involved in the professional assessment of granting schemes and grant applications since 2000. I have learned and taught various assessment methods to evaluated EU and national grants to support valuable public infrastructure, energy savings, health investments and other causes.  
-
-Since I work with the creative industries, I had transferred some of this methodology to supporting music and film creation. Grants are essential to maintain the diversity and artistic quality of European music and films, and they can be essential to jump start young industries like smartphone application development. 
-
-In my experience, many music grants schemes are inefficient, because they are not based on an objective assessment of musician’s needs and market conditions. In some cases, they are supporting politically interesting ‘pet projects’ that have little lasting effects. Occasionally they give too large or too many grants for certain activities that crowds out private investment of artists. 
-
-
 
 # Cleaning a corpus of text
 ## Introduction
