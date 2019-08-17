@@ -15,7 +15,7 @@ title: Use NLTK to normalize a text
 
 # Cleaning a corpus of text
 ## Introduction
-After successfully completed the [Machine Learning Fundamentals]() course offered by the University of California San Diego through edX, my interest of Machine Learning is growing. one of the topic I would like to master in near future is Natural Language Processing (NLP). NLP is a subset of Artificial intelligenc that deals with the human language. NLP has a large variety of applications and I aim to get some solid skills on this topic.  
+After successfully completed the [Machine Learning Fundamentals](https://courses.edx.org/certificates/d5790348194c46c6956164ad08236152) course offered by the University of California San Diego through edX, my interest of Machine Learning is growing. one of the topic I would like to master in near future is Natural Language Processing (NLP). NLP is a subset of Artificial intelligenc that deals with the human language. NLP has a large variety of applications and I aim to get some solid skills on this topic.  
 Four days ago I started the 8 weeks long NLP curriculum designed by Siraj Raval. For this week the assigned project is to clean a text of my choice using techniques such as lemmatization, stemming, tokenization... 
 If you are not familiar with these techniques, don't worry I will present them.    
 
