@@ -33,13 +33,6 @@ subtitle = "J'aime apprendre par la pratique. Voici une liste des projets que j'
     name = "Deep Learning"
     tag = "Deep Learning"
 
-[[content.filter_button]]
-    name = "Python adventure"
-    tag = "Python"
-  
-  [[content.filter_button]]
-    name = "Other"
-    tag = "Demo"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
