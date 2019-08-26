@@ -1,6 +1,6 @@
 ---
 date: "2019-08-26T00:00:00Z"
-internal_link = https://agailloty.rbind.io/fr/project/indeed_scraper/
+internal_link : https://agailloty.rbind.io/fr/project/indeed_scraper/
 external_link: https://github.com/agailloty/indeed_webscraper
 image:
   caption: indeed.com
