@@ -1,12 +1,12 @@
-+++
+﻿+++
 # A Projects section created with the Portfolio widget.
 widget = "portfolio"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
-title = "Projects"
-subtitle = ""
+title = "Projets"
+subtitle = "J'aime apprendre par la pratique. Voici une liste des projets que j'ai réalisés. La plupart est hébergée sur mon [Github](https://github.com/agailloty)"
 
 [content]
   # Page type to display. E.g. project.
@@ -19,11 +19,15 @@ subtitle = ""
   # To remove toolbar, delete/comment all instances of `[[content.filter_button]]` below.
   
   # Default filter index (e.g. 0 corresponds to the first `[[filter_button]]` instance below).
-  filter_default = 0
+  filter_default = 1
   
   [[content.filter_button]]
     name = "All"
     tag = "*"
+
+[[content.filter_button]]
+    name = "Python adventure"
+    tag = "Python"
   
   [[content.filter_button]]
     name = "Deep Learning"
@@ -45,7 +49,7 @@ subtitle = ""
   #   1 = List
   #   3 = Card
   #   5 = Showcase
-  view = 3
+  view = 5
 
   # For Showcase view, flip alternate rows?
   flip_alt_rows = false
