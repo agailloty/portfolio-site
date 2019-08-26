@@ -28,6 +28,10 @@ subtitle = ""
   [[content.filter_button]]
     name = "Deep Learning"
     tag = "Deep Learning"
+
+[[content.filter_button]]
+    name = "Python adventure"
+    tag = "Python"
   
   [[content.filter_button]]
     name = "Other"
