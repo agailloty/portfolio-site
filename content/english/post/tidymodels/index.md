@@ -1,14 +1,14 @@
 ---
 authors:
 - admin
-categories: [R,tidymodels]
-date: "2019-09-31T16:44:00Z"
+categories: [R, tidymodels]
+date: "2019-09-31"
 draft: false
 featured: true
 image:
   caption: ""
   focal_point: ""
-projects: [tidymodels]
+projects: []
 subtitle: 
 summary: A dive in the new galaxy called tidymodels which surprisingly resembles a lot the known tidyverse galaxy !
 tags: [R, tidyverse]
