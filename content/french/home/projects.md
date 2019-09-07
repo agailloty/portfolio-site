@@ -34,7 +34,7 @@ subtitle = "J'aime apprendre par la pratique. Voici une liste des projets que j'
     tag = "ML"
 	
 [[content.filter_button]]
-	name = #Rstats
+	name = Rstats
 	tag = R
 
 
