@@ -26,12 +26,16 @@ subtitle = "J'aime apprendre par la pratique. Voici une liste des projets que j'
     tag = "*"
 
 [[content.filter_button]]
-    name = "Python adventure"
+    name = "Python"
     tag = "Python"
   
   [[content.filter_button]]
-    name = "Deep Learning"
-    tag = "Deep Learning"
+    name = "Machine Learning"
+    tag = "ML"
+	
+[[content.filter_button]]
+	name = #Rstats
+	tag = R
 
 
 [design]
