@@ -12,7 +12,7 @@ projects: []
 subtitle: 
 summary: Plot all the columns of your dataset
 tags: [R, dplyr, ggplot2, tidyverse]
-title: Visualize your dataset columns
+title: Visualize multiple columns of a dataset
 ---
 For data analysis or Machine Learning, understanding your dataset is crucial if you want to get insights or tune your models. One of the best way to understand your dataset is to see it visually.
 In this short post I'd like to share with you a way I found not so long ago to help you visualize all the columns of your dataset with ggplot2 without the need to make multiple individual plots.  
