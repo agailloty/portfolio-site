@@ -53,7 +53,7 @@ title = "The Data Enthusiast !"
 <!-- Add font awesome icons to buttons  -->
 
 <button onclick="location.href='post/'"style="color:white;margin-left:10px;font-size:1.0em;" class="btn"><i class="fas fa-book-reader"></i> Blog posts </a></button>
-<button onclick="location.href='project/'" style="color:white;margin-left:10px;font-size:1.0em;" class="btn"><i class="fa fa-folder"></i> My projects</button>
+<button onclick="location.href='#projects'" style="color:white;margin-left:10px;font-size:1.0em;" class="btn"><i class="fa fa-folder"></i> My projects</button>
 
 Welcome to **my personal website**, <br/> 
 I am glad you pass by here !   
