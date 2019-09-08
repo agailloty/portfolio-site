@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Student in Economics
+role: Economics students turning to Data science
 
 # Organizations/Affiliations
 organizations:
@@ -22,16 +22,19 @@ bio: I'm interested in quantitative Economics, Econometrics and Data Science.
 
 interests:
 - Data Analysis
+- Machine Learning
 - Applied Econometrics
 - Statistics
-- Time series
 - Rstats
 
 education:
   courses:
+  - course : Ms in Applied Economics : Economic engeneering and assessment
+  institution: Université d'Angers
+  year: 2019 - 2021
   - course: BSc in Economics
     institution: Université d'Angers
-    year: 2019
+    year: 2016 - 2019
   
 
 # Social/Academic Networking
@@ -67,5 +70,11 @@ user_groups:
 - Visitors
 ---
 
-I am a student in Economics with a demonstrated interest in quantitative economics. I like to find patterns in data and extract knowledge from it to solve problems. From Econometrics modelling to interpreting p-values I like to share the results of my findings in a clear and approachable way.
-Most importantly I'm curious and eager to learn new things. My current pursuits are data science and machine learning for which I've been spending significant amount of time in learning both theory and programming skills which include R and Python. I like to challenge on real world data from Kaggle.
+I am a Master Degree student in Applied Economics turning to Data science. My Bachelor in Economics equipped me with solid groundings in Math, Statistics, Econometrics and Economic reasoning (both micro and macro economics).
+
+I'm turning to Data science because I love taking challenges that let me grow and solving business problems with data is something I really want to do.
+
+I strive for continuous progress in everything I do. I do not settle on titles or diplomas but I am skills-and-solutions oriented and so am keen to work in an environment which encourages me to succeed and grow professionally where I can use my skills and knowledge appropriately.
+
+I am open to all propositions related to Data science whether it is for an internship or job offers.
+I'm proficient with R programming and with the tidyverse ecosystems for Data science. I am now focusing on transfering these skills to Python so to be fluent with both languages. 

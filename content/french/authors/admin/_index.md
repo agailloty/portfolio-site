@@ -22,15 +22,20 @@ bio: I'm interested in quantitative Economics, Econometrics and Data Science.
 
 interests:
 - Analyse de données
+- Machine Learning
 - Econométrie appliquée
 - Statistiques multidimensionnelles
 - Rstats
 
 education:
   courses:
+  - course: Master Economie Appliquée parcours Ingénénierie économique et évaluation
+  institution: Université d'Angers
+  year: 2019 - 2021
+
   - course: Licence en Économie
     institution: Université d'Angers
-    year: 2019
+    year: 2016 - 2019
   
 
 # Social/Academic Networking
