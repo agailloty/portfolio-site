@@ -6,6 +6,6 @@ image:
   focal_point: Smart
 summary: This Kaggle kernel aims to explore how suicide rate has evolved in the world since 1985.
 tags: 
-- Kaggle
+- R
 title: Overview of suicide in the world from 1985 to 2016
 ---
