@@ -29,14 +29,10 @@ interests:
 
 education:
   courses:
-  course: Ms in Applied Economics : Economic engeneering and assessment
+  - course: Ms in Applied Economics : Economic engeneering and assessment
   institution: Université d'Angers
   year: 2019 - 2021
   
-  
-  - course: BSc in Economics
-    institution: Université d'Angers
-    year: 2016 - 2019
   
 
 # Social/Academic Networking

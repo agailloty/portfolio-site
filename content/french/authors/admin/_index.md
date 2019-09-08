@@ -33,11 +33,6 @@ education:
   institution: Université d'Angers
   year: 2019 - 2021
 
-  - course: Licence en Économie
-    institution: Université d'Angers
-    year: 2016 - 2019
-  
-
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
