@@ -29,7 +29,7 @@ interests:
 
 education: 
   courses: 
-    - course: "Master Economie Appliquée parcours Ingénénierie économique et évaluation"
+    - course: "Master Economie Appliquée parcours Ingénierie économique et évaluation"
       institution: "Université d'Angers"
       year: 2020
     - course: "Licence en Économie"
