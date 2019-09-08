@@ -6,7 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
 title = "My projects"
-subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill.Most of my projects are hosted on [Github](https://github.com/agailloty)"
+subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill. Most of my projects are hosted on [Github](https://github.com/agailloty)"
 
 [content]
   # Page type to display. E.g. project.
