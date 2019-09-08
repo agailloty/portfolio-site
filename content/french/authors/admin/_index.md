@@ -31,7 +31,12 @@ education:
   courses:
   - course: Master Economie Appliquée parcours Ingénénierie économique et évaluation
   institution: Université d'Angers
-  year: 2019 - 2021
+  year: 2020
+  - course: Licence en Économie
+    institution: Université d'Angers
+    year: 2019
+  
+  
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
