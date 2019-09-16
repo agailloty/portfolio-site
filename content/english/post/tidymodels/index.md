@@ -14,6 +14,7 @@ summary: A dive in the new galaxy called tidymodels which surprisingly resembles
 tags: [R, tidyverse]
 title: Discovering the tidymodels
 ---
+
 After 1 year and half using the tidyverse ecosystem for data science I can say today that I'm familiar with the some core packages of ecosystem whether it be for data import, manipulation and transformation with `{readr}, {dplyr} and {tidyr}`, for data visualization with `{ggplot2}`, for functional programming with `{purrr}`, for working with strings and date with `{stringr} and {lubridate}`.   
 
 
