@@ -1,6 +1,6 @@
 ---
 date: "2018-04-27T00:00:00Z"
-external_link: https://www.kaggle.com/agailloty/overview-of-suicide-in-the-world/report
+external_link: https://agailloty.github.io/suicide-evolution/
 image:
   caption: Made with ggplot2
   focal_point: Smart
