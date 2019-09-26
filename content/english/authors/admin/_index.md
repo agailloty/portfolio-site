@@ -47,6 +47,9 @@ social:
 - icon: envelope
   icon_pack: fas
   link: 'mailto:mr.clerisaxel@hotmail.fr'  # For a direct email link, use "mr.clerisaxel@hotmail.fr".
+- icon: linkedin-in
+  icon_pack: fab
+  link: https://www.linkedin.com/in/cgailloty/
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/cleris_mr
