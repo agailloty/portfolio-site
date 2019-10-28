@@ -74,5 +74,7 @@ user_groups:
 - Researchers
 - Visitors
 ---
-
-Après une licence en Économie et une première expérience en tant que programmeur statistique je me projette sur les métiers de la data science. J'aime particulièrement extraire de l'information à partir d'un jeu de donnée complexe en vue de fournir des éléments d'aides à la décision.
+Actuellement en [M1 Ingénierie et évaluations économiques (IEE)](http://formations.univ-angers.fr/fr/offre-de-formation/master-lmd-MLMD/droit-economie-gestion-02/master-economie-appliquee-program-master-economie-appliquee/parcours-ingenierie-et-evaluations-economiques-subprogram-parcours-ingenierie-economique-et-evaluation-des-politiques-publiques.html) à l'Université d'Angers ,
+je suis très intéressé par la Data science et le Machine Learning.
+Profitant d'une grande capacité à apprendre en autodidacte, je me forme conjointement à mon Master aux métiers d'avenir. 
+Je suis en recherche de stage dans la construction, l'élaboration et l'évaluation des modèles de Machine Learning ou économétriques.
