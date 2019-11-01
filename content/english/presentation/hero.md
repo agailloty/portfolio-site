@@ -40,7 +40,7 @@ title = "Presentations Gallery"
 \
 \
 
-Presentations to come
+Presentations to come : 
 
 - [The joy of stats](https://docs.google.com/presentation/d/1BXnZmodRpez7MU-Y0RAvh6s98XVmYHE_bbgPwTDDU60/edit?usp=sharing)
 \
