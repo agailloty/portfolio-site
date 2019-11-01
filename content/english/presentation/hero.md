@@ -35,12 +35,14 @@ title = "Presentations Gallery"
 #   Remove a link/note by deleting a cta/note block.
 
 +++
-\
+
 \
 \
 \
 
 Presentations to come
+
+- [The joy of stats](https://docs.google.com/presentation/d/1BXnZmodRpez7MU-Y0RAvh6s98XVmYHE_bbgPwTDDU60/edit?usp=sharing)
 \
 \
 \
