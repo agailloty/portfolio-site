@@ -5,8 +5,8 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
-title = "All of visualizations I produced"
-subtitle = "Using R or Python"
+title = "Slides"
+subtitle = ""
 
 [content]
   # Page type to display. E.g. project.
