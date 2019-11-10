@@ -19,7 +19,7 @@ title: Gaussienne avec sympy
 # Les mathématiques symboliques avec Python
 
 ## Fonction de densité d'une gaussienne
-![image.png](attachment:image.png)
+![image.png](gaussienne_formula.png)
 
 
 ```python
