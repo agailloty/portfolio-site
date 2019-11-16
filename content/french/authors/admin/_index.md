@@ -62,7 +62,7 @@ social:
   # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 - icon: cv
   icon_pack: ai
-  link: files/fr_cv.pdf  
+  link: https://www.slideshare.net/secret/obhKvOjiNOkt2C
 
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
