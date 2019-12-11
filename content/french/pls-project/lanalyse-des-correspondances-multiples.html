@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 L’analyse des correspondances multiples | Projet Data Mining</title>
+  <meta name="description" content="6 L’analyse des correspondances multiples | Projet Data Mining" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 L’analyse des correspondances multiples | Projet Data Mining" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 L’analyse des correspondances multiples | Projet Data Mining" />
+  
+  
+  
+
+<meta name="author" content="Axel-Cleris Gailloty" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="analyse-de-donnees.html"/>
+<link rel="next" href="classification-ascendante-hierarchique-cah.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="les-donnees.html"><a href="les-donnees.html"><i class="fa fa-check"></i><b>2</b> Les données</a><ul>
+<li class="chapter" data-level="2.1" data-path="les-donnees.html"><a href="les-donnees.html#actions-realisees-pour-nettoyer-les-donnees"><i class="fa fa-check"></i><b>2.1</b> Actions réalisées pour nettoyer les données</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistiques-descriptives.html"><a href="statistiques-descriptives.html"><i class="fa fa-check"></i><b>3</b> Statistiques descriptives</a></li>
+<li class="chapter" data-level="4" data-path="analyse-des-correlations.html"><a href="analyse-des-correlations.html"><i class="fa fa-check"></i><b>4</b> Analyse des corrélations</a></li>
+<li class="chapter" data-level="5" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html"><i class="fa fa-check"></i><b>5</b> Analyse de données</a><ul>
+<li class="chapter" data-level="5.1" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html#lanalyse-en-composantes-principales"><i class="fa fa-check"></i><b>5.1</b> L’analyse en composantes principales</a></li>
+<li class="chapter" data-level="5.2" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html#observation-dun-effet-de-taille"><i class="fa fa-check"></i><b>5.2</b> Observation d’un effet de taille</a></li>
+<li class="chapter" data-level="5.3" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html#correction-de-leffet-de-taille"><i class="fa fa-check"></i><b>5.3</b> Correction de l’effet de taille</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html"><i class="fa fa-check"></i><b>6</b> L’analyse des correspondances multiples</a><ul>
+<li class="chapter" data-level="6.1" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#analyse-graphique"><i class="fa fa-check"></i><b>6.1</b> Analyse graphique</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#premier-plan-factoriel"><i class="fa fa-check"></i><b>6.1.1</b> Premier plan factoriel</a></li>
+<li class="chapter" data-level="6.1.2" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#second-plan-factoriel"><i class="fa fa-check"></i><b>6.1.2</b> Second plan factoriel</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#resultats-tabulaires"><i class="fa fa-check"></i><b>6.2</b> Résultats tabulaires</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#variables-quantitatives-supplementaires"><i class="fa fa-check"></i><b>6.2.1</b> Variables quantitatives supplémentaires</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html"><i class="fa fa-check"></i><b>7</b> Classification ascendante hiérarchique (CAH)</a><ul>
+<li class="chapter" data-level="7.1" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#caracteristiques-des-clusters"><i class="fa fa-check"></i><b>7.1</b> Caractéristiques des clusters</a></li>
+<li class="chapter" data-level="7.2" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#cluster-1"><i class="fa fa-check"></i><b>7.2</b> Cluster 1</a></li>
+<li class="chapter" data-level="7.3" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#cluster-2"><i class="fa fa-check"></i><b>7.3</b> Cluster 2</a></li>
+<li class="chapter" data-level="7.4" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#cluster-3"><i class="fa fa-check"></i><b>7.4</b> Cluster 3</a></li>
+<li class="chapter" data-level="7.5" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#individus-parangons-et-individus-specifiques"><i class="fa fa-check"></i><b>7.5</b> Individus parangons et individus spécifiques</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> Conclusion</a></li>
+<li class="chapter" data-level="9" data-path="bibliographie.html"><a href="bibliographie.html"><i class="fa fa-check"></i><b>9</b> Bibliographie</a></li>
+<li class="chapter" data-level="10" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i><b>10</b> Annexes</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Projet Data Mining</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lanalyse-des-correspondances-multiples" class="section level1">
+<h1><span class="header-section-number">6</span> L’analyse des correspondances multiples</h1>
+<p>L’analyse des correspondances multiples est une technique descriptive visant à résumer l’information contenu dans un grand nombre de variables afin de faciliter l’interprétation des corrélations existantes entre ces différentes variables. On cherche à savoir quelles sont les modalités corrélées entre elles.</p>
+<p><img src="main_files/figure-html/unnamed-chunk-22-1.png" width="3000" /></p>
+<p>En ACM, les pourcentages expliqués par les dimensions sont en général plus faibles que pour une ACP. Cela est due principalement au fait que toutes les modalités des colonnes sont transformées elles-mêmes en colonnes. Ce qui fait exploser le nombre des colonnes.</p>
+<p>Nous allons dans le cadre de ce projet retenir 4 dimensions pour expliquer la variance entre les bibliothèques. Ces 4 dimensions expliquent en total 31.3% de la variance totale. Le choix de 4 dimensions nous permet également de représenter 2 plans factoriels sur lesquels nous observons la forme que prend le nuage des points des individus.</p>
+<p>Etant donné le grand nombre des variables créées par l’ACM, nous n’allons représenter pour chaque plan factoriel que les 20 premières contributions pour ne pas rendre illisible le graphique.</p>
+<div id="analyse-graphique" class="section level2">
+<h2><span class="header-section-number">6.1</span> Analyse graphique</h2>
+<div id="premier-plan-factoriel" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Premier plan factoriel</h3>
+<p><img src="main_files/figure-html/unnamed-chunk-23-1.png" width="3600" /></p>
+<p>Le premier plan factoriel fait sortir une opposition assez nette entre les bibliothèques deux catégories de bibliothèques : d’un côté, on observe des bibliothèques possédant des branches (branch_libraries_yes), qui ont un catalogue de plus de 25000 oeuvres imprimées et une utilisation très importante d’Internet situées à droite du cadran et de l’autre côté des bibliothèques qui n’ont pas de branches, qui ouvrent moins 2340 heures (hours_open &lt;2340_h) et qui sont des bibliothèques à guichet unique (administrative_structure = Single Outlet (S0)).</p>
+<p>Représentons également le nuage de points des individus sur le premier plan factoriel en coloriant les individus (bibliothèques) selon qu’ils possèdent ou non une branche.</p>
+<p><img src="main_files/figure-html/unnamed-chunk-24-1.png" width="3600" /></p>
+<p>Nous comprenons mieux à l’aide de ce nuage des points des individus colorié pourquoi la variable branch_libraries est d’une grande contribution. On observe qu’elle discrimine nettement les bibliothèques. A gauche se trouvent des bibliothèques qui n’ont pas de branches et à droite celles qui en ont.</p>
+</div>
+<div id="second-plan-factoriel" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Second plan factoriel</h3>
+<p><img src="main_files/figure-html/unnamed-chunk-25-1.png" width="3600" /></p>
+<p>Le second plan factoriel met en opposition la taille des Etats dans lesquels se trouvent les bibliothèques, le nombre de libraires diplômés, le téléchargement des fichiers audio, la structure administrative des bibliothèques et leurs statuts juridiques.<br />
+A droite du plan se trouvent des bibliothèques qui se situent dans les Etats de plus de plus de 10 million d’habitats (10M+). Ce sont des bibliothèques gérées par les comtés (CO) et qui ont un statut d’association à but non lucratif (NP). A gauche se trouvent des bibliothèques plutôt modernes, qui utilisent Internet, qui sont gérées par la municipalité (CI) ou par les quartiers (LD).</p>
+<p>Nous détaillerons davantage les caractéristiques des bibliothèques lorsqu’elles seront classifiées hiérarchiquement en fonction de leurs similitudes.</p>
+<p>Représentons le nuage des points bibliothèques sur le deuxième axe factoriel.</p>
+<p><img src="main_files/figure-html/unnamed-chunk-26-1.png" width="3600" /></p>
+<p>Ce second nuage colorié par la taille des Etats montre une saturation. Cela signifie que le pouvoir explicatif de ce plan est plus faible que le premier. En effet le 3e axe résume 6.6% de l’inertie du nuage et le 4e résume 4.3%. Les résultats sont donc à relativiser. Il y a beaucoup de chevauchement et on ne voit pas de tendance dominante.</p>
+</div>
+</div>
+<div id="resultats-tabulaires" class="section level2">
+<h2><span class="header-section-number">6.2</span> Résultats tabulaires</h2>
+<p>Le package que nous utilisons pour l’analyse des données faire ressortir dans de nombreux tableaux les résultats intermédiaires à l’interprétation des graphiques que nous venons de commenter. Les tableaux des résultats contiennent par exemple la qualité de représentation des modalités et des individus. La plupart des informations contenues dans ces tableaux aident à affiner l’interprétation mais elles peuvent également être redondantes. Nous allons afficher uniquement le <span class="math inline">\(cos^2\)</span> qui représente la qualité de représentation d’une modalité sur un axe factoriel. Le reste des résultats est placé dans les annexes.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Dim 1</th>
+<th align="right">Dim 2</th>
+<th align="right">Dim 3</th>
+<th align="right">Dim 4</th>
+<th align="right">Dim 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MA</td>
+<td align="right">0.03</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.04</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="even">
+<td>MO</td>
+<td align="right">0.64</td>
+<td align="right">0.06</td>
+<td align="right">0.07</td>
+<td align="right">0.00</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td>SO</td>
+<td align="right">0.69</td>
+<td align="right">0.06</td>
+<td align="right">0.09</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>&lt;25000</td>
+<td align="right">0.49</td>
+<td align="right">0.04</td>
+<td align="right">0.09</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td>25000+</td>
+<td align="right">0.49</td>
+<td align="right">0.04</td>
+<td align="right">0.09</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="even">
+<td>audio_collection_no</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>audio_collection_yes</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>&lt;=65000</td>
+<td align="right">0.01</td>
+<td align="right">0.31</td>
+<td align="right">0.01</td>
+<td align="right">0.20</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td>65K-300K</td>
+<td align="right">0.00</td>
+<td align="right">0.02</td>
+<td align="right">0.01</td>
+<td align="right">0.04</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td>300K+</td>
+<td align="right">0.00</td>
+<td align="right">0.25</td>
+<td align="right">0.06</td>
+<td align="right">0.11</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>HQ</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.03</td>
+<td align="right">0.00</td>
+<td align="right">0.20</td>
+</tr>
+<tr class="even">
+<td>ME</td>
+<td align="right">0.06</td>
+<td align="right">0.04</td>
+<td align="right">0.17</td>
+<td align="right">0.08</td>
+<td align="right">0.09</td>
+</tr>
+<tr class="odd">
+<td>NO</td>
+<td align="right">0.04</td>
+<td align="right">0.04</td>
+<td align="right">0.14</td>
+<td align="right">0.09</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="even">
+<td>downloadable_audio_small</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.02</td>
+<td align="right">0.10</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td>downloadable_audio_medium</td>
+<td align="right">0.00</td>
+<td align="right">0.09</td>
+<td align="right">0.10</td>
+<td align="right">0.08</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="even">
+<td>downloadable_audio_high</td>
+<td align="right">0.00</td>
+<td align="right">0.06</td>
+<td align="right">0.12</td>
+<td align="right">0.18</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td>physical_video_no</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td>physical_video_yes</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td>&lt;2340_h</td>
+<td align="right">0.55</td>
+<td align="right">0.04</td>
+<td align="right">0.08</td>
+<td align="right">0.04</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="even">
+<td>2340-3150h</td>
+<td align="right">0.00</td>
+<td align="right">0.15</td>
+<td align="right">0.27</td>
+<td align="right">0.10</td>
+<td align="right">0.08</td>
+</tr>
+<tr class="odd">
+<td>&gt;3150_h</td>
+<td align="right">0.70</td>
+<td align="right">0.03</td>
+<td align="right">0.05</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>young_adult_programs_no</td>
+<td align="right">0.17</td>
+<td align="right">0.04</td>
+<td align="right">0.05</td>
+<td align="right">0.01</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td>young_adult_programs_yes</td>
+<td align="right">0.17</td>
+<td align="right">0.04</td>
+<td align="right">0.05</td>
+<td align="right">0.01</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="even">
+<td>internet_computer_use_low</td>
+<td align="right">0.27</td>
+<td align="right">0.06</td>
+<td align="right">0.10</td>
+<td align="right">0.04</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>internet_computer_use_medium</td>
+<td align="right">0.11</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>internet_computer_use_high</td>
+<td align="right">0.01</td>
+<td align="right">0.04</td>
+<td align="right">0.14</td>
+<td align="right">0.24</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>internet_computer_use_very_high</td>
+<td align="right">0.44</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.10</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>500K-4M</td>
+<td align="right">0.12</td>
+<td align="right">0.27</td>
+<td align="right">0.01</td>
+<td align="right">0.01</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="odd">
+<td>4M-10M</td>
+<td align="right">0.14</td>
+<td align="right">0.01</td>
+<td align="right">0.19</td>
+<td align="right">0.00</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="even">
+<td>10M+</td>
+<td align="right">0.00</td>
+<td align="right">0.59</td>
+<td align="right">0.21</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td>CC</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.11</td>
+</tr>
+<tr class="even">
+<td>CI</td>
+<td align="right">0.20</td>
+<td align="right">0.10</td>
+<td align="right">0.12</td>
+<td align="right">0.07</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="odd">
+<td>CO</td>
+<td align="right">0.12</td>
+<td align="right">0.08</td>
+<td align="right">0.08</td>
+<td align="right">0.05</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td>LD</td>
+<td align="right">0.11</td>
+<td align="right">0.00</td>
+<td align="right">0.10</td>
+<td align="right">0.03</td>
+<td align="right">0.29</td>
+</tr>
+<tr class="odd">
+<td>MJ</td>
+<td align="right">0.04</td>
+<td align="right">0.01</td>
+<td align="right">0.04</td>
+<td align="right">0.00</td>
+<td align="right">0.06</td>
+</tr>
+<tr class="even">
+<td>NL</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.02</td>
+<td align="right">0.04</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td>NP</td>
+<td align="right">0.01</td>
+<td align="right">0.52</td>
+<td align="right">0.14</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="even">
+<td>OT</td>
+<td align="right">0.00</td>
+<td align="right">0.07</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>SD</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="even">
+<td>wireless_internet_sessions_no</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="odd">
+<td>wireless_internet_sessions_yes</td>
+<td align="right">0.01</td>
+<td align="right">0.00</td>
+<td align="right">0.03</td>
+<td align="right">0.02</td>
+<td align="right">0.02</td>
+</tr>
+<tr class="even">
+<td>branch_libraries_no</td>
+<td align="right">0.63</td>
+<td align="right">0.05</td>
+<td align="right">0.12</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>branch_libraries_yes</td>
+<td align="right">0.63</td>
+<td align="right">0.05</td>
+<td align="right">0.12</td>
+<td align="right">0.00</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>local_cooperative_agreements_no</td>
+<td align="right">0.15</td>
+<td align="right">0.08</td>
+<td align="right">0.06</td>
+<td align="right">0.01</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="odd">
+<td>local_cooperative_agreements_yes</td>
+<td align="right">0.15</td>
+<td align="right">0.08</td>
+<td align="right">0.06</td>
+<td align="right">0.01</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="even">
+<td>&lt;7500</td>
+<td align="right">0.00</td>
+<td align="right">0.28</td>
+<td align="right">0.19</td>
+<td align="right">0.03</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="odd">
+<td>7500+</td>
+<td align="right">0.00</td>
+<td align="right">0.28</td>
+<td align="right">0.19</td>
+<td align="right">0.03</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>&lt;5</td>
+<td align="right">0.11</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.28</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="odd">
+<td>5-10</td>
+<td align="right">0.08</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.21</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td>+10</td>
+<td align="right">0.03</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.07</td>
+<td align="right">0.03</td>
+</tr>
+</tbody>
+</table>
+<p>Le <span class="math inline">\(cos^2\)</span> montre la qualité de représentation des modalités sur les axes factoriels où ils sont projettés. Le cosinus carré prend une valeur entre 0 et 1. Nous voyons grâce à ce tableau que plusieurs des modalités ont de très faibles <span class="math inline">\(cos^2\)</span>, seules quelques unes sont bien représentées. Sur l’axe 1, les modalités MO, SO, &lt;2500, 2500+, &lt;2340h, &gt;3150h, internet_use, branch_libraries (yes et no) ont des cosinus carré supérieurs à 0.4, cela montre qu’ils sont assez bien représentés et cela signifie que ces modalités caractérisent bien l’axe. Ce qu’on observe également c’est que la valeur des <span class="math inline">\(cos^2\)</span> diminue à mesure qu’on passe à des axes qui ont de faibles contributions. Sur l’axe 2, le cosinus carré le plus élevé est de 0.52 et est prise par la modalité NP. Les autres modalités ayant des qualités de représentation assez élevée sont &lt;7500 et 7500+ qui représente le niveau de collection digitale des bibliothèques.</p>
+<div id="variables-quantitatives-supplementaires" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Variables quantitatives supplémentaires</h3>
+<p>Nous avons spécifié dans l’ACM des variables quantitatives supplémentaires (ou encore illustratives) pour permettre d’affiner l’interprétation. Une variable illustrative n’intervient pas dans le calcul mais aide à placer dans les résultats de l’ACM dans un contexte.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Dim 1</th>
+<th align="right">Dim 2</th>
+<th align="right">Dim 3</th>
+<th align="right">Dim 4</th>
+<th align="right">Dim 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>print_subscriptions</td>
+<td align="right">0.58</td>
+<td align="right">0.03</td>
+<td align="right">-0.04</td>
+<td align="right">0.29</td>
+<td align="right">-0.01</td>
+</tr>
+<tr class="even">
+<td>registered_users</td>
+<td align="right">0.59</td>
+<td align="right">0.00</td>
+<td align="right">0.10</td>
+<td align="right">0.34</td>
+<td align="right">0.07</td>
+</tr>
+<tr class="odd">
+<td>childrens_programs</td>
+<td align="right">0.58</td>
+<td align="right">0.07</td>
+<td align="right">0.01</td>
+<td align="right">0.24</td>
+<td align="right">0.04</td>
+</tr>
+<tr class="even">
+<td>local_government_operating_revenue</td>
+<td align="right">0.61</td>
+<td align="right">-0.04</td>
+<td align="right">-0.01</td>
+<td align="right">0.39</td>
+<td align="right">-0.02</td>
+</tr>
+</tbody>
+</table>
+<p>On observe que l’effet de taille constatée dans l’ACP persiste avec les variables quantitatives illustratves. Toutes les variables sont positivement corrélées avec le premier axe factoriel.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analyse-de-donnees.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="classification-ascendante-hierarchique-cah.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

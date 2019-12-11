@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Analyse de données | Projet Data Mining</title>
+  <meta name="description" content="5 Analyse de données | Projet Data Mining" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Analyse de données | Projet Data Mining" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Analyse de données | Projet Data Mining" />
+  
+  
+  
+
+<meta name="author" content="Axel-Cleris Gailloty" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="analyse-des-correlations.html"/>
+<link rel="next" href="lanalyse-des-correspondances-multiples.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="les-donnees.html"><a href="les-donnees.html"><i class="fa fa-check"></i><b>2</b> Les données</a><ul>
+<li class="chapter" data-level="2.1" data-path="les-donnees.html"><a href="les-donnees.html#actions-realisees-pour-nettoyer-les-donnees"><i class="fa fa-check"></i><b>2.1</b> Actions réalisées pour nettoyer les données</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistiques-descriptives.html"><a href="statistiques-descriptives.html"><i class="fa fa-check"></i><b>3</b> Statistiques descriptives</a></li>
+<li class="chapter" data-level="4" data-path="analyse-des-correlations.html"><a href="analyse-des-correlations.html"><i class="fa fa-check"></i><b>4</b> Analyse des corrélations</a></li>
+<li class="chapter" data-level="5" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html"><i class="fa fa-check"></i><b>5</b> Analyse de données</a><ul>
+<li class="chapter" data-level="5.1" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html#lanalyse-en-composantes-principales"><i class="fa fa-check"></i><b>5.1</b> L’analyse en composantes principales</a></li>
+<li class="chapter" data-level="5.2" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html#observation-dun-effet-de-taille"><i class="fa fa-check"></i><b>5.2</b> Observation d’un effet de taille</a></li>
+<li class="chapter" data-level="5.3" data-path="analyse-de-donnees.html"><a href="analyse-de-donnees.html#correction-de-leffet-de-taille"><i class="fa fa-check"></i><b>5.3</b> Correction de l’effet de taille</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html"><i class="fa fa-check"></i><b>6</b> L’analyse des correspondances multiples</a><ul>
+<li class="chapter" data-level="6.1" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#analyse-graphique"><i class="fa fa-check"></i><b>6.1</b> Analyse graphique</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#premier-plan-factoriel"><i class="fa fa-check"></i><b>6.1.1</b> Premier plan factoriel</a></li>
+<li class="chapter" data-level="6.1.2" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#second-plan-factoriel"><i class="fa fa-check"></i><b>6.1.2</b> Second plan factoriel</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#resultats-tabulaires"><i class="fa fa-check"></i><b>6.2</b> Résultats tabulaires</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="lanalyse-des-correspondances-multiples.html"><a href="lanalyse-des-correspondances-multiples.html#variables-quantitatives-supplementaires"><i class="fa fa-check"></i><b>6.2.1</b> Variables quantitatives supplémentaires</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html"><i class="fa fa-check"></i><b>7</b> Classification ascendante hiérarchique (CAH)</a><ul>
+<li class="chapter" data-level="7.1" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#caracteristiques-des-clusters"><i class="fa fa-check"></i><b>7.1</b> Caractéristiques des clusters</a></li>
+<li class="chapter" data-level="7.2" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#cluster-1"><i class="fa fa-check"></i><b>7.2</b> Cluster 1</a></li>
+<li class="chapter" data-level="7.3" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#cluster-2"><i class="fa fa-check"></i><b>7.3</b> Cluster 2</a></li>
+<li class="chapter" data-level="7.4" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#cluster-3"><i class="fa fa-check"></i><b>7.4</b> Cluster 3</a></li>
+<li class="chapter" data-level="7.5" data-path="classification-ascendante-hierarchique-cah.html"><a href="classification-ascendante-hierarchique-cah.html#individus-parangons-et-individus-specifiques"><i class="fa fa-check"></i><b>7.5</b> Individus parangons et individus spécifiques</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> Conclusion</a></li>
+<li class="chapter" data-level="9" data-path="bibliographie.html"><a href="bibliographie.html"><i class="fa fa-check"></i><b>9</b> Bibliographie</a></li>
+<li class="chapter" data-level="10" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i><b>10</b> Annexes</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Projet Data Mining</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analyse-de-donnees" class="section level1">
+<h1><span class="header-section-number">5</span> Analyse de données</h1>
+<div id="lanalyse-en-composantes-principales" class="section level2">
+<h2><span class="header-section-number">5.1</span> L’analyse en composantes principales</h2>
+<p>L’analyse en composantes principales (ACP) est une méthode factorielle de réduction de dimension des données quantitatives complexes. L’ACP se base sur la matrice des variances-covariances. Elle cherche à résumer la dispersion des données.
+Le jeu de données sur lequel ce projet est réalisé est composé à majorité des données quantitatives, comme nous venons de voir dans les statistiques descriptives et les corrélations. Donc le choix d’une ACP pour analyser les données est justifié.
+L’analyse en composante principale que nous effectuons est centrée et réduite. Le but de centrer et réduire les données est de donner le même poids à chaque variable présente dans le jeu de données.</p>
+<p>Le jeu de données initial contient 9225 observations, mais pour des raisons d’efficience (notamment pour la classification ascendante hiérarchique) nous n’allons utiliser qu’un échantillon tiré aléatoirement de 3000 individus du jeu de données. Ainsi nous travaillons sur un jeu de données de 3000 individus et 22 variables.</p>
+<p>Nous allons réaliser une première ACP sur le jeu de données, en prenant toutes les colonnes numériques comme des colonnes actives (colonnes qui entrent dans le calcul) et les colonnes <em>catégoriques structure administratives</em>, <em>les relations avec les autres bibliothèques</em>, <em>le code de la région</em> et <em>le statut juridique des bibliothèques</em>. Voici les résultats de cette première ACP :</p>
+<p><img src="main_files/figure-html/unnamed-chunk-13-1.png" width="3000" /></p>
+<p>Ce graphique présente le pourcentage des variances expliquées par les axes factoriels. Le premier axe explique à lui seul 50% des variances, autrement dit, si on ne retient que cet axe on peut expliquer 50% des différences qui existent entre les bibliothèques. Or nous observons que le deuxième axe n’explique que 10%, on peut se douter qu’il y a un effet de taille dans l’analyse en composante principale.</p>
+<p>Regardons le cercle des corrélations de l’ACP. Ce cercle montre la force de l’association des variables à deux axes factoriels (ici les axes 1 et 2).</p>
+<p><img src="main_files/figure-html/unnamed-chunk-14-1.png" width="3000" /></p>
+<p>On observe que toutes les variables sont positivement corrélées à l’axe 1 et très peu sont négativement corrélées à l’axe 2. Il s’agit d’un effet de taille.</p>
+</div>
+<div id="observation-dun-effet-de-taille" class="section level2">
+<h2><span class="header-section-number">5.2</span> Observation d’un effet de taille</h2>
+<p>On observe un effet de taille dans une ACP sur les variables lorsque tous les points sont regroupés du même côté d’un point factoriel. La première analyse que nous venons de faire montre clairement un effet de taille car tous les points sont positivement corrélés à l’axe 1 du plan factoriel.</p>
+<p>Il existe plusieurs façons de corriger un effet de taille. La méthode la plus utilisée pour corriger l’effet de taille est de transformer les variables quantitatives en valeurs catégoriques et utiliser une autre méthode d’analyse factorielle, en l’occurence l’analyse des correspondances multiples (ACM).</p>
+<p>Nous allons commencer dans un premier temps, à nous inspirer des statistiques descriptives des variables quantitatives et de la distribution des colonnes pour transformer les données numériques en données qualitatives.</p>
+</div>
+<div id="correction-de-leffet-de-taille" class="section level2">
+<h2><span class="header-section-number">5.3</span> Correction de l’effet de taille</h2>
+<p>Il convient dans un premier d’observer la distribution de chaque variable pour se faire une idée du nombre de modalités qu’on peut créer pour chaque variable.</p>
+<p><img src="main_files/figure-html/unnamed-chunk-15-1.png" width="3600" /></p>
+<p>Au regard de ce graphique nous observons une polarisation extrême de la distribution de colonnes numériques. Notre but dans la correction de l’effet de taille est de transformer les colonnes numériques en des catégories, autrement dit, nous cherchons à discrétiser ces colonnes. <strong>Or en ACM la part de l’inertie totale due à une modalité est d’autant plus grande que la modalité est rare</strong>, autrement dit les modalités peu fréquentes ont plus de poids que les modalités fréquentes, donc il est important que nous nous assurions que les intervalles que nous allons créer aient des fréquences à peu près équivalentes. Cela implique que d’enlever les bibliothèques qui prennent des valeurs extrêmes afin de ne pas biaiser les indicateurs de moments (quartiles) sur lesquels nous nous basons pour diviser les colonnes numériques et que ces bibliothèques constituent à elles seules des catégories du fait des valeurs qu’elles prennent.</p>
+<p>Pour enlever les bibliothèques ayant les valeurs extrêmes, nous allons utiliser la méthode de <code>3 sigmas</code>, bien que les colonnes ne soient pas distribuées selon une loi normale. Cette méthode permet d’enlever les observations qui ont des valeurs supérieures à 3 fois l’écart-type de la colonne.</p>
+<p>Après avoir appliqué la méthode des 3 sigmas, voilà la nouvelle distribution des colonnes.</p>
+<p><img src="main_files/figure-html/unnamed-chunk-18-1.png" width="3000" /></p>
+<p>Le fait d’enlever les observations extrêmes a permis de réduire l’amplitude des colonnes, toutefois la distribution n’est pas normale.</p>
+<p>Certaines colonnes numériques peuvent être facilement converties en colonnes catégoriques binaires. La variable <code>branch_libraries</code> qui représente le nombre de branches qu’une bibliothèque possède peut être transformée pour prendre la valeur 1 si elle possède des branches et 0 sinon.</p>
+<p>Nous ferons ainsi pour les colonnes similaires.
+Nous transformons les variables <code>interlibrary_loans_provided</code> et <code>interlibrary_loans_received</code> en une seule variable qui indique si oui ou non la bibliothèque prête plus qu’elle n’en emprunte.
+Et pour les autres variables, nous allons les discrétiser selon leurs indicateurs de moments, principalement la médiane et les autres quartiles.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analyse-des-correlations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lanalyse-des-correspondances-multiples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
