@@ -46,7 +46,7 @@ Presentations to come :
 
 - [The joy of stats](https://docs.google.com/presentation/d/1BXnZmodRpez7MU-Y0RAvh6s98XVmYHE_bbgPwTDDU60/edit?usp=sharing)
 
-- Techniques d'enquête. [Slides](https://docs.google.com/presentation/d/1SuO5q0SHmh9fJ-s9tctcjVQ91s198JW72gJ1QumdmsY/edit), [Questionnaire](https://docs.google.com/forms/d/1ZLpShPDesluEVtWRgu0UnmxzdNQ2ZGSALI7IaP9P884/edit), [Présentation](https://docs.google.com/presentation/d/17bJabwaTsVskLtk-zoNFUwW5VKOgBja688uz6_hYUw8/edit#slide=id.p)
+- Techniques d'enquête : [Questionnaire Google Docs](https://docs.google.com/forms/d/1ZLpShPDesluEVtWRgu0UnmxzdNQ2ZGSALI7IaP9P884/edit), [Présentation](https://docs.google.com/presentation/d/17bJabwaTsVskLtk-zoNFUwW5VKOgBja688uz6_hYUw8/edit#slide=id.p), [Questionnaire Limesurvey](http://limesurvey.univ-angers.fr/index.php/568227?newtest=Y&lang=fr)
 
 - [Algorithmes : Biais, Discrimination et Equité](https://docs.google.com/presentation/d/1gBU7wujxtULLg0xQdtomE3swn9fyPZBwHxBKy6yE3js/edit?usp=sharing)
 \
