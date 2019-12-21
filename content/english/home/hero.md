@@ -58,7 +58,7 @@ title = "The Data Enthusiast !"
 Welcome to **my personal website**, <br/> 
 I am glad you pass by here !   
 
-
+<a class="twitter-timeline" data-width="1000" data-height="600" data-theme="light" href="https://twitter.com/cleris_mr?ref_src=twsrc%5Etfw">Tweets by cleris_mr</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 \
 \
 \
