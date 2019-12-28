@@ -8,5 +8,5 @@ summary:
 tags: 
 - Python
 - ML
-title: Visualize early economic books : Word2vec on classic economic litterature
+title: "Visualize early economic books : Word2vec on classic economic litterature"
 ---
