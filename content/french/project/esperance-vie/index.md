@@ -7,6 +7,6 @@ image:
 summary: Ce projet universitaire étudie la significativité des coefficients qui expliquent l'espérance de vie.
 tags: 
 - R
-title: Les déterminants de l'espérance de vie : une analyse de la significativité des variables explicatives
+title: "Les déterminants de l'espérance de vie : une analyse de la significativité des variables explicatives"
 ---
 
