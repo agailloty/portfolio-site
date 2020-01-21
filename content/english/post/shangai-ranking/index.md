@@ -16,14 +16,12 @@ title: Scrape the Shangai Ranking with Python
 ---
 
 
-# Scrape the Shangai Ranking with Python
-
-## About 
+# About 
 The Academic Ranking of World Universities (ARWU) was first published in June 2003 by the Center for World-Class Universities (CWCU), Graduate School of Education (formerly the Institute of Higher Education) of Shanghai Jiao Tong University, China, and updated on an annual basis. Since 2009 the Academic Ranking of World Universities (ARWU) has been published and copyrighted by ShanghaiRanking Consultancy. ShanghaiRanking Consultancy is a fully independent organization on higher education intelligence and not legally subordinated to any universities or government agencies.
 
 ARWU uses six objective indicators to rank world universities, including the number of alumni and staff winning Nobel Prizes and Fields Medals, number of highly cited researchers selected by Clarivate Analytics, number of articles published in journals of Nature and Science, number of articles indexed in Science Citation Index - Expanded and Social Sciences Citation Index, and per capita performance of a university. More than 1800 universities are actually ranked by ARWU every year and the best 1000 are published.
 
-## Goals 
+# Goals 
 In this post I will demonstrate how you can get the latest ranking dataset from the official website of the Shangai Ranking using Pandas and bs4.
 
 
@@ -515,7 +513,13 @@ arwu_ranking.tail(10)
 
 
 
-# To cite this article
-To cite this article, please use the following :
-Gailloty, A (2019, January 13)., *Scrape the Shangai Ranking with Python*, retrieved from https://agailloty.rbind.io/en/post/shangai-ranking/
+Remember that **Institutions within the same rank range are listed alphabetically**.
 
+Feel free to comment and give me suggestions on how I can improve this article. I also found that my web scraper takes some time to get the data, so if you know how I can make it faster please tell me !
+
+You can **[download this article](https://github.com/agailloty/projects-and-articles/blob/master/shangai_rznking.ipynb)** as a Jupyter notebook.
+
+# To cite this article
+To cite this article, please use the following :  
+
+Gailloty, A. (2019, January 13)., *Scrape the Shangai Ranking with Python*, retrieved from https://agailloty.rbind.io/en/post/shangai-ranking/
