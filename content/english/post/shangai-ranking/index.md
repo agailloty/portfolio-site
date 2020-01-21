@@ -52,8 +52,8 @@ type(shangai_ranking)
 
 
 
-It returns a list of 1 element.
-We can take a look at the data it just scraped.
+It returns a list of 1 element. The list of one element contains a Pandas dataframe.
+We can take a look at the data we just scraped.
 
 
 ```python
