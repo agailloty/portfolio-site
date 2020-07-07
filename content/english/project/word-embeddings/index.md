@@ -1,6 +1,7 @@
 ---
 date: "2019-12-28T00:00:00Z"
-external_link: https://agailloty.rbind.io/en/project/word-embeddings/
+internal_link: word-embedding
+external_link: https://github.com/agailloty/economic-litterature/
 image:
   caption: 
   focal_point: Smart

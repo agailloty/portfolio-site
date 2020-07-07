@@ -1,5 +1,6 @@
 ---
 date: "2019-12-11T00:00:00Z"
+internal_link: public-library-survey
 external_link: https://agailloty.github.io/public-library-survey/index.html
 image:
   caption: 

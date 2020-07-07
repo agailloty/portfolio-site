@@ -6,7 +6,8 @@ active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
 title = "My projects"
-subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill. Most of my projects are hosted on [Github](https://github.com/agailloty)"
+subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill. Most of my projects are hosted on [Github](https://github.com/agailloty)  
+[![GitHub followers](https://img.shields.io/github/followers/agailloty.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/agailloty?tab=followers)"
 
 [content]
   # Page type to display. E.g. project.
@@ -37,6 +38,10 @@ subtitle = "To me, the best way to learn a topic or a skill is to actually do a 
 	name = "Rstats"
 	tag = "R"
 
+[[content.filter_button]]
+	name = "Shiny"
+	tag = "Shiny"
+
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -46,7 +51,7 @@ subtitle = "To me, the best way to learn a topic or a skill is to actually do a 
   #   1 = List
   #   3 = Card
   #   5 = Showcase
-  view = 5
+  view = 3
 
   # For Showcase view, flip alternate rows?
   flip_alt_rows = false
