@@ -6,8 +6,7 @@ active = true  # Activate this widget? true/false
 weight = 20  # Order that this section will appear.
 
 title = "My projects"
-subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill. Most of my projects are hosted on [Github](https://github.com/agailloty)  
-[![GitHub followers](https://img.shields.io/github/followers/agailloty.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/agailloty?tab=followers)"
+subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill. Most of my projects are hosted on [Github](https://github.com/agailloty)  [![GitHub followers](https://img.shields.io/github/followers/agailloty.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/agailloty?tab=followers)"
 
 [content]
   # Page type to display. E.g. project.
