@@ -1,14 +1,14 @@
 ---
 date: "2020-07-07T00:00:00Z"
-internal_link:shiny-auth
 external_link: https://github.com/agailloty/shiny-snippets/tree/master/auth
+internal_link: shiny-auth
 image:
   caption: 
   focal_point: Smart
 summary: Implement a simple authentication mechanism with R Shiny
-
 tags: 
-- R, Shiny
+- R
+- Shiny
 title: Implement a simple authentication mechanism
 
 ---
