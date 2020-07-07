@@ -3,10 +3,10 @@
 widget = "portfolio"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 30  # Order that this section will appear.
+weight = 40  # Order that this section will appear.
 
 title = "Featured GitHub repo"
-subtitle = [![GitHub followers](https://img.shields.io/github/followers/Naereen.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/agailloty?tab=followers)
+#subtitle = [![GitHub followers](https://img.shields.io/github/followers/Naereen.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/agailloty?tab=followers)
 # subtitle = "To me, the best way to learn a topic or a skill is to actually do a project related to that skill. Most of my projects are hosted on [Github](https://github.com/agailloty)"
 
 [content]
