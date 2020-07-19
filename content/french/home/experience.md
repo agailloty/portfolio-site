@@ -26,7 +26,7 @@ date_format = "Jan 2006"
   date_start = "2020-04-06"
   date_end = "2020-07-06"
   description = """
-  Développment d'une application web participative nommée EIVE (Economic Impacts of Volcanic Eruptions) en vue de promouvoir la base de données sur les conséquences économiques des éruptions volcaniques.
+  Développement d'une application web participative nommée EIVE (Economic Impacts of Volcanic Eruptions) en vue de promouvoir la base de données sur les conséquences économiques des éruptions volcaniques.
   """
 
 
@@ -47,7 +47,7 @@ date_format = "Jan 2006"
   company_url = "https://aiesec.org/"
   location = "Angers"
   date_start = "2018-08-01"
-  date_end = "Aujourd'hui"
+  date_end = ""
   description = """Après avoir rejoint l'association en tant que membre du Département Community Experience for Youth (CXY) où j'étais chargé de contacter et organiser le voyage des étudiants désirant effectuer une mission à l'étranger, je suis aujourd'hui le Vice Président auprès du Département Finance où je participe entre autres à l'élaboration des factures, des contrats et la comptabilité."""
 
 +++

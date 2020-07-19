@@ -21,7 +21,7 @@ date_format = "Jan 2006"
 [[item]]
   organization = "University of California San Diego (UCSanDiegoX)"
   organization_url = "https://ucsd.edu/"
-  title = "Python for Data Science"
+  title = "Probability and Statistics for Data Science using Python"
   url = ""
   certificate_url = "https://courses.edx.org/certificates/42b1f8b49e6741a19dc891e023726e85"
   date_start = "2020-05-12"
