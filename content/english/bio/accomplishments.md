@@ -21,6 +21,26 @@ date_format = "Jan 2006"
 [[item]]
   organization = "University of California San Diego (UCSanDiegoX)"
   organization_url = "https://ucsd.edu/"
+  title = "Python for Data Science"
+  url = ""
+  certificate_url = "https://courses.edx.org/certificates/42b1f8b49e6741a19dc891e023726e85"
+  date_start = "2020-05-12"
+  date_end = ""
+  description = "Part of the MicroMasters in Data Science offered by the University of California San Diego through edX. "
+
+[[item]]
+  organization = "University of California San Diego (UCSanDiegoX)"
+  organization_url = "https://ucsd.edu/"
+  title = "Python for Data Science"
+  url = ""
+  certificate_url = "https://courses.edx.org/certificates/0d577c214c0641e8a5ad32d9da2cc5bc"
+  date_start = "2019-12-30"
+  date_end = ""
+  description = "Part of the MicroMasters in Data Science offered by the University of California San Diego through edX. "
+
+[[item]]
+  organization = "University of California San Diego (UCSanDiegoX)"
+  organization_url = "https://ucsd.edu/"
   title = "Machine Learning Fundamentals"
   url = ""
   certificate_url = "https://courses.edx.org/certificates/d5790348194c46c6956164ad08236152"

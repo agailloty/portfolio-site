@@ -17,24 +17,37 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
 [[experience]]
-  title = "Programmeur statistique"
+  title = "Développeur R Shiny"
+  company = "CERDI CNRS"
+  company_url = "https://cerdi.uca.fr/"
+  location = "Clermont-Ferrand"
+  date_start = "2020-04-06"
+  date_end = "2020-07-06"
+  description = """
+  Développment d'une application web participative nommée EIVE (Economic Impacts of Volcanic Eruptions) en vue de promouvoir la base de données sur les conséquences économiques des éruptions volcaniques.
+  """
+
+
+[[experience]]
+  title = "Data Scientist R & D"
   company = "LogoSapience"
   company_url = "www.logosapience.com"
   location = "Saint Jean de Linières (49)"
   date_start = "2019-04-15"
-  date_end = ""
+  date_end = "2019-06-30"
   description = """
   Chargé de développer un module innovant à intégrer au logiciel [Wizzbe](http://www.wizzbe.fr) que commercialise l'entreprise en vue de faire bénéficier aux utilisateurs les avantages de l'apprentissage statistique.
   """
 
 [[experience]]
-  title = "Membre Finance"
+  title = "VP Finance"
   company = "AIESEC in Nantes"
   company_url = "https://aiesec.org/"
   location = "Angers"
   date_start = "2018-08-01"
-  date_end = ""
-  description = """Après avoir rejoint l'association en tant que membre du Département Community Experience for Youth (CXY) où j'étais chargé de contacter et organiser le voyage des étudiants désirant effectuer une mission à l'étranger, je suis aujourd'hui dans le Département Finance où je participe entre autres à l'élaboration des factures, des contrats et la comptabilité."""
+  date_end = "Aujourd'hui"
+  description = """Après avoir rejoint l'association en tant que membre du Département Community Experience for Youth (CXY) où j'étais chargé de contacter et organiser le voyage des étudiants désirant effectuer une mission à l'étranger, je suis aujourd'hui le Vice Président auprès du Département Finance où je participe entre autres à l'élaboration des factures, des contrats et la comptabilité."""
 
 +++

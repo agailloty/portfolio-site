@@ -17,8 +17,20 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
 [[experience]]
-  title = "Statistical Programmer Intern"
+  title = "R Shiny Developer"
+  company = "CERDI CNRS"
+  company_url = "https://cerdi.uca.fr/"
+  location = "Clermont-Ferrand"
+  date_start = "2020-04-06"
+  date_end = "2020-07-06"
+  description = """
+ Developing a Shiny application called EIVE - Economic Impacts of Volcanic Eruptions.
+  """
+
+[[experience]]
+  title = "Data Scientist R&D"
   company = "LogoSapience"
   company_url = "https://www.logosapience.com/"
   location = "France"
