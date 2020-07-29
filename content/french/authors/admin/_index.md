@@ -60,9 +60,17 @@ social:
   link: https://github.com/agailloty
   # Link to a PDF of your resume/CV from the About widget. 
   # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
+
 - icon: cv
   icon_pack: ai
-  link: https://www.slideshare.net/secret/obhKvOjiNOkt2C
+  link: https://agailloty.github.io/CV/cv_fr.html
+
+#link: https://fr.slideshare.net/secret/5X1lzfrkypBTf1
+# link: https://www.slideshare.net/secret/obhKvOjiNOkt2C
+
+- icon: file-download
+  icon_pack: fas
+  link: https://agailloty.github.io/CV/cv_fr.pdf
 
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
