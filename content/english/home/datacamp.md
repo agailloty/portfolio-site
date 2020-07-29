@@ -5,7 +5,7 @@ headless = false  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 50  # Order that this section will appear.
 
-title = "The Data Enthusiast !"
+title = "Play with R code !"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 # hero_media = "hero-academic.png"
@@ -20,15 +20,15 @@ title = "The Data Enthusiast !"
   # color = "navy"
   
   # Background gradient.
-  gradient_start = "#4bb4e3"
-  gradient_end = "#2b94c3"
+  #gradient_start = "#4bb4e3"
+  #gradient_end = "#2b94c3"
   
   # Background image.
    image = "accueil.jpeg"  # Name of image in `static/img/`.
   # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 
   # Text color (true=light or false=dark).
-  text_color_light = true
+  #text_color_light = true
 
 # Call to action links (optional).
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
@@ -37,10 +37,6 @@ title = "The Data Enthusiast !"
 
 +++
 
-
-\
-\
-\
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
   </head>
   <body>
@@ -53,10 +49,7 @@ title = "The Data Enthusiast !"
 
 </code>
 </div>
-\
-\
-\
-\
+
 	  
 	    
 		
