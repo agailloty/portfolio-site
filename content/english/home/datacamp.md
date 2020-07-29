@@ -38,6 +38,11 @@ title = "Play with R code !"
 +++
 
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+<style>
+.hero-title {
+color: white;
+}
+</style>
   </head>
   <body>
     <div data-datacamp-exercise data-lang="r">
