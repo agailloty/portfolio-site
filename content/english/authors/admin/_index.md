@@ -81,6 +81,7 @@ user_groups:
 - Visitors
 ---
 
+
 I am a Master Degree student in Applied Economics turning to Data science. My Bachelor in Economics equipped me with solid groundings in Math, Statistics, Econometrics and Economic reasoning (both micro and macro economics).
 
 I'm turning to Data science because I love taking challenges that let me grow and solving business problems with data is something I really want to do.

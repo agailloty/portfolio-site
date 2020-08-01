@@ -12,3 +12,8 @@ title = "Biography"
 # See https://sourcethemes.com/academic/docs/get-started/#introduce-yourself
 author = "admin"
 +++
+
+<script>
+let cv = document.getElementsByClassName("ai ai-cv big-icon")
+cv[0].addEventListener("click", () => alert("hi"));
+ </script>
