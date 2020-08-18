@@ -41,6 +41,10 @@ subtitle = "To me, the best way to learn a topic or a skill is to actually do a 
 	name = "Shiny"
 	tag = "Shiny"
 
+[[content.filter_button]]
+	name = "Web Development"
+	tag = "webdev"
+
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.

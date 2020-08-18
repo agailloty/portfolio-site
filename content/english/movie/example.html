@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Making my own modal</title>
+
+    <style>
+                  * {
+                    padding: 0;
+                    margin: 0;
+                  }
+
+                  html {
+                    background-color: rgba(238, 229, 176, 0.5);
+                  }
+                  .container {
+                    width: 80%;
+                    left:0
+                    right:0
+                    display:block
+                  }
+
+                  .modal-content {
+                    display: block;
+                  }
+
+                  #backdrop {
+                    position: fixed;
+                    width: 100%;
+                    height: 100vh;
+                    top: 0;
+                    left: 0;
+                    background: rgba(0, 0, 0, 0.75);
+                    z-index: 10;
+                    pointer-events: none;
+                    display: none;
+                  }
+
+                  #backdrop.visible {
+                    display: block;
+                    pointer-events: all;
+                  }
+                  .modal {
+                      position: fixed;
+                      z-index: 100;
+                      background: white;
+                      border-radius: 10px;
+                      width: 80%;
+                      top: 30vh;
+                      left: 10%;
+                      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+                      display: none;
+            }
+            .modal.visible {
+        display: block;
+        animation: fade-slide-in 0.3s ease-out forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button id="open-modal">Open modal</button>
+    </header>
+    <div class="container">
+      <div id="backdrop"></div>
+      <div class="modal">
+        <div class="modal-content">
+          <label for="your-name">Enter your name</label>
+          <input type="text" name="your-name" id="your-name" />
+          <label for="your-email">Enter email</label>
+          <input type="email" name="your-email" id="your-email" />
+          <label for="submit-date">Submit date</label>
+          <input type="date" name="submit-date" id="submit-date" />
+          <label for="your-cv">Upload your CV</label>
+          <input type="file" name="your-cv" id="your-cv" />
+          <label for="rating">Your Rating</label>
+          <input
+            type="number"
+            step="1"
+            max="5"
+            min="1"
+            name="rating"
+            id="rating"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      const modal = document.getElementsByClassName("modal");
+      const openModal = document.getElementById("open-modal");
+      const modalContent = document.getElementsByClassName("modal-content");
+      const backdrop = document.getElementById("backdrop");
+
+      const openModalHandler = () => {
+        console.log("worked");
+        backdrop.classList.toggle("visible");
+        modal.classList.toggle("visible");
+      };
+
+      openModal.addEventListener("click", openModalHandler);
+    </script>
+  </body>
+</html>
