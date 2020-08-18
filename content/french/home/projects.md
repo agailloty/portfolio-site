@@ -36,6 +36,9 @@ subtitle = "J'aime apprendre par la pratique. Voici une liste des projets que j'
 [[content.filter_button]]
 	name = "Rstats"
 	tag = "R"
+[[content.filter_button]]
+	name = "Web"
+	tag = "webdev"
 
 
 [design]
