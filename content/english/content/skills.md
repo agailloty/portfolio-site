@@ -21,6 +21,13 @@ subtitle = ""
   description = "I use R for a large range of projects related to data science. From data reading, cleaning, wrangling and modelling I use a lot the [Tidyverse](https://www.tidyverse.org/)"
   
 [[feature]]
+ icon = "git"
+ icon_pack = "fab"
+ name = "Git/ GitHub"
+ description = ""
+
+
+[[feature]]
   icon = "database"
   icon_pack = "fas"
   name = "Database"

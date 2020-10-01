@@ -43,4 +43,23 @@ subtitle = ""
   icon_pack = "fab"
   name = "Python"
   description = "Capable d'utiliser les librairies  Pandas, Numpy, Matplotlib et scikit-learn pour conduire des projets de data science et de Machine Learning."  
+
+[[feature]]
+ icon = "code"
+ icon_pack = "fas"
+ name = "Web development"
+ description = ""
+
+[[feature]]
+ icon = "linux"
+ icon_pack = "fab"
+ name = "Linux / UNIX"
+ description = ""
+
+
+[[feature]]
+ icon = "docker"
+ icon_pack = "fab"
+ name = "Docker"
+ description = ""
 +++

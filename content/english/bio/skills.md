@@ -19,7 +19,19 @@ subtitle = ""
   icon_pack = "fab"
   name = "R"
   description = "I use R for a large range of projects related to data science. From data reading, cleaning, wrangling and modelling I use a lot the [Tidyverse](https://www.tidyverse.org/)"
-  
+
+[[feature]]
+  icon = "python"
+  icon_pack = "fab"
+  name = "Python"
+  description = "I can conduct a deep data analysis with Python using Pandas, Numpy and Matplotlib. I have some knowledge of scikit-learn."  
+
+[[feature]]
+ icon = "js"
+ icon_pack = "fab"
+ name = "JavaScript"
+ description = ""
+
 [[feature]]
   icon = "database"
   icon_pack = "fas"
@@ -31,12 +43,24 @@ subtitle = ""
   icon_pack = "fas"
   name = "Multivariate statistics"
   description = ""  
+ 
+[[feature]]
+ icon = "code"
+ icon_pack = "fas"
+ name = "Web development"
+ description = ""
 
 [[feature]]
-  icon = "python"
-  icon_pack = "fab"
-  name = "Python"
-  description = "I can conduct a deep data analysis with Python using Pandas, Numpy and Matplotlib. I have some knowledge of scikit-learn."  
-  
+ icon = "linux"
+ icon_pack = "fab"
+ name = "Linux / UNIX"
+ description = ""
+
+
+[[feature]]
+ icon = "docker"
+ icon_pack = "fab"
+ name = "Docker"
+ description = ""
 
 +++
