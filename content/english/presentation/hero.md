@@ -46,6 +46,8 @@ Presentations to come :
 
 - [Good data is not the same as Big data, or is it ?](https://agailloty.rbind.io/en/html/good_data.html)
 
+# 2019 - 2020
+
 - [Projet Econométrie des données transversales](https://docs.google.com/presentation/d/1xVOXh4-91ObSdEDfvmKSKKv2ydZJMjMcE-P1Kn7EQro/edit?usp=sharing)
 
 - [The joy of stats](https://docs.google.com/presentation/d/1BXnZmodRpez7MU-Y0RAvh6s98XVmYHE_bbgPwTDDU60/edit?usp=sharing)
