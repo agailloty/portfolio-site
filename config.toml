@@ -21,6 +21,8 @@ googleAnalytics = "UA-141537832-1"
 # Enable comments by entering your Disqus shortname
 disqusShortname = "analytics-3"
 
+ignoreErrors = ["error-remote-getjson"]
+
 ############################
 ## Advanced options below ##
 ############################

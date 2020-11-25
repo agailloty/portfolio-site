@@ -145,6 +145,8 @@ sharing = true
   publication_view = 2
   talk_view = 2
 
+ignoreErrors = ["error-remote-getjson"]
+
 # Search.
 [search]
   # Search provider:
